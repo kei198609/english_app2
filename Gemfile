@@ -71,7 +71,8 @@ group :test do
   gem "webdrivers"
 end
 
-gem 'devise'
+gem 'devise', "4.8.1"
 gem 'devise-i18n'
+gem 'devise-i18n-views'
 gem 'dotenv-rails'
 gem 'kaminari'

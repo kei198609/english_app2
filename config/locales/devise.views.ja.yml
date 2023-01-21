@@ -27,7 +27,15 @@ ja:
         updated_at: 更新日
     models:
       user: ユーザー
-  devise:
+    errors:
+      models:
+        user:
+          attributes:
+            email:
+              blank: "が入力されていません。"
+            password:
+              blank: "が入力されていません。"
+  users:
     confirmations:
       confirmed: メールアドレスが確認できました。
       new:
