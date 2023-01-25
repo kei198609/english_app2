@@ -3,4 +3,13 @@
 <h2><%= current_user.email %></h2>
 <h2><%= current_user.occupation %></h2>
 
+  <div class="col-md-8">
+    <% if @user.posts.any? %>
+      <h3>あなたの投稿 (<%= @user.posts.count %>)</h3>
+      <ol class="microposts">
+        <%= render @posts %>
+      </ol>
+      <%= paginate @posts %>
+    <% end %>
 
+  </div>
