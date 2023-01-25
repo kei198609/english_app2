@@ -28,5 +28,5 @@ Rails.application.routes.draw do
 
   resources :lists
   resources :mypages
-  resources :post
+  resources :posts
 end
