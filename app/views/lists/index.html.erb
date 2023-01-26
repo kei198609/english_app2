@@ -1,8 +1,8 @@
 <h1>ユーザ一覧</h1>
 <% @lists.each do |user| %>
   <li>
-    <%= link_to user.name  %>
+    <%= link_to user.name, mypage_path(user) %>
   </li>
-
 <% end %>
+
 <%= paginate @lists %>
