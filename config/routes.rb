@@ -26,7 +26,8 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :lists
-  resources :mypages
+
   resources :posts
+  resources :users
+
 end
