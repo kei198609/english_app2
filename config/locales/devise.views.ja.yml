@@ -35,6 +35,8 @@ ja:
               blank: "が入力されていません。"
             password:
               blank: "が入力されていません。"
+            current_password:
+              blank: "が入力されていません。"
   users:
     confirmations:
       confirmed: メールアドレスが確認できました。
