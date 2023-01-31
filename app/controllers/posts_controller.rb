@@ -21,7 +21,7 @@ before_action :authenticate_user!
   private
 
     def post_params
-      params.require(:post).permit(:content)
+      params.require(:post).permit(:content, :content_japanese, :content_english, :subject_japanese, :subject_english)
     end
 
 

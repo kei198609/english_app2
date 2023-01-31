@@ -2,7 +2,8 @@
   <%# <%= link_to gravatar_for(micropost.user, size: 50), micropost.user %>
   <span class="user"><%= link_to post.user.name, post.user %></span>
   <span class="occupation"><%= post.user.occupation %></span>
-  <span class="content"><%= post.content %></span>
+  <span class="content"><%= post.content_japanese %></span>
+  <span class="content"><%= post.content_english %></span>
   <span class="timestamp">
      <%= time_ago_in_words(post.created_at)+ "前" %>
   </span>
