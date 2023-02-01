@@ -9,7 +9,7 @@ before_action :authenticate_user!
     @post = current_user.posts.build(post_params)
     if @post.save
       flash[:success] = "投稿しました！"
-      redirect_to root_url
+      redirect_to new_post_path
     else
       render 'tops/index'
     end
