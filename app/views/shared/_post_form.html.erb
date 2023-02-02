@@ -1,11 +1,11 @@
 <%= form_with(model: @post, local: true) do |f| %>
   <%= render 'shared/error_messages', object: f.object %>
-  <div class="field">
-
+  <div class="field"></div>
     <li><%= f.text_area :subject_english, placeholder: "件名英語" %></li>
     <li><%= f.text_area :content_english, placeholder: "文章英語" %></li>
     <li><%= f.text_area :subject_japanese, placeholder: "件名日本語" %></li>
     <li><%= f.text_area :content_japanese, placeholder: "文章日本語" %></li>
   </div>
   <%= f.submit "投稿", class: "btn btn-primary" %>
+
 <% end %>
