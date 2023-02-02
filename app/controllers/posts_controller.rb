@@ -11,7 +11,7 @@ before_action :authenticate_user!
       flash[:success] = "投稿しました！"
       redirect_to new_post_path
     else
-      render 'tops/index'
+      render 'new', status: :unprocessable_entity #rails7はstatus: :unprocessable_entityが必須みたい
     end
   end
 
