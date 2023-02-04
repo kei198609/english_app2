@@ -3,6 +3,10 @@
 <h2><%= @user.occupation %></h2>
 
   <div class="col-md-8">
+    <% flash.each do |message_type, message| %>
+      <div class="alert alert-<%= message_type %>"><%= message %></div>
+    <% end %>
+
     <% if @user.posts.any? %>
       <h3>あなたの投稿 (<%= @user.posts.count %>)</h3>
       <ol class="microposts">

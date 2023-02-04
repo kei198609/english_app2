@@ -27,7 +27,7 @@ Rails.application.routes.draw do
   end
 
 
-  resources :posts
+  resources :posts, only: [:new, :create, :destroy]
   resources :users
 
 end
