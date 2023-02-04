@@ -11,8 +11,12 @@ class User < ApplicationRecord
   def self.guest #クラスメソッド
     find_or_create_by(email: 'guest@example.com') do |user|
       user.password = SecureRandom.urlsafe_base64
+      # user.name = 'ゲスト'
     end
   end
 
+  def feed
+    Post.where("user_id = ?", id)
+  end
 
 end

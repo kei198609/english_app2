@@ -27,6 +27,11 @@ ja:
         unconfirmed_email: 未確認Eメール
         unlock_token: ロック解除用トークン
         updated_at: 更新日
+      post:
+        content_english: メール本文
+        content_japanese: メール本文
+        subject_english: 件名
+        subject_japanese: 件名
     models:
       user: ユーザー
     errors:
@@ -46,6 +51,17 @@ ja:
               blank: "が入力されていません。"
             password_confirmation:
               confirmation: "が入力されていません。"
+        post:
+          attributes:
+            content_english:
+              blank: "が入力されていません。"
+            content_japanese:
+              blank: "が入力されていません。"
+            subject_english:
+              blank: "が入力されていません。"
+            subject_japanese:
+              blank: "が入力されていません。"
+
   users:
     confirmations:
       confirmed: メールアドレスが確認できました。
