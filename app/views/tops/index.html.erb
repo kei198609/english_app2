@@ -1,5 +1,9 @@
+<% flash.each do |message_type, message| %>
+  <div class="alert alert-<%= message_type %>"><%= message %></div>
+<% end %>
 <% if user_signed_in? %>
   <%= render 'shared/feed' %>
+  <%= paginate @feed_items %>
 <% else %>
 
 <% end %>

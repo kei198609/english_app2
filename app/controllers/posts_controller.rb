@@ -1,5 +1,6 @@
 class PostsController < ApplicationController
 before_action :authenticate_user!
+before_action :correct_user, only: :destroy
 
   def new
     @post = current_user.posts.build
@@ -17,6 +18,9 @@ before_action :authenticate_user!
   end
 
   def destroy
+    @post.destroy
+    flash[:success] = "削除しました"
+    redirect_to request.referrer || root_url
   end
 
   private
@@ -25,5 +29,8 @@ before_action :authenticate_user!
       params.require(:post).permit(:content, :content_japanese, :content_english, :subject_japanese, :subject_english)
     end
 
-
+    def correct_user
+      @post = current_user.posts.find_by(id: params[:id])
+      redirect_to root_url if @post.nil?
+    end
 end

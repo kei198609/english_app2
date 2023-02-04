@@ -7,6 +7,9 @@
   <span class="subject"><%= post.subject_japanese %></span>
   <span class="content"><%= post.content_japanese %></span>
   <span class="timestamp">
-     <%= time_ago_in_words(post.created_at)+ "前" %>
+    <%= time_ago_in_words(post.created_at)+ "前" %>
+    <% if current_user?(post.user) %>
+      <%= link_to "削除", post, data: { turbo_method: :delete, turbo_confirm: '本当に削除しますか?' } %>
+    <% end %>
   </span>
 </li>
