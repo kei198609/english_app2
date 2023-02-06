@@ -26,7 +26,7 @@ before_action :correct_user, only: :destroy
   private
 
     def post_params
-      params.require(:post).permit(:content, :content_japanese, :content_english, :subject_japanese, :subject_english)
+      params.require(:post).permit(:scene, :content, :content_japanese, :content_english, :subject_japanese, :subject_english)
     end
 
     def correct_user
