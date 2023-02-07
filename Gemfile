@@ -73,8 +73,15 @@ group :test do
   gem "webdrivers"
 end
 
+# Use Devise
 gem 'devise', "4.8.1"
 gem 'devise-i18n'
 gem 'devise-i18n-views'
+
 gem 'dotenv-rails'
+
+# Use kaminari
 gem 'kaminari'
+
+# Use CarrierWave/MiniMagick/FogAws
+gem 'carrierwave'

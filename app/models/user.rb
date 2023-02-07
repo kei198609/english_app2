@@ -7,6 +7,8 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
+  # AvatarUploaderクラスとavatarカラムを紐づけ
+  mount_uploader :avatar, AvatarUploader
 
   def self.guest #クラスメソッド
     find_or_create_by(email: 'guest@example.com') do |user|
