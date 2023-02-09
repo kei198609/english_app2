@@ -85,3 +85,4 @@ gem 'kaminari'
 
 # Use CarrierWave/MiniMagick/FogAws
 gem 'carrierwave'
+gem "mini_magick"
