@@ -5,6 +5,11 @@
 
   <div class="field">
     <%= f.label :プロフィール画像 %><br />
+      <% if @user.avatar? %>
+        <%= image_tag @user.avatar.url %>
+      <% else %>
+        <%= image_tag("noimage.jpg") %>
+      <% end %><br />
     <%= f.file_field :avatar %>
   </div>
 
