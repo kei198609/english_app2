@@ -28,6 +28,10 @@ Rails.application.routes.draw do
 
 
   resources :posts, only: [:new, :create, :destroy]
-  resources :users
+  resources :users do
+    member do
+      get :following, :followers
+    end
+  end
 
 end
