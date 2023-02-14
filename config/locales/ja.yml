@@ -1,1 +1,8 @@
 ja:
+  users:
+    following:
+      Following: フォロー
+    followers:
+      Followers: フォロワー
+
+
