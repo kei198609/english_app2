@@ -3,7 +3,8 @@
 <% if @user.avatar? %>
   <%= image_tag @user.avatar.url %>
 <% else %>
-  <%= image_tag("noimage.jpg") %>
+  <%# <%= image_tag '/assets/noimage.jpg' %>
+  <%= image_tag src='noimage.jpg', class:"user-icon", alt:"ユーザアイコン" %>
 <% end %>
 
 <h2><%= @user.name %></h2>
