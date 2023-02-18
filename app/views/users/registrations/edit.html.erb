@@ -8,7 +8,7 @@
       <% if @user.avatar? %>
         <%= image_tag @user.avatar.url %>
       <% else %>
-        <%= image_tag("noimage.jpg") %>
+        <%= image_tag src='noimage.jpg', class:"user-icon", alt:"ユーザアイコン" %>
       <% end %><br />
     <%= f.file_field :avatar %>
   </div>
