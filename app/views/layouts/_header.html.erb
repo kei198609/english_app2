@@ -1,19 +1,69 @@
 <header>
-  <div class="container">
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <div class="container">
+        <a class="navbar-brand" href="#">Biz mail English</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
 
-    <% if user_signed_in? %>
-      <li><%= link_to "ホーム", root_path %></li>
-      <li><%= link_to "ユーザ一覧", users_path %></li>
-      <li><%= link_to "マイページ", user_path(current_user) %></li>
-      <li><%= link_to "投稿", new_post_path %></li>
-      <li><%= link_to "設定", edit_user_registration_path %></li>
-      <li><%= link_to "ログアウト", destroy_user_session_path, data: { turbo_method: :delete } %></li>
-    <% else %>
-      <li><%= link_to "ホーム", root_path %></li>
-      <li><%= link_to "サインアップ", new_user_registration_path %></li>
-      <li><%= link_to "ログイン", new_user_session_path %></li>
-      <li><%= link_to "ゲストログイン", users_guest_sign_in_path, data: { turbo_method: :post } %></li>
-    <% end %>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <% if user_signed_in? %>
+              <li class="nav-item">
+                <a class="nav-link">
+                  <%= link_to "ホーム", root_path %>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link">
+                  <%= link_to "ユーザ一覧", users_path %>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link">
+                  <%= link_to "マイページ", user_path(current_user) %>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link">
+                  <%= link_to "投稿", new_post_path %>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link">
+                  <%= link_to "設定", edit_user_registration_path %>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link">
+                  <%= link_to "ログアウト", destroy_user_session_path, data: { turbo_method: :delete } %>
+                </a>
+              </li>
+            <% else %>
+              <li class="nav-item">
+                <a class="nav-link">
+                  <%= link_to "ホーム", root_path %>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link">
+                  <%= link_to "サインアップ", new_user_registration_path %>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link">
+                  <%= link_to "ログイン", new_user_session_path %>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link">
+                  <%= link_to "ゲストログイン", users_guest_sign_in_path, data: { turbo_method: :post } %>
+                </a>
+              </li>
+            <% end %>
+          </ul>
+        </div>
+      </div>
+    </nav>
 
-  </div>
 </header>
