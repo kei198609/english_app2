@@ -14,4 +14,5 @@
       <%= link_to "削除", post, data: { turbo_method: :delete, turbo_confirm: '本当に削除しますか?' } %>
     <% end %>
   </span>
+  <%= link_to '投稿詳細', post_path(post) %>
 </li>

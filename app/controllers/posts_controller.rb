@@ -17,6 +17,10 @@ before_action :correct_user, only: :destroy
     end
   end
 
+  def show
+    @post = Post.find_by(id: params[:id])
+  end
+
   def destroy
     @post.destroy
     flash[:success] = "削除しました"
