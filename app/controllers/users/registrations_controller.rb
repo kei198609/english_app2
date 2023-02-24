@@ -4,8 +4,8 @@ class Users::RegistrationsController < Devise::RegistrationsController
   before_action :check_guest, only: [:destroy, :update] #ゲストユーザの場合、削除destroyと編集updateのActionを止めたいので
   # before_action :configure_sign_up_params, only: [:create]
   # before_action :configure_account_update_params, only: [:update]
-  def home
-  end
+  # def home
+  # end
   # GET /resource/sign_up
   # def new
   #   super
@@ -58,7 +58,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # end
 
   # The path used after sign up for inactive accounts.
-  def after_inactive_sign_up_path_for(resource)
-    mypages_home_path
-  end
+  # def after_inactive_sign_up_path_for(resource)
+  #   mypages_home_path
+  # end
 end

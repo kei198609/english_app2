@@ -11,9 +11,9 @@ Rails.application.routes.draw do
     post 'users/guest_sign_in' => 'users/sessions#new_guest'
   end
 
-  devise_scope :user do
-    get 'mypages/home' => 'users/registrations#home'
-  end
+  # devise_scope :user do
+  #   get 'mypages/home' => 'users/registrations#home'
+  # end
 
   def devise_scope(scope)
     constraint = lambda do |request|
