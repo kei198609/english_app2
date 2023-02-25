@@ -7,4 +7,11 @@ class Post < ApplicationRecord
   validates :content_japanese, presence: true, length: { maximum: 500 }
   validates :subject_english, presence: true, length: { maximum: 100 }
   validates :subject_japanese, presence: true, length: { maximum: 100 }
+
+  # 検索機能
+  scope :search, ->(keyword, scene = nil) {
+    query = where("content_english LIKE ?", "%#{keyword}%")
+    query = query.where(scene: scene) if scene.present?
+    query
+  }
 end
