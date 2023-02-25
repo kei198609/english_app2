@@ -1,6 +1,13 @@
 <%= flash[:success] %>
 
 <% if user_signed_in? %>
+  <%# 検索フォーム %>
+  <%= form_tag root_path, method: :get do %>
+    <%= text_field_tag :content_english, params[:content_english], placeholder: "キーワードを入力してください" %>
+    <%= select_tag :scene, options_for_select(Post.all.map{ |c| [c.scene, c.scene] }, params[:scene]), prompt: "カテゴリを選択してください" %>
+    <%= submit_tag "検索" %>
+  <% end %>
+
   <%= render 'shared/feed' %>
   <%= paginate @feed_items %>
 <% else %>
