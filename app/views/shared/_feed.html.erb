@@ -1,3 +1,16 @@
-<% if @feed_items.any? %>
-  <%= render @feed_items %>
+
+  <%# if @feed_items.any? %>
+    <%#= render @feed_items %>
+  <%# end %>
+
+<% @feed_items.each_slice(3) do |posts| %>
+<div class="container">
+  <div class="row">
+    <% posts.each do |post| %>
+      <div class="col-lg-4 col-sm-6 mb-4">
+          <%= render partial: 'posts/post', locals: { post: post }%>
+      </div>
+    <% end %>
+  </div>
+  </div>
 <% end %>
