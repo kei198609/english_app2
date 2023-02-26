@@ -16,9 +16,24 @@
 
 @import "bootstrap";
 
+:root {
+	--box-shadow: 0 8px 22px rgba(0, 0, 0, 0.2);
+}
 
 a{
 	text-decoration: none;
+}
+
+.card-effect {
+  box-shadow: var(--box-shadow);
+  background-color: #fff;
+  padding: 25px;
+  transition: all 0.35s ease;
+}
+
+.card-effect:hover {
+  box-shadow: none;
+  transform: translateY(5px);
 }
 
 
