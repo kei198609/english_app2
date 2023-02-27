@@ -4,9 +4,9 @@ class TopsController < ApplicationController
     if user_signed_in?
       @post = current_user.posts.build
       if params[:content_english].present? || params[:scene].present?
-        @feed_items = Post.search(params[:content_english], params[:scene]).page(params[:page]).per(5)
+        @feed_items = Post.search(params[:content_english], params[:scene]).page(params[:page]).per(8)
       else
-        @feed_items = current_user.feed.page(params[:page]).per(5)
+        @feed_items = current_user.feed.page(params[:page]).per(8)
       end
     end
   end
