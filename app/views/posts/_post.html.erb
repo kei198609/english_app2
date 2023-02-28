@@ -1,37 +1,40 @@
 <!-- feed section -->
     <section id="feed">
-      <div class="">
-        <div class="">
-          <div class="">
-            <div class="service card-effect">
-              <div class="subject">
-                <h1 class="mt-4 mb-2">
-                  <%= post.subject_english %>
-                </h1>
-              </div>
-              <div class="iconbox">
-                <%= image_tag post.user.avatar.url, size: 50 %>
-              </div>
-              <div class="user">
-                名前:<%= link_to post.user.name, post.user %>
-              </div>
-              <div class="occupation">
-                職種:<%= post.user.occupation %>
-              </div>
-              <div class="scene">
-                ビジネスシーン:<%= post.scene %>
-              </div>
-              <div class="timestamp">
-                <%= time_ago_in_words(post.created_at)+ "前" %>
-                <% if current_user?(post.user) %>
-                  <%= link_to "削除", post, data: { turbo_method: :delete, turbo_confirm: '本当に削除しますか?' } %>
-                <% end %>
-              </div>
-              <div class="detail">
-                <%= link_to '投稿を見る', post_path(post) %>
-              </div>
+          <div class="service card-effect">
+            <div id="container">
+
+                <div id="subject">
+                    Subject:<%= truncate(post.subject_english, length: 30, omission: '...') %>
+                </div>
+
+                <div id="icon">
+                    <%= image_tag post.user.avatar.url, size: 50 %>
+                </div>
+
+                <div id="name">
+                  名前:<%= link_to post.user.name, post.user %>
+                </div>
+
+                <div id="occupation">
+                  職種:<%= post.user.occupation %>
+                </div>
+
+                <div id="scene">
+                  ビジネスシーン:<%= post.scene %>
+                </div>
+
+                <div id="timestamp">
+                  <%= time_ago_in_words(post.created_at)+ "前" %>
+                  <% if current_user?(post.user) %>
+                    <%= link_to "削除", post, data: { turbo_method: :delete, turbo_confirm: '本当に削除しますか?' } %>
+                  <% end %>
+                </div>
+
+                <div id="detail">
+                  <%= link_to '投稿を見る', post_path(post) %>
+                </div>
             </div>
           </div>
-        </div>
-      </div>
+
+
     </section>
