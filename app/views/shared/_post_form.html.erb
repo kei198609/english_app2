@@ -1,22 +1,30 @@
 <%= form_with(model: @post, local: true) do |f| %>
   <%= render 'shared/error_messages', object: f.object %>
-  <div class="field"></div>
-    <%= f.label :ビジネスシーン %>
-    <li>
-    <%= f.select :scene, [["アポイントメント", "アポイントメント"], ["日程調整", "日程調整"], ["依頼", "依頼"],
-     ["問い合わせ", "問い合わせ"], ["報告", "報告"], ["お礼", "お礼"], ["謝罪", "謝罪"],
-     ["クレーム", "クレーム"],["確認", "確認"],["提案", "提案"],
-     ["催促", "催促"],["その他", "その他"]], include_blank: "選択して下さい" %>
-    </li>
-    <%= f.label :subject %>
-    <li><%= f.text_area :subject_english, placeholder: "英文で入力" %></li>
-    <%= f.label :メール本文 %>
-    <li><%= f.text_area :content_english, placeholder: "英文で入力" %></li>
-    <%= f.label :件名 %>
-    <li><%= f.text_area :subject_japanese, placeholder: "日本語で入力" %></li>
-    <%= f.label :メール本文 %>
-    <li><%= f.text_area :content_japanese, placeholder: "日本語で入力" %></li>
+  <div class="postform">
+    <div class="container">
+      <div class="row">
+        <div class="">
+          <div class="col-lg-7 mx-auto">
+            <%= f.label :ビジネスシーン %>
+            <%= f.select :scene, [["アポイントメント", "アポイントメント"], ["日程調整", "日程調整"], ["依頼", "依頼"],
+            ["問い合わせ", "問い合わせ"], ["報告", "報告"], ["お礼", "お礼"], ["謝罪", "謝罪"],
+            ["クレーム", "クレーム"],["確認", "確認"],["提案", "提案"],
+            ["催促", "催促"],["その他", "その他"]], include_blank: "選択して下さい" %>
+          </div>
+          <div class="col-md-5">
+            <%= f.label :subject %>
+            <%= f.text_area :subject_english, placeholder: "英語で入力" %>
+          </div>
+          <div class="col-md-10">
+            <%= f.label :メール本文 %>
+            <%= f.rich_text_area :content_english, placeholder: "英語で入力"  %>
+          </div>
+          <div class="col-md-10 d-grid">
+            <%= f.submit "投稿", class: "btn btn-primary" %>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
-  <%= f.submit "投稿", class: "btn btn-primary" %>
 
 <% end %>
