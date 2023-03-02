@@ -84,7 +84,7 @@ gem 'dotenv-rails'
 gem 'kaminari'
 
 # Use CarrierWave/MiniMagick/FogAws
-gem 'carrierwave'
+# 削除gem 'carrierwave'
 gem "mini_magick"
 
 

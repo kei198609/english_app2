@@ -8,7 +8,12 @@
                 </div>
 
                 <div id="icon">
-                    <%= image_tag post.user.avatar.url, size: 50 %>
+                    <%#= image_tag post.user.avatar, size: 50 %>
+                  <% if post.user.avatar.attached? %>
+                    <%= image_tag post.user.avatar, size: 50 %>
+                  <% else %>
+                    <%= image_tag 'noimage.jpg', class:"user-icon", alt:"ユーザアイコン", size: 50 %>
+                  <% end %>
                 </div>
 
                 <div id="name">
