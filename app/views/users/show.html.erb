@@ -1,10 +1,9 @@
 <h1>プロフィール</h1>
 
 <% if @user.avatar? %>
-  <%= image_tag @user.avatar.url, size: 60 %>
+  <%= image_tag @user.avatar, size: 60 %>
 <% else %>
-  <%# <%= image_tag '/assets/noimage.jpg' %>
-  <%= image_tag src='noimage.jpg', class:"user-icon", alt:"ユーザアイコン" %>
+  <%= image_tag src='noimage.jpg', class:"user-icon", alt:"ユーザアイコン", size: 100 %>
 <% end %>
 
 <h2><%= @user.name %></h2>

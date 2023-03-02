@@ -22,9 +22,16 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
           :recoverable, :rememberable, :validatable
 
-  # AvatarUploaderクラスとavatarカラムを紐づけ
-  mount_uploader :avatar, AvatarUploader
+  #Active Storage
+  has_one_attached :avatar
+  #Active Storage プロフ画像デフォルト設定
+  def add_default_avatar
+    unless avatar.attached?
+      avatar.attach(io: File.open(Rails.root.join('app', 'assets', 'images', 'noimage.jpg')), filename: 'noimage.jpg', content_type: 'image/jpg')
+    end
+  end
 
+  #ゲストログイン
   def self.guest #クラスメソッド
     find_or_create_by(email: 'guest@example.com') do |user|
       user.password = SecureRandom.urlsafe_base64
