@@ -32,10 +32,11 @@ class User < ApplicationRecord
   end
 
   #ゲストログイン
-  def self.guest #クラスメソッド
-    find_or_create_by(email: 'guest@example.com') do |user|
+  def self.guest
+    find_or_create_by!(email: 'guest@example.com') do |user|
       user.password = SecureRandom.urlsafe_base64
-      # user.name = 'ゲスト'
+      user.name = 'ゲストユーザ'
+      user.occupation = '職種なし'
     end
   end
 
