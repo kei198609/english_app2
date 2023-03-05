@@ -10,9 +10,9 @@
                 <div id="icon">
                     <%#= image_tag post.user.avatar, size: 50 %>
                   <% if post.user.avatar.attached? %>
-                    <%= image_tag post.user.avatar, size: 50 %>
+                    <%= image_tag post.user.avatar, class:"rounded-circle", size: 50 %>
                   <% else %>
-                    <%= image_tag 'noimage.jpg', class:"user-icon", alt:"ユーザアイコン", size: 50 %>
+                    <%= image_tag 'noimage.jpg', class:"rounded-circle", alt:"ユーザアイコン", size: 50 %>
                   <% end %>
                 </div>
 

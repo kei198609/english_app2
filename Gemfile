@@ -90,3 +90,6 @@ gem "mini_magick"
 
 # Use bootstrap
 gem 'bootstrap', "~> 5.2.3"
+
+# Use chartkick
+gem 'chartkick'
