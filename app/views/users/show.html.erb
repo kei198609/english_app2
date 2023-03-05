@@ -1,28 +1,62 @@
-<h1>プロフィール</h1>
+<%# user section %>
+<section class= "bg-light">
+<div class="container">
+  <div class="row">
+    <div class="image text-center">
+      <% if @user.avatar? %>
+        <%= image_tag @user.avatar, size: 100, class:"rounded-circle" %>
+      <% else %>
+        <%= image_tag src='noimage.jpg', alt:"ユーザアイコン", size: 100, class:"rounded-circle" %>
+      <% end %>
+    </div>
+    <div class="text-center">
+      <%= @user.name %>
+    </div>
+    <div class="text-center">
+      <%= @user.occupation %>
+    </div>
 
-<% if @user.avatar? %>
-  <%= image_tag @user.avatar, size: 60 %>
-<% else %>
-  <%= image_tag src='noimage.jpg', class:"user-icon", alt:"ユーザアイコン", size: 100 %>
-<% end %>
-
-<h2><%= @user.name %></h2>
-<h2><%= @user.occupation %></h2>
-<h2><%= render 'shared/stats' %></h2>
-<h2><%= render 'follow_form' if user_signed_in? %></h2>
-
-
-  <div class="col-md-8">
-    <% flash.each do |message_type, message| %>
-      <div class="alert alert-<%= message_type %>"><%= message %></div>
-    <% end %>
-
-    <% if @user.posts.any? %>
-      <h3>あなたの投稿 (<%= @user.posts.count %>)</h3>
-      <ol class="microposts">
-        <%= render @posts %>
-      </ol>
-      <%= paginate @posts %>
-    <% end %>
-
+    <div class="text-center">
+      <%= render 'shared/stats' %>
+      <%= render 'follow_form' if user_signed_in? %>
+    </div>
   </div>
+</div>
+</section>
+<%# chart section %>
+<section class="row">
+  <div class="col-lg-6 col-md-6">
+    <%= pie_chart @data %>
+  </div>
+    <div class="col-lg-6 col-md-6">
+      <div class="container">
+        <div class="row">
+          <div class="border">
+            <% @data.each do |scene, count| %>
+              <%= scene %> <%= count %>回<br>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+</section>
+
+
+
+
+
+
+        <div class="">
+          <% flash.each do |message_type, message| %>
+            <div class="alert alert-<%= message_type %>"><%= message %></div>
+          <% end %>
+
+          <% if @user.posts.any? %>
+            <h3>あなたの投稿 (<%= @user.posts.count %>)</h3>
+            <ol class="microposts">
+              <%= render @posts %>
+            </ol>
+            <%= paginate @posts %>
+          <% end %>
+
+</div>

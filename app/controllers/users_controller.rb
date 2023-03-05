@@ -9,6 +9,7 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @posts = @user.posts.page(params[:page]).per(5)
+    @data = @user.posts.group_by(&:scene).transform_values(&:count)
   end
 
   def following
