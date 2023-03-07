@@ -1,9 +1,37 @@
-<li>
-  <% if user.avatar.attached? %>
-    <%= image_tag user.avatar, size: 50 %>
-    <%= link_to user.name, user_path(user) %>
-  <% else %>
-    <%= image_tag 'noimage.jpg', class:"user-icon", alt:"ユーザアイコン", size: 50 %>
-  <% end %>
-</li>
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-lg-7">
+      <% if user == @users.first %>
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th scope="col">ユーザー</th>
+              <th scope="col">職種</th>
+              <th scope="col">職種</th>
+            </tr>
+          </thead>
+          <tbody>
+      <% end %>
+        <tr>
+          <td>
+            <% if user.avatar.attached? %>
+              <%= image_tag user.avatar, size: 50 %>
+            <% else %>
+              <%= image_tag 'noimage.jpg', class:"user-icon", alt:"ユーザアイコン", size: 50 %>
+            <% end %>
+            <%= link_to user.name, user_path(user) %>
+          </td>
+          <td>
+            <%= user.occupation %>
+          </td>
+          <td>
 
+          </td>
+        </tr>
+      <% if user == @users.last %>
+          </tbody>
+        </table>
+      <% end %>
+    </div>
+  </div>
+</div>
