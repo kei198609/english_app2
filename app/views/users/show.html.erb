@@ -52,7 +52,7 @@
           <% end %>
 
           <% if @user.posts.any? %>
-            <h3>あなたの投稿 (<%= @user.posts.count %>)</h3>
+            <h3>投稿 (<%= @user.posts.count %>)</h3>
             <ol class="microposts">
               <%= render @posts %>
             </ol>
