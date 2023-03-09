@@ -6,3 +6,6 @@ import "trix"
 import "@rails/actiontext"
 import "chartkick"
 import "Chart.bundle"
+
+// テンプレート機能用
+import './custom/template.js';
