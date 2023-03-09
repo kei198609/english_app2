@@ -11,3 +11,7 @@ pin "trix"
 pin "@rails/actiontext", to: "actiontext.js"
 pin "chartkick", to: "chartkick.js"
 pin "Chart.bundle", to: "Chart.bundle.js"
+
+# テンプレート機能用
+pin_all_from 'app/javascript/custom', under: 'custom'
+
