@@ -24,21 +24,21 @@
 </div>
 </section>
 <%# chart section %>
-<section class="row">
-  <div class="col-lg-6 col-md-6">
-    <%= pie_chart @data %>
-  </div>
-    <div class="col-lg-6 col-md-6">
-      <div class="container">
-        <div class="row">
-          <div class="border">
-            <% @data.each do |scene, count| %>
-              <%= scene %> <%= count %>回<br>
-            <% end %>
-          </div>
+<section>
+  <div class="container">
+    <div class="row">
+      <div class="col-6">
+        <%= pie_chart @data %>
+      </div>
+      <div class="col-6">
+        <div class="border">
+          <% @data.each do |scene, count| %>
+            <%= scene %> <%= count %>回<br>
+          <% end %>
         </div>
       </div>
     </div>
+  </div>
 </section>
 
 

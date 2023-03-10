@@ -32,6 +32,7 @@ ja:
         content_japanese: メール本文
         subject_english: 件名
         subject_japanese: 件名
+        scene: ビジネスシーン
     models:
       user: ユーザー
     errors:
@@ -56,11 +57,15 @@ ja:
           attributes:
             content_english:
               blank: "が入力されていません。"
+            content_english:
+              too_long: "入力文字数は2000文字以内です。"
             content_japanese:
               blank: "が入力されていません。"
             subject_english:
               blank: "が入力されていません。"
             subject_japanese:
+              blank: "が入力されていません。"
+            scene:
               blank: "が入力されていません。"
 
   users:
