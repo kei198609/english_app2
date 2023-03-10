@@ -93,3 +93,7 @@ gem 'bootstrap', "~> 5.2.3"
 
 # Use chartkick
 gem 'chartkick'
+
+# google Cloud Translation API
+gem "google-cloud"
+gem "google-cloud-translate"
