@@ -1,23 +1,23 @@
 <%= flash[:success] %>
 
 <% if user_signed_in? %>
-  <%# 検索フォームsection %>
+<%# seach section %>
 <div class="container">
-  <div class="row justify-content-center">
-      <%= form_tag root_path, method: :get do %>
-      <div class="col-lg">
+  <%= form_tag root_path, method: :get do %>
+    <div class="row">
+      <div class="col-4">
         <%= text_field_tag :content_english, params[:content_english], placeholder: "キーワードを入力してください", class: "form-control" %>
       </div>
-      <div class="col-lg">
+      <div class="col-4">
         <%= select_tag :scene, options_for_select(Post.all.map{ |c| [c.scene, c.scene] }, params[:scene]), prompt: "カテゴリを選択してください", class: "form-select" %>
       </div>
-      <div class="col-lg">
+      <div class="col-4">
         <%= submit_tag "検索", class: "btn btn-primary"%>
       </div>
-      <% end %>
-  </div>
+    </div>
+  <% end %>
 </div>
-
+<%# post section %>
   <%= render 'shared/feed' %>
   <%= paginate @feed_items %>
 <% else %>
