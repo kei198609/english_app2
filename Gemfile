@@ -97,3 +97,6 @@ gem 'chartkick'
 # google Cloud Translation API
 gem "google-cloud"
 gem "google-cloud-translate"
+
+# i18n対応
+gem 'rails-i18n'

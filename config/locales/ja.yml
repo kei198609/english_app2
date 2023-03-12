@@ -4,5 +4,25 @@ ja:
       Following: フォロー
     followers:
       Followers: フォロワー
-
-
+  activerecord:
+    attributes:
+      post:
+        content_english: メール本文
+        subject_english: 件名
+        scene: ビジネスシーン
+    errors:
+      models:
+        post:
+          attributes:
+            content_english:
+              blank: "が入力されていません。"
+              too_long: "入力文字数は2000文字以内です。"
+            subject_english:
+              blank: "が入力されていません。"
+            scene:
+              blank: "が入力されていません。"
+      template:
+        header:
+          one: "1件のエラーがあります。"
+          other: "%{count}件のエラーがあります。"
+        body: "フォームに%{count}件のエラーがあります。"
