@@ -1,45 +1,51 @@
 <!-- feed section -->
-    <section id="feed">
-          <div class="service card-effect">
-            <div id="container">
-
-                <div id="subject">
-                    Subject:<%= truncate(post.subject_english, length: 30, omission: '...') %>
-                </div>
-
-                <div id="icon">
-                    <%#= image_tag post.user.avatar, size: 50 %>
-                  <% if post.user.avatar.attached? %>
-                    <%= image_tag post.user.avatar, class:"rounded-circle", size: 50 %>
-                  <% else %>
-                    <%= image_tag 'noimage.jpg', class:"rounded-circle", alt:"ユーザアイコン", size: 50 %>
-                  <% end %>
-                </div>
-
-                <div id="name">
-                  名前:<%= link_to post.user.name, post.user %>
-                </div>
-
-                <div id="occupation">
-                  職種:<%= post.user.occupation %>
-                </div>
-
-                <div id="scene">
-                  ビジネスシーン:<%= post.scene %>
-                </div>
-
-                <div id="timestamp">
-                  <%= time_ago_in_words(post.created_at)+ "前" %>
-                  <% if current_user?(post.user) %>
-                    <%= link_to "削除", post, data: { turbo_method: :delete, turbo_confirm: '本当に削除しますか?' } %>
-                  <% end %>
-                </div>
-
-                <div id="detail">
-                  <%= link_to '投稿を見る', post_path(post) %>
-                </div>
+<section>
+  <div class="service card-effect border rounded-1 mt-2">
+    <div>
+      <div class="row">
+        <div class="col-md-1 col-sm-2 col-2 icon">
+          <% if post.user.avatar.attached? %>
+            <div>
+              <%= image_tag post.user.avatar, class:"rounded-circle", size: 50 %>
             </div>
-          </div>
+          <% else %>
+            <div>
+              <%= image_tag 'noimage.jpg', class:"rounded-circle", alt:"ユーザアイコン", size: 50 %>
+            </div>
+          <% end %>
+        </div>
+        <div class="col-md-2 col-sm-2 col-2 d-flex align-items-center name">
+          <%= link_to post.user.name, post.user %>
+        </div>
+        <div class="col-md-4 col-sm-2 col-2 d-flex align-items-center occupation">
+          <%= post.user.occupation %>
+        </div>
+        <div class="col-md-1 col-sm-2 col-2 d-flex align-items-center timestamp">
+          <%= time_ago_in_words(post.created_at)+ "前" %>
+        </div>
+        <div class="col-lg-2 col-md-2 col-sm-2 col-2 d-flex align-items-center justify-content-center detail">
+          <%= link_to '詳細', post_path(post), class: "btn btn-primary" %>
+        </div>
+        <div class="col-lg-2 col-md-2 col-sm-2 col-2 d-flex align-items-center justify-content-center">
+          <% if current_user?(post.user) %>
+            <%= link_to "削除", post, data: { turbo_method: :delete, turbo_confirm: '本当に削除しますか?' } , class: "btn btn-primary"%>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
 
-    </section>
+
+
+
+
+
+<%# <div id="subject"> %>
+    <%# Subject:<%= truncate(post.subject_english, length: 30, omission: '...') %>
+<%# </div> %>
+
+<%# <div id="scene"> %>
+  <%# ビジネスシーン:<%= post.scene %>
+<%# </div> %>

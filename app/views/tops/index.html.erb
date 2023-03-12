@@ -17,7 +17,24 @@
     </div>
   <% end %>
 </div>
-<%# post section %>
+
+<%# header section %>
+<section>
+  <div class="container">
+    <div class="header border mt-4 mb-2">
+      <div class="row">
+        <div class="col-md-1 col-sm-2 col-2"></div>
+        <div class="col-md-2 col-sm-2 col-2 d-flex align-items-center">名前</div>
+        <div class="col-md-4 col-sm-2 col-2 d-flex align-items-center">職種</div>
+        <div class="col-md-1 col-sm-2 col-2 d-flex align-items-center">投稿日</div>
+        <div class="col-lg-2 col-md-2 col-sm-2 col-2 d-flex align-items-center justify-content-center">投稿詳細</div>
+        <div class="col-lg-2 col-md-2 col-sm-2 col-2 d-flex align-items-center justify-content-center">投稿削除</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<%# feed section %>
   <%= render 'shared/feed' %>
   <%= paginate @feed_items %>
 <% else %>
