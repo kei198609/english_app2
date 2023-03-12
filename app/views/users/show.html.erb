@@ -1,3 +1,6 @@
+<% flash.each do |message_type, message| %>
+  <div class="alert alert-<%= message_type %>"><%= message %></div>
+<% end %>
 <%# user section %>
 <section class= "bg-light">
 <div class="container">
@@ -15,7 +18,6 @@
     <div class="text-center">
       <%= @user.occupation %>
     </div>
-
     <div class="text-center">
       <%= render 'shared/stats' %>
       <%= render 'follow_form' if user_signed_in? %>
@@ -41,22 +43,15 @@
   </div>
 </section>
 
-
-
-
-
-
-        <div class="">
-          <% flash.each do |message_type, message| %>
-            <div class="alert alert-<%= message_type %>"><%= message %></div>
-          <% end %>
-
-          <% if @user.posts.any? %>
-            <h3>投稿 (<%= @user.posts.count %>)</h3>
-            <ol class="microposts">
-              <%= render @posts %>
-            </ol>
-            <%= paginate @posts %>
-          <% end %>
-
-</div>
+<%# post section %>
+<section>
+  <div class="container">
+    <% if @user.posts.any? %>
+      <h3>あなたの投稿 (<%= @user.posts.count %>)</h3>
+      <div>
+        <%= render @posts %>
+      </div>
+      <%= paginate @posts %>
+    <% end %>
+  </div>
+</section>
