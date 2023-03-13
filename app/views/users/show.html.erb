@@ -1,29 +1,26 @@
-<% flash.each do |message_type, message| %>
-  <div class="alert alert-<%= message_type %>"><%= message %></div>
-<% end %>
 <%# user section %>
 <section class= "bg-light">
-<div class="container">
-  <div class="row">
-    <div class="image text-center">
-      <% if @user.avatar? %>
-        <%= image_tag @user.avatar, size: 100, class:"rounded-circle" %>
-      <% else %>
-        <%= image_tag src='noimage.jpg', alt:"ユーザアイコン", size: 100, class:"rounded-circle" %>
-      <% end %>
-    </div>
-    <div class="text-center">
-      <%= @user.name %>
-    </div>
-    <div class="text-center">
-      <%= @user.occupation %>
-    </div>
-    <div class="text-center">
-      <%= render 'shared/stats' %>
-      <%= render 'follow_form' if user_signed_in? %>
+  <div class="container">
+    <div class="row">
+      <div class="image text-center">
+        <% if @user.avatar? %>
+          <%= image_tag @user.avatar, size: 100, class:"rounded-circle" %>
+        <% else %>
+          <%= image_tag src='noimage.jpg', alt:"ユーザアイコン", size: 100, class:"rounded-circle" %>
+        <% end %>
+      </div>
+      <div class="text-center">
+        <%= @user.name %>
+      </div>
+      <div class="text-center">
+        <%= @user.occupation %>
+      </div>
+      <div class="text-center">
+        <%= render 'shared/stats' %>
+        <%= render 'follow_form' if user_signed_in? %>
+      </div>
     </div>
   </div>
-</div>
 </section>
 <%# chart section %>
 <section>

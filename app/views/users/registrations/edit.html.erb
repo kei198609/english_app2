@@ -1,6 +1,7 @@
+<%# setting section %>
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
   <div class="container">
+    <%= render "users/shared/error_messages", resource: resource %>
     <div class="row justify-content-center">
       <div class="col-lg-6 mx-auto">
         <%#= t('.title', resource: resource.model_name.human) %>
@@ -57,17 +58,25 @@
           <%= f.submit t('.update'), class: "btn btn-primary" %>
         </div>
 
-        <div class="">
-          <h3><%= t('.cancel_my_account') %></h3>
-        </div>
-        <div class="account">
-          <p><%= button_to t('.cancel_my_account'), registration_path(resource_name), data: { turbo_confirm: t('.are_you_sure') }, method: :delete, class: "btn btn-primary" %></p>
-          <%# <%= link_to t('devise.shared.links.back'), :back %>
-        </div>
       </div>
     </div>
   </div>
 <% end %>
+
+<%# cancel account section %>
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-lg-6 mx-auto">
+      <div>
+        <h3><%= t('.cancel_my_account') %></h3>
+      </div>
+      <div class="account">
+        <p><%= button_to t('.cancel_my_account'), registration_path(resource_name), data: { turbo_confirm: t('.are_you_sure') }, method: :delete, class: "btn btn-primary" %></p>
+        <%# <%= link_to t('devise.shared.links.back'), :back %>
+      </div>
+    </div>
+  </div>
+</div>
 
 
 
