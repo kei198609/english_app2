@@ -9,7 +9,7 @@ before_action :correct_user, only: :destroy
   def create
     @post = current_user.posts.build(post_params)
     if @post.save
-      flash[:success] = "投稿しました！"
+      flash[:notice] = "投稿しました！"
       redirect_to new_post_path
     else
       @feed_items = current_user.feed.page(params[:page]).per(5)
@@ -32,7 +32,7 @@ before_action :correct_user, only: :destroy
 
   def destroy
     @post.destroy
-    flash[:success] = "削除しました"
+    flash[:notice] = "削除しました。"
     redirect_to request.referrer || root_url
   end
 
