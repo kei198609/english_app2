@@ -74,7 +74,7 @@ group :test do
 end
 
 # Use Devise
-gem 'devise', "4.8.1"
+gem 'devise'
 gem 'devise-i18n'
 gem 'devise-i18n-views'
 
