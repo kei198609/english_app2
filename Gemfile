@@ -82,6 +82,7 @@ gem 'dotenv-rails'
 
 # Use kaminari
 gem 'kaminari'
+gem 'bootstrap5-kaminari-views'
 
 # Use CarrierWave/MiniMagick/FogAws
 # 削除gem 'carrierwave'

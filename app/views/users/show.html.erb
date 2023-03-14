@@ -48,7 +48,9 @@
       <div>
         <%= render @posts %>
       </div>
-      <%= paginate @posts %>
+      <div class="mt-4">
+        <%= paginate @posts, theme: 'bootstrap-5', pagination_class: "pagination-sm flex-wrap justify-content-center" %>
+      </div>
     <% end %>
   </div>
 </section>

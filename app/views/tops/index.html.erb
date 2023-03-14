@@ -36,7 +36,14 @@
 
 <%# feed section %>
   <%= render 'shared/feed' %>
-  <%= paginate @feed_items %>
+<%# paginate section %>
+<section>
+  <div class="container mt-4">
+    <%= paginate @feed_items, theme: 'bootstrap-5',
+                              pagination_class: "pagination-sm flex-wrap justify-content-center" %>
+
+  </div>
+</section>
 <% else %>
 
 <% end %>
