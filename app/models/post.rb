@@ -5,9 +5,6 @@ class Post < ApplicationRecord
   validates :content_english, presence: true, length: { maximum: 2000 }
   validates :subject_english, presence: true, length: { maximum: 100 }
   validates :scene, presence: true
-  # validates :content, presence: true, length: { maximum: 500 }
-  # validates :content_japanese, presence: true, length: { maximum: 500 }
-  # validates :subject_japanese, presence: true, length: { maximum: 100 }
 
   # 検索機能
   scope :search, ->(keyword, scene = nil) {
