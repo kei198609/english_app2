@@ -27,12 +27,20 @@ Rails.application.routes.draw do
   end
 
 
-  resources :posts, only: [:new, :create, :show, :destroy]
+  # resources :posts, only: [:new, :create, :show, :destroy]
+  resources :posts, only: [:new, :create, :show, :destroy] do
+    resources :bookmarks, only: [:create, :destroy]
+  end
+
+
+
   resources :users do
     member do
       get :following, :followers
     end
+    get :bookmarks, on: :collection
   end
+
   resources :relationships, only: [:create, :destroy]
 
 end

@@ -10,6 +10,9 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     @posts = @user.posts.page(params[:page]).per(5)
     @data = @user.posts.group_by(&:scene).transform_values(&:count)
+
+    bookmarks = Bookmark.where(user_id: current_user.id).pluck(:post_id)  # ログイン中のユーザーのブックマークのpost_idカラムを取得
+    @bookmark_list = Post.find(bookmarks)     # postsテーブルから、お気に入り登録済みのレコードを取得
   end
 
   def following

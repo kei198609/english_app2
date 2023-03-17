@@ -14,4 +14,10 @@ class Post < ApplicationRecord
   }
   # Action Textを使用するため、has_rich_textメソッドを使用して、リレーションシップを設定
   has_rich_text :content_english
+
+  has_many :bookmarks, dependent: :destroy
+    # 指定されたユーザーが特定の投稿をブックマークしているかどうかを判定するメソッド
+  def bookmarked_by?(user)
+    bookmarks.where(user_id: user).exists?
+  end
 end
