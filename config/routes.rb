@@ -29,7 +29,7 @@ Rails.application.routes.draw do
 
   # resources :posts, only: [:new, :create, :show, :destroy]
   resources :posts, only: [:new, :create, :show, :destroy] do
-    resources :bookmarks, only: [:create, :destroy]
+    resources :bookmarks, only: [:index, :create, :destroy]
   end
 
 
