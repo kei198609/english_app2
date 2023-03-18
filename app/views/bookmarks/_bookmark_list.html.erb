@@ -1,0 +1,18 @@
+<section>
+  <div class="container">
+    <% if bookmark.post.user.avatar.attached? %>
+      <div>
+        <%= image_tag bookmark.post.user.avatar, class:"rounded-circle", size: 30 %>
+      </div>
+    <% else %>
+      <div>
+        <%= image_tag 'noimage.jpg', class:"rounded-circle", alt:"ユーザアイコン", size: 30 %>
+      </div>
+    <% end %>
+    <%= bookmark.post.user.name %>
+    <%= bookmark.post.user.occupation %>
+      <%= link_to post_path(bookmark.post) do %>
+        <%= bookmark.post.scene %>
+      <% end %>
+  </div>
+</section>
