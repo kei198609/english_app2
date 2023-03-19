@@ -1,18 +1,33 @@
 <section>
-  <div class="container">
-    <% if bookmark.post.user.avatar.attached? %>
-      <div>
-        <%= image_tag bookmark.post.user.avatar, class:"rounded-circle", size: 30 %>
+  <div class="container bg-white">
+    <div class="row">
+      <div class="col-md-12 col-sm-12 col-12 icon d-flex border-top pt-3">
+        <div>
+          <%= link_to user_path(bookmark.post.user) do %>
+            <% if bookmark.post.user.avatar.attached? %>
+              <%= image_tag bookmark.post.user.avatar, class:"rounded-circle", size: 35 %>
+            <% else %>
+              <%= image_tag 'noimage.jpg', class:"rounded-circle", alt:"ユーザアイコン", size: 30 %>
+            <% end %>
+          <% end %>
+        </div>
+        <div class="bookmark_user">
+          <p class="ms-1 mb-0">
+            <%= link_to user_path(bookmark.post.user), class: "link-dark" do %>
+              <%= bookmark.post.user.name %>
+            <% end %>
+          </p>
+            <span class="post_time link-secondary ms-1 mb-0">投稿日時</span>
+        </div>
       </div>
-    <% else %>
-      <div>
-        <%= image_tag 'noimage.jpg', class:"rounded-circle", alt:"ユーザアイコン", size: 30 %>
-      </div>
-    <% end %>
-    <%= bookmark.post.user.name %>
-    <%= bookmark.post.user.occupation %>
-      <%= link_to post_path(bookmark.post) do %>
-        <%= bookmark.post.scene %>
-      <% end %>
+        <div class="bookmark_subject ps-5">
+          <%= link_to post_path(bookmark.post), class: "link-secondary" do %>
+            <%= bookmark.post.subject_english %>
+          <% end %>
+        </div>
+        <div class="post_scene ps-5 pb-3">
+          <p class="mb-0"><%= bookmark.post.scene %></p>
+        </div>
+    </div>
   </div>
 </section>
