@@ -7,11 +7,19 @@ class Post < ApplicationRecord
   validates :scene, presence: true
 
   # 検索機能
+  # scope :search, ->(keyword, scene = nil) {
+  #   query = where("content_english LIKE ?", "%#{keyword}%")
+  #   query = query.where(scene: scene) if scene.present?
+  #   query
+  # }
   scope :search, ->(keyword, scene = nil) {
-    query = where("content_english LIKE ?", "%#{keyword}%")
+    query = all
+    query = query.where("content_english LIKE ?", "%#{keyword}%") if keyword.present?
     query = query.where(scene: scene) if scene.present?
-    query
+    query.order(created_at: :desc)
   }
+
+
   # Action Textを使用するため、has_rich_textメソッドを使用して、リレーションシップを設定
   has_rich_text :content_english
 
