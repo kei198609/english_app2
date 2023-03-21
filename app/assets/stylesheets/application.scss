@@ -36,30 +36,31 @@ a{
   transform: translateY(0px);
 }
 
-
-
 .border{
 	border-radius: 8px;
 }
 
 
 // ブックマーク一覧
-.bookmark_user{
+.post_user{
   font-size: 1.5px;
   text-decoration: none;
 }
-.bookmark_user:hover{
+
+.post_user:hover{
   text-decoration: underline;
 }
+
 .post_time {
   display: inline-block; //下線を消すため
 }
 
-.bookmark_subject{
+.post_subject{
   font-size: 20px;
   text-decoration: none;
 }
-.bookmark_subject:hover{
+
+.post_subject:hover{
   text-decoration: underline;
 }
 

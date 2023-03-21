@@ -26,3 +26,6 @@ ja:
           one: "1件のエラーがあります。"
           other: "%{count}件のエラーがあります。"
         body: "フォームに%{count}件のエラーがあります。"
+  time:
+    formats:
+      default: "%Y年%m月%d日"

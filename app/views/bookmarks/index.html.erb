@@ -1,7 +1,18 @@
 <body class="bg-light">
-<% @bookmarks.each do |bookmark| %>
-  <%= render partial: 'bookmarks/bookmark_list', locals: { bookmark: bookmark }%>
-<% end %>
+
+  <% @bookmarks.each do |bookmark| %>
+    <%= render partial: 'bookmarks/bookmark_list', locals: { bookmark: bookmark }%>
+  <% end %>
+
+  <%# paginate section %>
+  <section>
+    <div class="container mt-4">
+      <%= paginate @bookmarks, theme: 'bootstrap-5',
+                                pagination_class: "pagination-sm flex-wrap justify-content-center" %>
+    </div>
+  </section>
+
+
 </body>
 
 
