@@ -7,17 +7,6 @@ class Post < ApplicationRecord
   validates :scene, presence: true
 
   # 検索機能
-  # scope :search, ->(keyword, scene = nil) {
-  #   query = where("content_english LIKE ?", "%#{keyword}%")
-  #   query = query.where(scene: scene) if scene.present?
-  #   query
-  # }
-  # scope :search, ->(keyword, scene = nil) {
-  #   query = all
-  #   query = query.where("content_english LIKE ?", "%#{keyword}%") if keyword.present?
-  #   query = query.where(scene: scene) if scene.present?
-  #   query.order(created_at: :desc)
-  # }
   def self.ransackable_associations(auth_object = nil)
     ["bookmarks", "posts", "users"]
   end
@@ -26,7 +15,6 @@ class Post < ApplicationRecord
   end
 
 
-  
   # Action Textを使用するため、has_rich_textメソッドを使用して、リレーションシップを設定
   has_rich_text :content_english
   has_one :action_text_rich_text, class_name: 'ActionText::RichText', as: :record
