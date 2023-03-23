@@ -101,3 +101,6 @@ gem "google-cloud-translate"
 
 # i18n対応
 gem 'rails-i18n'
+
+# ransackで検索
+gem 'ransack'

@@ -3,21 +3,25 @@
 <% if user_signed_in? %>
 <%# seach section %>
 <div class="container">
-  <%= form_tag root_path, method: :get do %>
+  <%= search_form_for @q, url: root_path, html: {method: :get} do |f| %>
     <div class="row">
       <div class="col-4">
-        <%= text_field_tag :content_english, params[:content_english], placeholder: "キーワードを入力してください", class: "form-control" %>
+        <%= f.search_field :action_text_rich_text_body_cont, placeholder: "キーワードを入力してください", class: "form-control" %>
       </div>
       <div class="col-4">
-        <%#= select_tag :scene, options_for_select(Post.all.map{ |c| [c.scene, c.scene] }, params[:scene]), prompt: "カテゴリを選択してください", class: "form-select" %>
-        <%= select_tag :scene, options_for_select(Post.all.map{ |c| [c.scene, c.scene] }.uniq, params[:scene]), prompt: "カテゴリを選択してください", class: "form-select" %>
+        <%= f.select :scene_eq, options_for_select(Post.all.map{ |c| [c.scene, c.scene] }.uniq, params[:q]&.[](:scene_eq)), {prompt: "カテゴリを選択してください"}, {class: "form-select"} %>
       </div>
-      <div class="col-4">
-        <%= submit_tag "検索", class: "btn btn-primary"%>
+      <div class="col-2">
+        <%= f.submit "検索", class: "btn btn-primary" %>
+      </div>
+      <div class="col-2">
+        <button type="button" onclick="location.href='?'" class="btn btn-outline-secondary">リセット</button>
       </div>
     </div>
   <% end %>
 </div>
+
+
 
 <%# feed section %>
   <%= render 'shared/feed' %>
