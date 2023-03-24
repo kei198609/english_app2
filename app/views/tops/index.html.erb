@@ -6,7 +6,7 @@
   <%= search_form_for @q, url: root_path, html: {method: :get} do |f| %>
     <div class="row">
       <div class="col-4">
-        <%= f.search_field :action_text_rich_text_body_cont, placeholder: "キーワードを入力してください", class: "form-control" %>
+        <%= f.search_field :content_english_body_cont, placeholder: "キーワードを入力してください", class: "form-control" %>
       </div>
       <div class="col-4">
         <%= f.select :scene_eq, options_for_select(Post.all.map{ |c| [c.scene, c.scene] }.uniq, params[:q]&.[](:scene_eq)), {prompt: "カテゴリを選択してください"}, {class: "form-select"} %>
