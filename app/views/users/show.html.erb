@@ -1,56 +1,58 @@
-<%# user section %>
-<section class= "bg-light">
-  <div class="container">
-    <div class="row">
-      <div class="image text-center">
-        <% if @user.avatar? %>
-          <%= image_tag @user.avatar, size: 100, class:"rounded-circle" %>
-        <% else %>
-          <%= image_tag src='noimage.jpg', alt:"ユーザアイコン", size: 100, class:"rounded-circle" %>
-        <% end %>
-      </div>
-      <div class="text-center">
-        <%= @user.name %>
-      </div>
-      <div class="text-center">
-        <%= @user.occupation %>
-      </div>
-      <div class="text-center">
-        <%= render 'shared/stats' %>
-        <%= render 'follow_form' if user_signed_in? %>
-      </div>
-    </div>
-  </div>
-</section>
-<%# chart section %>
-<section>
-  <div class="container">
-    <div class="row">
-      <div class="col-6">
-        <%= pie_chart @data %>
-      </div>
-      <div class="col-6">
-        <div class="border">
-          <% @data.each do |scene, count| %>
-            <%= scene %> <%= count %>回<br>
-          <% end %>
+<div class="container">
+  <div class="row">
+    <div class="col-4">
+      <%# user section %>
+      <section class= "bg-white">
+        <div class="container px-4 py-4">
+          <div class="image text-center">
+            <% if @user.avatar? %>
+              <%= image_tag @user.avatar, size: 100, class:"rounded-circle mb-3" %>
+            <% else %>
+              <%= image_tag src='noimage.jpg', alt:"ユーザアイコン", size: 100, class:"rounded-circle mb-3" %>
+            <% end %>
+          </div>
+          <div class="text-center mb-1">
+            <%= @user.name %>
+          </div>
+          <div class="text-center border-bottom mb-3">
+            <%= @user.occupation %>
+          </div>
+          <div class="text-center">
+            <%= render 'shared/stats' %>
+          </div>
+          <div class="text-center mt-3">
+            <%= render 'follow_form' if user_signed_in? %>
+          </div>
         </div>
-      </div>
+      </section>
     </div>
-  </div>
-</section>
+    <div class="col-8">
+      <%# chart section %>
+      <section class= "bg-white">
+          <div class="col-6">
+            <%= pie_chart @data %>
+          </div>
+          <div class="col-6">
+            <div class="border">
+              <% @data.each do |scene, count| %>
+                <%= scene %> <%= count %>回<br>
+              <% end %>
+            </div>
+          </div>
+      </section>
+      <%# post section %>
+      <section>
+          <% if @user.posts.any? %>
+            <h3>投稿した記事 (<%= @user.posts.count %>)</h3>
+            <div>
+              <%= render @posts %>
+            </div>
+            <div class="mt-4">
+              <%= paginate @posts, theme: 'bootstrap-5', pagination_class: "pagination-sm flex-wrap justify-content-center" %>
+            </div>
+          <% end %>
+      </section>
+    </div>
 
-<%# post section %>
-<section>
-  <div class="container">
-    <% if @user.posts.any? %>
-      <h3>あなたの投稿 (<%= @user.posts.count %>)</h3>
-      <div>
-        <%= render @posts %>
-      </div>
-      <div class="mt-4">
-        <%= paginate @posts, theme: 'bootstrap-5', pagination_class: "pagination-sm flex-wrap justify-content-center" %>
-      </div>
-    <% end %>
   </div>
-</section>
+</div>

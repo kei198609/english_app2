@@ -16,24 +16,20 @@
 
 @import "bootstrap";
 
-:root {
-	--box-shadow: -2px 0px 3px rgba(0, 0, 0, 0.2);
-}
 
 a{
 	text-decoration: none;
 }
 
-.card-effect {
-  box-shadow: var(--box-shadow);
-  background-color: #fff;
-  padding: 25px;
-  transition: all 0.35s ease;
-}
+.navbar {
+  background-color: #A16EFF;
 
-.card-effect:hover {
-  box-shadow: none;
-  transform: translateY(0px);
+}
+.navbar-nav .nav-link {
+  color: #fff;
+}
+.navbar-brand {
+  color: #fff;
 }
 
 .border{
@@ -41,7 +37,7 @@ a{
 }
 
 
-// ブックマーク一覧
+// 投稿一覧、ブックマーク一覧デザイン
 .post_user{
   font-size: 1.5px;
   text-decoration: none;
@@ -66,4 +62,15 @@ a{
 
 .post_scene{
   font-size: 1.5px;
+}
+
+
+// マイページデザイン
+.stat{
+  font-size: 1.5px;
+  text-decoration: none;
+}
+
+.stat:hover{
+  text-decoration: underline;
 }
