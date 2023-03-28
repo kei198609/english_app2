@@ -1,9 +1,8 @@
 <%= render @users %>
-
 <%# paginate section %>
 <section>
   <div class="container mt-4">
     <%= paginate @users, theme: 'bootstrap-5',
-                          pagination_class: "pagination-sm flex-wrap justify-content-center" %>
+              pagination_class: "pagination-sm flex-wrap justify-content-center" %>
   </div>
 </section>

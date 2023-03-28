@@ -1,58 +1,42 @@
 <div class="container">
   <div class="row">
-    <div class="col-4">
+    <div class="col-md-4 mt-3">
       <%# user section %>
       <section class= "bg-white">
-        <div class="container px-4 py-4">
-          <div class="image text-center">
-            <% if @user.avatar? %>
-              <%= image_tag @user.avatar, size: 100, class:"rounded-circle mb-3" %>
-            <% else %>
-              <%= image_tag src='noimage.jpg', alt:"ユーザアイコン", size: 100, class:"rounded-circle mb-3" %>
-            <% end %>
-          </div>
-          <div class="text-center mb-1">
-            <%= @user.name %>
-          </div>
-          <div class="text-center border-bottom mb-3">
-            <%= @user.occupation %>
-          </div>
-          <div class="text-center">
-            <%= render 'shared/stats' %>
-          </div>
-          <div class="text-center mt-3">
-            <%= render 'follow_form' if user_signed_in? %>
-          </div>
-        </div>
+        <%= render 'users/user_mypage' %>
       </section>
     </div>
-    <div class="col-8">
+
+    <div class="col-md-8 mt-3">
       <%# chart section %>
       <section class= "bg-white">
-          <div class="col-6">
+        <div class="container d-flex flex-wrap justify-content-center px-4 py-4">
+          <div class="col-lg-6 col-md-6 col-sm-6">
             <%= pie_chart @data %>
           </div>
-          <div class="col-6">
+          <div class="col-lg-6 col-md-6 col-sm-6">
             <div class="border">
               <% @data.each do |scene, count| %>
                 <%= scene %> <%= count %>回<br>
               <% end %>
             </div>
           </div>
+        </div>
       </section>
+
       <%# post section %>
       <section>
-          <% if @user.posts.any? %>
-            <h3>投稿した記事 (<%= @user.posts.count %>)</h3>
-            <div>
-              <%= render @posts %>
-            </div>
-            <div class="mt-4">
-              <%= paginate @posts, theme: 'bootstrap-5', pagination_class: "pagination-sm flex-wrap justify-content-center" %>
-            </div>
-          <% end %>
+        <% if @user.posts.any? %>
+          <h3>投稿した記事 (<%= @user.posts.count %>)</h3>
+          <div>
+            <%= render @posts %>
+          </div>
+          <div class="mt-4">
+            <%= paginate @posts, theme: 'bootstrap-5', pagination_class: "pagination-sm flex-wrap justify-content-center" %>
+          </div>
+        <% end %>
       </section>
-    </div>
 
+    </div>
   </div>
 </div>

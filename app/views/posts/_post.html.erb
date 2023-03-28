@@ -6,9 +6,9 @@
         <div>
           <%= link_to user_path(post.user) do %>
             <% if post.user.avatar.attached? %>
-              <%= image_tag post.user.avatar, class:"rounded-circle", size: 35 %>
+              <%= image_tag post.user.avatar, class:"rounded-circle", size: 32 %>
             <% else %>
-              <%= image_tag 'noimage.jpg', class:"rounded-circle", alt:"ユーザアイコン", size: 30 %>
+              <%= image_tag 'noimage.jpg', class:"rounded-circle", alt:"ユーザアイコン", size: 32 %>
             <% end %>
           <% end %>
         </div>
@@ -40,16 +40,6 @@
   </div>
 </section>
 
-
-
-
-
-
-
 <%# <div id="subject"> %>
     <%# Subject:<%= truncate(post.subject_english, length: 30, omission: '...') %>
-<%# </div> %>
-
-<%# <div id="scene"> %>
-  <%# ビジネスシーン:<%= post.scene %>
 <%# </div> %>

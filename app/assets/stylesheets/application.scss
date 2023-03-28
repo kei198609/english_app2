@@ -65,12 +65,22 @@ a{
 }
 
 
-// マイページデザイン
+// マイページ
 .stat{
   font-size: 1.5px;
   text-decoration: none;
 }
 
 .stat:hover{
+  text-decoration: underline;
+}
+
+// フォロー/フォロワー一覧
+.user_name{
+  font-size:15px;
+  text-decoration: none;
+}
+
+.user_name:hover{
   text-decoration: underline;
 }

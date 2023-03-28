@@ -1,37 +1,27 @@
-<div class="container">
-  <div class="row justify-content-center">
-    <div class="col-lg-7">
-      <% if user == @users.first %>
-        <table class="table table-striped">
-          <thead>
-            <tr>
-              <th scope="col">ユーザー</th>
-              <th scope="col">職種</th>
-              <th scope="col">職種</th>
-            </tr>
-          </thead>
-          <tbody>
-      <% end %>
-        <tr>
-          <td>
+<section>
+  <div class="container bg-white">
+    <div class="row">
+      <div class="d-flex border-top ps-3 pt-3 pb-3">
+        <div>
+          <%= link_to user_path(user) do %>
             <% if user.avatar.attached? %>
-              <%= image_tag user.avatar, size: 50 %>
+              <%= image_tag user.avatar, class:"rounded-circle", size: 50 %>
             <% else %>
-              <%= image_tag 'noimage.jpg', class:"user-icon", alt:"ユーザアイコン", size: 50 %>
+              <%= image_tag 'noimage.jpg', class:"rounded-circle", alt:"ユーザアイコン", size: 50 %>
             <% end %>
-            <%= link_to user.name, user_path(user) %>
-          </td>
-          <td>
-            <%= user.occupation %>
-          </td>
-          <td>
+          <% end %>
+        </div>
 
-          </td>
-        </tr>
-      <% if user == @users.last %>
-          </tbody>
-        </table>
-      <% end %>
+          <div class="user_name ms-1 mb-0">
+            <%= link_to user_path(user), class: "link-dark" do %>
+              <%= user.name %>
+            <% end %>
+          </div>
+          <%# <p class="post_time link-secondary ms-1 mb-0"> %>
+            <%#= l post.created_at%>
+          <%# </p> %>
+        </div>
+
     </div>
   </div>
-</div>
+</section>
