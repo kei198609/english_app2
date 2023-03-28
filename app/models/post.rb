@@ -11,13 +11,13 @@ class Post < ApplicationRecord
     ["bookmarks", "posts", "users"]
   end
   def self.ransackable_attributes(auth_object = nil)
-    ["content_english_body", "scene"]
+    ["content_english", "scene"]
   end
 
 
   # Action Textを使用するため、has_rich_textメソッドを使用して、リレーションシップを設定
   has_rich_text :content_english
-  has_one :content_english, class_name: 'ActionText::RichText', as: :record
+  has_one       :content_english, class_name: 'ActionText::RichText', as: :record
 
   has_many :bookmarks, dependent: :destroy
     # 指定されたユーザーが特定の投稿をブックマークしているかどうかを判定するメソッド
