@@ -1,7 +1,7 @@
 ja:
   users:
     following:
-      Following: フォロー
+      Following: フォローしているユーザー
     followers:
       Followers: フォロワー
   activerecord:

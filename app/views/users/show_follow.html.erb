@@ -2,19 +2,22 @@
 <div class="container">
   <div class="row">
 
+    <%# マイページ画面左側 ユーザ情報%>
     <div class="col-md-4 mt-3">
-      <%# user section %>
       <section class= "bg-white">
         <%= render 'users/user_mypage' %>
       </section>
     </div>
 
-    <div class="col-md-8 mt-3">
-    <p>フォローしているユーザー</p>
+    <%# マイページ画面 ユーザ一覧%>
+    <div class="col-md-8 mt-3 bg-white">
+      <div>
+        <%= @title %>
+      </div>
       <% if @users.any? %>
-        <ul class="users follow">
+        <div class="users follow">
           <%= render @users %>
-        </ul>
+        </div>
         <%= paginate @users %>
       <% end %>
     </div>
