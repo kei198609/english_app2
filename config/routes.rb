@@ -8,12 +8,10 @@ Rails.application.routes.draw do
   }
 
   devise_scope :user do #deviseのsessionsコントローラーに新しいactionを追加するためにはdevise_scopeと書く
+    get  'users/password'       => 'users/registrations#password'
     post 'users/guest_sign_in' => 'users/sessions#new_guest'
   end
 
-  # devise_scope :user do
-  #   get 'mypages/home' => 'users/registrations#home'
-  # end
 
   def devise_scope(scope)
     constraint = lambda do |request|
@@ -26,13 +24,9 @@ Rails.application.routes.draw do
     end
   end
 
-
-  # resources :posts, only: [:new, :create, :show, :destroy]
   resources :posts, only: [:new, :create, :show, :destroy] do
     resources :bookmarks, only: [:index, :create, :destroy]
   end
-
-
 
   resources :users do
     member do
