@@ -15,7 +15,7 @@
       <div class="col-6">
         <div id="post-<%= @post.id %>">
           <div class="border border-2">
-            <div class="m-1">件名:<%= @post.subject_english %></div>
+            <div class="m-1">件名:<%= @translation_subject %></div>
           </div>
           <div class="border border-2 mt-3">
             <div class="m-1"><%= @post.content_english %></div>
@@ -30,8 +30,3 @@
 <%#= turbo_stream.update "hoge" do %>
   <%#= render 'bookmarks/bookmark' %>
 <%# end %>
-
-
-
-<%#= @text %>
-<%#= @translation %>
