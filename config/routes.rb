@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   }
 
   devise_scope :user do #deviseのsessionsコントローラーに新しいactionを追加するためにはdevise_scopeと書く
-    get  'users/password'       => 'users/registrations#password'
+    get  'users/account'       => 'users/registrations#account'
     post 'users/guest_sign_in' => 'users/sessions#new_guest'
   end
 
