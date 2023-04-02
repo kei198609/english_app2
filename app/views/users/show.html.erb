@@ -27,7 +27,7 @@
       <%# post section %>
       <section>
         <% if @user.posts.any? %>
-          <h3>投稿した記事 (<%= @user.posts.count %>)</h3>
+          <div>投稿した記事 (<%= @user.posts.count %>)</div>
           <div>
             <%= render @posts %>
           </div>

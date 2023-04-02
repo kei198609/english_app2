@@ -9,7 +9,7 @@ class ApplicationController < ActionController::Base
   def configure_permitted_parameters
     devise_parameter_sanitizer.permit(:sign_up, keys: [:name, :email, :occupation])
     devise_parameter_sanitizer.permit(:sign_in, keys: [:email])
-    devise_parameter_sanitizer.permit(:account_update, keys: [:name, :avatar])
+    devise_parameter_sanitizer.permit(:account_update, keys: [:name, :avatar, :occupation])
   end
 
   #ゲストユーザ特定するためresourceを用いる

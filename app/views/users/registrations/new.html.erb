@@ -6,12 +6,12 @@
       <div class="col-lg-6 mx-auto">
         <h2><%= t('.sign_up') %></h2>
         <div class="field mt-3">
-          <%= f.label :名前 %>
+          <%= f.label :name %>
           <%= f.text_field :name, autofocus: true, autocomplete: "name", class: "form-control" %>
         </div>
 
         <div class="field mt-3">
-          <%= f.label :職種 %>
+          <%= f.label :occupation %>
           <%= f.select :occupation, [["営業", "営業"], ["企画・マーケティング", "企画・マーケティング"], ["販売・サービス関連", "販売・サービス関連"],
           ["一般事務", "一般事務"], ["専門職(コンサルタント・金融・不動産等)", "専門職(コンサルタント・金融・不動産等)"], ["経理・財務", "経理・財務"], ["人事", "人事"],
           ["総務", "総務"],["技術系(ITエンジニア)", "技術系(ITエンジニア)"],["技術系(メディカル、科学、食品、医療)", "技術系(メディカル、科学、食品、医療)"],

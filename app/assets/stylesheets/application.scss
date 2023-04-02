@@ -36,6 +36,10 @@ a{
 	border-radius: 8px;
 }
 
+.btn {
+  border-radius: 2px;
+}
+
 
 // 投稿一覧、ブックマーク一覧デザイン
 .post_user{
@@ -83,4 +87,19 @@ a{
 
 .user_name:hover{
   text-decoration: underline;
+}
+
+//プロフィール編集画面
+.link_list{
+  font-size: 15px;
+  text-decoration: none;
+}
+
+.link_list:hover{
+  text-decoration: underline;
+}
+
+.profile{
+  font-size: 25px;
+  font-weight: bold;
 }
