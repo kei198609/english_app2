@@ -2,10 +2,14 @@
     <div class="row">
       <div class="pt-3 pb-3">
         <div class="link_list border-bottom pb-3">
-          <%= link_to "プロフィール",edit_user_registration_path, class: "link-dark"%>
+          <%= link_to edit_user_registration_path, class: "link-dark" do %>
+            <i class="fa-regular fa-user me-2"></i>プロフィール
+          <% end %>
         </div>
         <div class="link_list pt-3">
-          <%= link_to "アカウント削除",users_account_path, class: "link-dark"%>
+          <%= link_to users_account_path, class: "link-dark" do %>
+            <i class="fa-regular fa-trash-can me-2"></i>アカウント削除
+          <% end %>
         </div>
       </div>
     </div>

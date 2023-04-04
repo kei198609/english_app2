@@ -14,9 +14,9 @@
           <%= f.label :profile %>
         </div>
         <div>
-          <%= f.label :icon, class: "mb-3"%>
+          <%= f.label :icon, class: "mb-3 d-flex flex-wrap"%>
           <% if @user.avatar? %>
-            <%= image_tag @user.avatar, class:"rounded-circle d-flex flex-wrap" %>
+            <%= image_tag @user.avatar, class:"rounded-circle" %>
           <% else %>
             <%= image_tag 'noimage.jpg', alt:"ユーザアイコン", size: 100, class:"rounded-circle" %>
           <% end %>

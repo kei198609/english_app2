@@ -104,3 +104,6 @@ gem 'rails-i18n'
 
 # ransackで検索
 gem 'ransack'
+
+# font-awesome
+gem 'font-awesome-sass'
