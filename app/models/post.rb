@@ -16,8 +16,8 @@ class Post < ApplicationRecord
 
 
   # Action Textを使用するため、has_rich_textメソッドを使用して、リレーションシップを設定
-  has_rich_text :content_english
-  has_one       :content_english, class_name: 'ActionText::RichText', as: :record
+  # has_rich_text :content_english
+  # has_one       :content_english, class_name: 'ActionText::RichText', as: :record
 
   has_many :bookmarks, dependent: :destroy
     # 指定されたユーザーが特定の投稿をブックマークしているかどうかを判定するメソッド

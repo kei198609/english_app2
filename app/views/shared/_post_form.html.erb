@@ -19,7 +19,7 @@
           </div>
           <div class="mt-3">
             <label><i class="fa-solid fa-list me-2"></i>メール本文</label>
-            <%= f.rich_text_area :content_english, placeholder: "英語で入力して下さい", class: "form-control" %>
+            <%= f.text_area :content_english, placeholder: "英語で入力して下さい", class: "form-control" %>
           </div>
           <div class="mt-3">
             <%= button_tag type: "submit", class: "btn btn-primary" do %>
