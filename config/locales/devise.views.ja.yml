@@ -37,6 +37,7 @@ ja:
           attributes:
             name:
               blank: "が入力されていません。"
+              too_long: "は10文字以内で入力してください。"
             occupation:
               blank: "が入力されていません。"
             email:
@@ -44,7 +45,7 @@ ja:
               taken: "は既に登録済みです。"
             password:
               blank: "が入力されていません。"
-              too_short: "は6文字以上入力してください。"
+              too_short: "は6文字以上で入力してください。"
             current_password:
               blank: "が入力されていません。"
             password_confirmation:
