@@ -24,7 +24,7 @@ before_action :correct_user, only: :destroy
     translate = Google::Cloud::Translate.new version: :v2, project_id: project_id
     target = "ja"
     @translation_subject = translate.translate @post.subject_english, to: target
-    # @translation_content = translate.translate @post.content_english, to: target
+    @translation_content = translate.translate @post.content_english, to: target
 
   end
 
