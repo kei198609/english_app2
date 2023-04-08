@@ -26,7 +26,7 @@ RSpec.describe User, type: :model do
     expect(user.errors[:name]).to include("が入力されていません。")
   end
   # 職種がなければ無効な状態であること
-  it "is invalid without an name" do
+  it "is invalid without an occupation" do
     user = FactoryBot.build(:user, occupation: nil)
     user.valid?
     expect(user.errors[:occupation]).to include("が入力されていません。")

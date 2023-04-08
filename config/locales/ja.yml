@@ -14,13 +14,16 @@ ja:
       models:
         post:
           attributes:
-            content_english:
-              blank: "が入力されていません。"
-              too_long: "入力文字数は2000文字以内です。"
-            subject_english:
-              blank: "が入力されていません。"
             scene:
               blank: "が入力されていません。"
+            subject_english:
+              blank: "が入力されていません。"
+              too_long: "の入力文字数は100文字以内です。"
+              invalid: "は英字のみ入力できます。"
+            content_english:
+              blank: "が入力されていません。"
+              too_long: "の入力文字数は2000文字以内です。"
+              invalid: "は英字のみ入力できます。"
       template:
         header:
           one: "1件のエラーがあります。"
