@@ -35,10 +35,9 @@ RSpec.describe "postsInterface", type: :request do
         end.not_to change(Post, :count)
       end
     end
-
     context "with valid post" do
       let(:content) { "This micropost really ties the room together" }
-      # 投稿したら投稿数が変わること
+      # 投稿したら投稿数が増えること
       it "creates a post" do
         expect do
           post posts_path, params: { post: { scene: "foobar",
@@ -54,6 +53,14 @@ RSpec.describe "postsInterface", type: :request do
         expect(response).to redirect_to(new_post_path)
       end
     end
-
+    context "delete a post" do
+      before { FactoryBot.create(:post, user: user) }
+      # 投稿を削除したら投稿数が減ること
+      it "deletes a post" do
+        expect {
+          delete post_path(user.posts.first)
+        }.to change(Post, :count).by(-1)
+      end
+    end
   end
 end
