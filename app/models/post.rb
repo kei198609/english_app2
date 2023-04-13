@@ -3,8 +3,8 @@ class Post < ApplicationRecord
   default_scope -> { order(created_at: :desc) }
   validates :user_id, presence: true
   validates :scene, presence: true
-  validates :subject_english, presence: true, length: { maximum: 100 }, format: { with: /\A[a-zA-Z]+\z/ }
-  validates :content_english, presence: true, length: { maximum: 2000 }, format: { with: /\A[a-zA-Z]+\z/ }
+  validates :subject_english, presence: true, length: { maximum: 100 }, format: { with: /\A[a-zA-Z!'’@#?\$%^&*()\d\s.,-]+\z/, allow_blank: true }
+  validates :content_english, presence: true, length: { maximum: 2000 }, format: { with: /\A[a-zA-Z!'’@#?\$%^&*()\d\s.,-]+\z/, allow_blank: true }
 
   # 検索機能
   def self.ransackable_associations(auth_object = nil)
