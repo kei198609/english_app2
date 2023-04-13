@@ -20,8 +20,14 @@ class Post < ApplicationRecord
   # has_one       :content_english, class_name: 'ActionText::RichText', as: :record
 
   has_many :bookmarks, dependent: :destroy
-    # 指定されたユーザーが特定の投稿をブックマークしているかどうかを判定するメソッド
+  has_many :likes, dependent: :destroy
+
+  # 指定されたユーザーが特定の投稿をブックマークしているかどうかを判定するメソッド
   def bookmarked_by?(user)
     bookmarks.where(user_id: user).exists?
+  end
+  # 引数で渡されたユーザidがLikesテーブル内に存在（exists?）するかどうかを調べるメソッド
+  def liked_by?(user)
+    likes.where(user_id: user.id).exists?
   end
 end

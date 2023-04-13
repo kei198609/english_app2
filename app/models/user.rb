@@ -14,6 +14,7 @@ class User < ApplicationRecord
                         source: :follower
 
   has_many :bookmarks, dependent: :destroy
+  has_many :likes, dependent: :destroy
 
 
   # Include default devise modules. Others available are:
