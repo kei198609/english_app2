@@ -5,8 +5,13 @@
       <div class="d-flex col-md-2 mt-4">
         <div class="d-flex flex-sm-row flex-md-column mx-auto">
           <%= render 'likes/like' %>
-          <div class="text-center"><%= @post.likes.count %></div>
+          <div class="text-center">
+            <%= @post.likes.count %>
+          </div>
           <%= render 'bookmarks/bookmark' %>
+          <div class="text-center">
+            <%= @post.bookmarks.count %>
+          </div>
         </div>
       </div>
 
