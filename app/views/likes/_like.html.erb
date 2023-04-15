@@ -1,0 +1,17 @@
+  <div class="container">
+    <div class="row">
+      <% if @post.liked_by?(current_user) %>
+        <%= link_to post_likes_path(@post), data: { turbo_method: :delete }, class: "" do %>
+          <div class="d-flex justify-content-center align-items-center rounded-circle" style="width: 50px; height: 50px; border: 2px solid #66CC33;">
+            <i class="fa-solid fa-heart text-center" style="color: #66CC33; font-size: 20px;"></i>
+          </div>
+        <% end %>
+      <% else %>
+        <%= link_to post_likes_path(@post), data: { turbo_method: :post }, class: "" do %>
+          <div class="d-flex justify-content-center align-items-center rounded-circle" style="width: 50px; height: 50px; border: 2px solid #AAAAAA;">
+            <i class="fa-regular fa-heart text-center" style="color: #AAAAAA; font-size: 20px;"></i>
+          </div>
+        <% end %>
+      <% end %>
+    </div>
+  </div>

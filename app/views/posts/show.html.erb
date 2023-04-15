@@ -2,7 +2,15 @@
 <section>
   <div class="container">
     <div class="row">
-      <div class="col-6">
+      <div class="d-flex col-md-2 mt-4">
+        <div class="d-flex flex-sm-row flex-md-column mx-auto">
+          <%= render 'likes/like' %>
+          <div class="text-center"><%= @post.likes.count %></div>
+          <%= render 'bookmarks/bookmark' %>
+        </div>
+      </div>
+
+      <div class="col-md-5 mt-4">
           <div id="post-<%= @post.id %>">
             <div class="border border-2">
               <div class="m-1">Subject:<%= @post.subject_english %></div>
@@ -12,7 +20,7 @@
             </div>
           </div>
       </div>
-      <div class="col-6">
+      <div class="col-md-5 mt-4">
         <div id="post-<%= @post.id %>">
           <div class="border border-2">
             <div class="m-1">件名:<%= @translation_subject %></div>
@@ -26,7 +34,6 @@
   </div>
 </section>
 
-<%= render 'bookmarks/bookmark' %>
 <%#= turbo_stream.update "hoge" do %>
   <%#= render 'bookmarks/bookmark' %>
 <%# end %>
