@@ -1,0 +1,15 @@
+  <div class="container bg-white">
+    <div class="row">
+      <div class="col-md-12 col-sm-12 col-12 icon d-flex border-top pt-3">
+          <% if @recommend_post.present? %>
+            <div class="">
+            <p>あなたへのおすすめ投稿</p>
+              <%= @recommend_post.scene %>
+              <%= @recommend_post.content_english %>
+              <%= @recommend_post.user.name %>
+            </div>
+          <% end %>
+
+            </div>
+    </div>
+  </div>

@@ -4,13 +4,11 @@
   <%# end %>
 
 <% @feed_items.each_slice(6) do |posts| %>
-  <div class="container">
-    <div class="row">
+
       <% posts.each do |post| %>
         <div class="">
             <%= render partial: 'posts/post', locals: { post: post }%>
         </div>
       <% end %>
-    </div>
-  </div>
+
 <% end %>

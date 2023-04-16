@@ -1,5 +1,4 @@
 <%= flash[:success] %>
-
 <% if user_signed_in? %>
 <%# seach section %>
 <div class="container">
@@ -19,20 +18,18 @@
       </div>
     </div>
   <% end %>
+    <%= render 'shared/feed' %>
+  <section>
+    <div class="mt-4">
+      <%= paginate @feed_items, theme: 'bootstrap-5',
+                                pagination_class: "pagination-sm flex-wrap justify-content-center" %>
+    </div>
+  </section>
+
+  <%= render 'shared/recommend_post' %>
 </div>
 
 
-
-<%# feed section %>
-  <%= render 'shared/feed' %>
-<%# paginate section %>
-<section>
-  <div class="container mt-4">
-    <%= paginate @feed_items, theme: 'bootstrap-5',
-                              pagination_class: "pagination-sm flex-wrap justify-content-center" %>
-
-  </div>
-</section>
 <% else %>
 
 <% end %>
