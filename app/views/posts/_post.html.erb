@@ -1,8 +1,6 @@
-<!-- feed section -->
-<section>
-  <div class="container bg-white">
-    <div class="row">
-      <div class="col-md-12 col-sm-12 col-12 icon d-flex border-top pt-3">
+  <div class="container">
+    <div class="row bg-white">
+      <div class="d-flex border-top pt-3">
         <div>
           <%= link_to user_path(post.user) do %>
             <% if post.user.avatar.attached? %>
@@ -39,7 +37,7 @@
         </div>
     </div>
   </div>
-</section>
+
 
 <%# <div id="subject"> %>
     <%# Subject:<%= truncate(post.subject_english, length: 30, omission: '...') %>
