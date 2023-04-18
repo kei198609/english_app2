@@ -19,6 +19,9 @@ before_action :correct_user, only: :destroy
 
   def show
     @post = Post.find_by(id: params[:id])
+    @comment = Comment.new  #この行を追記
+    @comments = @post.comments.page(params[:page]).per(5).reverse_order  #この行を追記
+
 
     project_id = ENV["CLOUD_PROJECT_ID"]
     translate = Google::Cloud::Translate.new version: :v2, project_id: project_id

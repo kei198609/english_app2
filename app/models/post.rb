@@ -21,6 +21,8 @@ class Post < ApplicationRecord
 
   has_many :bookmarks, dependent: :destroy
   has_many :likes, dependent: :destroy
+  has_many :comments, dependent: :destroy
+
 
   # 指定されたユーザーが特定の投稿をブックマークしているかどうかを判定するメソッド
   def bookmarked_by?(user)
