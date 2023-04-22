@@ -37,6 +37,18 @@
                 <% end %>
               </li>
               <li class="nav-item">
+                <%= link_to  notifications_path, class: "nav-link" do %>
+                  <% if unchecked_notifications.any? %>
+                    <span class="fa-stack">
+                      <i class="fa-solid fa-bell"></i>
+                      <i class="fas fa-circle n-circle fa-stack-1x"></i>通知
+                    </span>
+                  <% else %>
+                    <i class="fa-solid fa-bell"></i>通知
+                  <% end %>
+                <% end %>
+              </li>
+              <li class="nav-item">
                 <%= link_to  edit_user_registration_path, class: "nav-link" do %>
                   <i class="fa-solid fa-gear me-1"></i>設定
                 <% end %>

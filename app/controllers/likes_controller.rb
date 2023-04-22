@@ -1,11 +1,20 @@
 class LikesController < ApplicationController
   before_action :authenticate_user!
+  # def create
+  #   post = Post.find(params[:post_id])
+  #   like = current_user.likes.new(post_id: post.id)
+  #   like.save
+  #   redirect_to post_path(post)
+  # end
   def create
     post = Post.find(params[:post_id])
     like = current_user.likes.new(post_id: post.id)
-    like.save
-    redirect_to post_path(post)
+    if like.save
+      post.create_notification_like!(current_user)#通知作成メソッドの呼び出し
+      redirect_to post_path(post)
+    end
   end
+
 
   def destroy
     post = Post.find(params[:post_id])
