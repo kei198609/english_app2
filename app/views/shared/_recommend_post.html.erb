@@ -6,7 +6,7 @@
           <div>
             <%= link_to user_path(@recommend_post.user) do %>
               <% if @recommend_post.user.avatar.attached? %>
-                <%= image_tag post.user.avatar, class:"rounded-circle", size: 32 %>
+                <%= image_tag @recommend_post.user.avatar, class:"rounded-circle", size: 32 %>
               <% else %>
                 <%= image_tag 'noimage.jpg', class:"rounded-circle", alt:"ユーザアイコン", size: 32 %>
               <% end %>
