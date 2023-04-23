@@ -1,3 +1,4 @@
+<section>
   <div class="container">
     <div class="row border bg-white">
       <div class="mt-1 mb-1">あなたへのおすすめ記事</div>
@@ -19,7 +20,7 @@
                 <%= @recommend_post.user.name %>
               <% end %>
             </p>
-            <p class="post_time link-secondary ms-1 mb-0">
+            <p class="post_time link-secondary ms-1 mb-0"></p>
               <%= l @recommend_post.created_at%>
             </p>
           </div>
@@ -37,3 +38,4 @@
         <% end %>
     </div>
   </div>
+</section>
