@@ -3,9 +3,13 @@ class CommentsController < ApplicationController
     post = Post.find(params[:post_id])
     comment = current_user.comments.new(comment_params)
     comment.post_id = post.id
-    comment.save
-    post.create_notification_comment!(current_user, comment.id)#通知作成メソッドの呼び出し
-    redirect_to post_path(post)
+    if comment.save
+      post.create_notification_comment!(current_user, comment.id)
+      redirect_to post_path(post)
+    else
+      flash[:error] = comment.errors.full_messages.join(", ")
+      redirect_to post_path(post)
+    end
   end
 
   def destroy
