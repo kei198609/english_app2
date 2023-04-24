@@ -1,7 +1,6 @@
 require 'rails_helper'
 
 RSpec.describe Relationship, type: :model do
-  include FactoryBot::Syntax::Methods # FactoryBotをインクルード
   let(:follower) { create(:user) }
   let(:followed) { create(:user) }
   let(:relationship) { Relationship.new(follower: follower, followed: followed) }

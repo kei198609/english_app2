@@ -64,5 +64,6 @@ RSpec.configure do |config|
   # Devise のヘルパーメソッドをテスト内で使用する
   config.include Devise::Test::ControllerHelpers, type: :controller
   config.include RequestSpecHelper, type: :request
-
+  # FactoryBotをインクルード
+  config.include FactoryBot::Syntax::Methods
 end
