@@ -30,6 +30,12 @@
         </div>
         <div class="post_scene ps-5 pb-3">
           <p class="mb-0"><%= bookmark.post.scene %></p>
+          <p class="mb-0">
+            <i class="fa-regular fa-heart text-center me-1" style="color: #AAAAAA;"></i>
+            <%= bookmark.post.likes.count %>
+            <i class="fa-regular fa-comment text-center ms-3 me-1" style="color: #AAAAAA;"></i>
+            <%= bookmark.post.comments.count %>
+          </p>
         </div>
     </div>
   </div>

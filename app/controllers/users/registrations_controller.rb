@@ -6,6 +6,8 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # before_action :configure_account_update_params, only: [:update]
   def account
   end
+
+
   # GET /resource/sign_up
   # def new
   #   super
@@ -61,4 +63,9 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # def after_inactive_sign_up_path_for(resource)
   #   mypages_home_path
   # end
+  protected
+  # プロフィール変更後の画面遷移先指定
+  def after_update_path_for(resource)
+    edit_user_registration_path
+  end
 end
