@@ -54,7 +54,7 @@
         <% end %>
 
         <div class="mt-4">
-          <%= f.label :password %> <i>(<%= t('.leave_blank_if_you_don_t_want_to_change_it') %>)</i>
+          <%= f.label :new_password %> <i>(<%= t('.leave_blank_if_you_don_t_want_to_change_it') %>)</i>
           <%= f.password_field :password, autocomplete: "new-password", class: "form-control" %>
           <% if @minimum_password_length %>
             <em><%= t('users.shared.minimum_password_length', count: @minimum_password_length) %></em>
