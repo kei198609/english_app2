@@ -20,17 +20,13 @@ RSpec.describe "Notifications", type: :request do
       end
     end
 
-    # context "when not signed in" do
-    #   before do
-    #     @user = create(:user)
-    #   end
-
-    #   it "does not show notifications" do
-    #     notification = build(:notification)
-    #     notification.visited = @user
-    #     notification.save
-
-    #   end
-    # end
+    context "when not signed in" do
+      # サインインしていない場合リダイレクトされること
+      it "redirects to the login page" do
+        get notifications_path
+        expect(response).to have_http_status(302)
+        expect(response).to redirect_to(new_user_session_path)
+      end
+    end
   end
 end
