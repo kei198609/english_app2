@@ -1,52 +1,46 @@
 <% visitor = notification.visitor %>
 <% visited = notification.visited %>
-<div class="container">
-  <div class="row">
-    <div class="col-md-6 mx-auto">
-      <div class="form-inline">
-        <span>
-          <%= link_to user_path(visitor) do %>
-            <% if visitor.avatar.attached? %>
-              <%= image_tag visitor.avatar, class:"rounded-circle", size: 32 %>
-            <% else %>
-              <%= image_tag 'noimage.jpg', class:"rounded-circle", alt:"ユーザアイコン", size: 32 %>
-            <% end %>
-            <strong><%= visitor.name %></strong>
-          <% end %>
-          さんが
-          <% case notification.action %>
-            <% when 'follow' %>
-              あなたをフォローしました
-            <% when 'like' %>
-              <%= link_to 'あなたの投稿', notification.post, style: "font-weight: bold;" %>
-              にいいねしました
-            <% when 'comment' %>
-              <% if notification.post.user_id == visited.id %>
-                <%= link_to "あなたの投稿", notification.post, style: "font-weight: bold;" %>
-              <% else %>
-                <span>
-                  <%= link_to post_path(notification.post) do %>
-                    <% if notification.post.user.avatar.attached? %>
-                      <%= image_tag notification.post.user.avatar, class:"rounded-circle", size: 32 %>
-                    <% else %>
-                      <%= image_tag 'noimage.jpg', class:"rounded-circle", alt:"ユーザアイコン", size: 32 %>
-                    <% end %>
-                    <strong><%= notification.post.user.name %></strong>
-                  <% end %>
-                  さんの投稿
-                </span>
+  <div class="form-inline">
+    <span>
+      <%= link_to user_path(visitor) do %>
+        <% if visitor.avatar.attached? %>
+          <%= image_tag visitor.avatar, class:"rounded-circle", size: 32 %>
+        <% else %>
+          <%= image_tag 'noimage.jpg', class:"rounded-circle", alt:"ユーザアイコン", size: 32 %>
+        <% end %>
+        <strong><%= visitor.name %></strong>
+      <% end %>
+      さんが
+      <% case notification.action %>
+        <% when 'follow' %>
+          あなたをフォローしました
+        <% when 'like' %>
+          <%= link_to 'あなたの投稿', notification.post, style: "font-weight: bold;" %>
+          にいいねしました
+        <% when 'comment' %>
+          <% if notification.post.user_id == visited.id %>
+            <%= link_to "あなたの投稿", notification.post, style: "font-weight: bold;" %>
+          <% else %>
+            <span>
+              <%= link_to post_path(notification.post) do %>
+                <% if notification.post.user.avatar.attached? %>
+                  <%= image_tag notification.post.user.avatar, class:"rounded-circle", size: 32 %>
+                <% else %>
+                  <%= image_tag 'noimage.jpg', class:"rounded-circle", alt:"ユーザアイコン", size: 32 %>
+                <% end %>
+                <strong><%= notification.post.user.name %></strong>
               <% end %>
-              にコメントしました
-              <p class="text-muted mb-0">
-                <%= Comment.find_by(id: notification.comment_id)&.comment %>
-              </p>
+              さんの投稿
+            </span>
           <% end %>
-        </span>
-      </div>
-      <div class="small text-muted text-right">
-        <%= time_ago_in_words(notification.created_at).upcase %>
-      </div>
-      <hr>
-    </div>
+          にコメントしました
+          <p class="text-muted mb-0">
+            <%= Comment.find_by(id: notification.comment_id)&.comment %>
+          </p>
+      <% end %>
+    </span>
   </div>
-</div>
+  <div class="small text-muted text-right">
+    <%= time_ago_in_words(notification.created_at).upcase %>
+  </div>
+  <hr>
