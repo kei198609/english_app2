@@ -11,7 +11,7 @@ class Post < ApplicationRecord
     ["bookmarks", "posts", "users"]
   end
   def self.ransackable_attributes(auth_object = nil)
-    ["content_english", "scene"]
+    ["content_english","subject_english", "scene"]
   end
 
 
