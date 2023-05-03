@@ -1,6 +1,6 @@
 <% visitor = notification.visitor %>
 <% visited = notification.visited %>
-  <div class="form-inline">
+  <div class="form-inline border-top pt-3 pb-3">
     <span>
       <%= link_to user_path(visitor) do %>
         <% if visitor.avatar.attached? %>
@@ -39,8 +39,8 @@
           </p>
       <% end %>
     </span>
+    <div class="small text-muted text-right">
+      <%= time_ago_in_words(notification.created_at).upcase %>前
+    </div>
   </div>
-  <div class="small text-muted text-right">
-    <%= time_ago_in_words(notification.created_at).upcase %>
-  </div>
-  <hr>
+  <%# <hr> %>
