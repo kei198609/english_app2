@@ -1,33 +1,25 @@
 <%= form_with(model: @post, local: true) do |f| %>
   <%= render 'shared/error_messages', object: f.object %>
-  <div class="postform">
-    <div class="container">
-      <div class="row justify-content-center">
-        <div class="col-lg-7">
-          <div class="mt-3 mx-auto">
-            <label><i class="fa-solid fa-briefcase me-2"></i>ビジネスシーン</label>
-            <%= f.select :scene, [["アポイントメント", "アポイントメント"], ["日程調整", "日程調整"], ["依頼", "依頼"],
-            ["問い合わせ", "問い合わせ"], ["報告", "報告"], ["お礼", "お礼"], ["謝罪", "謝罪"],
-            ["クレーム", "クレーム"],["確認", "確認"],["提案", "提案"],
-            ["催促", "催促"],["その他", "その他"]], { include_blank: '選択してください'}, class: "form-select" %>
-          </div>
-          <div class="mt-3 mx-auto">
-            <label><i class="fas fa-table me-2"></i>件名</label>
-            <div class="textarea">
-              <%= f.text_area :subject_english, placeholder: "英語で入力して下さい", class: "form-control" %>
-            </div>
-          </div>
-          <div class="mt-3">
-            <label><i class="fa-solid fa-list me-2"></i>メール本文</label>
-            <%= f.text_area :content_english, placeholder: "英語で入力して下さい", class: "form-control", rows: 10 %>
-          </div>
-          <div class="mt-3">
-            <%= button_tag type: "submit", class: "btn btn-primary" do %>
-              <i class="fas fa-pen me-2"></i>投稿する
-            <%end%>
-          </div>
-        </div>
-      </div>
+  <div class="mt-3 mx-auto">
+    <label><i class="fa-solid fa-briefcase me-2"></i>ビジネスシーン</label>
+    <%= f.select :scene, [["アポイントメント", "アポイントメント"], ["日程調整", "日程調整"], ["依頼", "依頼"],
+    ["問い合わせ", "問い合わせ"], ["報告", "報告"], ["お礼", "お礼"], ["謝罪", "謝罪"],
+    ["クレーム", "クレーム"],["確認", "確認"],["提案", "提案"],
+    ["催促", "催促"],["その他", "その他"]], { include_blank: '選択してください'}, class: "form-select" %>
+  </div>
+  <div class="mt-3 mx-auto">
+    <label><i class="fas fa-table me-2"></i>件名</label>
+    <div class="textarea">
+      <%= f.text_area :subject_english, placeholder: "英語で入力して下さい", class: "form-control" %>
     </div>
+  </div>
+  <div class="mt-3">
+    <label><i class="fa-solid fa-list me-2"></i>メール本文</label>
+    <%= f.text_area :content_english, placeholder: "英語で入力して下さい", class: "form-control", rows: 10 %>
+  </div>
+  <div class="mt-3">
+    <%= button_tag type: "submit", class: "btn btn-primary" do %>
+      <i class="fas fa-pen me-2"></i>投稿する
+    <%end%>
   </div>
 <% end %>

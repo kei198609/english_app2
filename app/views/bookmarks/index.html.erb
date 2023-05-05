@@ -1,20 +1,16 @@
-
-  <% @bookmarks.each do |bookmark| %>
-    <%= render partial: 'bookmarks/bookmark_list', locals: { bookmark: bookmark }%>
-  <% end %>
-
-  <%# paginate section %>
-  <section>
-    <div class="container mt-4">
-      <%= paginate @bookmarks, theme: 'bootstrap-5',
-                                pagination_class: "pagination-sm flex-wrap justify-content-center" %>
+<section>
+  <div class="container bg-white border-top">
+    <div class="row">
+      <% @bookmarks.each do |bookmark| %>
+        <%= render partial: 'bookmarks/bookmark_list', locals: { bookmark: bookmark }%>
+      <% end %>
     </div>
-  </section>
+  </div>
+</section>
 
-
-
-
-
-
-
-
+<section>
+  <div class="container mt-4">
+    <%= paginate @bookmarks, theme: 'bootstrap-5',
+                              pagination_class: "pagination-sm flex-wrap justify-content-center" %>
+  </div>
+</section>
