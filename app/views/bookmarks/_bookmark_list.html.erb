@@ -1,5 +1,5 @@
-<div class="col-md-12 col-sm-12 col-10 d-flex pt-3">
-  <div>
+<div class="col-md-12 col-sm-12 d-flex ps-2 pt-3 border-top">
+  <div class="">
     <%= link_to user_path(bookmark.post.user) do %>
       <% if bookmark.post.user.avatar.attached? %>
         <%= image_tag bookmark.post.user.avatar, class:"rounded-circle", size: 35 %>
