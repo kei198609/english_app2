@@ -1,6 +1,6 @@
 <% visitor = notification.visitor %>
 <% visited = notification.visited %>
-  <div class="form-inline border-top pt-3 pb-3">
+  <div class="form-inline border-top px-2 pt-3 pb-3">
     <span>
       <%= link_to user_path(visitor) do %>
         <% if visitor.avatar.attached? %>
@@ -13,10 +13,10 @@
       さんが
       <% case notification.action %>
         <% when 'follow' %>
-          あなたをフォローしました
+          あなたをフォローしました。
         <% when 'like' %>
           <%= link_to 'あなたの投稿', notification.post, style: "font-weight: bold;" %>
-          にいいねしました
+          にいいねしました。
         <% when 'comment' %>
           <% if notification.post.user_id == visited.id %>
             <%= link_to "あなたの投稿", notification.post, style: "font-weight: bold;" %>
@@ -33,7 +33,7 @@
               さんの投稿
             </span>
           <% end %>
-          にコメントしました
+          にコメントしました。
           <p class="text-muted mb-0">
             <%= Comment.find_by(id: notification.comment_id)&.comment %>
           </p>
