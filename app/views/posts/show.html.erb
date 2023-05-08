@@ -16,20 +16,20 @@
       </div>
       <div class="col-md-5 mt-4">
           <div id="post-<%= @post.id %>">
-            <div class="border border-2">
+            <div class="border border-2 bg-white">
               <div class="m-1">Subject:<%= @post.subject_english %></div>
             </div>
-            <div class="border border-2 mt-3">
+            <div class="border border-2 mt-3 bg-white">
               <div class="post_wrap m-1"><%= @post.content_english %></div>
             </div>
           </div>
       </div>
       <div class="col-md-5 mt-4">
         <div id="post-<%= @post.id %>">
-          <div class="border border-2">
+          <div class="border border-2 bg-white">
             <div class="m-1">件名:<%= @translation_subject %></div>
           </div>
-          <div class="border border-2 mt-3">
+          <div class="border border-2 mt-3 bg-white">
             <div class="m-1"><%= @translation_content %></div>
           </div>
         </div>
