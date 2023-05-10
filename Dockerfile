@@ -4,19 +4,22 @@ FROM ruby:3.1.3-alpine
 # dockerfile内で使用する変数を定義
 # appという値が入る
 ARG WORKDIR
+# dockerfile内でしか使用しないのでARGに移動
+# ARG RUNTIME_PACKAGES="nodejs tzdata postgresql-dev postgresql git"
+ARG RUNTIME_PACKAGES="nodejs tzdata mysql-dev mysql git"
+ARG DEV_PACKAGES="build-base curl-dev"
+
 
 # 環境変数を定義する命令
 # dockerfileとコンテナから参照可能
-ENV RUNTIME_PACKAGES="linux-headers libxml2-dev make gcc libc-dev nodejs tzdata postgresql-dev postgresql git" \
-    DEV_PACKAGES="build-base curl-dev" \
-    HOME=/${WORKDIR} \
+ENV HOME=/${WORKDIR} \
     LANG=C.UTF-8 \
     TZ=Asia/Tokyo
 
 # ベースイメージに対してコマンドを実行する
 # dockerfile内で変数を展開するには${HOME} or $HOMEと書く
 # この場合${HOME}には/appという文字列が出力される
-RUN echo ${HOME}
+# RUN echo ${HOME}
 
 # dockerfile内で指定した命令（RUN,COPY,ADD,ENTORYPOINT,CMD）を実行する
 # 作業ディレクトリを定義

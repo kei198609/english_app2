@@ -2,7 +2,7 @@
 FROM node:18.12.1-alpine
 
 ARG WORKDIR
-ARG CONTAINER_PORT
+# ARG CONTAINER_PORT
 
 # LANG:コンテナ内で使用する言語や単位
 # C:コンピュータ用の英語
@@ -15,8 +15,8 @@ ENV HOME=/${WORKDIR} \
     HOST=0.0.0.0
 
 # ENV check（このRUN命令は確認のためなので無くても良い）
-RUN echo ${HOME}
-RUN echo ${CONTAINER_PORT}
+# RUN echo ${HOME}
+# RUN echo ${CONTAINER_PORT}
 
 WORKDIR ${HOME}
 
@@ -24,4 +24,5 @@ WORKDIR ${HOME}
 # 3000が入る
 # http;//localhost(0.0.0.0):3000のURLで外部ブラウザから
 # コンテナのNuxtを参照することができる。
-EXPOSE ${CONTAINER_PORT}
+# ただしnuxtのデフォルトの公開番号は3000なので、消してよい↓
+# EXPOSE ${CONTAINER_PORT}
