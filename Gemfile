@@ -107,3 +107,7 @@ gem 'ransack'
 
 # font-awesome
 gem 'font-awesome-sass'
+
+# Use chartkick
+gem 'rubocop', require:false
+gem 'rubocop-rails', require:false
