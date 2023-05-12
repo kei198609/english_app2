@@ -6,7 +6,7 @@ FROM ruby:3.1.3-alpine
 ARG WORKDIR
 # dockerfile内でしか使用しないのでARGに移動
 # ARG RUNTIME_PACKAGES="nodejs tzdata postgresql-dev postgresql git"
-ARG RUNTIME_PACKAGES="nodejs tzdata mysql-dev mysql git"
+ARG RUNTIME_PACKAGES="nodejs tzdata mysql-dev mysql-client git"
 ARG DEV_PACKAGES="build-base curl-dev"
 
 
