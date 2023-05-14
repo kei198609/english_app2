@@ -3,16 +3,16 @@ FROM ruby:3.1.3-alpine
 
 # dockerfile内で使用する変数を定義
 # appという値が入る
-ARG WORKDIR
+# ARG WORKDIR
 # dockerfile内でしか使用しないのでARGに移動
 # ARG RUNTIME_PACKAGES="nodejs tzdata postgresql-dev postgresql git"
-ARG RUNTIME_PACKAGES="nodejs tzdata mysql-dev mysql-client git"
+ARG RUNTIME_PACKAGES="nodejs tzdata mysql-dev mysql-client git libc6-compat"
 ARG DEV_PACKAGES="build-base curl-dev"
 
 
 # 環境変数を定義する命令
 # dockerfileとコンテナから参照可能
-ENV HOME=/${WORKDIR} \
+ENV HOME=/app \
     LANG=C.UTF-8 \
     TZ=Asia/Tokyo
 
@@ -32,7 +32,10 @@ WORKDIR ${HOME}
 # コピー先（コンテナ）は絶対パスか相対パス（./は今いるディレクトリ)）
 # 今いるディレクトリはWORKDIR ${HOME}で指定したディレクトリのことでappなので、
 # Gemfile関連をappディレクトリ直下にコピーするということ
-COPY Gemfile* ./
+# COPY Gemfile* ./
+
+# GemfileとGemfile.lockを先にコピーしてbundle installを行う
+COPY Gemfile Gemfile.lock ./
 
 # apk updateパッケージの最新リストを取得
 # apk upgradeインストールパッケージを最新のものに
@@ -46,11 +49,16 @@ RUN apk update && \
     apk add --no-cache ${RUNTIME_PACKAGES} && \
     apk add --virtual build-dependencies --no-cache ${DEV_PACKAGES} && \
     bundle install -j4 && \
-    apk del build-dependencies
+    apk del build-dependencies && \
+    ln -s /lib64/ld-linux-x86-64.so.2 /lib/
 
 # .はdockerfileがあるディレクトリ全てのファイルをコピーして
 # コンテナのカレントディレクトリ（./）へコピーするという命令
-COPY . ./
+# COPY . ./
+
+# その他のアプリケーションファイルをコピーする
+COPY . ${HOME}
+
 
 # 生成されたコンテナ内で実行したいコマンドを指定
 # -bはバインド。プロセスを指定したip(0.0.0.0)アドレスに紐付け（バインド）する
