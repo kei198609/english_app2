@@ -38,17 +38,18 @@ services:
     ports:
       - "3000:3000"
 
-  # front:
-  #   build:
-  #     context: ./front
-  #     args:
-  #       WORKDIR: $WORKDIR
-  #   # コンテナで実行したいコマンド
-  #   # 開発環境用のコマンド
-  #   command: yarn run dev
-  #   volumes:
-  #     - ./front:/$WORKDIR
-  #   ports:
-  #     - "8080:3000"
-  #   depends_on:
-  #     - api
+  front:
+    build:
+      context: ./front
+      # args:
+      #   WORKDIR: $WORKDIR
+    # コンテナで実行したいコマンド
+    # 開発環境用のコマンド
+    command: yarn run dev
+    volumes:
+      - ./front:/app
+      # - ./front:/$WORKDIR
+    ports:
+      - "8080:3000"
+    depends_on:
+      - api
