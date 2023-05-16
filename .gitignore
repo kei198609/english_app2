@@ -33,3 +33,5 @@
 /config/local_env.yml
 /config/google_cloud.json
 /public/uploads
+
+front/node_modules/
