@@ -111,3 +111,6 @@ gem 'font-awesome-sass'
 # Use chartkick
 gem 'rubocop', require:false
 gem 'rubocop-rails', require:false
+
+# Use Rack CORS for handling Cross-Origin Resource Sharing (CORS), making cross-origin AJAX possible
+gem 'rack-cors'
