@@ -34,7 +34,8 @@ export default {
   // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
   buildModules: [
     // https://go.nuxtjs.dev/eslint
-    '@nuxtjs/eslint-module'
+    '@nuxtjs/eslint-module',
+    '@nuxtjs/vuetify',
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
@@ -49,7 +50,28 @@ export default {
     baseURL: '/'
   },
 
+  vuetify: {
+    // 開発環境でcustomVariablesを有効にするフラグ
+    treeShake: true,
+    // Doc: https://vuetifyjs.com/ja/customization/a-la-carte/
+    // カスタムcssファイルパス
+    customVariables: ['~/assets/sass/variables.scss'],
+    theme: {
+      themes: {
+        light: {
+          primary: '4080BE',
+          info: '4FC1E9',
+          success: '44D69E',
+          warning: 'FEB65E',
+          error: 'FB8678',
+          background: 'f6f6f4'
+        }
+      }
+    }
+  },
+
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
   }
+
 }
