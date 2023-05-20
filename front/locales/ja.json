@@ -1,5 +1,9 @@
 {
-  "title": {
+  "menus": {
+    "about": "サイトについて",
+    "products": "製品"
+  },
+  "pages": {
     "signup": "会員登録",
     "login": "ログイン"
   }
