@@ -45,6 +45,10 @@ export default {
     '@nuxtjs/i18n',
   ],
 
+  publicRuntimeConfig: {
+    appName: process.env.APP_NAME
+  },
+
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {
     // Workaround to avoid enforcing hard-coded localhost:3000: https://github.com/nuxt-community/axios-module/issues/308
@@ -75,6 +79,8 @@ export default {
   i18n: {
     locales: ['ja', 'en'],
     defaultLocale: 'ja',
+    // ルート名に__jaを追加しない
+    strategy: 'no_prefix',
     // Doc: https://kazupon.github.io/vue-i18n/api/#properties
     vueI18n: {
       fallbackLocale: 'ja',
