@@ -1,9 +1,17 @@
 <template>
   <v-text-field
     v-model="setPassword"
+    :rules="form.rules"
+    :hint="form.hint"
     label="パスワードを入力"
-    placeholder="8文字以上"
+    :placeholder="form.placeholder"
+    :hide-details="!setValidation"
+    :counter="setValidation"
+    :append-icon="toggle.icon"
+    :type="toggle.type"
     outlined
+    autocomplete="on"
+    @click:append="show = !show"
   />
 </template>
 
@@ -13,8 +21,20 @@ export default {
     password: {
       type: String,
       default: ''
+    },
+    // バリデーションを切り替えるフラグ
+    setValidation: {
+      type: Boolean,
+      default: false
     }
   },
+
+  data () {
+    return {
+      show: false
+    }
+  },
+
   computed: {
     setPassword: {
       get () {
@@ -23,6 +43,23 @@ export default {
       set (newValue) {
         return this.$emit('update:password', newValue)
       }
+    },
+    form () {
+      const min = '8文字以上'
+      const msg = `${min}。半角英数字•ﾊｲﾌﾝ•ｱﾝﾀﾞｰﾊﾞｰが使えます`
+      // setValidationがfalseの場合、ログインページは入力必須
+      // setValidationがtrueの場合、会員登録ページは入力必須、8文字以上、72文字以下、書式チェック
+      const required = v => !!v || ''
+      const format = v => /^[\w-]{8,72}$/.test(v) || msg
+      const rules = this.setValidation ? [format] : [required]
+      const hint = this.setValidation ? msg : undefined
+      const placeholder = this.setValidation ? min : undefined
+      return { rules, hint, placeholder }
+    },
+    toggle () {
+      const icon = this.show ? 'mdi-eye' : 'mdi-eye-off'
+      const type = this.show ? 'text' : 'password'
+      return { icon, type }
     }
   }
 }
