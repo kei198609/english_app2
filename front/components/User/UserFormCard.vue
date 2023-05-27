@@ -28,14 +28,14 @@
 <script>
 export default {
   // $routeには現在表示されているroute情報が入っている
-  data ({ $route, $config: { appName } }) {
+  data ({ $route, $config: { appName }, $my }) {
     return {
       appName,
       // $route.name は例えば/signupのパスだと、 name: signup  nameにsignupというパスが入る
       // $route.name => /account/settings = name.account-settings
       // `pages.${$route.name}` => pages.signup
       // `pages.${$route.name}` => pages.login
-      pageTitle: this.$t(`pages.${$route.name}`)
+      pageTitle: $my.pageTitle($route.name)
     }
   }
 }
