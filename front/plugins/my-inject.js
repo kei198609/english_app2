@@ -11,6 +11,18 @@ class MyInject {
     const title = this.app.i18n.t(jsonPath)
     return title
   }
+
+  dataFormat (dataStr) {
+    const dateTimeFormat = new Intl.DateTimeFormat(
+      'ja', { dateStyle: 'medium', timeStyle: 'short' }
+    )
+    return dateTimeFormat.format(new Date(dataStr))
+  }
+
+  // プロジェクトリンク
+  projectLinkTo (id, name = 'project-id-dashboard') {
+    return { name, params: { id } }
+  }
 }
 // injectとは、オリジナルクラスを追加することができる
 // 主にアプリ全体で使うメソッドを管理します
