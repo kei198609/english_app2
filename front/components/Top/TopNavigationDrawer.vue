@@ -57,12 +57,12 @@ export default {
     return {
       mobileBreakpoint: 960,
       navMenus: [
-        { name: 'top-id-users', icon: 'mdi-view-dashboard' },
-        { name: 'top-id-bookmark', icon: 'mdi-view-compact' },
-        { name: 'top-id-mypage', icon: 'mdi-image' },
-        { name: 'top-id-post', icon: 'mdi-view-comfy' },
-        { name: 'top-id-notifications', icon: 'mdi-cog' },
-        { name: 'top-id-settings', icon: 'mdi-help-circle' }
+        { name: 'top-id-users', icon: 'mdi-account-multiple' },
+        { name: 'top-id-bookmark', icon: 'mdi-bookmark' },
+        { name: 'top-id-mypage', icon: 'mdi-account-circle' },
+        { name: 'top-id-post', icon: 'mdi-pen-plus' },
+        { name: 'top-id-notifications', icon: 'mdi-bell' },
+        { name: 'top-id-settings', icon: 'mdi-account-cog' }
       ]
     }
   },
