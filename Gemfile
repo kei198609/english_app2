@@ -75,6 +75,7 @@ end
 
 # Use Devise
 gem 'devise'
+gem 'devise_token_auth'
 gem 'devise-i18n'
 gem 'devise-i18n-views'
 
