@@ -1,4 +1,9 @@
 class User < ApplicationRecord
+  # Include default devise modules.
+  devise :database_authenticatable, :registerable,
+          :recoverable, :rememberable, :validatable
+  include DeviseTokenAuth::Concerns::User
+
   has_many :posts, dependent: :destroy
   has_many :active_relationships,  class_name: "Relationship",
                                   foreign_key: "follower_id",
@@ -28,9 +33,6 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   validates :name,       presence: true, length: { maximum: 10 }
   validates :occupation, presence: true
-
-  devise :database_authenticatable, :registerable,
-          :recoverable, :rememberable, :validatable
 
   #Active Storage
   has_one_attached :avatar

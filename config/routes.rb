@@ -1,11 +1,11 @@
 Rails.application.routes.draw do
   root to: 'tops#index'
 
-  devise_for :users, controllers: {
-    sessions: 'users/sessions',
-    passwords: 'users/passwords',
-    registrations: 'users/registrations' #deviseのregistrationsコントローラーの部分が、users/registrationsを参照するようになる
-  }
+  devise_for :users, skip: [:sessions, :passwords, :registrations]
+
+  namespace :api, defaults: { format: :json } do
+    mount_devise_token_auth_for 'User', at: 'auth', skip: [:omniauth_callbacks]
+  end
 
   devise_scope :user do #deviseのsessionsコントローラーに新しいactionを追加するためにはdevise_scopeと書く
     get  'users/account'       => 'users/registrations#account'
