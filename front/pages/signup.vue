@@ -11,6 +11,9 @@
         <user-form-name
           :name.sync="params.user.name"
         />
+        <user-form-occupation
+          :occupation.sync="params.user.occupation"
+        />
         <user-form-email
           :email.sync="params.user.email"
           placeholder
@@ -43,16 +46,36 @@ export default {
     return {
       isValid: false,
       loading: false,
-      params: { user: { name: '', email: '', password: '' } }
+      params: { user: { name: '', email: '', password: '', occupation: '' } }
     }
   },
   methods: {
-    signup () {
+    async signup () {
       this.loading = true
-      setTimeout(() => {
-        this.formReset()
-        this.loading = false
-      }, 1500)
+
+      try {
+        // POSTリクエストを送信して新規登録を試みる
+        await this.$axios.post('/api/auth', {
+          name: this.params.user.name,
+          email: this.params.user.email,
+          password: this.params.user.password,
+          occupation: this.params.user.occupation
+        })
+
+        // 登録が成功したら、そのままログインする
+        await this.$auth.loginWith('local', {
+          data: {
+            password: this.params.user.password,
+            email: this.params.user.email
+          }
+        })
+      } catch (e) {
+        // エラーハンドリング（適切に修正してください）
+        console.error(e)
+      }
+
+      this.formReset()
+      this.loading = false
     },
     formReset () {
       this.$refs.form.reset()
