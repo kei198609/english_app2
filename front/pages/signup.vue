@@ -55,11 +55,13 @@ export default {
 
       try {
         // POSTリクエストを送信して新規登録を試みる
-        await this.$axios.post('/api/auth', {
-          name: this.params.user.name,
-          email: this.params.user.email,
-          password: this.params.user.password,
-          occupation: this.params.user.occupation
+        await this.$axios.post('/api/v1/auth', {
+          user: {
+            name: this.params.user.name,
+            email: this.params.user.email,
+            password: this.params.user.password,
+            occupation: this.params.user.occupation
+          }
         })
 
         // 登録が成功したら、そのままログインする
