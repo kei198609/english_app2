@@ -50,6 +50,7 @@
         <v-list-item
           :key="`menu-list-${i}`"
           :to="{ name: menu.name }"
+          @click="menu.name === 'logout' ? logout() : null"
         >
           <v-list-item-icon
             class="mr-2"
@@ -81,6 +82,14 @@ export default {
         { name: 'account-password', icon: 'mdi-lock-outline' },
         { name: 'logout', icon: 'mdi-logout-variant', divider: true }
       ]
+    }
+  },
+  methods: {
+    logout () {
+      this.$auth.logout()
+        .then(() => {
+          this.$router.push('/')
+        })
     }
   }
 }
