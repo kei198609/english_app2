@@ -43,8 +43,21 @@ export default {
     }
   },
   methods: {
-    login () {
+    async login () {
       this.loading = true
+      try {
+        // Authモジュールの`loginWith`メソッドを使用してログイン
+        await this.$auth.loginWith('local', {
+          data: {
+            email: this.params.user.email,
+            password: this.params.user.password
+          }
+        })
+      } catch (err) {
+        console.error(err)
+      } finally {
+        this.loading = false
+      }
       this.$router.push(this.redirectPath)
     }
   }
