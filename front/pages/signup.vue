@@ -46,7 +46,8 @@ export default {
     return {
       isValid: false,
       loading: false,
-      params: { user: { name: '', email: '', password: '', occupation: '' } }
+      params: { user: { name: '', email: '', password: '', occupation: '' } },
+      redirectPath: '/tops'
     }
   },
   methods: {
@@ -54,7 +55,6 @@ export default {
       this.loading = true
 
       try {
-        // POSTリクエストを送信して新規登録を試みる
         await this.$axios.post('/api/v1/auth', {
           user: {
             name: this.params.user.name,
@@ -63,21 +63,14 @@ export default {
             occupation: this.params.user.occupation
           }
         })
-
-        // 登録が成功したら、そのままログインする
-        await this.$auth.loginWith('local', {
-          data: {
-            password: this.params.user.password,
-            email: this.params.user.email
-          }
-        })
       } catch (e) {
-        // エラーハンドリング（適切に修正してください）
         console.error(e)
       }
 
       this.formReset()
       this.loading = false
+      // ユーザーが正常にサインアップした後、topsページに遷移します
+      this.$router.push(this.redirectPath)
     },
     formReset () {
       this.$refs.form.reset()
