@@ -6,8 +6,16 @@ Rails.application.routes.draw do
   namespace :api do
     namespace :v1 do
       mount_devise_token_auth_for 'User', at: 'auth', controllers: {
-        registrations: 'api/v1/auth/registrations'
+        registrations: 'api/v1/auth/registrations',
+        sessions: 'api/v1/auth/sessions'
       }
+      resources :users do
+        member do
+          get :following, :followers
+        end
+        get :bookmarks, on: :collection
+      end
+
     end
   end
 
@@ -34,6 +42,7 @@ Rails.application.routes.draw do
     resources :comments, only:[:create, :destroy]
   end
 
+  # 上記apiにしたので削除予定
   resources :users do
     member do
       get :following, :followers
