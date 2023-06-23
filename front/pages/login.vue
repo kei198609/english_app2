@@ -47,12 +47,15 @@ export default {
       this.loading = true
       try {
         // Authモジュールの`loginWith`メソッドを使用してログイン
-        await this.$auth.loginWith('local', {
+        const response = await this.$auth.loginWith('local', {
           data: {
             email: this.params.user.email,
             password: this.params.user.password
           }
         })
+        console.log('Authenticated user:', this.$auth.user) // ログイン後のユーザー情報をログに出力
+        console.log('loggedIn:', this.$auth.loggedIn)
+        console.log(response)
       } catch (err) {
         console.error(err)
       } finally {

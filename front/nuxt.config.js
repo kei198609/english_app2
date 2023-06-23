@@ -56,13 +56,21 @@ export default {
     },
     strategies: {
       local: {
+        token: {
+          property: 'access-token',
+          type: 'Bearer'
+        },
         endpoints: {
           //ログイン処理に関する設定
-          login: { url: '/api/v1/auth/sign_in', method: 'post', propertyName: 'access_token'},
+          login: { url: '/api/v1/auth/sign_in', method: 'post'},
           //ログアウト処理に関する設定
           logout: { url: '/api/v1/auth/sign_out', method: 'delete' },
           //ログイン時にユーザー情報を保存するか。
-          user: false
+          user: {
+            url: '/api/v1/auth/validate_token', // ユーザー情報を取得するAPIのエンドポイント
+            method: 'get', // そのAPIへのリクエストメソッド
+            propertyName: 'user' // レスポンスからユーザー情報を抽出するためのプロパティ名
+          },
         },
       }
     },
