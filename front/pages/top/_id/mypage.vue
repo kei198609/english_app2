@@ -3,23 +3,20 @@
     <v-row>
       <!-- User section -->
       <v-col cols="4" class="mt-3">
-        <div v-if="user">
-          <h1>{{ user.name }}</h1>
-        </div>
-        <!-- <UserSection v-if="user" :user="user" /> -->
+        <UserSection v-if="user" :user="user" />
       </v-col>
     </v-row>
   </v-container>
 </template>
 
 <script>
-// import UserSection from '~/components/UserSection.vue'
+import UserSection from '~/components/UserSection.vue'
 
 export default {
-  // components: {
-  //   UserSection
-  //   OtherSections
-  // },
+  components: {
+    UserSection
+    // ChartSections
+  },
   data () {
     return {
       user: null
