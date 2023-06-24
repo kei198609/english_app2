@@ -69,7 +69,7 @@ export default {
           user: {
             url: '/api/v1/auth/validate_token', // ユーザー情報を取得するAPIのエンドポイント
             method: 'get', // そのAPIへのリクエストメソッド
-            propertyName: 'user' // レスポンスからユーザー情報を抽出するためのプロパティ名
+            propertyName: 'data' // レスポンスからユーザー情報を抽出するためのプロパティ名
           },
         },
       }
