@@ -8,7 +8,7 @@
     </v-list-item-avatar>
     <v-list-item-content>
       <v-list-item-title>
-        <nuxt-link :to="`/users/${user.id}`">{{ user.name }}</nuxt-link>
+        <nuxt-link :to="`/top/${user.id}/mypage`">{{ user.name }}</nuxt-link>
       </v-list-item-title>
     </v-list-item-content>
   </v-list-item>
