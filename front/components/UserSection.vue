@@ -12,30 +12,29 @@
           <div class="text-center mb-1">{{ user.name }}</div>
           <div class="text-center border-bottom mb-3">{{ user.occupation }}</div>
           <div class="text-center">
-            <!-- <StatsComponent /> -->
+            <StatsComponent :user="user" />
           </div>
           <div class="text-center mt-3" v-if="userSignedIn">
-            <!-- <FollowForm /> -->
+            <FollowForm :user="user" />
           </div>
           <div class="text-center">
-            <v-btn v-if="currentUser" to="edit-user-profile" color="primary">プロフィールを編集する</v-btn>
+            <v-btn v-if="isCurrentUser" to="edit-user-profile" color="primary">プロフィールを編集する</v-btn>
           </div>
         </v-card>
       </v-col>
-      <!-- Here goes the rest of the columns -->
     </v-row>
   </v-container>
 </template>
 
 <script>
-// import StatsComponent from '~/components/StatsComponent.vue'
-// import FollowForm from '~/components/FollowForm.vue'
+import StatsComponent from '~/components/StatsComponent.vue'
+import FollowForm from '~/components/FollowForm.vue'
 
 export default {
-  // components: {
-  //   StatsComponent,
-  //   FollowForm
-  // },
+  components: {
+    StatsComponent,
+    FollowForm
+  },
   data () {
     return {
       noimage: require('~/assets/images/noimage.jpg')
@@ -53,6 +52,9 @@ export default {
     },
     currentUser () {
       return this.$auth.user
+    },
+    isCurrentUser () {
+      return this.$auth.loggedIn && this.$auth.user.id === this.user.id
     }
   },
   created () {

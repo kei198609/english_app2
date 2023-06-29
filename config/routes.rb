@@ -11,7 +11,8 @@ Rails.application.routes.draw do
       }
       resources :users do
         member do
-          get :following, :followers
+          get :following, :followers, :following_status
+          post :follow, :unfollow
         end
         get :bookmarks, on: :collection
       end
@@ -43,12 +44,12 @@ Rails.application.routes.draw do
   end
 
   # 上記apiにしたので削除予定
-  resources :users do
-    member do
-      get :following, :followers
-    end
-    get :bookmarks, on: :collection
-  end
+  # resources :users do
+  #   member do
+  #     get :following, :followers
+  #   end
+  #   get :bookmarks, on: :collection
+  # end
 
   resources :relationships, only: [:create, :destroy]
   resources :notifications, only: :index

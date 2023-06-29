@@ -40,4 +40,24 @@ class Api::V1::UsersController < ApplicationController
     render 'show_follow'
   end
 
+# nuxt側フォロー、アンフォロー機能用
+  def following_status
+    @user = User.find(params[:id])
+    is_following = current_user.following?(@user)
+    render json: { following: is_following }
+  end
+
+  def follow
+    @user = User.find(params[:id])
+    current_user.follow(@user)
+    head :no_content
+  end
+
+  def unfollow
+    @user = User.find(params[:id])
+    current_user.unfollow(@user)
+    head :no_content
+  end
+
+
 end
