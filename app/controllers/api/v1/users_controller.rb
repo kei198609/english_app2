@@ -12,7 +12,6 @@ class Api::V1::UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    # @user = User.find_by(uid: params[:uid])
     # @posts = @user.posts.page(params[:page]).per(5)
     # @data = @user.posts.group_by(&:scene).transform_values(&:count)
 
