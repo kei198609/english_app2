@@ -18,7 +18,9 @@
         "mypage": "マイページ",
         "post": "投稿",
         "notifications": "通知",
-        "settings": "アカウント設定"
+        "settings": "アカウント設定",
+        "password": "パスワード変更",
+        "email": "メールアドレス変更"
       }
     }
   }
