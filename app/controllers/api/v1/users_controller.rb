@@ -58,5 +58,12 @@ class Api::V1::UsersController < ApplicationController
     head :no_content
   end
 
-
+  def update_avatar
+    @user = User.find(params[:id])
+    if @user.update(avatar: params[:user][:avatar])
+      render json: { avatar_url: @user.avatar.url }
+    else
+      render json: { errors: @user.errors.full_messages }, status: :unprocessable_entity
+    end
+  end
 end

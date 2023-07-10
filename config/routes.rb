@@ -17,6 +17,8 @@ Rails.application.routes.draw do
         get :bookmarks, on: :collection
       end
 
+      put '/users/:id/avatar', to: 'users#update_avatar'
+
     end
   end
 

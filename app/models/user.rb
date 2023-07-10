@@ -1,6 +1,7 @@
 class User < ApplicationRecord
   # before_create :add_default_avatar
   # Include default devise modules.
+  mount_uploader :avatar, AvatarUploader
   devise :database_authenticatable, :registerable,
           :recoverable, :rememberable, :validatable
   include DeviseTokenAuth::Concerns::User
