@@ -76,8 +76,14 @@ export default {
     },
   },
 
+  // apiBaseUrlは使用予定ないので削除してもよい
   publicRuntimeConfig: {
-    appName: process.env.APP_NAME
+    appName: process.env.APP_NAME,
+    apiBaseUrl: process.env.API_BASE_URL || 'http://localhost:3000'
+  },
+
+  env: {
+    apiBaseUrl: process.env.API_BASE_URL || 'http://localhost:3000'
   },
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
@@ -127,6 +133,6 @@ export default {
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
-  }
+  },
 
 }
