@@ -1,6 +1,6 @@
 <template>
   <v-container>
-    <user-from-card-change>
+    <user-form-card-change>
       <template #user-form-card-change-content>
         <v-form ref="form" v-model="valid">
           <user-form-password-current
@@ -27,7 +27,7 @@
           </v-btn>
         </v-form>
       </template>
-    </user-from-card-change>
+    </user-form-card-change>
 
     <v-snackbar v-model="snackbar" bottom right color="success">
       {{ snackbarMessage }}
@@ -41,9 +41,9 @@
 
 <script>
 import UserFormPasswordConfirm from '../../components/User/UserFormPasswordConfirm.vue'
-import UserFromCardChange from '../../components/User/UserFromCardChange.vue'
+import UserFormCardChange from '../../components/User/UserFormCardChange.vue'
 export default {
-  components: { UserFormPasswordConfirm, UserFromCardChange },
+  components: { UserFormPasswordConfirm, UserFormCardChange },
   data () {
     return {
       valid: true,

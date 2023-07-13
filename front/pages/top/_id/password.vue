@@ -17,7 +17,7 @@
           <link-list :items="items" />
           <v-col cols="8">
             <div>パスワード</div>
-            <user-from-card-change>
+            <user-form-card-change>
               <template #user-form-card-change-content>
                 <v-form ref="form" v-model="valid">
                   <user-form-password-current
@@ -43,7 +43,7 @@
                   </v-btn>
                 </v-form>
               </template>
-            </user-from-card-change>
+            </user-form-card-change>
           </v-col>
           <v-snackbar v-model="snackbar" bottom right color="success">
             {{ snackbarMessage }}
@@ -59,10 +59,10 @@
 
 <script>
 import UserFormPasswordConfirm from '~/components/User/UserFormPasswordConfirm.vue'
-import UserFromCardChange from '~/components/User/UserFromCardChange.vue'
+import UserFormCardChange from '~/components/User/UserFormCardChange.vue'
 import LinkList from '~/components/LinkList.vue'
 export default {
-  components: { UserFormPasswordConfirm, UserFromCardChange, LinkList },
+  components: { UserFormPasswordConfirm, UserFormCardChange, LinkList },
   data () {
     return {
       valid: true,
@@ -78,7 +78,7 @@ export default {
       drawer: null,
       items: [
         { title: 'アカウント', link: `/top/${this.$auth.user.id}/settings` },
-        { title: '公開用プロフィール', link: '' },
+        { title: '公開用プロフィール', link: `/top/${this.$auth.user.id}/profile` },
         { title: 'パスワード', link: `/top/${this.$auth.user.id}/password` },
         { title: 'メールアドレス', link: `/top/${this.$auth.user.id}/email` }
       ]
