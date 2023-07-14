@@ -15,7 +15,7 @@
       <v-container>
         <v-row>
           <!-- User section -->
-          <v-col cols="4" class="mt-3">
+          <v-col cols="12" md="4" lg="4" class="mt-3">
             <UserSection v-if="user" :user="user" />
           </v-col>
           <!-- Chart section -->

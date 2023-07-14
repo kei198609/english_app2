@@ -1,14 +1,17 @@
 <template>
   <v-container>
     <v-row>
-      <v-col cols="4" class="mt-3">
+      <v-col class="mt-3">
         <v-card class="pa-4">
-          <v-img
-            :src="user.avatar || noimage"
-            alt="User Image"
-            height="100"
-            class="rounded-circle mb-3"
-          ></v-img>
+          <div class="image-container">
+            <v-avatar size="150" class="rounded-circle">
+              <img
+                :src="user.avatar && user.avatar.url ? user.avatar.url : noimage"
+                alt="User Image"
+                class="circle-size"
+              />
+            </v-avatar>
+          </div>
           <div class="text-center mb-1">{{ user.name }}</div>
           <div class="text-center border-bottom mb-3">{{ user.occupation }}</div>
           <div class="text-center">
@@ -59,6 +62,18 @@ export default {
   },
   created () {
     // Fetch necessary data
+    console.log(this.user) // この行を追加
   }
 }
 </script>
+
+<style scoped>
+.image-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.circle-size {
+  object-fit: cover;
+}
+</style>
