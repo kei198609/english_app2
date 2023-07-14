@@ -53,16 +53,19 @@ export default {
       drawer: null,
       items: [
         { title: 'アカウント', link: `/top/${this.$auth.user.id}/settings` },
-        { title: '公開用プロフィール', link: '' },
+        { title: '公開用プロフィール', link: `/top/${this.$auth.user.id}/profile` },
         { title: 'パスワード', link: `/top/${this.$auth.user.id}/password` },
         { title: 'メールアドレス', link: `/top/${this.$auth.user.id}/email` }
       ]
     }
   },
   mounted () {
+    console.log(this.$config.apiBaseUrl)
     const storedUser = localStorage.getItem(`user_${this.$auth.user.id}`)
     if (storedUser) {
-      this.avatarUrl = `${process.env.apiBaseUrl}${JSON.parse(storedUser).avatar_url}`
+      console.log(JSON.parse(storedUser)) // ローカルストレージ内のデータをログ出力
+      // this.avatarUrl = `${this.$config.apiBaseUrl}${JSON.parse(storedUser).avatar_url}`
+      this.avatarUrl = JSON.parse(storedUser).avatar_url
     }
   },
   methods: {
@@ -81,7 +84,8 @@ export default {
         })
         // console.log(response) // レスポンス全体をログに出力
         // console.log(response.data.avatar_url) // avatar_urlだけをログに出力
-        this.avatarUrl = `${process.env.apiBaseUrl}${response.data.avatar_url}`
+        // this.avatarUrl = `${this.$config.apiBaseUrl}${response.data.avatar_url}`
+        this.avatarUrl = response.data.avatar_url
         localStorage.setItem(`user_${this.$auth.user.id}`, JSON.stringify(response.data)) // ここでローカルストレージに保存
         this.snackbar = true
         this.snackbarMessage = 'アイコン画像が変更されました'

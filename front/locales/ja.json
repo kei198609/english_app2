@@ -20,7 +20,8 @@
         "notifications": "通知",
         "settings": "アカウント設定",
         "password": "パスワード変更",
-        "email": "メールアドレス変更"
+        "email": "メールアドレス変更",
+        "profile": "公開プロフィール変更"
       }
     }
   }
