@@ -1,17 +1,17 @@
 <template>
   <v-row class="d-flex">
-    <v-col class="text-center" cols="6">
+    <v-col class="text-center">
       <router-link :to="'/following/' + user.id" class="link-dark">
         <strong id="following">
-          <!-- {{ user.following.length }}<br> -->
+          {{ user.following_count }}<br>
         </strong>
         フォロー
       </router-link>
     </v-col>
-    <v-col class="text-center" cols="6">
+    <v-col class="text-center">
       <router-link :to="'/followers/' + user.id" class="link-dark">
         <strong id="followers">
-          <!-- {{ user.followers.length }}<br> -->
+          {{ user.followers_count }}<br>
         </strong>
         フォロワー
       </router-link>
