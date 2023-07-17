@@ -1,7 +1,7 @@
 <template>
   <v-list-item>
     <v-list-item-avatar>
-      <v-img :src="user.avatar || noimage"
+      <v-img :src="user.avatar && user.avatar.url ? user.avatar.url : noimage"
               @click="$router.push(`/users/${user.id}`)"
               class="clickable-image">
       </v-img>
