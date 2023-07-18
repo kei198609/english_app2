@@ -14,7 +14,7 @@
     <v-main>
       <v-container>
         <v-list>
-          <User
+          <UserList
             v-for="user in users"
             :key="user.id"
             :user="user"
@@ -31,11 +31,11 @@
 </template>
 
 <script>
-import User from '~/components/UserList.vue'
+import UserList from '~/components/UserList.vue'
 
 export default {
   components: {
-    User
+    UserList
   },
   data () {
     return {
@@ -50,7 +50,7 @@ export default {
   },
   methods: {
     async fetchUsers () {
-      const response = await this.$axios.get(`http://localhost:3000/api/v1/users?page=${this.current_page}`)
+      const response = await this.$axios.get(`/api/v1/users?page=${this.current_page}`)
       this.users = response.data.users
       this.total_pages = response.data.total_pages
     }
