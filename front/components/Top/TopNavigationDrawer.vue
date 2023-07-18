@@ -28,7 +28,7 @@
       <v-list-item
         v-for="(nav, i) in navMenus"
         :key="`nav-${i}`"
-        :to="$my.projectLinkTo($route.params.id, nav.name)"
+        :to="$my.projectLinkTo($auth.user.id, nav.name)"
       >
         <v-list-item-icon>
           <v-icon>{{ nav.icon }}</v-icon>
