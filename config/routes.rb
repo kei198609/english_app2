@@ -17,6 +17,12 @@ Rails.application.routes.draw do
         get :bookmarks, on: :collection
       end
 
+      resources :posts, only: [:index, :new, :create, :show, :destroy] do
+        resources :bookmarks, only: [:index, :create, :destroy]
+        resource :likes, only: [:create, :destroy]
+        resources :comments, only:[:create, :destroy]
+      end
+
       put '/users/:id/avatar', to: 'users#update_avatar'
 
     end
@@ -39,11 +45,12 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :posts, only: [:new, :create, :show, :destroy] do
-    resources :bookmarks, only: [:index, :create, :destroy]
-    resource :likes, only: [:create, :destroy]
-    resources :comments, only:[:create, :destroy]
-  end
+  # 上記apiにしたので削除予定
+  # resources :posts, only: [:new, :create, :show, :destroy] do
+  #   resources :bookmarks, only: [:index, :create, :destroy]
+  #   resource :likes, only: [:create, :destroy]
+  #   resources :comments, only:[:create, :destroy]
+  # end
 
   # 上記apiにしたので削除予定
   # resources :users do
