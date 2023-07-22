@@ -2,7 +2,7 @@
   <v-list-item>
     <v-list-item-avatar>
       <v-img :src="user.avatar && user.avatar.url ? user.avatar.url : noimage"
-              @click="$router.push(`/users/${user.id}`)"
+              @click="$router.push(`/top/${user.id}/mypage`)"
               class="clickable-image">
       </v-img>
     </v-list-item-avatar>
