@@ -33,14 +33,24 @@ class Api::V1::UsersController < ApplicationController
     @title = t('.Following')
     @user  = User.find(params[:id])
     @users = @user.following.page(params[:page]).per(5)
-    render json: { title: @title, users: @users }
+    render json: {
+      title: @title,
+      users: @users,
+      total_pages: @users.total_pages,
+      current_page: @users.current_page
+    }
   end
 
   def followers
     @title = t('.Followers')
     @user  = User.find(params[:id])
     @users = @user.followers.page(params[:page]).per(5)
-    render json: { title: @title, users: @users }
+    render json: {
+      title: @title,
+      users: @users,
+      total_pages: @users.total_pages,
+      current_page: @users.current_page
+    }
   end
 
 # nuxt側フォロー、アンフォロー機能用
