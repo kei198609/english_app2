@@ -21,7 +21,7 @@
             <FollowForm :user="user" />
           </div>
           <div class="text-center">
-            <v-btn v-if="isCurrentUser" to="edit-user-profile" color="primary">プロフィールを編集する</v-btn>
+            <v-btn v-if="isCurrentUser" :to="`/top/${user.id}/profile`" color="primary">プロフィールを編集する</v-btn>
           </div>
         </v-card>
       </v-col>
