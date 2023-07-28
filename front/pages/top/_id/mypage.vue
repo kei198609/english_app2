@@ -19,14 +19,47 @@
             <UserSection v-if="user" :user="user" />
           </v-col>
           <!-- Chart and Posts section -->
-          <v-col cols="8" class="mt-3">
+          <v-col cols="12" md="8" lg="8" class="mt-3">
             <CustomPieChart v-if="data" :chart-data="data"></CustomPieChart>
-            <v-subheader>Posts</v-subheader>
-            <v-list v-if="posts" class="mt-3">
-              <v-list-item  v-for="post in posts" :key="post.id">
-                <PostListItem :post="post" />
-              </v-list-item>
-            </v-list>
+
+            <v-subheader>投稿</v-subheader>
+
+            <v-data-table
+              v-if="posts"
+              :headers="headers"
+              :items="posts"
+              :items-per-page="5"
+              class="elevation-1"
+            >
+              <template v-slot:body="{ items }">
+                <tbody>
+                  <tr v-for="item in items" :key="item.id">
+                    <td>{{ formatDate(item.created_at) }}</td>
+
+                    <td>
+                        {{ item.scene }}
+                    </td>
+
+                    <td>
+                      <router-link :to="`/post/${item.id}/postdetail`">
+                        {{ item.subject_english }}
+                      </router-link>
+                    </td>
+
+                    <td>
+                      <v-icon class="fa-regular fa-heart text-center me-1" style="color: #AAAAAA;">mdi-heart</v-icon>
+                      {{ item.likes_count }}
+                    </td>
+
+                    <td>
+                      <v-icon class="fa-regular fa-comment text-center ms-3 me-1" style="color: #AAAAAA;">mdi-comment</v-icon>
+                      {{ item.comments_count }}
+                    </td>
+                  </tr>
+                </tbody>
+              </template>
+            </v-data-table>
+
           </v-col>
         </v-row>
       </v-container>
@@ -35,23 +68,33 @@
 </template>
 
 <script>
+import moment from 'moment'
 import UserSection from '~/components/UserSection.vue'
 import CustomPieChart from '~/components/CustomPieChart.vue'
-import PostListItem from '~/components/Post/PostListItem.vue'
 
 export default {
   components: {
     UserSection,
-    CustomPieChart,
-    PostListItem
+    CustomPieChart
   },
-  // data: nullにテストデータ表示させ円グラフ描画表示検証済み
   data () {
     return {
       drawer: null,
       user: null,
       data: null,
-      posts: null
+      posts: null,
+      headers: [
+        { text: '投稿日時', value: 'created_at' },
+        { text: 'ビジネスシーン', value: 'scene' },
+        { text: '件名', value: 'subject_english' },
+        { text: 'いいね数', value: 'likes_count' },
+        { text: 'コメント数', value: 'comments_count' }
+      ]
+    }
+  },
+  methods: {
+    formatDate (dateString) {
+      return moment(dateString).format('YYYY-MM-DD HH:mm')
     }
   },
   async fetch () {
@@ -69,7 +112,7 @@ export default {
 
         const postResponse = await this.$axios.get(`/api/v1/posts?user_id=${userId}`)
         this.posts = postResponse.data.posts
-        console.log(this.posts) // ここでレスポンスの内容を確認します
+        console.log(this.posts) // ここでレスポンスの内容を確認
       }
     } catch (error) {
       console.error('Error fetching data', error)
