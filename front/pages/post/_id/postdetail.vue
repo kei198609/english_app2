@@ -25,6 +25,12 @@
           </v-col>
 
           <template v-else>
+            <v-btn @click="toggleLike">
+              <v-icon :color="liked ? 'red' : 'grey'">mdi-heart</v-icon>
+            </v-btn>
+            <v-btn @click="toggleBookmark">
+              <v-icon :color="bookmarked ? 'blue' : 'grey'">mdi-bookmark</v-icon>
+            </v-btn>
             <v-col cols="5">
               <v-card outlined class="mb-3">
                 <v-card-title>Subject: {{ post.subject_english }}</v-card-title>
@@ -50,6 +56,8 @@ export default {
     return {
       drawer: null,
       post: null,
+      liked: false,
+      bookmarked: false,
       translation_subject: '',
       translation_content: '',
       loading: true
@@ -65,10 +73,39 @@ export default {
         this.post = response.data.post
         this.translation_subject = response.data.translation_subject.text
         this.translation_content = response.data.translation_content.text
+        this.liked = response.data.liked
+        this.bookmarked = response.data.bookmarked
       } catch (error) {
         console.error(error)
       } finally {
         this.loading = false
+      }
+    },
+    async toggleLike () {
+      try {
+        if (this.liked) {
+          const response = await this.$axios.delete(`/api/v1/posts/${this.post.id}/likes`)
+          this.liked = response.data.liked
+        } else {
+          const response = await this.$axios.post(`/api/v1/posts/${this.post.id}/likes`)
+          this.liked = response.data.liked
+        }
+      } catch (error) {
+        console.error(error)
+      }
+    },
+    async toggleBookmark () {
+      try {
+        if (this.bookmarked) {
+          const response = await this.$axios.delete(`/api/v1/posts/${this.post.id}/bookmarks/${this.bookmarkId}`)
+          this.bookmarked = response.data.bookmarked
+        } else {
+          const response = await this.$axios.post(`/api/v1/posts/${this.post.id}/bookmarks`)
+          this.bookmarked = response.data.bookmarked
+          this.bookmarkId = response.data.bookmark_id
+        }
+      } catch (error) {
+        console.error(error)
       }
     }
   }
