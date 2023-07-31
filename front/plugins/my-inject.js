@@ -20,7 +20,7 @@ class MyInject {
   }
 
   // プロジェクトリンク
-  projectLinkTo (id, name = 'project-id-dashboard') {
+  menuLinkTo (id, name = 'menu-id-dashboard') {
     return { name, params: { id } }
   }
 }

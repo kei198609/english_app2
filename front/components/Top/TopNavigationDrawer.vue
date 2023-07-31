@@ -28,7 +28,7 @@
       <v-list-item
         v-for="(nav, i) in navMenus"
         :key="`nav-${i}`"
-        :to="$my.projectLinkTo($auth.user.id, nav.name)"
+        :to="$my.menuLinkTo($auth.user.id, nav.name)"
       >
         <v-list-item-icon>
           <v-icon>{{ nav.icon }}</v-icon>
@@ -57,6 +57,7 @@ export default {
     return {
       mobileBreakpoint: 960,
       navMenus: [
+        { name: 'tops', icon: 'mdi-home' },
         { name: 'top-id-users', icon: 'mdi-account-multiple' },
         { name: 'top-id-bookmark', icon: 'mdi-bookmark' },
         { name: 'top-id-mypage', icon: 'mdi-account-circle' },
