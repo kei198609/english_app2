@@ -80,4 +80,8 @@ class Post < ApplicationRecord
     notification.save if notification.valid?
   end
 
+  # いいね数jsonレスポンス用メソッド
+  def likes_count
+    likes.count
+  end
 end
