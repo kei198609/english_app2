@@ -3,9 +3,23 @@ before_action :authenticate_user!
 before_action :correct_user, only: :destroy
 
   def index
+    # @q = Post.ransack(params[:q])
+    # if params[:user_id]
+    #   @user = User.find(params[:user_id])
+    #   @posts = @user.posts
+    # elsif params[:q].present?
+    #   @posts = @q.result(distinct: true)
+    # else
+    #   @posts = Post.all
+    # end
+    # render json: {
+    #   posts: @posts.as_json(include: { user: { only: [:avatar, :name] } }, methods: :likes_count)
+    # }
     if params[:user_id]
       @user = User.find(params[:user_id])
       @posts = @user.posts
+    elsif params[:query].present?
+      @posts = Post.where('subject_english LIKE ? OR content_english LIKE ?', "%#{params[:query]}%", "%#{params[:query]}%")
     else
       @posts = Post.all
     end
