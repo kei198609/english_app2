@@ -13,13 +13,11 @@
     />
     <v-main>
       <v-container>
-        <v-list>
-          <UserList
-            v-for="user in users"
-            :key="user.id"
-            :user="user"
-          />
-        </v-list>
+        <UserList
+          v-for="user in users"
+          :key="user.id"
+          :user="user"
+        />
         <v-pagination
           v-model="current_page"
           :length="total_pages"
