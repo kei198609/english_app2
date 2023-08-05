@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_06_01_231754) do
+ActiveRecord::Schema[7.0].define(version: 2023_08_05_114012) do
   create_table "action_text_rich_texts", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "name", null: false
     t.text "body", size: :long
@@ -109,6 +109,15 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_01_231754) do
     t.index ["follower_id"], name: "index_relationships_on_follower_id"
   end
 
+  create_table "scene_experiences", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.string "experience_scene"
+    t.integer "xp"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_scene_experiences_on_user_id"
+  end
+
   create_table "users", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -124,6 +133,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_01_231754) do
     t.string "uid", default: "", null: false
     t.boolean "allow_password_change", default: false
     t.text "tokens"
+    t.boolean "has_clear_badge"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
     t.index ["uid", "provider"], name: "index_users_on_uid_and_provider", unique: true
@@ -134,4 +144,5 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_01_231754) do
   add_foreign_key "bookmarks", "posts"
   add_foreign_key "bookmarks", "users"
   add_foreign_key "posts", "users"
+  add_foreign_key "scene_experiences", "users"
 end
