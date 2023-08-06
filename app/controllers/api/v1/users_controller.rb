@@ -80,4 +80,24 @@ class Api::V1::UsersController < ApplicationController
       render json: { errors: @user.errors.full_messages }, status: :unprocessable_entity
     end
   end
+
+  def bookmarks
+    @bookmarks = current_user.bookmarks.page(params[:page]).per(5)
+    bookmarks_json = @bookmarks.as_json(
+      include: {
+        post: { only: [:id, :subject_english, :content_english],
+          include: {
+            user: {
+              only: [:id, :name, :avatar]
+            }
+          }
+        }
+      }
+    )
+    render json: {
+      bookmarks: bookmarks_json,
+      total_pages: @bookmarks.total_pages,
+      current_page: @bookmarks.current_page
+    }
+  end
 end
