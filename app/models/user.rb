@@ -7,6 +7,7 @@ class User < ApplicationRecord
   include DeviseTokenAuth::Concerns::User
 
   has_many :posts, dependent: :destroy
+  has_many :scene_experiences
   has_many :active_relationships,  class_name: "Relationship",
                                   foreign_key: "follower_id",
                                     dependent: :destroy

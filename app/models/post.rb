@@ -19,10 +19,11 @@ class Post < ApplicationRecord
   # has_rich_text :content_english
   # has_one       :content_english, class_name: 'ActionText::RichText', as: :record
 
-  has_many :bookmarks,     dependent: :destroy
-  has_many :likes,         dependent: :destroy
-  has_many :comments,      dependent: :destroy
-  has_many :notifications, dependent: :destroy
+  has_one  :scene_experience, dependent: :destroy
+  has_many :bookmarks,        dependent: :destroy
+  has_many :likes,            dependent: :destroy
+  has_many :comments,         dependent: :destroy
+  has_many :notifications,    dependent: :destroy
 
   # 指定されたユーザーが特定の投稿をブックマークしているかどうかを判定するメソッド
   def bookmarked_by?(user)
