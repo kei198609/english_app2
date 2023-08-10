@@ -100,4 +100,12 @@ class Api::V1::UsersController < ApplicationController
       current_page: @bookmarks.current_page
     }
   end
+  # シーン経験値の取得
+  def scene_experiences
+    @user = User.find(params[:id])
+    scene_experiences = @user.scene_experiences
+    render json: {
+      scenes: scene_experiences
+    }
+  end
 end
