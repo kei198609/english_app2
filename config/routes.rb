@@ -11,7 +11,7 @@ Rails.application.routes.draw do
       }
       resources :users do
         member do
-          get :following, :followers, :following_status
+          get :following, :followers, :following_status, :scene_experiences
           post :follow, :unfollow
         end
         get :bookmarks, on: :collection
