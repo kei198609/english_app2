@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_08_05_114012) do
+ActiveRecord::Schema[7.0].define(version: 2023_08_13_061451) do
   create_table "action_text_rich_texts", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "name", null: false
     t.text "body", size: :long
@@ -99,6 +99,24 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_05_114012) do
     t.index ["user_id"], name: "index_posts_on_user_id"
   end
 
+  create_table "quiz_attempts", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "quiz_id", null: false
+    t.string "user_answer"
+    t.boolean "correct"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["quiz_id"], name: "index_quiz_attempts_on_quiz_id"
+    t.index ["user_id"], name: "index_quiz_attempts_on_user_id"
+  end
+
+  create_table "quizzes", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.string "sentence_japanese"
+    t.string "sentence_english"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "relationships", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.integer "follower_id"
     t.integer "followed_id"
@@ -144,5 +162,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_05_114012) do
   add_foreign_key "bookmarks", "posts"
   add_foreign_key "bookmarks", "users"
   add_foreign_key "posts", "users"
+  add_foreign_key "quiz_attempts", "quizzes"
+  add_foreign_key "quiz_attempts", "users"
   add_foreign_key "scene_experiences", "users"
 end
