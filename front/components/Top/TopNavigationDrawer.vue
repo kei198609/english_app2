@@ -61,6 +61,7 @@ export default {
         { name: 'top-id-users', icon: 'mdi-account-multiple' },
         { name: 'top-id-bookmark', icon: 'mdi-bookmark' },
         { name: 'top-id-mypage', icon: 'mdi-account-circle' },
+        { name: 'top-id-quiz', icon: 'mdi-book-open-page-variant' },
         { name: 'top-id-post', icon: 'mdi-pen-plus' },
         { name: 'top-id-notifications', icon: 'mdi-bell' },
         { name: 'top-id-settings', icon: 'mdi-account-cog' }
