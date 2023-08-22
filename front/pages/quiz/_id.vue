@@ -63,7 +63,7 @@ export default {
     submitAnswer () {
       this.$axios.post('/api/v1/quiz_attempts', {
         quiz_id: this.quiz.id,
-        selectedWords: this.selectedWords.join(' ')
+        user_answer: this.words.join(' ')
       })
         .then((response) => {
           if (response.data.correct) {
@@ -71,6 +71,9 @@ export default {
           } else {
             alert('不正解')
           }
+        })
+        .catch((error) => {
+          console.error(error)
         })
     }
   }

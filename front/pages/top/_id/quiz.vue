@@ -14,8 +14,18 @@
     <v-main>
       <v-container>
         <div>
-          <v-list v-for="q in quizzes" :key="q.id">
-            <nuxt-link :to="`/quiz/${q.id}`">{{ q.title }}</nuxt-link>
+          <v-list v-for="category in categories" :key="category.id">
+            <v-list-item>
+              <v-list-item-content>
+                {{ category.category_name }}
+              </v-list-item-content>
+            </v-list-item>
+            <v-list v-for="q in category.quizzes" :key="q.id">
+              <v-list-item>
+                <!-- クイズタイトルとリンク -->
+                <nuxt-link :to="`/quiz/${q.id}`">{{ q.title }}</nuxt-link>
+              </v-list-item>
+            </v-list>
           </v-list>
         </div>
       </v-container>
@@ -28,12 +38,12 @@ export default {
   data () {
     return {
       drawer: null,
-      quizzes: []
+      categories: []
     }
   },
   async asyncData ({ params, $axios }) {
-    const { data } = await $axios.get('/api/v1/quizzes')
-    return { quizzes: data }
+    const { data } = await $axios.get('/api/v1/categories')
+    return { categories: data }
   }
 }
 </script>
