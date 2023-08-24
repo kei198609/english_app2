@@ -100,12 +100,31 @@ class Api::V1::UsersController < ApplicationController
       current_page: @bookmarks.current_page
     }
   end
+
   # シーン経験値の取得
   def scene_experiences
     @user = User.find(params[:id])
     scene_experiences = @user.scene_experiences
     render json: {
       scenes: scene_experiences
+    }
+  end
+
+  # ユーザーごとのクイズの正誤、未学習情報を取得するAPIエンドポイント
+  def quiz_statistics
+    user_id = params[:id]
+
+    total_quizzes = Quiz.count
+    attempted_quizzes = QuizAttempt.where(user_id: user_id).count
+    correct_answers = QuizAttempt.where(user_id: user_id, correct: true).count
+
+    unattempted = total_quizzes - attempted_quizzes
+    incorrect = attempted_quizzes - correct_answers
+
+    render json: {
+      correct: correct_answers,
+      incorrect: incorrect,
+      unattempted: unattempted
     }
   end
 end
