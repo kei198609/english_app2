@@ -15,5 +15,7 @@ module.exports = {
   plugins: [
   ],
   // add your custom rules here
-  rules: {}
+  rules: {
+    'quote-props': ['error', 'as-needed', { 'keywords': false, 'unnecessary': true, 'numbers': false }]
+  }
 }
