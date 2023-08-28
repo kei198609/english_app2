@@ -14,6 +14,15 @@ class Api::V1::QuizAttemptsController < ApplicationController
 
 
     if @quiz_attempt.save
+      # ユーザーが正解した場合、ポイントを追加
+      if @quiz_attempt.correct
+        current_user.points += 10
+        current_user.save
+      end
+
+      # ポイントに応じてユーザーのレベルを更新
+      update_level(current_user)
+
       render json: { correct: @quiz_attempt.correct }, status: :created
     else
       render json: @quiz_attempt.errors, status: :unprocessable_entity
@@ -24,5 +33,14 @@ class Api::V1::QuizAttemptsController < ApplicationController
 
   def quiz_attempt_params
     params.require(:quiz_attempt).permit(:quiz_id, :user_answer)
+  end
+
+  def update_level(user)
+    level_thresholds = [100,200,300,400,500,600,700,800,900,1000]
+    level_thresholds.each_with_index do |threshold, index|
+      if user.points >= threshold && user.level == index
+        user.update(level: index + 1)
+      end
+    end
   end
 end
