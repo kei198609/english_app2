@@ -5,6 +5,7 @@ Rails.application.routes.draw do
 
   namespace :api do
     namespace :v1 do
+      get 'categories/index'
       mount_devise_token_auth_for 'User', at: 'auth', controllers: {
         registrations: 'api/v1/auth/registrations',
         sessions: 'api/v1/auth/sessions'
@@ -12,6 +13,7 @@ Rails.application.routes.draw do
       resources :users do
         member do
           get :following, :followers, :following_status, :scene_experiences
+          get :quiz_statistics
           post :follow, :unfollow
         end
         get :bookmarks, on: :collection
@@ -22,6 +24,10 @@ Rails.application.routes.draw do
         resource :likes, only: [:create, :destroy]
         resources :comments, only:[:create, :destroy]
       end
+
+      resources :quizzes, only: [:index, :show]
+      resources :categories, only: [:index]
+      resources :quiz_attempts, only: [:index, :create]
 
       put '/users/:id/avatar', to: 'users#update_avatar'
 
