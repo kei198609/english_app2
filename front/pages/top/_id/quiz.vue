@@ -24,6 +24,10 @@
               <v-list-item>
                 <!-- クイズタイトルとリンク -->
                 <nuxt-link :to="`/quiz/${q.id}`">{{ q.title }}</nuxt-link>
+                <!-- 正誤表示 -->
+                <span v-if="getQuizAttempt(q.id)">
+                  {{ getQuizAttempt(q.id).correct ? '正解済み' : '不正解' }}
+                </span>
               </v-list-item>
             </v-list>
           </v-list>
@@ -41,9 +45,15 @@ export default {
       categories: []
     }
   },
+  methods: {
+    getQuizAttempt (quizId) {
+      return this.quizAttempts.find(attempt => attempt.quiz_id === quizId)
+    }
+  },
   async asyncData ({ params, $axios }) {
-    const { data } = await $axios.get('/api/v1/categories')
-    return { categories: data }
+    const { data: categories } = await $axios.get('/api/v1/categories')
+    const { data: quizAttempts } = await $axios.get('/api/v1/quiz_attempts')
+    return { categories, quizAttempts }
   }
 }
 </script>

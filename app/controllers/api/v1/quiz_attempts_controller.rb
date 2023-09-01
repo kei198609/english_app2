@@ -1,4 +1,9 @@
 class Api::V1::QuizAttemptsController < ApplicationController
+  def index
+    @quiz_attempts = QuizAttempt.where(user_id: current_user.id)
+    render json: @quiz_attempts
+  end
+
   def create
     @quiz_attempt = QuizAttempt.new(quiz_attempt_params)
     @quiz_attempt.user_id = current_user.id # 現在のログインユーザーのIDをセット
