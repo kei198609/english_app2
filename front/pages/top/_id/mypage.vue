@@ -17,17 +17,18 @@
           <!-- User section -->
           <v-col cols="12" md="4" lg="4" class="mt-3">
             <UserSection v-if="user" :user="user" />
+            <LevelGaugePoint v-if="user" :user="user" />
             <!-- バッジを表示する部分 -->
-            <v-row v-if="user && user.has_clear_badge" class="mt-3">
+            <!-- <v-row v-if="user && user.has_clear_badge" class="mt-3">
               <v-col cols="12" class="text-center">
                 <img :src="badgeImagePath" alt="Clear Badge" style="width: 50px; height: 50px;">
               </v-col>
-            </v-row>
+            </v-row> -->
           </v-col>
           <!-- Chart and Posts section -->
           <v-col cols="12" md="8" lg="8" class="mt-3">
-            <CustomPieChart v-if="data" :chart-data="data"></CustomPieChart>
-
+            <!-- <CustomPieChart v-if="data" :chart-data="data"></CustomPieChart> -->
+            <CustomPieChart v-if="chartData" :chartData="chartData"></CustomPieChart>
             <v-subheader>投稿</v-subheader>
 
             <v-data-table
@@ -65,7 +66,7 @@
                 </tbody>
               </template>
             </v-data-table>
-            <ExperienceGauge v-if="scenes.length" :scenes="scenes" />
+            <!-- <ExperienceGauge v-if="scenes.length" :scenes="scenes" /> -->
           </v-col>
         </v-row>
       </v-container>
@@ -77,19 +78,23 @@
 import moment from 'moment'
 import UserSection from '~/components/UserSection.vue'
 import CustomPieChart from '~/components/CustomPieChart.vue'
-import ExperienceGauge from '~/components/ExperienceGauge.vue'
+import LevelGaugePoint from '~/components/LevelGaugePoint.vue'
+
+// import ExperienceGauge from '~/components/ExperienceGauge.vue'
 
 export default {
   components: {
     UserSection,
     CustomPieChart,
-    ExperienceGauge
+    LevelGaugePoint
+    // ExperienceGauge
   },
   data () {
     return {
       drawer: null,
       user: null,
       data: null,
+      chartData: null,
       posts: null,
       badgeImagePath: require('~/assets/images/clear_badge.png'),
       scenes: [],
@@ -127,6 +132,14 @@ export default {
         // シーン経験の取得
         const sceneResponse = await this.$axios.get(`/api/v1/users/${userId}/scene_experiences`)
         this.scenes = sceneResponse.data.scenes
+
+        // クイズの正解、不正解、未学習のデータをAPIから取得
+        const quizResponse = await this.$axios.get(`/api/v1/users/${userId}/quiz_statistics`)
+        this.chartData = {
+          正解: quizResponse.data.correct,
+          不正解: quizResponse.data.incorrect,
+          未学習: quizResponse.data.unattempted
+        }
       }
     } catch (error) {
       console.error('Error fetching data', error)
