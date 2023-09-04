@@ -26,3 +26,4 @@ class Api::V1::ArticleReadingsController < ApplicationController
       end
     end
   end
+end
