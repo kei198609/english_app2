@@ -21,8 +21,9 @@ class Api::V1::ArticleReadingsController < ApplicationController
   def update_level(user)
     level_thresholds = [100,200,300,400,500,600,700,800,900,1000]
     level_thresholds.each_with_index do |threshold, index|
-      if user.points >= threshold && user.level == index
-        user.update!(level: index + 1)
+      if user.points >= threshold && user.level == (index + 1)
+        user.update!(level: index + 2)
+        break
       end
     end
   end
