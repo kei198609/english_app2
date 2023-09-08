@@ -1,42 +1,50 @@
 <template>
-  <user-form-card>
-    <!-- 以下のように書くことでUserFormCardの22行目に差し込める -->
-    <template
-      #user-form-card-content
-    >
-      <v-form
-        ref="form"
-        v-model="isValid"
+  <v-container>
+    <user-form-card>
+      <!-- 以下のように書くことでUserFormCardの22行目に差し込める -->
+      <template
+        #user-form-card-content
       >
-        <user-form-name
-          :name.sync="params.user.name"
-        />
-        <user-form-occupation
-          :occupation.sync="params.user.occupation"
-        />
-        <user-form-email
-          :email.sync="params.user.email"
-          placeholder
-        />
-        <user-form-password
-          :password.sync="params.user.password"
-          set-validation
-        />
-        <!-- disabledがtrueの時、ボタンクリックを無効にする
-        loading中はクリックできない -->
-        <v-btn
-          :disabled="!isValid || loading"
-          :loading="loading"
-          block
-          color="appblue"
-          class="white--text"
-          @click="signup"
+        <v-form
+          ref="form"
+          v-model="isValid"
         >
-          登録する
+          <user-form-name
+            :name.sync="params.user.name"
+          />
+          <user-form-occupation
+            :occupation.sync="params.user.occupation"
+          />
+          <user-form-email
+            :email.sync="params.user.email"
+            placeholder
+          />
+          <user-form-password
+            :password.sync="params.user.password"
+            set-validation
+          />
+          <!-- disabledがtrueの時、ボタンクリックを無効にする
+          loading中はクリックできない -->
+          <v-btn
+            :disabled="!isValid || loading"
+            :loading="loading"
+            block
+            color="appblue"
+            class="white--text"
+            @click="signup"
+          >
+            登録する
+          </v-btn>
+        </v-form>
+      </template>
+    </user-form-card>
+      <v-snackbar v-model="snackbar" top right color="success" outlined>
+        {{ snackbarMessage }}
+        <v-btn color="black" text @click="snackbar = false">
+          閉じる
         </v-btn>
-      </v-form>
-    </template>
-  </user-form-card>
+      </v-snackbar>
+  </v-container>
 </template>
 
 <script>
@@ -44,10 +52,12 @@ export default {
   layout: 'before-login',
   data () {
     return {
+      snackbar: false,
+      snackbarMessage: '',
       isValid: false,
       loading: false,
-      params: { user: { name: '', email: '', password: '', occupation: '' } },
-      redirectPath: '/tops'
+      params: { user: { name: '', email: '', password: '', occupation: '' } }
+      // redirectPath: '/'
     }
   },
   methods: {
@@ -70,7 +80,9 @@ export default {
       this.formReset()
       this.loading = false
       // ユーザーが正常にサインアップした後、topsページに遷移します
-      this.$router.push(this.redirectPath)
+      // this.$router.push(this.redirectPath)
+      this.snackbar = true
+      this.snackbarMessage = '登録しました。ログインしてください。'
     },
     formReset () {
       this.$refs.form.reset()

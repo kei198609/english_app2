@@ -29,9 +29,9 @@
               </v-btn>
             </div>
           </v-col>
-          <v-snackbar v-model="snackbar" bottom right color="success">
+          <v-snackbar v-model="snackbar" top right color="success" outlined>
             {{ snackbarMessage }}
-            <v-btn color="white" text @click="snackbar = false">
+            <v-btn color="black" text @click="snackbar = false">
               閉じる
             </v-btn>
           </v-snackbar>
