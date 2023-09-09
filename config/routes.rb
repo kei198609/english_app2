@@ -5,6 +5,7 @@ Rails.application.routes.draw do
 
   namespace :api do
     namespace :v1 do
+      get 'articles/index'
       get 'categories/index'
       mount_devise_token_auth_for 'User', at: 'auth', controllers: {
         registrations: 'api/v1/auth/registrations',
@@ -19,15 +20,17 @@ Rails.application.routes.draw do
         get :bookmarks, on: :collection
       end
 
-      resources :posts, only: [:index, :new, :create, :show, :destroy] do
+      resources   :posts,     only: [:index, :new, :create, :show, :destroy] do
         resources :bookmarks, only: [:index, :create, :destroy]
-        resource :likes, only: [:create, :destroy]
-        resources :comments, only:[:create, :destroy]
+        resource  :likes,     only: [:create, :destroy]
+        resources :comments,  only: [:create, :destroy]
       end
 
-      resources :quizzes, only: [:index, :show]
-      resources :categories, only: [:index]
-      resources :quiz_attempts, only: [:index, :create]
+      resources :quizzes,          only: [:index, :show]
+      resources :categories,       only: [:index]
+      resources :quiz_attempts,    only: [:index, :create]
+      resources :articles,         only: [:index, :show]
+      resources :article_readings, only: [:create]
 
       put '/users/:id/avatar', to: 'users#update_avatar'
 
