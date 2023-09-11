@@ -1,8 +1,15 @@
 <template>
   <div>
-    <v-row class="mt-3">
+    <v-row class="mb-3">
+      <v-col cols="6" class="text-center">
+        <div>{{ user.level }}</div>
+        <div>Level</div>
+      </v-col>
+      <v-col cols="6" class="text-center">
+        <div>{{ user.points }}</div>
+        <div>Point</div>
+      </v-col>
       <v-col cols="12" class="text-center">
-        <v-subheader>レベル: {{ user.level }}ポイント: {{ user.points }}</v-subheader>
         <v-progress-linear
           :value="calculateProgress(user.points)"
           color="primary"
