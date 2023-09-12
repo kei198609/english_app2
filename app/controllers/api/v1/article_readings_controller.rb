@@ -6,10 +6,19 @@ class Api::V1::ArticleReadingsController < ApplicationController
       current_user.save!
 
       update_level(current_user)
-      render json: { message: 'Article read recorded successfully' }, status: :created
+      render json: {
+        message: 'Article read recorded successfully',
+        current_points: current_user.points,
+        current_level: current_user.level
+      }, status: :created
     else
       render json: { errors: @article_reading.errors.full_messages }, status: :unprocessable_entity
     end
+  end
+
+  def user_articles_read
+    read_articles = current_user.article_readings.pluck(:article_id)
+    render json: read_articles
   end
 
   private

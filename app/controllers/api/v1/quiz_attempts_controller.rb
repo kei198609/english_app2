@@ -28,7 +28,11 @@ class Api::V1::QuizAttemptsController < ApplicationController
       # ポイントに応じてユーザーのレベルを更新
       update_level(current_user)
 
-      render json: { correct: @quiz_attempt.correct }, status: :created
+      render json: {
+        correct: @quiz_attempt.correct,
+        current_points: current_user.points,
+        current_level: current_user.level
+      }, status: :created
     else
       render json: @quiz_attempt.errors, status: :unprocessable_entity
     end
