@@ -15,6 +15,7 @@ Rails.application.routes.draw do
         member do
           get :following, :followers, :following_status
           get :quiz_statistics
+          get :article_statistics
           post :follow, :unfollow
         end
         get :bookmarks, on: :collection

@@ -118,4 +118,15 @@ class Api::V1::UsersController < ApplicationController
       unattempted: unattempted
     }
   end
+  def article_statistics
+    user_id = params[:id]
+
+    total_articles = Article.count
+    read_articles = ArticleReading.where(user_id: user_id).count
+    unread_articles = total_articles - read_articles
+    render json: {
+      read: read_articles,
+      unread: unread_articles
+    }
+  end
 end
