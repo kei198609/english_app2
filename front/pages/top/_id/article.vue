@@ -13,36 +13,45 @@
     />
     <v-main>
       <v-container>
-        <div>
-          <v-card v-for="category in groupedArticles" :key="category.id">
-            <v-list-item>
-              <v-list-item-content>
-                {{ category.category_name_article }}
-              </v-list-item-content>
-            </v-list-item>
-            <v-list v-for="article in category.articles" :key="article.id">
-              <v-list-item>
-                <v-list-item-icon>
-                  <v-icon>{{ article.icon_name }}</v-icon>
-                </v-list-item-icon>
+        <v-row>
+          <v-col cols="12" md="4" lg="4">
+            <UserSection v-if="user" :user="user" />
+          </v-col>
+          <v-col cols="12" md="8" lg="8">
+            <div v-for="category in groupedArticles" :key="category.id">
+              <v-card class="px-3 py-3">
                 <v-list-item-content>
-                  <nuxt-link :to="`/article/${article.id}`">{{ article.title }}</nuxt-link>
+                  {{ category.category_name_article }}
                 </v-list-item-content>
-              </v-list-item>
-            </v-list>
-          </v-card>
-        </div>
+              </v-card>
+              <v-card v-for="article in category.articles" :key="article.id" class="mt-1 px-3 py-5">
+                <v-card-text>
+                  <v-icon class="pr-3">{{ article.icon_name }}</v-icon>
+                  <nuxt-link :to="`/article/${article.id}`">{{ article.title }}</nuxt-link>
+                  <span v-if="isRead(article.id)">チェック済み</span>
+                </v-card-text>
+              </v-card>
+            </div>
+          </v-col>
+        </v-row>
       </v-container>
     </v-main>
   </v-app>
 </template>
 
 <script>
+import UserSection from '~/components/UserSection.vue'
+
 export default {
+  components: {
+    UserSection
+  },
   data () {
     return {
       drawer: null,
-      articles: []
+      user: null,
+      articles: [],
+      readArticles: []
     }
   },
   computed: {
@@ -62,9 +71,30 @@ export default {
       }, [])
     }
   },
-  async asyncData ({ $axios }) {
-    const { data: articles } = await $axios.get('/api/v1/articles')
-    return { articles }
+  methods: {
+    isRead (articleId) {
+      return this.readArticles && this.readArticles.includes(articleId)
+    }
+  },
+  async fetch () {
+    try {
+      if (this.$auth.loggedIn) {
+        // ログインしているユーザーのIDを取得
+        const userId = this.$auth.user.id
+        // ユーザーの詳細情報を取得
+        const userResponse = await this.$axios.get(`/api/v1/users/${userId}`)
+        this.user = userResponse.data.user
+        // 記事情報を取得
+        const articlesResponse = await this.$axios.get('/api/v1/articles')
+        this.articles = articlesResponse.data
+        // 記事を読んだかどうか情報を取得
+        const readArticlesResponse = await this.$axios.get('/api/v1/article_readings/user_articles_read')
+        console.log('API Response for readArticles:', readArticlesResponse.data)
+        this.readArticles = readArticlesResponse.data
+      }
+    } catch (error) {
+      console.error('Error fetching data', error)
+    }
   }
 }
 </script>
