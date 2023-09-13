@@ -101,15 +101,6 @@ class Api::V1::UsersController < ApplicationController
     }
   end
 
-  # シーン経験値の取得
-  def scene_experiences
-    @user = User.find(params[:id])
-    scene_experiences = @user.scene_experiences
-    render json: {
-      scenes: scene_experiences
-    }
-  end
-
   # ユーザーごとのクイズの正誤、未学習情報を取得するAPIエンドポイント
   def quiz_statistics
     user_id = params[:id]

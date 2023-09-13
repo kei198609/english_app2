@@ -7,7 +7,6 @@ class User < ApplicationRecord
   include DeviseTokenAuth::Concerns::User
 
   has_many :posts, dependent: :destroy
-  has_many :scene_experiences
   has_many :quiz_attempts
   has_many :article_readings
   has_many :active_relationships,  class_name: "Relationship",

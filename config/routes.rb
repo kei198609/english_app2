@@ -13,7 +13,7 @@ Rails.application.routes.draw do
       }
       resources :users do
         member do
-          get :following, :followers, :following_status, :scene_experiences
+          get :following, :followers, :following_status
           get :quiz_statistics
           post :follow, :unfollow
         end
@@ -30,7 +30,11 @@ Rails.application.routes.draw do
       resources :categories,       only: [:index]
       resources :quiz_attempts,    only: [:index, :create]
       resources :articles,         only: [:index, :show]
-      resources :article_readings, only: [:create]
+      resources :article_readings, only: [:create] do
+        collection do
+          get :user_articles_read
+        end
+      end
 
       put '/users/:id/avatar', to: 'users#update_avatar'
 

@@ -33,23 +33,23 @@ before_action :correct_user, only: :destroy
   end
 
   def create
-    # @post = current_user.posts.build(post_params)
-    # if @post.save
-    #   render json: @post, staus: :created
-    # else
-    #   render json: { errors: @post.errors.full_messages }, status: :unprocessable_entity
-    # end
     @post = current_user.posts.build(post_params)
     if @post.save
-      @scene_experience = current_user.scene_experiences.find_or_initialize_by(experience_scene: @post.scene)
-      @scene_experience.xp ||= 0 # xpがnilの場合、0を設定
-      @scene_experience.xp += 1
-      @scene_experience.save
-      # ここでレスポンスとしてシーン経験を含めることができるなら、以下のように書き換えることもできます。
-      render json: { success: true, post: @post, scene_experience: @scene_experience }, status: :created
+      render json: @post, staus: :created
     else
-      render json: { success: false, errors: @post.errors.full_messages }, status: :unprocessable_entity
+      render json: { errors: @post.errors.full_messages }, status: :unprocessable_entity
     end
+    # @post = current_user.posts.build(post_params)
+    # if @post.save
+    #   @scene_experience = current_user.scene_experiences.find_or_initialize_by(experience_scene: @post.scene)
+    #   @scene_experience.xp ||= 0 # xpがnilの場合、0を設定
+    #   @scene_experience.xp += 1
+    #   @scene_experience.save
+    #   # ここでレスポンスとしてシーン経験を含めることができるなら、以下のように書き換えることもできます。
+    #   render json: { success: true, post: @post, scene_experience: @scene_experience }, status: :created
+    # else
+    #   render json: { success: false, errors: @post.errors.full_messages }, status: :unprocessable_entity
+    # end
   end
 
   def show
