@@ -81,10 +81,12 @@ export default {
   methods: {
     async recordReading () {
       try {
-        await this.$axios.$post('/api/v1/article_readings', {
+        const response = await this.$axios.$post('/api/v1/article_readings', {
           article_id: this.article.id,
           read: true
         })
+        this.user.points = response.current_points
+        this.user.level = response.current_level
         // 成功時のメッセージを表示
         alert('10ポイント獲得しました。')
       } catch (error) {
