@@ -10,23 +10,33 @@ export const state = () => ({
       name: homePath
     }
   },
-  // 64レッスンで仮作成
-  project: {
-    current: null,
-    list: [
-      { id: 1, name: 'MyProject01', updatedAt: '2020-04-01T12:00:00+09:00' },
-      { id: 2, name: 'MyProject02', updatedAt: '2020-04-05T12:00:00+09:00' },
-      { id: 3, name: 'MyProject03', updatedAt: '2020-04-03T12:00:00+09:00' },
-      { id: 4, name: 'MyProject04', updatedAt: '2020-04-04T12:00:00+09:00' },
-      { id: 5, name: 'MyProject05', updatedAt: '2020-04-01T12:00:00+09:00' }
-    ]
-  }
+  quizAttempts: []
 })
 // アプリ全体の算出プロパティ,vueでいうとcomputedのようなもの
-export const getters = {}
+export const getters = {
+  getQuizAttempt: state => (quizId) => {
+    return state.quizAttempts.find(attempt => attempt.quiz_id === quizId)
+  }
+}
 
 // stateで用意した値を変更する場所
-export const mutations = {}
+export const mutations = {
+  SET_QUIZ_ATTEMPTS (state, attempts) {
+    state.quizAttempts = attempts
+  },
+  ADD_QUIZ_ATTEMPT (state, attempt) {
+    state.quizAttempts.push(attempt)
+  }
+}
 
 // vueでいうとmethodsのほうなもの
-export const actions = {}
+export const actions = {
+  async fetchQuizAttempts ({ commit }) {
+    try {
+      const response = await this.$axios.get('/api/v1/quiz_attempts')
+      commit('SET_QUIZ_ATTEMPTS', response.data)
+    } catch (error) {
+      console.error('Failed to fetch quiz attempts.', error)
+    }
+  }
+}
