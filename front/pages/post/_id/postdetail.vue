@@ -43,6 +43,29 @@
                 <v-card-text>{{ translation_content }}</v-card-text>
               </v-card>
             </v-col>
+            <!-- コメント一覧 -->
+            <v-col cols="10">
+              <v-list>
+                <v-list-item-group>
+                  <v-list-item v-for="comment in comments" :key="comment.id">
+                    <v-list-item-content>
+                      <v-list-item-title>{{ comment.user_name }}</v-list-item-title>
+                      <v-list-item-subtitle>{{ comment.comment }}</v-list-item-subtitle>
+                    </v-list-item-content>
+                    <v-list-item-action>
+                      <v-btn icon @click="deleteComment(comment.id)">
+                        <v-icon>mdi-delete</v-icon>
+                      </v-btn>
+                    </v-list-item-action>
+                  </v-list-item>
+                </v-list-item-group>
+              </v-list>
+            </v-col>
+            <!-- コメント入力欄 -->
+            <v-col cols="10">
+              <v-text-field label="コメント" v-model="newComment"></v-text-field>
+              <v-btn @click="submitComment">コメントする</v-btn>
+            </v-col>
           </template>
         </v-row>
       </v-container>
@@ -58,6 +81,8 @@ export default {
       post: null,
       liked: false,
       bookmarked: false,
+      comments: [],
+      newComment: '',
       translation_subject: '',
       translation_content: '',
       loading: true
@@ -75,6 +100,7 @@ export default {
         this.translation_content = response.data.translation_content.text
         this.liked = response.data.liked
         this.bookmarked = response.data.bookmarked
+        this.comments = response.data.comments
       } catch (error) {
         console.error(error)
       } finally {
@@ -104,6 +130,25 @@ export default {
           this.bookmarked = response.data.bookmarked
           this.bookmarkId = response.data.bookmark_id
         }
+      } catch (error) {
+        console.error(error)
+      }
+    },
+    async submitComment () {
+      try {
+        const response = await this.$axios.post(`/api/v1/posts/${this.post.id}/comments`, {
+          comment: { comment: this.newComment }
+        })
+        this.comments.push(response.data.comment)
+        this.newComment = ''
+      } catch (error) {
+        console.error(error)
+      }
+    },
+    async deleteComment (commentId) {
+      try {
+        await this.$axios.delete(`/api/v1/posts/${this.post.id}/comments/${commentId}`)
+        this.comments = this.comments.filter(comment => comment.id !== commentId)
       } catch (error) {
         console.error(error)
       }
