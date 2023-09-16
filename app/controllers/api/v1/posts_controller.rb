@@ -3,18 +3,6 @@ before_action :authenticate_user!
 before_action :correct_user, only: :destroy
 
   def index
-    # @q = Post.ransack(params[:q])
-    # if params[:user_id]
-    #   @user = User.find(params[:user_id])
-    #   @posts = @user.posts
-    # elsif params[:q].present?
-    #   @posts = @q.result(distinct: true)
-    # else
-    #   @posts = Post.all
-    # end
-    # render json: {
-    #   posts: @posts.as_json(include: { user: { only: [:avatar, :name] } }, methods: :likes_count)
-    # }
     if params[:user_id]
       @user = User.find(params[:user_id])
       @posts = @user.posts
@@ -39,17 +27,6 @@ before_action :correct_user, only: :destroy
     else
       render json: { errors: @post.errors.full_messages }, status: :unprocessable_entity
     end
-    # @post = current_user.posts.build(post_params)
-    # if @post.save
-    #   @scene_experience = current_user.scene_experiences.find_or_initialize_by(experience_scene: @post.scene)
-    #   @scene_experience.xp ||= 0 # xpがnilの場合、0を設定
-    #   @scene_experience.xp += 1
-    #   @scene_experience.save
-    #   # ここでレスポンスとしてシーン経験を含めることができるなら、以下のように書き換えることもできます。
-    #   render json: { success: true, post: @post, scene_experience: @scene_experience }, status: :created
-    # else
-    #   render json: { success: false, errors: @post.errors.full_messages }, status: :unprocessable_entity
-    # end
   end
 
   def show

@@ -6,19 +6,6 @@ class Post < ApplicationRecord
   validates :subject_english, presence: true, length: { maximum: 100 }, format: { with: /\A[a-zA-Z!'’@#?\$%^&*()\d\s.,-]+\z/, allow_blank: true }
   validates :content_english, presence: true, length: { maximum: 2000 }, format: { with: /\A[a-zA-Z!'’@#?\$%^&*()\d\s.,-]+\z/, allow_blank: true }
 
-  # 検索機能
-  def self.ransackable_associations(auth_object = nil)
-    ["bookmarks", "posts", "users"]
-  end
-  def self.ransackable_attributes(auth_object = nil)
-    ["content_english","subject_english", "scene"]
-  end
-
-
-  # Action Textを使用するため、has_rich_textメソッドを使用して、リレーションシップを設定
-  # has_rich_text :content_english
-  # has_one       :content_english, class_name: 'ActionText::RichText', as: :record
-
   has_one  :scene_experience, dependent: :destroy
   has_many :bookmarks,        dependent: :destroy
   has_many :likes,            dependent: :destroy
