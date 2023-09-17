@@ -10,7 +10,7 @@
     </div>
     <div>
       <router-link to="`/post/${post.id}`" class="link-dark">
-        {{ post.subject_english }}
+        {{ post.title }}
       </router-link>
     </div>
     <div>

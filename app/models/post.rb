@@ -2,9 +2,10 @@ class Post < ApplicationRecord
   belongs_to :user
   default_scope -> { order(created_at: :desc) }
   validates :user_id, presence: true
-  validates :scene, presence: true
-  validates :subject_english, presence: true, length: { maximum: 100 }, format: { with: /\A[a-zA-Z!'’@#?\$%^&*()\d\s.,-]+\z/, allow_blank: true }
-  validates :content_english, presence: true, length: { maximum: 2000 }, format: { with: /\A[a-zA-Z!'’@#?\$%^&*()\d\s.,-]+\z/, allow_blank: true }
+  validates :genre, presence: true
+  validates :title, presence: true, length: { maximum: 100 }
+  validates :content, presence: true, length: { maximum: 2000 }
+
 
   has_one  :scene_experience, dependent: :destroy
   has_many :bookmarks,        dependent: :destroy

@@ -10,10 +10,10 @@
       >
         <v-icon size="x-large"></v-icon>
         <v-card-text class="text-h5 font-weight-bold py-2">
-          {{ bookmark.post.subject_english }}
+          {{ bookmark.post.title }}
         </v-card-text>
         <v-card-text class="text-h5 font-weight-bold py-2">
-          {{ bookmark.post.content_english }}
+          {{ bookmark.post.content }}
         </v-card-text>
 
         <v-card-actions>

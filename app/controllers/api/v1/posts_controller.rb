@@ -34,17 +34,14 @@ before_action :correct_user, only: :destroy
     @comment = Comment.new
     @comments = @post.comments.page(params[:page]).per(5).reverse_order
 
-
-    project_id = ENV["CLOUD_PROJECT_ID"]
-    translate = Google::Cloud::Translate.new version: :v2, project_id: project_id
-    target = "ja"
-    @translation_subject = translate.translate @post.subject_english, to: target
-    @translation_content = translate.translate @post.content_english, to: target
+    # project_id = ENV["CLOUD_PROJECT_ID"]
+    # translate = Google::Cloud::Translate.new version: :v2, project_id: project_id
+    # target = "ja"
+    # @translation_subject = translate.translate @post.subject_english, to: target
+    # @translation_content = translate.translate @post.content_english, to: target
 
     render json: {
       post: @post,
-      translation_subject: @translation_subject,
-      translation_content: @translation_content,
       comments: @comments,
       liked: current_user.likes.exists?(post_id: @post.id),
       bookmarked: current_user.bookmarks.exists?(post_id: @post.id),
@@ -61,7 +58,7 @@ before_action :correct_user, only: :destroy
   private
 
     def post_params
-      params.require(:post).permit(:scene, :content_english, :subject_english)
+      params.require(:post).permit(:title, :content, :genre)
     end
 
     def correct_user

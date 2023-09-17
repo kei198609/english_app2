@@ -33,14 +33,8 @@
             </v-btn>
             <v-col cols="5">
               <v-card outlined class="mb-3">
-                <v-card-title>Subject: {{ post.subject_english }}</v-card-title>
-                <v-card-text>{{ post.content_english }}</v-card-text>
-              </v-card>
-            </v-col>
-            <v-col cols="5">
-              <v-card outlined class="mb-3">
-                <v-card-title>件名: {{ translation_subject }}</v-card-title>
-                <v-card-text>{{ translation_content }}</v-card-text>
+                <v-card-title>タイトル: {{ post.title }}</v-card-title>
+                <v-card-text>{{ post.content }}</v-card-text>
               </v-card>
             </v-col>
             <!-- コメント一覧 -->
@@ -83,8 +77,6 @@ export default {
       bookmarked: false,
       comments: [],
       newComment: '',
-      translation_subject: '',
-      translation_content: '',
       loading: true
     }
   },
@@ -96,8 +88,6 @@ export default {
       try {
         const response = await this.$axios.get(`/api/v1/posts/${this.$route.params.id}`)
         this.post = response.data.post
-        this.translation_subject = response.data.translation_subject.text
-        this.translation_content = response.data.translation_content.text
         this.liked = response.data.liked
         this.bookmarked = response.data.bookmarked
         this.comments = response.data.comments

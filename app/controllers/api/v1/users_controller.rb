@@ -13,7 +13,7 @@ class Api::V1::UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     # @posts = @user.posts.page(params[:page]).per(5)
-    @data = @user.posts.group_by(&:scene).transform_values(&:count)
+    @data = @user.posts.group_by(&:genre).transform_values(&:count)
     followers_count = @user.followers.count
     following_count = @user.following.count
 
@@ -85,7 +85,7 @@ class Api::V1::UsersController < ApplicationController
     @bookmarks = current_user.bookmarks.page(params[:page]).per(5)
     bookmarks_json = @bookmarks.as_json(
       include: {
-        post: { only: [:id, :subject_english, :content_english],
+        post: { only: [:id, :content],
           include: {
             user: {
               only: [:id, :name, :avatar]
