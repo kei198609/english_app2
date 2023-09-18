@@ -115,6 +115,8 @@ export default {
         } else {
           alert('不正解')
         }
+        // ストアに試行結果を追加
+        this.$store.commit('ADD_QUIZ_ATTEMPT', response)
       } catch (error) {
         console.error(error)
       }
