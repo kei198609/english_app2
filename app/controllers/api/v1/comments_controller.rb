@@ -5,7 +5,10 @@ class Api::V1::CommentsController < ApplicationController
     comment.post_id = post.id
     if comment.save
       post.create_notification_comment!(current_user, comment.id)
-      render json: { status: 'success', comment: comment }
+      render json: {
+        status: 'success',
+        comment: comment.as_json.merge(user_name: current_user.name)
+      }
     else
       render json: {
         status: 'error',

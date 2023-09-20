@@ -25,40 +25,52 @@
           </v-col>
 
           <template v-else>
-            <v-btn @click="toggleLike">
-              <v-icon :color="liked ? 'red' : 'grey'">mdi-heart</v-icon>
-            </v-btn>
-            <v-btn @click="toggleBookmark">
-              <v-icon :color="bookmarked ? 'blue' : 'grey'">mdi-bookmark</v-icon>
-            </v-btn>
-            <v-col cols="5">
+            <v-col cols="12">
               <v-card outlined class="mb-3">
+                <v-img :src="genreImageUrl" alt="ジャンルの画像" height="300"></v-img>
                 <v-card-title>タイトル: {{ post.title }}</v-card-title>
+                <div class="d-flex justify-end">
+                  <div class="pr-3">
+                    <v-btn fab class="elevation-0 bordered-btn" @click="toggleLike">
+                      <v-icon :color="liked ? 'red' : 'grey'">mdi-heart</v-icon>
+                    </v-btn>
+                  </div>
+                  <div class="pr-3">
+                    <v-btn fab class="elevation-0 bordered-btn" @click="toggleBookmark">
+                      <v-icon :color="bookmarked ? 'blue' : 'grey'">mdi-bookmark</v-icon>
+                    </v-btn>
+                  </div>
+                </div>
                 <v-card-text>{{ post.content }}</v-card-text>
               </v-card>
             </v-col>
             <!-- コメント一覧 -->
-            <v-col cols="10">
-              <v-list>
-                <v-list-item-group>
-                  <v-list-item v-for="comment in comments" :key="comment.id">
-                    <v-list-item-content>
-                      <v-list-item-title>{{ comment.user_name }}</v-list-item-title>
-                      <v-list-item-subtitle>{{ comment.comment }}</v-list-item-subtitle>
-                    </v-list-item-content>
-                    <v-list-item-action>
-                      <v-btn icon @click="deleteComment(comment.id)">
-                        <v-icon>mdi-delete</v-icon>
-                      </v-btn>
-                    </v-list-item-action>
-                  </v-list-item>
-                </v-list-item-group>
-              </v-list>
-            </v-col>
-            <!-- コメント入力欄 -->
-            <v-col cols="10">
-              <v-text-field label="コメント" v-model="newComment"></v-text-field>
-              <v-btn @click="submitComment">コメントする</v-btn>
+            <v-col cols="12">
+              <v-card outlined class="px-3 py-3">
+                <v-list-item-content>
+                  コメント一覧
+                </v-list-item-content>
+                <v-list>
+                  <v-list-item-group>
+                    <v-list-item v-for="comment in comments" :key="comment.id" class="comment-item">
+                      <v-list-item-content>
+                        <v-list-item-title>{{ comment.user_name }}</v-list-item-title>
+                        <v-list-item-subtitle class="comment-text">
+                          {{ comment.comment }}
+                        </v-list-item-subtitle>
+                      </v-list-item-content>
+                      <v-list-item-action>
+                        <v-btn icon @click="deleteComment(comment.id)">
+                          <v-icon>mdi-delete</v-icon>
+                        </v-btn>
+                      </v-list-item-action>
+                    </v-list-item>
+                  </v-list-item-group>
+                </v-list>
+                <!-- コメント入力欄 -->
+                <v-textarea label="コメント" v-model="newComment" outlined></v-textarea>
+                <v-btn @click="submitComment">コメントする</v-btn>
+              </v-card>
             </v-col>
           </template>
         </v-row>
@@ -77,7 +89,21 @@ export default {
       bookmarked: false,
       comments: [],
       newComment: '',
-      loading: true
+      loading: true,
+      genreImageMapping: {
+        ビジネス文書: 'business_documents',
+        英語メール表現: 'english_email_expressions',
+        一般的な英文メッセージ: 'general_english_message'
+      }
+    }
+  },
+  computed: {
+    genreImageUrl () {
+      if (this.post && this.post.genre && this.genreImageMapping[this.post.genre]) {
+        const imageName = this.genreImageMapping[this.post.genre]
+        return require(`@/assets/images/${imageName}.jpg`)
+      }
+      return null
     }
   },
   async created () {
@@ -153,5 +179,16 @@ export default {
   justify-content: center;
   align-items: center;
   height: 100vh;
+}
+.bordered-btn {
+  border: 1px solid rgb(185, 180, 180);
+  border-radius: 50%;
+}
+.comment-text {
+  white-space: pre-line;
+}
+.comment-item:not(:last-child) {
+  border-bottom: 1px solid #dedede;  /* グレーの境界線 */
+
 }
 </style>
