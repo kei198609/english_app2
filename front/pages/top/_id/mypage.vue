@@ -15,22 +15,24 @@
       <v-container>
         <v-row>
           <!-- User section -->
-          <v-col cols="12" md="4" lg="4" class="mt-3">
+          <v-col cols="12" md="4" lg="4">
             <UserSection v-if="user" :user="user" />
-            <LevelGaugePoint v-if="user" :user="user" />
-            <!-- バッジを表示する部分 -->
-            <!-- <v-row v-if="user && user.has_clear_badge" class="mt-3">
-              <v-col cols="12" class="text-center">
-                <img :src="badgeImagePath" alt="Clear Badge" style="width: 50px; height: 50px;">
-              </v-col>
-            </v-row> -->
           </v-col>
-          <!-- Chart and Posts section -->
-          <v-col cols="12" md="8" lg="8" class="mt-3">
-            <!-- <CustomPieChart v-if="data" :chart-data="data"></CustomPieChart> -->
-            <CustomPieChart v-if="chartData" :chartData="chartData"></CustomPieChart>
-            <v-subheader>投稿</v-subheader>
+            <v-col cols="12" md="4" lg="4">
+              <v-card>
+                <div class="text-center pt-3">基礎チェック状況</div>
+                <CustomPieChart v-if="articleChartData" :chartData="articleChartData" />
+              </v-card>
+            </v-col>
+            <v-col cols="12" md="4" lg="4">
+              <v-card>
+                <div class="text-center pt-3">クイズ回答情報</div>
+                <CustomPieChart v-if="chartData" :chartData="chartData" />
+              </v-card>
+            </v-col>
 
+          <v-col cols="12" md="8" lg="8" class="mt-3">
+            <v-subheader>投稿</v-subheader>
             <v-data-table
               v-if="posts"
               :headers="headers"
@@ -44,12 +46,12 @@
                     <td>{{ formatDate(item.created_at) }}</td>
 
                     <td>
-                        {{ item.scene }}
+                        {{ item.genre }}
                     </td>
 
                     <td>
                       <router-link :to="`/post/${item.id}/postdetail`">
-                        {{ item.subject_english }}
+                        {{ item.title }}
                       </router-link>
                     </td>
 
@@ -66,7 +68,6 @@
                 </tbody>
               </template>
             </v-data-table>
-            <!-- <ExperienceGauge v-if="scenes.length" :scenes="scenes" /> -->
           </v-col>
         </v-row>
       </v-container>
@@ -78,16 +79,11 @@
 import moment from 'moment'
 import UserSection from '~/components/UserSection.vue'
 import CustomPieChart from '~/components/CustomPieChart.vue'
-import LevelGaugePoint from '~/components/LevelGaugePoint.vue'
-
-// import ExperienceGauge from '~/components/ExperienceGauge.vue'
 
 export default {
   components: {
     UserSection,
-    CustomPieChart,
-    LevelGaugePoint
-    // ExperienceGauge
+    CustomPieChart
   },
   data () {
     return {
@@ -95,13 +91,14 @@ export default {
       user: null,
       data: null,
       chartData: null,
+      articleChartData: null,
       posts: null,
       badgeImagePath: require('~/assets/images/clear_badge.png'),
       scenes: [],
       headers: [
         { text: '投稿日時', value: 'created_at' },
-        { text: 'ビジネスシーン', value: 'scene' },
-        { text: '件名', value: 'subject_english' },
+        { text: 'ジャンル', value: 'genre' },
+        { text: '件名', value: 'title' },
         { text: 'いいね数', value: 'likes_count' },
         { text: 'コメント数', value: 'comments_count' }
       ]
@@ -113,8 +110,6 @@ export default {
     }
   },
   async fetch () {
-    console.log('fetch started')
-    console.log('loggedIn:', this.$auth.loggedIn)
     try {
       if (this.$auth.loggedIn) {
         // this.$route.params.idがundefinedであればthis.$auth.user.idを使用し、それ以外の場合はthis.$route.params.idを使用するという条件分岐
@@ -129,16 +124,17 @@ export default {
         this.posts = postResponse.data.posts
         console.log(this.posts) // ここでレスポンスの内容を確認
 
-        // シーン経験の取得
-        const sceneResponse = await this.$axios.get(`/api/v1/users/${userId}/scene_experiences`)
-        this.scenes = sceneResponse.data.scenes
-
         // クイズの正解、不正解、未学習のデータをAPIから取得
         const quizResponse = await this.$axios.get(`/api/v1/users/${userId}/quiz_statistics`)
         this.chartData = {
           正解: quizResponse.data.correct,
           不正解: quizResponse.data.incorrect,
           未学習: quizResponse.data.unattempted
+        }
+        const articleResponse = await this.$axios.get(`/api/v1/users/${userId}/article_statistics`)
+        this.articleChartData = {
+          チェック済み: articleResponse.data.read,
+          未チェック: articleResponse.data.unread
         }
       }
     } catch (error) {
