@@ -2,7 +2,7 @@
   <v-row>
     <v-col>
       <v-card class="pa-4">
-        <div class="text-center mb-3">あなたの情報</div>
+        <div class="text-center mb-3" v-if="isCurrentUser">あなたの情報</div>
         <div class="image-container">
           <v-avatar size="150" class="rounded-circle">
             <img
@@ -24,7 +24,7 @@
           <FollowForm :user="user" />
         </div>
         <div class="text-center">
-          <v-btn v-if="isCurrentUser" :to="`/top/${user.id}/profile`" color="primary">プロフィールを編集する</v-btn>
+          <v-btn v-if="isCurrentUser" :to="`/top/${user.id}/mypage`" color="primary">マイページ</v-btn>
         </div>
       </v-card>
     </v-col>
