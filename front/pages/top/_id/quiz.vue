@@ -19,13 +19,18 @@
           </v-col>
           <v-col cols="12" md="8" lg="8">
             <CategoryQuizCard
-              v-for="category in categories"
+              v-for="category in groupedQuizzes"
               :key="category.id"
               :category="category"
               :getQuizAttempt="getQuizAttempt"
             />
           </v-col>
         </v-row>
+        <v-pagination
+          v-model="current_page"
+          :length="total_pages"
+          @input="updatePage"
+        />
       </v-container>
     </v-main>
   </v-app>
@@ -44,8 +49,28 @@ export default {
     return {
       drawer: null,
       user: null,
+      quizzes: [],
       categories: [],
-      quizAttempts: []
+      quizAttempts: [],
+      total_pages: 0,
+      current_page: 1
+    }
+  },
+  computed: {
+    groupedQuizzes () {
+      return this.quizzes.reduce((categories, quiz) => {
+        const category = categories.find(c => c.id === quiz.category.id)
+        if (category) {
+          category.quizzes.push(quiz)
+        } else {
+          categories.push({
+            id: quiz.category.id,
+            category_name: quiz.category.category_name,
+            quizzes: [quiz]
+          })
+        }
+        return categories
+      }, [])
     }
   },
   methods: {
@@ -54,29 +79,39 @@ export default {
       const attempts = this.quizAttempts.filter(attempt => attempt.quiz_id === quizId)
       // 最新の試行結果を返す
       return attempts[attempts.length - 1]
+    },
+    updatePage () {
+      this.fetch()
+    },
+    async fetch () {
+      try {
+        if (this.$auth.loggedIn) {
+          // ログインしているユーザーのIDを取得
+          const userId = this.$auth.user.id
+          // ユーザーの詳細情報を取得
+          const userResponse = await this.$axios.get(`/api/v1/users/${userId}`)
+          this.user = userResponse.data.user
+
+          const quizzesResponse = await this.$axios.get(`/api/v1/quizzes?page=${this.current_page}`)
+          this.quizzes = quizzesResponse.data.quizzes
+          this.total_pages = quizzesResponse.data.total_pages
+
+          const categoriesResponse = await this.$axios.get('/api/v1/categories')
+          this.categories = categoriesResponse.data
+
+          const quizResponse = await this.$axios.get('/api/v1/quiz_attempts')
+          this.quizAttempts = quizResponse.data
+
+          // ストアからクイズの試行結果を取得
+          await this.$store.dispatch('fetchQuizAttempts')
+        }
+      } catch (error) {
+        console.error('Error fetching data', error)
+      }
     }
   },
-  async fetch () {
-    try {
-      if (this.$auth.loggedIn) {
-        // ログインしているユーザーのIDを取得
-        const userId = this.$auth.user.id
-        // ユーザーの詳細情報を取得
-        const userResponse = await this.$axios.get(`/api/v1/users/${userId}`)
-        this.user = userResponse.data.user
-
-        const categoriesResponse = await this.$axios.get('/api/v1/categories')
-        this.categories = categoriesResponse.data
-
-        const quizResponse = await this.$axios.get('/api/v1/quiz_attempts')
-        this.quizAttempts = quizResponse.data
-
-        // ストアからクイズの試行結果を取得
-        await this.$store.dispatch('fetchQuizAttempts')
-      }
-    } catch (error) {
-      console.error('Error fetching data', error)
-    }
+  async created () {
+    await this.fetch()
   }
 }
 </script>
