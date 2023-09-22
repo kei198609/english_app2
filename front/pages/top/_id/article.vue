@@ -26,6 +26,11 @@
             />
           </v-col>
         </v-row>
+        <v-pagination
+          v-model="current_page"
+          :length="total_pages"
+          @input="updatePage"
+        />
       </v-container>
     </v-main>
   </v-app>
@@ -45,7 +50,9 @@ export default {
       drawer: null,
       user: null,
       articles: [],
-      readArticles: []
+      readArticles: [],
+      total_pages: 0,
+      current_page: 1
     }
   },
   computed: {
@@ -68,27 +75,34 @@ export default {
   methods: {
     isRead (articleId) {
       return this.readArticles && this.readArticles.includes(articleId)
+    },
+    updatePage () {
+      this.fetchData()
+    },
+    async fetchData () {
+      try {
+        if (this.$auth.loggedIn) {
+          // ログインしているユーザーのIDを取得
+          const userId = this.$auth.user.id
+          // ユーザーの詳細情報を取得
+          const userResponse = await this.$axios.get(`/api/v1/users/${userId}`)
+          this.user = userResponse.data.user
+          // 記事情報を取得
+          const articlesResponse = await this.$axios.get(`/api/v1/articles?page=${this.current_page}`)
+          this.articles = articlesResponse.data.articles
+          this.total_pages = articlesResponse.data.total_pages
+          // 記事を読んだかどうか情報を取得
+          const readArticlesResponse = await this.$axios.get('/api/v1/article_readings/user_articles_read')
+          console.log('API Response for readArticles:', readArticlesResponse.data)
+          this.readArticles = readArticlesResponse.data
+        }
+      } catch (error) {
+        console.error('Error fetching data', error)
+      }
     }
   },
-  async fetch () {
-    try {
-      if (this.$auth.loggedIn) {
-        // ログインしているユーザーのIDを取得
-        const userId = this.$auth.user.id
-        // ユーザーの詳細情報を取得
-        const userResponse = await this.$axios.get(`/api/v1/users/${userId}`)
-        this.user = userResponse.data.user
-        // 記事情報を取得
-        const articlesResponse = await this.$axios.get('/api/v1/articles')
-        this.articles = articlesResponse.data
-        // 記事を読んだかどうか情報を取得
-        const readArticlesResponse = await this.$axios.get('/api/v1/article_readings/user_articles_read')
-        console.log('API Response for readArticles:', readArticlesResponse.data)
-        this.readArticles = readArticlesResponse.data
-      }
-    } catch (error) {
-      console.error('Error fetching data', error)
-    }
+  async created () {
+    await this.fetchData()
   }
 }
 </script>

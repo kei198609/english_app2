@@ -1,7 +1,11 @@
 class Api::V1::ArticlesController < ApplicationController
   def index
-    @articles = Article.includes(:category).all
-    render json: @articles, include: :category
+    @articles = Article.includes(:category).page(params[:page]).per(3)
+    render json: {
+      articles: @articles.as_json(include: :category),
+      total_pages: @articles.total_pages,
+      current_page: @articles.current_page
+    }
   end
 
   def show
