@@ -18,6 +18,18 @@
         <v-container>
           <v-row justify="center">
             <v-col cols="12" md="8">
+            <CategoryArticles
+              v-for="category in groupedArticles"
+              :key="category.id"
+              :category="category"
+              :isRead="isRead"
+            />
+            <!-- ページネーションを追加 -->
+            <v-pagination
+              v-model="current_page"
+              :length="total_pages"
+              @input="updatePage"
+            />
             <!-- 検索フォーム -->
             <v-form>
               <v-text-field
@@ -75,11 +87,13 @@
 <script>
 import UserAvatarPost from '~/components/UserAvatarPost.vue'
 import UserSection from '~/components/UserSection.vue'
+import CategoryArticles from '~/components/CategoryArticles.vue'
 
 export default {
   components: {
     UserAvatarPost,
-    UserSection
+    UserSection,
+    CategoryArticles
   },
   data () {
     return {
@@ -92,10 +106,37 @@ export default {
         ビジネス文書: 'business_documents',
         英語メール表現: 'english_email_expressions',
         一般的な英文メッセージ: 'general_english_message'
-      }
+      },
+      articles: [],
+      readArticles: [],
+      total_pages: 0,
+      current_page: 1
+    }
+  },
+  computed: {
+    groupedArticles () {
+      return this.articles.reduce((categories, article) => {
+        const category = categories.find(c => c.id === article.category.id)
+        if (category) {
+          category.articles.push(article)
+        } else {
+          categories.push({
+            id: article.category.id,
+            category_name_article: article.category.category_name_article,
+            articles: [article]
+          })
+        }
+        return categories
+      }, [])
     }
   },
   methods: {
+    isRead (articleId) {
+      return this.readArticles && this.readArticles.includes(articleId)
+    },
+    updatePage () {
+      this.fetchData()
+    },
     async searchPosts () {
       console.log('searchPosts is called with query:', this.searchQuery)
       try {
@@ -111,6 +152,23 @@ export default {
         return require(`@/assets/images/${imageName}.jpg`)
       }
       return this.noimage // ジャンル画像がない場合にデフォルト画像を表示
+    },
+    async fetchData () {
+      try {
+        if (this.$auth.loggedIn) {
+          // ログインしているユーザーのIDを取得
+          const userId = this.$auth.user.id
+          // ユーザーの詳細情報を取得
+          const userResponse = await this.$axios.get(`/api/v1/users/${userId}`)
+          this.user = userResponse.data.user
+          // 記事情報を取得
+          const articlesResponse = await this.$axios.get(`/api/v1/articles?page=${this.current_page}`)
+          this.articles = articlesResponse.data.articles
+          this.total_pages = articlesResponse.data.total_pages
+        }
+      } catch (error) {
+        console.error('Error fetching data', error)
+      }
     }
   },
   async created () {
@@ -121,19 +179,7 @@ export default {
     } catch (error) {
       console.error('Error fetching posts:', error)
     }
-  },
-  async fetch () {
-    try {
-      if (this.$auth.loggedIn) {
-        // ログインしているユーザーのIDを取得
-        const userId = this.$auth.user.id
-        // ユーザーの詳細情報を取得
-        const userResponse = await this.$axios.get(`/api/v1/users/${userId}`)
-        this.user = userResponse.data.user
-      }
-    } catch (error) {
-      console.error('Error fetching data', error)
-    }
+    await this.fetchData()
   }
 }
 </script>
