@@ -16,24 +16,23 @@
       />
       <v-main class="main-content">
         <v-container>
-          <!-- 検索フォーム -->
-          <v-form>
-            <v-text-field
-              v-model="searchQuery"
-              label="英文検索"
-              prepend-icon="mdi-magnify"
-              solo
-            />
-            <v-btn @click.prevent="searchPosts" color="primary">
-              検索
-            </v-btn>
-          </v-form>
           <v-row justify="center">
-            <v-col cols="12">
-              <v-card-title>
+            <v-col cols="12" md="8">
+            <!-- 検索フォーム -->
+            <v-form>
+              <v-text-field
+                v-model="searchQuery"
+                label="英文検索"
+                prepend-icon="mdi-magnify"
+                solo
+              />
+              <v-btn @click.prevent="searchPosts" color="primary">
+                検索
+              </v-btn>
+            </v-form>
+              <v-card class="px-3 py-3 mb-5">
                 新着一覧
-              </v-card-title>
-
+              </v-card>
               <div
                 v-for="post in posts"
                 :key="post.id"
@@ -46,7 +45,7 @@
                       @click="$router.push(`/post/${post.id}/postdetail`)"
                     >
                       <v-row class="px-3">
-                        <v-col cols="12" md="3" lg="3">
+                        <v-col cols="12" lg="5">
                           <v-img :src="getGenreImageUrl(post)" alt="ジャンルの画像" class="genre-image"></v-img>
                         </v-col>
                         <v-col class="d-flex flex-column justify-space-between">
@@ -63,6 +62,9 @@
                 </v-hover>
               </div>
             </v-col>
+            <v-col cols="12" md="4" lg="4">
+              <UserSection v-if="user" :user="user" />
+            </v-col>
           </v-row>
         </v-container>
       </v-main>
@@ -72,14 +74,17 @@
 
 <script>
 import UserAvatarPost from '~/components/UserAvatarPost.vue'
+import UserSection from '~/components/UserSection.vue'
 
 export default {
   components: {
-    UserAvatarPost
+    UserAvatarPost,
+    UserSection
   },
   data () {
     return {
       drawer: null,
+      user: null,
       posts: null,
       noimage: require('~/assets/images/noimage.jpg'),
       searchQuery: null,
@@ -115,6 +120,19 @@ export default {
       console.log(this.posts)
     } catch (error) {
       console.error('Error fetching posts:', error)
+    }
+  },
+  async fetch () {
+    try {
+      if (this.$auth.loggedIn) {
+        // ログインしているユーザーのIDを取得
+        const userId = this.$auth.user.id
+        // ユーザーの詳細情報を取得
+        const userResponse = await this.$axios.get(`/api/v1/users/${userId}`)
+        this.user = userResponse.data.user
+      }
+    } catch (error) {
+      console.error('Error fetching data', error)
     }
   }
 }
