@@ -24,11 +24,23 @@
               :category="category"
               :isRead="isRead"
             />
-            <!-- ページネーションを追加 -->
+            <!-- CategoryArticlesページネーション -->
             <v-pagination
               v-model="current_page"
               :length="total_pages"
               @input="updatePage"
+            />
+            <CategoryQuizCard
+              v-for="category in groupedQuizzes"
+              :key="category.id"
+              :category="category"
+              :getQuizAttempt="getQuizAttempt"
+            />
+            <!-- CategoryQuizCard -->
+            <v-pagination
+              v-model="quiz_current_page"
+              :length="quiz_total_pages"
+              @input="updateQuizPage"
             />
             <!-- 検索フォーム -->
             <v-form>
@@ -88,12 +100,14 @@
 import UserAvatarPost from '~/components/UserAvatarPost.vue'
 import UserSection from '~/components/UserSection.vue'
 import CategoryArticles from '~/components/CategoryArticles.vue'
+import CategoryQuizCard from '~/components/CategoryQuizCard.vue'
 
 export default {
   components: {
     UserAvatarPost,
     UserSection,
-    CategoryArticles
+    CategoryArticles,
+    CategoryQuizCard
   },
   data () {
     return {
@@ -110,7 +124,11 @@ export default {
       articles: [],
       readArticles: [],
       total_pages: 0,
-      current_page: 1
+      current_page: 1,
+      quizzes: [],
+      quizAttempts: [],
+      quiz_current_page: 1,
+      quiz_total_pages: 0
     }
   },
   computed: {
@@ -128,14 +146,36 @@ export default {
         }
         return categories
       }, [])
+    },
+    groupedQuizzes () {
+      return this.quizzes.reduce((categories, quiz) => {
+        const category = categories.find(c => c.id === quiz.category.id)
+        if (category) {
+          category.quizzes.push(quiz)
+        } else {
+          categories.push({
+            id: quiz.category.id,
+            category_name: quiz.category.category_name,
+            quizzes: [quiz]
+          })
+        }
+        return categories
+      }, [])
     }
   },
   methods: {
     isRead (articleId) {
       return this.readArticles && this.readArticles.includes(articleId)
     },
+    getQuizAttempt (quizId) {
+      const attempts = this.quizAttempts.filter(attempt => attempt.quiz_id === quizId)
+      return attempts[attempts.length - 1]
+    },
     updatePage () {
       this.fetchData()
+    },
+    updateQuizPage () {
+      this.fetchQuizData()
     },
     async searchPosts () {
       console.log('searchPosts is called with query:', this.searchQuery)
@@ -165,6 +205,36 @@ export default {
           const articlesResponse = await this.$axios.get(`/api/v1/articles?page=${this.current_page}`)
           this.articles = articlesResponse.data.articles
           this.total_pages = articlesResponse.data.total_pages
+          // 記事を読んだかどうか情報を取得
+          const readArticlesResponse = await this.$axios.get('/api/v1/article_readings/user_articles_read')
+          console.log('API Response for readArticles:', readArticlesResponse.data)
+          this.readArticles = readArticlesResponse.data
+        }
+      } catch (error) {
+        console.error('Error fetching data', error)
+      }
+    },
+    async fetchQuizData () {
+      try {
+        if (this.$auth.loggedIn) {
+          // ログインしているユーザーのIDを取得
+          const userId = this.$auth.user.id
+          // ユーザーの詳細情報を取得
+          const userResponse = await this.$axios.get(`/api/v1/users/${userId}`)
+          this.user = userResponse.data.user
+
+          const quizzesResponse = await this.$axios.get(`/api/v1/quizzes?page=${this.quiz_current_page}`)
+          this.quizzes = quizzesResponse.data.quizzes
+          this.quiz_total_pages = quizzesResponse.data.total_pages
+
+          const categoriesResponse = await this.$axios.get('/api/v1/categories')
+          this.categories = categoriesResponse.data
+
+          const quizResponse = await this.$axios.get('/api/v1/quiz_attempts')
+          this.quizAttempts = quizResponse.data
+
+          // ストアからクイズの試行結果を取得
+          await this.$store.dispatch('fetchQuizAttempts')
         }
       } catch (error) {
         console.error('Error fetching data', error)
@@ -180,6 +250,7 @@ export default {
       console.error('Error fetching posts:', error)
     }
     await this.fetchData()
+    await this.fetchQuizData()
   }
 }
 </script>
