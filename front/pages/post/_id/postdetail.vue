@@ -60,7 +60,7 @@
                         </v-list-item-subtitle>
                       </v-list-item-content>
                       <v-list-item-action>
-                        <v-btn icon @click="deleteComment(comment.id)">
+                        <v-btn icon v-if="comment.user_id === $auth.user.id" @click="deleteComment(comment.id)">
                           <v-icon>mdi-delete</v-icon>
                         </v-btn>
                       </v-list-item-action>
