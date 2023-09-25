@@ -16,36 +16,38 @@
         <v-row>
           <link-list :items="items" />
           <v-col cols="8">
-            <user-form-card-change>
-              <template #user-form-card-change-content>
-                <!-- Name Form -->
-                <v-form ref="formName" v-model="validName">
-                  <user-form-name
-                    :name.sync="params.user.name"
-                  />
-                  <v-btn
-                    :disabled="!validName"
-                    color="primary"
-                    @click="changeName"
-                  >
-                    名前を更新する
-                  </v-btn>
-                </v-form>
-                <!-- Occupation Form -->
-                <v-form ref="formOccupation" v-model="validOccupation">
-                  <user-form-occupation
-                    :occupation.sync="params.user.occupation"
-                  />
-                  <v-btn
-                    :disabled="!validOccupation"
-                    color="primary"
-                    @click="changeOccupation"
-                  >
-                    職種を更新する
-                  </v-btn>
-                </v-form>
-              </template>
-            </user-form-card-change>
+            <v-card class="pb-8">
+              <user-form-card-change>
+                <template #user-form-card-change-content>
+                  <!-- Name Form -->
+                  <v-form ref="formName" v-model="validName">
+                    <user-form-name
+                      :name.sync="params.user.name"
+                    />
+                    <v-btn
+                      :disabled="!validName"
+                      color="primary"
+                      @click="changeName"
+                    >
+                      名前を更新する
+                    </v-btn>
+                  </v-form>
+                  <!-- Occupation Form -->
+                  <v-form ref="formOccupation" v-model="validOccupation">
+                    <user-form-occupation
+                      :occupation.sync="params.user.occupation"
+                    />
+                    <v-btn
+                      :disabled="!validOccupation"
+                      color="primary"
+                      @click="changeOccupation"
+                    >
+                      職種を更新する
+                    </v-btn>
+                  </v-form>
+                </template>
+              </user-form-card-change>
+            </v-card>
           </v-col>
           <v-snackbar v-model="snackbar" top right color="success" outlined>
             {{ snackbarMessage }}

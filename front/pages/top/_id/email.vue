@@ -16,22 +16,24 @@
         <v-row>
           <link-list :items="items" />
           <v-col cols="8">
-            <user-form-card-change>
-              <template #user-form-card-change-content>
-                <v-form ref="form" v-model="valid">
-                  <user-form-email
-                    :email.sync="params.user.email"
-                  />
-                  <v-btn
-                    :disabled="!valid"
-                    color="primary"
-                    @click="changeEmail"
-                  >
-                    保存
-                  </v-btn>
-                </v-form>
-              </template>
-            </user-form-card-change>
+            <v-card class="pb-8">
+              <user-form-card-change>
+                <template #user-form-card-change-content>
+                  <v-form ref="form" v-model="valid">
+                    <user-form-email
+                      :email.sync="params.user.email"
+                    />
+                    <v-btn
+                      :disabled="!valid"
+                      color="primary"
+                      @click="changeEmail"
+                    >
+                      保存
+                    </v-btn>
+                  </v-form>
+                </template>
+              </user-form-card-change>
+            </v-card>
           </v-col>
           <v-snackbar v-model="snackbar" top right color="success" outlined>
             {{ snackbarMessage }}

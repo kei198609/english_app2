@@ -16,18 +16,20 @@
         <v-row>
           <link-list :items="items" />
           <v-col cols="8">
-            <div>アカウント</div>
-            <div>
-              <img :src="avatarUrl" class="rounded-circle" />
-            </div>
-            <div class="mt-4">
-              <input type="file" @change="onFileChange" />
-            </div>
-            <div class="mt-4">
-              <v-btn color="red" @click="deleteAccount" >
-                アカウント削除
-              </v-btn>
-            </div>
+            <v-card class="px-3 py-3">
+              <div>アカウント</div>
+              <div>
+                <img :src="avatarUrl" class="rounded-circle" />
+              </div>
+              <div class="mt-4">
+                <input type="file" @change="onFileChange" />
+              </div>
+              <div class="mt-4">
+                <v-btn color="red" @click="deleteAccount" >
+                  アカウント削除
+                </v-btn>
+              </div>
+            </v-card>
           </v-col>
           <v-snackbar v-model="snackbar" top right color="success" outlined>
             {{ snackbarMessage }}

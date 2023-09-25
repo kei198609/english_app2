@@ -16,33 +16,35 @@
         <v-row>
           <link-list :items="items" />
           <v-col cols="8">
-            <user-form-card-change>
-              <template #user-form-card-change-content>
-                <v-form ref="form" v-model="valid">
-                  <user-form-password-current
-                    :password.sync="params.user.currentPassword"
-                    set-validation
-                  />
-                  <user-form-password-new
-                    :password.sync="params.user.newPassword"
-                    set-validation
-                    :check-password-match="checkPasswordMatch"
-                  />
-                  <user-form-password-confirm
-                    :password.sync="params.user.newPasswordConfirmation"
-                    set-validation
-                    :check-password-match="checkPasswordMatch"
-                  />
-                  <v-btn
-                    :disabled="!valid"
-                    color="primary"
-                    @click="changePassword"
-                  >
-                    パスワード変更
-                  </v-btn>
-                </v-form>
-              </template>
-            </user-form-card-change>
+            <v-card class="pb-8">
+              <user-form-card-change>
+                <template #user-form-card-change-content>
+                  <v-form ref="form" v-model="valid">
+                    <user-form-password-current
+                      :password.sync="params.user.currentPassword"
+                      set-validation
+                    />
+                    <user-form-password-new
+                      :password.sync="params.user.newPassword"
+                      set-validation
+                      :check-password-match="checkPasswordMatch"
+                    />
+                    <user-form-password-confirm
+                      :password.sync="params.user.newPasswordConfirmation"
+                      set-validation
+                      :check-password-match="checkPasswordMatch"
+                    />
+                    <v-btn
+                      :disabled="!valid"
+                      color="primary"
+                      @click="changePassword"
+                    >
+                      パスワード変更
+                    </v-btn>
+                  </v-form>
+                </template>
+              </user-form-card-change>
+            </v-card>
           </v-col>
           <v-snackbar v-model="snackbar" top right color="success" outlined>
             {{ snackbarMessage }}
