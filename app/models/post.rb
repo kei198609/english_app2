@@ -7,7 +7,6 @@ class Post < ApplicationRecord
   validates :content, presence: true, length: { maximum: 2000 }
 
 
-  has_one  :scene_experience, dependent: :destroy
   has_many :bookmarks,        dependent: :destroy
   has_many :likes,            dependent: :destroy
   has_many :comments,         dependent: :destroy
