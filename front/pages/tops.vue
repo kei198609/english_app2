@@ -18,30 +18,34 @@
         <v-container>
           <v-row justify="center">
             <v-col cols="12" md="8">
-            <CategoryArticles
-              v-for="category in groupedArticles"
-              :key="category.id"
-              :category="category"
-              :isRead="isRead"
-            />
-            <!-- CategoryArticlesページネーション -->
-            <v-pagination
-              v-model="current_page"
-              :length="total_pages"
-              @input="updatePage"
-            />
-            <CategoryQuizCard
-              v-for="category in groupedQuizzes"
-              :key="category.id"
-              :category="category"
-              :getQuizAttempt="getQuizAttempt"
-            />
-            <!-- CategoryQuizCard -->
-            <v-pagination
-              v-model="quiz_current_page"
-              :length="quiz_total_pages"
-              @input="updateQuizPage"
-            />
+              <v-card outlined class="px-3 py-3 pb-3 mb-5">
+                <CategoryArticles
+                  v-for="category in groupedArticles"
+                  :key="category.id"
+                  :category="category"
+                  :isRead="isRead"
+                />
+                <!-- CategoryArticlesページネーション -->
+                <v-pagination
+                  v-model="current_page"
+                  :length="total_pages"
+                  @input="updatePage"
+                />
+              </v-card>
+              <v-card outlined class="px-3 py-3 pb-3 mb-5">
+                <CategoryQuizCard
+                  v-for="category in groupedQuizzes"
+                  :key="category.id"
+                  :category="category"
+                  :getQuizAttempt="getQuizAttempt"
+                />
+                <!-- CategoryQuizCardページネーション -->
+                <v-pagination
+                  v-model="quiz_current_page"
+                  :length="quiz_total_pages"
+                  @input="updateQuizPage"
+                />
+              </v-card>
             <!-- 検索フォーム -->
             <v-form>
               <v-text-field
@@ -55,7 +59,9 @@
               </v-btn>
             </v-form>
               <v-card class="px-3 py-3 mb-5">
-                新着一覧
+                <v-list-item-content>
+                  新着一覧
+                </v-list-item-content>
               </v-card>
               <div
                 v-for="post in posts"
