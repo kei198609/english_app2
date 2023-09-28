@@ -12,13 +12,19 @@
         </v-list-item-content>
       </v-list-item>
       <v-list v-for="q in category.quizzes" :key="q.id">
-        <v-list-item>
-          <!-- クイズタイトルとリンク -->
-          <nuxt-link :to="`/quiz/${q.id}`">{{ q.title }}</nuxt-link>
-          <!-- 正誤表示 -->
-          <span v-if="getQuizAttempt(q.id)">
-            {{ getQuizAttempt(q.id).correct ? '正解済み' : '不正解' }}
-          </span>
+        <v-list-item :to="`/quiz/${q.id}`">
+          <v-row>
+            <v-col class="flex-grow-1">
+              <v-list-item-title>
+                {{ q.title }}
+              </v-list-item-title>
+            </v-col>
+              <v-col v-if="getQuizAttempt(q.id)">
+                <v-list-item-subtitle>
+                  {{ getQuizAttempt(q.id).correct ? '正解済み' : '不正解' }}
+                </v-list-item-subtitle>
+              </v-col>
+          </v-row>
         </v-list-item>
       </v-list>
     </v-card>
