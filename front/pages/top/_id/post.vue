@@ -14,29 +14,37 @@
     <v-main>
       <v-container>
         <div>
-          <v-form @submit.prevent="createPost">
-            <v-select
-              v-model="post.scene"
-              :items="scenes"
-              label="ビジネスシーン"
-              required
-            ></v-select>
+          <v-card outlined class="px-3 py-3">
+            <v-form @submit.prevent="createPost">
+              <v-select
+                v-model="post.genre"
+                :items="genres"
+                label="ジャンル"
+                outlined
+              ></v-select>
 
-            <v-textarea
-              v-model="post.subjectEnglish"
-              label="件名"
-              required
-            ></v-textarea>
+              <v-textarea
+                v-model="post.title"
+                label="タイトル"
+                outlined
+              ></v-textarea>
 
-            <v-textarea
-              v-model="post.contentEnglish"
-              label="メール本文"
-              required
-            ></v-textarea>
+              <v-textarea
+                v-model="post.content"
+                label="内容"
+                outlined
+              ></v-textarea>
 
-            <v-btn type="submit" color="primary">投稿する</v-btn>
-          </v-form>
+              <v-btn type="submit" color="primary">投稿する</v-btn>
+            </v-form>
+          </v-card>
         </div>
+        <v-snackbar v-model="snackbar" top right color="success" outlined>
+          {{ snackbarMessage }}
+          <v-btn color="black" text @click="snackbar = false">
+            閉じる
+          </v-btn>
+      </v-snackbar>
       </v-container>
     </v-main>
   </v-app>
@@ -47,12 +55,14 @@ export default {
   data () {
     return {
       drawer: null,
+      snackbar: false,
+      snackbarMessage: '',
       post: {
-        scene: '',
-        subjectEnglish: '',
-        contentEnglish: ''
+        title: '',
+        content: '',
+        genre: ''
       },
-      scenes: ['アポイントメント', '日程調整', '依頼', '問い合わせ', '報告', 'お礼', '謝罪', 'クレーム', '確認', '提案', '催促', 'その他']
+      genres: ['ビジネス文書', '英語メール表現', '一般的な英文メッセージ', 'その他']
     }
   },
 
@@ -61,9 +71,9 @@ export default {
       try {
         const response = await this.$axios.post('/api/v1/posts', {
           post: {
-            scene: this.post.scene,
-            subject_english: this.post.subjectEnglish,
-            content_english: this.post.contentEnglish
+            genre: this.post.genre,
+            title: this.post.title,
+            content: this.post.content
           }
         }, {
           headers: {
@@ -76,6 +86,8 @@ export default {
       } catch (err) {
         console.error(err)
       }
+      this.snackbar = true
+      this.snackbarMessage = '投稿しました。マイページから確認できます。'
     }
   }
 }
