@@ -31,8 +31,8 @@
               </v-card>
             </v-col>
 
-          <v-col cols="12" md="8" lg="8" class="mt-3">
-            <v-subheader>投稿</v-subheader>
+          <v-col cols="12" class="mt-3">
+            <v-card outlined class="px-3 py-3 mb-3">投稿</v-card>
             <v-data-table
               v-if="posts"
               :headers="headers"
@@ -64,12 +64,23 @@
                       <v-icon class="fa-regular fa-comment text-center ms-3 me-1" style="color: #AAAAAA;">mdi-comment</v-icon>
                       {{ item.comments_count }}
                     </td>
+                    <td>
+                      <v-btn icon @click="deletePost(item.id)" v-if="item.user_id === currentUserId">
+                        <v-icon>mdi-delete</v-icon>
+                      </v-btn>
+                    </td>
                   </tr>
                 </tbody>
               </template>
             </v-data-table>
           </v-col>
         </v-row>
+        <v-snackbar v-model="snackbar" top right color="success" outlined>
+          {{ snackbarMessage }}
+          <v-btn color="black" text @click="snackbar = false">
+            閉じる
+          </v-btn>
+      </v-snackbar>
       </v-container>
     </v-main>
   </v-app>
@@ -93,20 +104,33 @@ export default {
       chartData: null,
       articleChartData: null,
       posts: null,
-      badgeImagePath: require('~/assets/images/clear_badge.png'),
       scenes: [],
+      snackbar: false,
+      snackbarMessage: '',
+      currentUserId: this.$auth.user.id,
       headers: [
         { text: '投稿日時', value: 'created_at' },
         { text: 'ジャンル', value: 'genre' },
         { text: '件名', value: 'title' },
         { text: 'いいね数', value: 'likes_count' },
-        { text: 'コメント数', value: 'comments_count' }
+        { text: 'コメント数', value: 'comments_count' },
+        { text: '投稿削除', value: 'post_delete' }
       ]
     }
   },
   methods: {
     formatDate (dateString) {
       return moment(dateString).format('YYYY-MM-DD HH:mm')
+    },
+    async deletePost (postId) {
+      try {
+        await this.$axios.delete(`/api/v1/posts/${postId}`)
+        this.posts = this.posts.filter(post => post.id !== postId) // 投稿をローカルのリストから削除
+      } catch (error) {
+        console.error('Error deleting post:', error)
+      }
+      this.snackbar = true
+      this.snackbarMessage = '投稿を削除しました。'
     }
   },
   async fetch () {
@@ -122,7 +146,6 @@ export default {
 
         const postResponse = await this.$axios.get(`/api/v1/posts?user_id=${userId}`)
         this.posts = postResponse.data.posts
-        console.log(this.posts) // ここでレスポンスの内容を確認
 
         // クイズの正解、不正解、未学習のデータをAPIから取得
         const quizResponse = await this.$axios.get(`/api/v1/users/${userId}/quiz_statistics`)
