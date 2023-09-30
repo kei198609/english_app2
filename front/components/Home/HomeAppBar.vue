@@ -30,6 +30,7 @@
 
     <before-login-app-bar-signup-button />
     <before-login-app-bar-login-button />
+    <GuestLoginButton />
 
     <!-- ハンバーガーメニュー -->
     <v-menu
@@ -64,7 +65,11 @@
 </template>
 
 <script>
+import GuestLoginButton from '~/components/GuestLoginButton.vue'
 export default {
+  components: {
+    GuestLoginButton
+  },
   props: {
     menus: {
       type: Array,

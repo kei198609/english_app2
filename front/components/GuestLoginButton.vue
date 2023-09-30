@@ -14,22 +14,12 @@ export default {
   methods: {
     async guestLogin () {
       try {
-        const response = await this.$axios.post('/api/v1/auth/sessions/guest_sign_in')
-        const { headers, data } = response
-        const token = headers['access-token']
-        const client = headers.client
-        const uid = headers.uid
-        // Set the token for future requests
-        this.$auth.setToken('local', token)
-        this.$axios.setToken(token, 'Bearer')
-
-        this.$auth.setUser({
-          ...data,
-          uid,
-          client
+        // Authモジュールの`loginWith`メソッドを使用してゲストログイン
+        await this.$auth.loginWith('local', {
+          data: {},
+          url: '/api/v1/auth/sessions/guest_sign_in'
         })
-        window.location.href = '/tops'
-        // this.$router.push('/tops')
+        this.$router.push('/tops')
       } catch (error) {
         console.error('ゲストログインに失敗しました', error)
       }

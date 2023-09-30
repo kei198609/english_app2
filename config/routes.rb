@@ -11,6 +11,11 @@ Rails.application.routes.draw do
         registrations: 'api/v1/auth/registrations',
         sessions: 'api/v1/auth/sessions'
       }
+
+      devise_scope :user do #deviseのsessionsコントローラーに新しいactionを追加するためにはdevise_scopeと書く
+        post 'auth/sessions/guest_sign_in', to: 'auth/sessions#guest_sign_in', as: :guest_sign_in
+      end
+
       resources :users do
         member do
           get :following, :followers, :following_status
@@ -42,22 +47,19 @@ Rails.application.routes.draw do
     end
   end
 
-  devise_scope :user do #deviseのsessionsコントローラーに新しいactionを追加するためにはdevise_scopeと書く
-    get  'users/account'       => 'users/registrations#account'
-    post 'users/guest_sign_in' => 'users/sessions#new_guest'
-  end
 
 
-  def devise_scope(scope)
-    constraint = lambda do |request|
-      request.env["devise.mapping"] = Devise.mappings[scope]
-      true
-    end
 
-    constraints(constraint) do
-      yield
-    end
-  end
+  # def devise_scope(scope)
+  #   constraint = lambda do |request|
+  #     request.env["devise.mapping"] = Devise.mappings[scope]
+  #     true
+  #   end
+
+  #   constraints(constraint) do
+  #     yield
+  #   end
+  # end
 
   # 上記apiにしたので削除予定
   # resources :posts, only: [:new, :create, :show, :destroy] do

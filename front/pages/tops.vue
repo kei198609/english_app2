@@ -252,11 +252,11 @@ export default {
       const response = await this.$axios.get('/api/v1/posts')
       this.posts = response.data.posts
       console.log(this.posts)
+      await this.fetchData()
+      await this.fetchQuizData()
     } catch (error) {
       console.error('Error fetching posts:', error)
     }
-    await this.fetchData()
-    await this.fetchQuizData()
   }
 }
 </script>
