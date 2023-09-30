@@ -28,7 +28,8 @@ export default {
           uid,
           client
         })
-        this.$router.push('/tops')
+        window.location.href = '/tops'
+        // this.$router.push('/tops')
       } catch (error) {
         console.error('ゲストログインに失敗しました', error)
       }
