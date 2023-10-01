@@ -46,18 +46,18 @@
                   @input="updateQuizPage"
                 />
               </v-card>
-            <!-- 検索フォーム -->
-            <v-form>
-              <v-text-field
-                v-model="searchQuery"
-                label="英文検索"
-                prepend-icon="mdi-magnify"
-                solo
-              />
-              <v-btn @click.prevent="searchPosts" color="primary">
-                検索
-              </v-btn>
-            </v-form>
+              <!-- 検索フォーム -->
+              <v-form>
+                <v-text-field
+                  v-model="searchQuery"
+                  label="英文検索"
+                  prepend-icon="mdi-magnify"
+                  solo
+                />
+                <v-btn @click.prevent="searchPosts" color="primary">
+                  検索
+                </v-btn>
+              </v-form>
               <v-card class="px-3 py-3 mb-5">
                 <v-list-item-content>
                   新着一覧
