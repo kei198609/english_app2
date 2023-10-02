@@ -85,7 +85,7 @@ class Api::V1::UsersController < ApplicationController
     @bookmarks = current_user.bookmarks.page(params[:page]).per(5)
     bookmarks_json = @bookmarks.as_json(
       include: {
-        post: { only: [:id, :content],
+        post: { only: [:id, :content, :title, :genre],
           include: {
             user: {
               only: [:id, :name, :avatar]
