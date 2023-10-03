@@ -71,6 +71,7 @@ export default {
             method: 'get', // そのAPIへのリクエストメソッド
             propertyName: 'data' // レスポンスからユーザー情報を抽出するためのプロパティ名
           },
+          guest: { url: '/api/v1/auth/sessions/guest_sign_in', method: 'post', propertyName: 'access-token' }
         },
       }
     },
