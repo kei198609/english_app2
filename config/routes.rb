@@ -32,6 +32,7 @@ Rails.application.routes.draw do
         resources :comments,  only: [:create, :destroy]
       end
 
+      resources :notifications,    only: [:index]
       resources :quizzes,          only: [:index, :show]
       resources :categories,       only: [:index]
       resources :quiz_attempts,    only: [:index, :create]
@@ -76,6 +77,5 @@ Rails.application.routes.draw do
   #   get :bookmarks, on: :collection
   # end
 
-  resources :relationships, only: [:create, :destroy]
-  resources :notifications, only: :index
+  # resources :relationships, only: [:create, :destroy]
 end
