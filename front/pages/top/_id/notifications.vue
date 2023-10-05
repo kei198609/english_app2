@@ -13,15 +13,18 @@
     />
     <v-main>
       <v-container>
-        <div v-if="notifications.length">
+        <div v-if="isDataFetched && notifications.length">
           <UserNotification
             v-for="notification in notifications"
             :key="notification.id"
             :notification="notification"
           />
         </div>
-        <div v-else>
+        <div v-else-if="isDataFetched && !notifications.length">
           <p>通知はありません</p>
+        </div>
+        <div v-else>
+          <p>ロード中...</p>
         </div>
       </v-container>
     </v-main>
@@ -38,7 +41,8 @@ export default {
   data () {
     return {
       drawer: null,
-      notifications: []
+      notifications: [],
+      isDataFetched: false
     }
   },
   created () {
@@ -54,6 +58,8 @@ export default {
         }
       } catch (error) {
         console.error('Error fetching data', error)
+      } finally {
+        this.isDataFetched = true
       }
     }
   }
