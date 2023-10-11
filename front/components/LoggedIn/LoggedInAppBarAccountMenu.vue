@@ -77,7 +77,6 @@ export default {
         // nameがリンク先の名前
         // dividerはキーがtrueだと、45行目付近のdividerを使用
         // dividerは線が引かれる、trueだと線が引かれる
-        { name: 'account-settings', icon: 'mdi-account-cog' },
         { name: 'account-password', icon: 'mdi-lock-outline' },
         { name: 'logout', icon: 'mdi-logout-variant', divider: true }
       ]
