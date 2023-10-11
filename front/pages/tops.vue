@@ -46,23 +46,19 @@
                   @input="updateQuizPage"
                 />
               </v-card>
-              <!-- 検索フォーム -->
-              <v-form>
-                <v-text-field
-                  v-model="searchQuery"
-                  label="英文検索"
-                  prepend-icon="mdi-magnify"
-                  solo
-                />
-                <v-btn @click.prevent="searchPosts" color="primary">
-                  検索
-                </v-btn>
-              </v-form>
+
               <v-card class="px-3 py-3 mb-5">
                 <v-list-item-content>
-                  新着一覧
+                  新着記事一覧
                 </v-list-item-content>
+                <v-select
+                  :items="genres"
+                  label="ジャンルを選択"
+                  v-model="selectedGenre"
+                  @change="fetchPostsByGenre(selectedGenre)"
+                ></v-select>
               </v-card>
+
               <div
                 v-for="post in posts"
                 :key="post.id"
@@ -91,6 +87,12 @@
                   </template>
                 </v-hover>
               </div>
+              <!-- 新着記事一覧のページネーション -->
+              <v-pagination
+                v-model="post_current_page"
+                :length="post_total_pages"
+                @input="updatePostPage"
+              />
             </v-col>
             <v-col cols="12" md="4" lg="4">
               <UserSection v-if="user" :user="user" />
@@ -122,10 +124,32 @@ export default {
       posts: null,
       noimage: require('~/assets/images/noimage.jpg'),
       searchQuery: null,
+      selectedGenre: null,
+      genres: [
+        '全て', 'メールの構成とフォーマット', '件名の書き方', 'コミュニケーションとエチケット',
+        'メールのトーンやスタイル', 'フォローアップメールのテクニック', '問い合わせや要求を行うメール',
+        'お礼や謝罪のメール', '異文化間のコミュニケーション', 'ビジネスメールの語彙やフレーズ',
+        '緊急時やトラブル時のメール', '同僚や上司へのメール',
+        '取引先や顧客へのメール', '提案のメール',
+        '会議やイベントの調整メール', '情報共有', 'その他'
+      ],
       genreImageMapping: {
-        ビジネス文書: 'business_documents',
-        英語メール表現: 'english_email_expressions',
-        一般的な英文メッセージ: 'general_english_message'
+        メールの構成とフォーマット: 'メールの構成とフォーマット',
+        件名の書き方: '件名の書き方',
+        コミュニケーションとエチケット: 'コミュニケーションとエチケット',
+        メールのトーンやスタイル: 'メールのトーンやスタイル',
+        フォローアップメールのテクニック: 'フォローアップメールのテクニック',
+        問い合わせや要求を行うメール: '問い合わせや要求を行うメール',
+        お礼や謝罪のメール: 'お礼や謝罪のメール',
+        異文化間のコミュニケーション: '異文化間のコミュニケーション',
+        ビジネスメールの語彙やフレーズ: 'ビジネスメールの語彙やフレーズ',
+        緊急時やトラブル時のメール: '緊急時やトラブル時のメール',
+        同僚や上司へのメール: '同僚や上司へのメール',
+        取引先や顧客へのメール: '取引先や顧客へのメール',
+        提案のメール: '提案のメール',
+        会議やイベントの調整メール: '会議やイベントの調整メール',
+        情報共有: '情報共有',
+        その他: 'その他'
       },
       articles: [],
       readArticles: [],
@@ -134,7 +158,9 @@ export default {
       quizzes: [],
       quizAttempts: [],
       quiz_current_page: 1,
-      quiz_total_pages: 0
+      quiz_total_pages: 0,
+      post_current_page: 1,
+      post_total_pages: 0
     }
   },
   computed: {
@@ -183,13 +209,22 @@ export default {
     updateQuizPage () {
       this.fetchQuizData()
     },
-    async searchPosts () {
-      console.log('searchPosts is called with query:', this.searchQuery)
+    updatePostPage () {
+      this.fetchPostsByGenre(this.selectedGenre)
+    },
+    async fetchPostsByGenre (genre) {
       try {
-        const response = await this.$axios.get('/api/v1/posts', { params: { query: this.searchQuery } })
-        this.posts = response.data.posts
+        if (genre === '全て') {
+          const response = await this.$axios.get('/api/v1/posts', { params: { page: this.post_current_page } })
+          this.posts = response.data.posts
+          this.post_total_pages = response.data.total_pages
+        } else {
+          const response = await this.$axios.get('/api/v1/posts', { params: { genre, page: this.post_current_page } })
+          this.posts = response.data.posts
+          this.post_total_pages = response.data.total_pages
+        }
       } catch (error) {
-        console.error('Error fetching posts:', error)
+        console.error('Error fetching posts by genre:', error)
       }
     },
     getGenreImageUrl (post) {
