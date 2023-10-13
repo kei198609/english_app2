@@ -1,4 +1,5 @@
 class Api::V1::ArticleReadingsController < ApplicationController
+  before_action :authenticate_user!
   def create
     @article_reading = current_user.article_readings.new(article_reading_params)
     if @article_reading.save
