@@ -1,4 +1,5 @@
 class Api::V1::ArticlesController < ApplicationController
+  before_action :authenticate_user!
   def index
     @articles = Article.includes(:category).page(params[:page]).per(3)
     render json: {
