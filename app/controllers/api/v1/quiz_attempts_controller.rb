@@ -1,4 +1,6 @@
 class Api::V1::QuizAttemptsController < ApplicationController
+  before_action :authenticate_user!
+
   def index
     @quiz_attempts = QuizAttempt.where(user_id: current_user.id)
     render json: @quiz_attempts
@@ -9,12 +11,10 @@ class Api::V1::QuizAttemptsController < ApplicationController
     @quiz_attempt.user_id = current_user.id # 現在のログインユーザーのIDをセット
 
     # データベースからの正解
-    # correct_answer = Quiz.find(params[:quiz_id]).sentence_english
-    correct_answer_array = JSON.parse(Quiz.find(params[:quiz_id]).sentence_english)
+    correct_answer_array = JSON.parse(Quiz.find(quiz_attempt_params[:quiz_id]).sentence_english)
     correct_answer_string = correct_answer_array.join(' ')
 
     # ユーザーの答えが正しいかどうかを確認する
-    # @quiz_attempt.correct = (quiz_attempt_params[:user_answer] == correct_answer)
     @quiz_attempt.correct = (quiz_attempt_params[:user_answer] == correct_answer_string)
 
 
