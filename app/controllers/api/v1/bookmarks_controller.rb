@@ -2,10 +2,6 @@ class Api::V1::BookmarksController < ApplicationController
 
   before_action :authenticate_user!   # ログイン中のユーザーのみに許可（未ログインなら、ログイン画面へ移動）
 
-  def index
-    @bookmarks = Bookmark.where(user_id: current_user.id).page(params[:page]).per(10)
-  end
-
   def create
     @post = Post.find(params[:post_id])
     bookmark = @post.bookmarks.new(user_id: current_user.id)

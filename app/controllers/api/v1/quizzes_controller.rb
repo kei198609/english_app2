@@ -1,4 +1,5 @@
 class Api::V1::QuizzesController < ApplicationController
+  before_action :authenticate_user!
   def index
     @quizzes = Quiz.includes(:category).page(params[:page]).per(3)
     render json: {
