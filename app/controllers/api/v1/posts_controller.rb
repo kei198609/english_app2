@@ -5,14 +5,16 @@ before_action :correct_user, only: :destroy
   def index
     if params[:user_id]
       @user = User.find(params[:user_id])
-      @posts = @user.posts
-    elsif params[:query].present?
-      @posts = Post.where('subject_english LIKE ? OR content_english LIKE ?', "%#{params[:query]}%", "%#{params[:query]}%")
+      @posts = @user.posts.page(params[:page]).per(3)
+    elsif params[:genre].present?
+      @posts = Post.where(genre: params[:genre]).page(params[:page]).per(3)
     else
-      @posts = Post.all
+      @posts = Post.all.page(params[:page]).per(3)
     end
     render json: {
-      posts: @posts.as_json(include: { user: { only: [:avatar, :name] } }, methods: :likes_count)
+      posts: @posts.as_json(include: { user: { only: [:avatar, :name] } }, methods: :likes_count),
+      total_pages: @posts.total_pages,
+      current_page: @posts.current_page
     }
   end
 
@@ -23,7 +25,7 @@ before_action :correct_user, only: :destroy
   def create
     @post = current_user.posts.build(post_params)
     if @post.save
-      render json: @post, staus: :created
+      render json: @post, status: :created
     else
       render json: { errors: @post.errors.full_messages }, status: :unprocessable_entity
     end
