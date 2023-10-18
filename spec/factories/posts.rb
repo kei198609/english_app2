@@ -1,7 +1,8 @@
 FactoryBot.define do
   factory :post do
-    scene { "foobar" }
-    subject_english { "hello" }
-    content_english { "hoge" }
+    association :user
+    genre { "foobar" }
+    title { "hello" }
+    content { "hoge" }
   end
 end

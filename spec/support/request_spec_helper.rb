@@ -15,6 +15,25 @@ module RequestSpecHelper
     logout(warden_scope(resource))
   end
 
+  def authenticated_header(user)
+    headers = user.create_new_auth_token
+    {
+      'access-token' => headers['access-token'],
+      'token-type' => 'Bearer',
+      'client' => headers['client'],
+      'expiry' => headers['expiry'],
+      'uid' => user.uid
+    }
+  end
+
+  RSpec.configure do |config|
+    config.include RequestSpecHelper, type: :request
+  end
+
+  def json
+    JSON.parse(response.body)
+  end
+
   private
 
   def warden_scope(resource)
