@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_09_16_224129) do
+ActiveRecord::Schema[7.0].define(version: 2023_10_19_120238) do
   create_table "action_text_rich_texts", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "name", null: false
     t.text "body", size: :long
@@ -56,6 +56,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_16_224129) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["article_id"], name: "index_article_readings_on_article_id"
+    t.index ["user_id", "article_id"], name: "index_article_readings_on_user_id_and_article_id", unique: true
     t.index ["user_id"], name: "index_article_readings_on_user_id"
   end
 
@@ -134,6 +135,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_16_224129) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["quiz_id"], name: "index_quiz_attempts_on_quiz_id"
+    t.index ["user_id", "quiz_id"], name: "index_quiz_attempts_on_user_id_and_quiz_id", unique: true
     t.index ["user_id"], name: "index_quiz_attempts_on_user_id"
   end
 
