@@ -25,7 +25,7 @@
                 <input type="file" @change="onFileChange" />
               </div>
               <div class="mt-4">
-                <v-btn color="red" @click="deleteAccount" >
+                <v-btn color="red" @click="deleteAccount" v-if="!isGuestUser">
                   アカウント削除
                 </v-btn>
               </div>
@@ -49,6 +49,7 @@ export default {
   components: { LinkList },
   data () {
     return {
+      isGuestUser: this.$auth.user.email === 'guest@example.com',
       snackbar: false,
       snackbarMessage: '',
       avatarUrl: require('~/assets/images/noimage.jpg'),
