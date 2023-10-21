@@ -7,34 +7,41 @@ class Api::V1::QuizAttemptsController < ApplicationController
   end
 
   def create
-    @quiz_attempt = QuizAttempt.new(quiz_attempt_params)
-    @quiz_attempt.user_id = current_user.id # 現在のログインユーザーのIDをセット
+    previous_attempt = QuizAttempt.find_by(user_id: current_user.id, quiz_id: quiz_attempt_params[:quiz_id])
 
-    # データベースからの正解
     correct_answer_array = JSON.parse(Quiz.find(quiz_attempt_params[:quiz_id]).sentence_english)
     correct_answer_string = correct_answer_array.join(' ')
 
-    # ユーザーの答えが正しいかどうかを確認する
-    @quiz_attempt.correct = (quiz_attempt_params[:user_answer] == correct_answer_string)
+    if previous_attempt
+      # 既存の試行が正解の場合
+      if previous_attempt.correct
+        render json: { message: 'Already answered correctly.' }, status: :unprocessable_entity
+        return
+      else
+        # 今回の試行が正解の場合、既存の不正解の試行を更新する
+        previous_attempt.correct = (quiz_attempt_params[:user_answer] == correct_answer_string)
+        @quiz_attempt = previous_attempt
+      end
+    else
+      @quiz_attempt = QuizAttempt.new(quiz_attempt_params)
+      @quiz_attempt.user_id = current_user.id
+      @quiz_attempt.correct = (quiz_attempt_params[:user_answer] == correct_answer_string)
+    end
 
-
-    if @quiz_attempt.save
-      # ユーザーが正解した場合、ポイントを追加
+    begin
+      @quiz_attempt.save!
       if @quiz_attempt.correct
         current_user.points += 10
         current_user.save
       end
-
-      # ポイントに応じてユーザーのレベルを更新
       update_level(current_user)
-
       render json: {
         correct: @quiz_attempt.correct,
         current_points: current_user.points,
         current_level: current_user.level
       }, status: :created
-    else
-      render json: @quiz_attempt.errors, status: :unprocessable_entity
+    rescue => e
+      render json: { message: e.message }, status: :unprocessable_entity
     end
   end
 
