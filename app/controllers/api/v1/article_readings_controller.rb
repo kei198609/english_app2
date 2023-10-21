@@ -2,18 +2,22 @@ class Api::V1::ArticleReadingsController < ApplicationController
   before_action :authenticate_user!
   def create
     @article_reading = current_user.article_readings.new(article_reading_params)
-    if @article_reading.save
-      current_user.points += 10
-      current_user.save!
+    begin
+      if @article_reading.save
+        current_user.points += 10
+        current_user.save!
 
-      update_level(current_user)
-      render json: {
-        message: 'Article read recorded successfully',
-        current_points: current_user.points,
-        current_level: current_user.level
-      }, status: :created
-    else
-      render json: { errors: @article_reading.errors.full_messages }, status: :unprocessable_entity
+        update_level(current_user)
+        render json: {
+          message: 'Article read recorded successfully',
+          current_points: current_user.points,
+          current_level: current_user.level
+        }, status: :created
+      else
+        render json: { errors: @article_reading.errors.full_messages }, status: :unprocessable_entity
+      end
+    rescue ActiveRecord::RecordNotUnique
+      render json: { errors: ['You have already recorded reading this article.'] }, status: :conflict
     end
   end
 
