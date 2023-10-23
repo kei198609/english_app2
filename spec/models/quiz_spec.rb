@@ -5,10 +5,11 @@ RSpec.describe Quiz, type: :model do
     it "has many quiz_attempts" do
       category = FactoryBot.create(:category)
       quiz = FactoryBot.create(:quiz, category: category)
-      user = FactoryBot.create(:user)
+      user1 = FactoryBot.create(:user)
+      user2 = FactoryBot.create(:user)
 
-      quiz_attempt1 = FactoryBot.create(:quiz_attempt, user: user, quiz: quiz)
-      quiz_attempt2 = FactoryBot.create(:quiz_attempt, user: user, quiz: quiz)
+      quiz_attempt1 = FactoryBot.create(:quiz_attempt, user: user1, quiz: quiz)
+      quiz_attempt2 = FactoryBot.create(:quiz_attempt, user: user2, quiz: quiz)
 
       expect(quiz.quiz_attempts).to include(quiz_attempt1, quiz_attempt2)
     end
