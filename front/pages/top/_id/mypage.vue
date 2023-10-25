@@ -19,20 +19,26 @@
             <UserSection v-if="user" :user="user" />
           </v-col>
             <v-col cols="12" md="4" lg="4">
-              <v-card>
+              <v-card class="bordered-card">
                 <div class="text-center pt-3">基礎チェック状況</div>
-                <CustomPieChart v-if="articleChartData" :chartData="articleChartData" />
+                <div class="pa-6">
+                  <CustomPieChart v-if="articleChartData" :chartData="articleChartData" />
+                </div>
               </v-card>
             </v-col>
             <v-col cols="12" md="4" lg="4">
-              <v-card>
-                <div class="text-center pt-3">クイズ回答情報</div>
-                <CustomPieChart v-if="chartData" :chartData="chartData" />
+              <v-card class="bordered-card">
+                <div class="text-center pt-3">クイズ回答状況</div>
+                <div class="pa-6">
+                  <CustomPieChart v-if="chartData" :chartData="chartData" />
+                </div>
               </v-card>
             </v-col>
 
           <v-col cols="12" class="mt-3">
-            <v-card outlined class="px-3 py-3 mb-3">投稿</v-card>
+            <v-card outlined class="px-3 py-3 mb-1 bordered-card">
+              投稿
+            </v-card>
             <v-data-table
               v-if="posts"
               :headers="headers"
@@ -176,5 +182,9 @@ export default {
 
 .v-list-item:hover {
   background-color: lightgray
+}
+
+.bordered-card {
+  border-top: 3px solid #7097C3;
 }
 </style>

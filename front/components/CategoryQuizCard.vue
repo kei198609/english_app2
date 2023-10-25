@@ -1,8 +1,8 @@
 <template>
   <div>
-    <v-card class="px-3 py-3 mb-3">
+    <v-card class="px-3 py-3 mb-3 bordered-card">
       <v-list-item-content>
-        タスク一覧
+        並び替え問題
       </v-list-item-content>
     </v-card>
     <v-card>
@@ -21,7 +21,9 @@
             </v-col>
               <v-col v-if="getQuizAttempt(q.id)">
                 <v-list-item-subtitle>
-                  {{ getQuizAttempt(q.id).correct ? '正解済み' : '不正解' }}
+                  <v-chip :color="getQuizAttempt(q.id).correct ? 'green' : 'red'" text-color="white" small>
+                    {{ getQuizAttempt(q.id).correct ? '正解済み' : '不正解' }}
+                  </v-chip>
                 </v-list-item-subtitle>
               </v-col>
           </v-row>
@@ -45,3 +47,9 @@ export default {
   }
 }
 </script>
+
+<style scoped>
+.bordered-card {
+  border-top: 3px solid #7097C3;
+}
+</style>
