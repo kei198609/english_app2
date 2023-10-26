@@ -91,7 +91,7 @@ export default {
         alert('10ポイント獲得しました。')
       } catch (error) {
         console.error('Error:', error)
-        alert('エラーが発生しました。')
+        alert('既にチェック済みです。')
       }
     }
   }
