@@ -1,34 +1,38 @@
 <template>
-  <user-form-card>
-    <!-- 以下のように書くことでUserFormCardの22行目に差し込める -->
-    <template
-      #user-form-card-content
-    >
-      <v-form
-        ref="form"
-        v-model="isValid"
-      >
-        <user-form-email
-          :email.sync="params.user.email"
-        />
-        <user-form-password
-          :password.sync="params.user.password"
-        />
-        <v-card-text class="px-0">
-          <v-btn
-            :disabled="!isValid || loading"
-            :loading="loading"
-            block
-            color="appblue"
-            class="white--text"
-            @click="login"
+  <v-container>
+    <v-card class="pb-8">
+      <user-form-card>
+        <!-- 以下のように書くことでUserFormCardの22行目に差し込める -->
+        <template
+          #user-form-card-content
+        >
+          <v-form
+            ref="form"
+            v-model="isValid"
           >
-            ログインする
-          </v-btn>
-        </v-card-text>
-      </v-form>
-    </template>
-  </user-form-card>
+            <user-form-email
+              :email.sync="params.user.email"
+            />
+            <user-form-password
+              :password.sync="params.user.password"
+            />
+            <v-card-text class="px-0">
+              <v-btn
+                :disabled="!isValid || loading"
+                :loading="loading"
+                block
+                color="appblue"
+                class="white--text"
+                @click="login"
+              >
+                ログインする
+              </v-btn>
+            </v-card-text>
+          </v-form>
+        </template>
+      </user-form-card>
+    </v-card>
+  </v-container>
 </template>
 
 <script>

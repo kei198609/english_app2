@@ -1,43 +1,45 @@
 <template>
   <v-container>
-    <user-form-card>
-      <!-- 以下のように書くことでUserFormCardの22行目に差し込める -->
-      <template
-        #user-form-card-content
-      >
-        <v-form
-          ref="form"
-          v-model="isValid"
+    <v-card class="pb-8">
+      <user-form-card>
+        <!-- 以下のように書くことでUserFormCardの22行目に差し込める -->
+        <template
+          #user-form-card-content
         >
-          <user-form-name
-            :name.sync="params.user.name"
-          />
-          <user-form-occupation
-            :occupation.sync="params.user.occupation"
-          />
-          <user-form-email
-            :email.sync="params.user.email"
-            placeholder
-          />
-          <user-form-password
-            :password.sync="params.user.password"
-            set-validation
-          />
-          <!-- disabledがtrueの時、ボタンクリックを無効にする
-          loading中はクリックできない -->
-          <v-btn
-            :disabled="!isValid || loading"
-            :loading="loading"
-            block
-            color="appblue"
-            class="white--text"
-            @click="signup"
+          <v-form
+            ref="form"
+            v-model="isValid"
           >
-            登録する
-          </v-btn>
-        </v-form>
-      </template>
-    </user-form-card>
+            <user-form-name
+              :name.sync="params.user.name"
+            />
+            <user-form-occupation
+              :occupation.sync="params.user.occupation"
+            />
+            <user-form-email
+              :email.sync="params.user.email"
+              placeholder
+            />
+            <user-form-password
+              :password.sync="params.user.password"
+              set-validation
+            />
+            <!-- disabledがtrueの時、ボタンクリックを無効にする
+            loading中はクリックできない -->
+            <v-btn
+              :disabled="!isValid || loading"
+              :loading="loading"
+              block
+              color="appblue"
+              class="white--text"
+              @click="signup"
+            >
+              登録する
+            </v-btn>
+          </v-form>
+        </template>
+      </user-form-card>
+    </v-card>
       <v-snackbar v-model="snackbar" top right color="success" outlined>
         {{ snackbarMessage }}
         <v-btn color="black" text @click="snackbar = false">
