@@ -22,8 +22,8 @@ export default {
       datasets: [
         {
           data: Object.values(this.chartData),
-          backgroundColor: ['#f87979', '#7C4DFF', '#FFC107', '#8BC34A', '#FF5722'], // You can customize the colors here
-          hoverBackgroundColor: ['#f87979', '#7C4DFF', '#FFC107', '#8BC34A', '#FF5722'] // You can customize the colors here
+          backgroundColor: ['#f87979', '#7C4DFF', '#FFC107', '#8BC34A', '#FF5722'],
+          hoverBackgroundColor: ['#f87979', '#7C4DFF', '#FFC107', '#8BC34A', '#FF5722']
         }
       ]
     }, {
