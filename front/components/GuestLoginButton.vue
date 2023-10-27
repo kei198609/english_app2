@@ -19,7 +19,6 @@ export default {
           data: {},
           url: '/api/v1/auth/sessions/guest_sign_in'
         })
-        this.$router.push('/tops')
       } catch (error) {
         console.error('ゲストログインに失敗しました', error)
       }
