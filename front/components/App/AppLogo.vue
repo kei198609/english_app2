@@ -1,17 +1,32 @@
 <template>
   <v-avatar
-    color="black"
     size="34"
     class="my-app-log"
   >
-    <span class="white--text text-subtitle-2">
-      Biz
+    <span :class="iconTextColor">
+      <v-icon :color="iconColor">
+        mdi-email-variant
+      </v-icon>
     </span>
   </v-avatar>
 </template>
 
 <script>
 export default {
+  props: {
+    isScrollPoint: {
+      type: Boolean,
+      default: false
+    }
+  },
+  computed: {
+    iconTextColor () {
+      return this.isScrollPoint ? 'black--text' : 'white--text'
+    },
+    iconColor () {
+      return this.isScrollPoint ? '#000' : '#fff'
+    }
+  }
 }
 </script>
 
