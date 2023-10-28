@@ -23,7 +23,7 @@
 export default {
   data () {
     return {
-      appName: 'Biz mail English',
+      appName: 'Mail Mentor',
       height: 32
     }
   },

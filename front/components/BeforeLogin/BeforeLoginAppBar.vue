@@ -2,7 +2,7 @@
   <v-app-bar
     app
     :height="homeAppBarHeight"
-    color="white"
+    color="#7097C3"
   >
     <nuxt-link
       to="/"
@@ -11,8 +11,8 @@
       <app-logo />
     </nuxt-link>
 
-    <v-toolbar-title class="hidden-mobile-and-down">
-      Biz mail English
+    <v-toolbar-title class="hidden-mobile-and-down white--text">
+      Mail Mentor
     </v-toolbar-title>
 
     <v-spacer />
