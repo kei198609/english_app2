@@ -47,7 +47,7 @@
                 />
               </v-card>
 
-              <v-card class="px-3 py-3 mb-5">
+              <v-card class="px-3 py-3 mb-5 bordered-card">
                 <v-list-item-content>
                   新着記事一覧
                 </v-list-item-content>
@@ -124,7 +124,7 @@ export default {
       posts: null,
       noimage: require('~/assets/images/noimage.jpg'),
       searchQuery: null,
-      selectedGenre: null,
+      selectedGenre: '全て',
       genres: [
         '全て', 'メールの構成とフォーマット', '件名の書き方', 'コミュニケーションとエチケット',
         'メールのトーンやスタイル', 'フォローアップメールのテクニック', '問い合わせや要求を行うメール',
@@ -284,9 +284,7 @@ export default {
   },
   async created () {
     try {
-      const response = await this.$axios.get('/api/v1/posts')
-      this.posts = response.data.posts
-      console.log(this.posts)
+      await this.fetchPostsByGenre(this.selectedGenre)
       await this.fetchData()
       await this.fetchQuizData()
     } catch (error) {
@@ -296,9 +294,8 @@ export default {
 }
 </script>
 
-<style lang="scss">
-// .genre-image {
-//   width: 150px;
-//   height: 150px;
-// }
+<style scoped>
+.bordered-card {
+  border-top: 3px solid #7097C3;
+}
 </style>
