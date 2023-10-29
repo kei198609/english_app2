@@ -72,4 +72,8 @@ class Post < ApplicationRecord
   def likes_count
     likes.count
   end
+  # コメント数jsonレスポンス用メソッド
+  def comments_count
+    comments.count
+  end
 end
