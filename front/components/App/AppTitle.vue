@@ -1,5 +1,5 @@
 <template>
-  <v-toolbar-title>
+  <v-toolbar-title class="white--text">
     {{ appName }}
   </v-toolbar-title>
 </template>
