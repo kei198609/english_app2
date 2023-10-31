@@ -12,7 +12,7 @@ before_action :correct_user, only: :destroy
       @posts = Post.all.page(params[:page]).per(3)
     end
     render json: {
-      posts: @posts.as_json(include: { user: { only: [:avatar, :name] } }, methods: :likes_count),
+      posts: @posts.as_json(include: { user: { only: [:avatar, :name] } }, methods: [:likes_count, :comments_count]),
       total_pages: @posts.total_pages,
       current_page: @posts.current_page
     }
