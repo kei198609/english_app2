@@ -5,14 +5,16 @@
     :height="homeAppBarHeight"
     :color="toolbarStyle.color"
     :elevation="toolbarStyle.elevation"
+
   >
     <!-- 引数に渡したIDまでスクロールしてくれる -->
     <app-logo
       @click.native="$vuetify.goTo('#scroll-top')"
+      :is-scroll-point="isScrollPoint"
     />
 
     <v-toolbar-title class="hidden-mobile-and-down">
-      Biz mail English
+      Mail Mentor
     </v-toolbar-title>
 
     <v-spacer />
@@ -28,12 +30,13 @@
       </v-btn>
     </v-toolbar-items>
 
+    <AppUserGuideButton />
     <before-login-app-bar-signup-button />
     <before-login-app-bar-login-button />
     <GuestLoginButton />
 
     <!-- ハンバーガーメニュー -->
-    <v-menu
+    <!-- <v-menu
       bottom
       nudge-left="110"
       nudge-width="100"
@@ -59,16 +62,18 @@
           </v-list-item-title>
         </v-list-item>
       </v-list>
-    </v-menu>
+    </v-menu> -->
 
   </v-app-bar>
 </template>
 
 <script>
 import GuestLoginButton from '~/components/GuestLoginButton.vue'
+import AppUserGuideButton from '~/components/AppUserGuideButton.vue'
 export default {
   components: {
-    GuestLoginButton
+    GuestLoginButton,
+    AppUserGuideButton
   },
   props: {
     menus: {
