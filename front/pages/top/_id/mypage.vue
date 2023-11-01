@@ -20,7 +20,7 @@
           </v-col>
             <v-col cols="12" md="4" lg="4">
               <v-card class="bordered-card">
-                <div class="text-center pt-3">基礎チェック状況</div>
+                <div class="text-center pt-3">基礎チェック問題</div>
                 <div class="pa-6">
                   <CustomPieChart v-if="articleChartData" :chartData="articleChartData" />
                 </div>
@@ -28,7 +28,7 @@
             </v-col>
             <v-col cols="12" md="4" lg="4">
               <v-card class="bordered-card">
-                <div class="text-center pt-3">クイズ回答状況</div>
+                <div class="text-center pt-3">並び替え問題</div>
                 <div class="pa-6">
                   <CustomPieChart v-if="chartData" :chartData="chartData" />
                 </div>
