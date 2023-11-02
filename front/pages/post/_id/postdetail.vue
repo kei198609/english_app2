@@ -28,6 +28,7 @@
             <v-col cols="12">
               <v-card outlined class="mb-3">
                 <v-img :src="genreImageUrl" alt="ジャンルの画像" height="300"></v-img>
+                <v-card-title>ジャンル: {{ post.genre }}</v-card-title>
                 <v-card-title>タイトル: {{ post.title }}</v-card-title>
                 <div class="d-flex justify-end">
                   <div class="pr-3">
@@ -69,7 +70,7 @@
                 </v-list>
                 <!-- コメント入力欄 -->
                 <v-textarea label="コメント" v-model="newComment" outlined></v-textarea>
-                <v-btn @click="submitComment">コメントする</v-btn>
+                <v-btn @click="submitComment" color="primary">コメントする</v-btn>
               </v-card>
             </v-col>
           </template>
