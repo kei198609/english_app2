@@ -14,16 +14,18 @@
     <v-main>
       <v-container>
         <v-row>
-          <v-col cols="12" md="4" lg="4">
-            <UserSection v-if="user" :user="user" />
-          </v-col>
           <v-col cols="12" md="8" lg="8">
             <div>
               <v-card class="px-3 py-3">
-                <h1>{{ article.title }}</h1>
+                <h2>{{ article.title }}</h2>
                 <div v-for="(line, index) in article.content" :key="index">
                   <template v-if="line !== '<<SPACE>>'">
-                    <p :class="{ 'bold-text': line.startsWith('**') && line.endsWith('**') }">
+                    <p
+                      :class="{
+                      'bold-text': line.startsWith('**') && line.endsWith('**'),
+                      'yuta-color': line.includes('ユウタ:'),
+                      'risa-color': line.includes('リサ:')
+                      }">
                       {{ line.replace(/\*\*/g, '') }}
                     </p>
                   </template>
@@ -35,6 +37,10 @@
               </v-card>
             </div>
           </v-col>
+          <v-col cols="12" md="4" lg="4">
+            <CharacterName />
+            <UserSection v-if="user" :user="user" />
+          </v-col>
         </v-row>
       </v-container>
     </v-main>
@@ -43,10 +49,12 @@
 
 <script>
 import UserSection from '~/components/UserSection.vue'
+import CharacterName from '~/components/CharacterName.vue'
 
 export default {
   components: {
-    UserSection
+    UserSection,
+    CharacterName
   },
   data () {
     return {
@@ -55,11 +63,6 @@ export default {
       article: {}
     }
   },
-  // async asyncData ({ params, $axios }) {
-  //   const { data: article } = await $axios.get(`/api/v1/articles/${params.id}`)
-  //   article.content = JSON.parse(article.content)
-  //   return { article }
-  // },
   async fetch () {
     try {
       if (this.$auth.loggedIn) {
@@ -101,5 +104,11 @@ export default {
 <style scoped>
 .bold-text {
   font-weight: bold;
+}
+.yuta-color {
+  color: blue;
+}
+.risa-color {
+  color: rgb(225, 12, 175);
 }
 </style>
