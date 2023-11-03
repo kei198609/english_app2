@@ -14,23 +14,25 @@
     <v-main>
       <v-container>
         <v-row>
+          <v-col cols="12" md="8" lg="8">
+            <v-card outlined class="px-3 py-3 pb-3 mb-5">
+              <CategoryArticles
+                v-for="category in groupedArticles"
+                :key="category.id"
+                :category="category"
+                :isRead="isRead"
+              />
+              <v-pagination class="mt-3"
+                v-model="current_page"
+                :length="total_pages"
+                @input="updatePage"
+              />
+            </v-card>
+          </v-col>
           <v-col cols="12" md="4" lg="4">
             <UserSection v-if="user" :user="user" />
           </v-col>
-          <v-col cols="12" md="8" lg="8">
-            <CategoryArticles
-              v-for="category in groupedArticles"
-              :key="category.id"
-              :category="category"
-              :isRead="isRead"
-            />
-          </v-col>
         </v-row>
-        <v-pagination
-          v-model="current_page"
-          :length="total_pages"
-          @input="updatePage"
-        />
       </v-container>
     </v-main>
   </v-app>
@@ -87,6 +89,9 @@ export default {
           // ユーザーの詳細情報を取得
           const userResponse = await this.$axios.get(`/api/v1/users/${userId}`)
           this.user = userResponse.data.user
+          this.user.followers_count = userResponse.data.followers_count
+          this.user.following_count = userResponse.data.following_count
+          this.data = userResponse.data.data
           // 記事情報を取得
           const articlesResponse = await this.$axios.get(`/api/v1/articles?page=${this.current_page}`)
           this.articles = articlesResponse.data.articles
