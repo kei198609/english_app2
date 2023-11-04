@@ -14,9 +14,11 @@
     <v-main>
       <v-container>
         <v-row>
-          <link-list :items="items" />
-          <v-col cols="8">
-            <v-card class="pb-8">
+          <v-col cols="12" md="4">
+            <link-list :items="items" />
+          </v-col>
+          <v-col cols="12" md="8">
+            <v-card class="pb-8 bordered-card">
               <user-form-card-change>
                 <template #user-form-card-change-content>
                   <!-- Name Form -->
@@ -28,6 +30,7 @@
                       :disabled="!validName"
                       color="primary"
                       @click="changeName"
+                      class="mb-10"
                     >
                       名前を更新する
                     </v-btn>
@@ -146,3 +149,9 @@ export default {
   }
 }
 </script>
+
+<style scoped>
+.bordered-card {
+  border-top: 3px solid #7097C3;
+}
+</style>

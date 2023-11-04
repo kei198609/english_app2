@@ -14,12 +14,16 @@
     <v-main>
       <v-container>
         <v-row>
-          <link-list :items="items" />
-          <v-col cols="8">
-            <v-card class="px-3 py-3">
-              <div>アカウント</div>
+          <v-col cols="12" md="4">
+            <link-list :items="items" />
+          </v-col>
+          <v-col cols="12" md="8">
+            <v-card class="px-3 py-3 bordered-card">
+              <h1 class="my-8 text-h5 font-weight-bold">
+                アカウント
+              </h1>
               <div>
-                <img :src="avatarUrl" class="rounded-circle" />
+                <img :src="avatarUrl" class="rounded-circle avatar-size" />
               </div>
               <div class="mt-4">
                 <input type="file" @change="onFileChange" />
@@ -120,3 +124,13 @@ export default {
   }
 }
 </script>
+
+<style scoped>
+.bordered-card {
+  border-top: 3px solid #7097C3;
+}
+.avatar-size {
+  width: 100px;
+  height: 100px;
+}
+</style>
