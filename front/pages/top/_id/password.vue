@@ -16,6 +16,13 @@
         <v-row>
           <v-col cols="12" md="4">
             <link-list :items="items" />
+            <v-alert
+              v-if="isGuestUser"
+              type="info"
+              class="mt-4"
+            >
+              ゲストユーザのパスワードは変更できません。
+            </v-alert>
           </v-col>
           <v-col cols="12" md="8">
             <v-card class="pb-8 bordered-card">
@@ -37,7 +44,7 @@
                       :check-password-match="checkPasswordMatch"
                     />
                     <v-btn
-                      :disabled="!valid"
+                      :disabled="!valid || isGuestUser"
                       color="primary"
                       @click="changePassword"
                     >
@@ -72,6 +79,7 @@ export default {
   data () {
     return {
       valid: true,
+      isGuestUser: this.$auth.user.email === 'guest@example.com',
       snackbar: false,
       snackbarMessage: '',
       snackbarColor: 'success',

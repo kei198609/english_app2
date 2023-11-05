@@ -16,6 +16,13 @@
         <v-row>
           <v-col cols="12" md="4">
             <link-list :items="items" />
+            <v-alert
+              v-if="isGuestUser"
+              type="info"
+              class="mt-4"
+            >
+              ゲストユーザのプロフィールは変更できません。
+            </v-alert>
           </v-col>
           <v-col cols="12" md="8">
             <v-card class="pb-8 bordered-card">
@@ -27,7 +34,7 @@
                       :name.sync="params.user.name"
                     />
                     <v-btn
-                      :disabled="!validName"
+                      :disabled="!validName || isGuestUser"
                       color="primary"
                       @click="changeName"
                       class="mb-10"
@@ -41,7 +48,7 @@
                       :occupation.sync="params.user.occupation"
                     />
                     <v-btn
-                      :disabled="!validOccupation"
+                      :disabled="!validOccupation || isGuestUser"
                       color="primary"
                       @click="changeOccupation"
                     >
@@ -79,6 +86,7 @@ export default {
     return {
       validName: true,
       validOccupation: true,
+      isGuestUser: this.$auth.user.email === 'guest@example.com',
       snackbar: false,
       snackbarMessage: '',
       snackbarColor: 'success',
