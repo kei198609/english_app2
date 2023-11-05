@@ -81,12 +81,15 @@
             </v-data-table>
           </v-col>
         </v-row>
-        <v-snackbar v-model="snackbar" top right color="success" outlined>
+        <v-snackbar
+          v-model="snackbar"
+          top
+          right
+          :color="snackbarColor"
+          :timeout="3000"
+        >
           {{ snackbarMessage }}
-          <v-btn color="black" text @click="snackbar = false">
-            閉じる
-          </v-btn>
-      </v-snackbar>
+        </v-snackbar>
       </v-container>
     </v-main>
   </v-app>
@@ -113,6 +116,7 @@ export default {
       scenes: [],
       snackbar: false,
       snackbarMessage: '',
+      snackbarColor: 'success',
       currentUserId: this.$auth.user.id,
       headers: [
         { text: '投稿日時', value: 'created_at' },

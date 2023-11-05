@@ -37,11 +37,14 @@
               </user-form-card-change>
             </v-card>
           </v-col>
-          <v-snackbar v-model="snackbar" top right color="success" outlined>
+          <v-snackbar
+            v-model="snackbar"
+            top
+            right
+            :color="snackbarColor"
+            :timeout="3000"
+          >
             {{ snackbarMessage }}
-            <v-btn color="black" text @click="snackbar = false">
-              閉じる
-            </v-btn>
           </v-snackbar>
         </v-row>
       </v-container>
@@ -61,6 +64,7 @@ export default {
       valid: true,
       snackbar: false,
       snackbarMessage: '',
+      snackbarColor: 'success',
       params: {
         user: {
           email: ''

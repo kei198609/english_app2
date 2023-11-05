@@ -39,12 +39,15 @@
             </v-form>
           </v-card>
         </div>
-        <v-snackbar v-model="snackbar" top right color="success" outlined>
+        <v-snackbar
+          v-model="snackbar"
+          top
+          right
+          :color="snackbarColor"
+          :timeout="3000"
+        >
           {{ snackbarMessage }}
-          <v-btn color="black" text @click="snackbar = false">
-            閉じる
-          </v-btn>
-      </v-snackbar>
+        </v-snackbar>
       </v-container>
     </v-main>
   </v-app>
@@ -57,6 +60,7 @@ export default {
       drawer: null,
       snackbar: false,
       snackbarMessage: '',
+      snackbarColor: 'success',
       post: {
         title: '',
         content: '',

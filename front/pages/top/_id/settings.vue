@@ -35,11 +35,14 @@
               </div>
             </v-card>
           </v-col>
-          <v-snackbar v-model="snackbar" top right color="success" outlined>
+          <v-snackbar
+            v-model="snackbar"
+            top
+            right
+            :color="snackbarColor"
+            :timeout="3000"
+          >
             {{ snackbarMessage }}
-            <v-btn color="black" text @click="snackbar = false">
-              閉じる
-            </v-btn>
           </v-snackbar>
         </v-row>
       </v-container>
@@ -56,6 +59,7 @@ export default {
       isGuestUser: this.$auth.user.email === 'guest@example.com',
       snackbar: false,
       snackbarMessage: '',
+      snackbarColor: 'success',
       avatarUrl: require('~/assets/images/noimage.jpg'),
       drawer: null,
       items: [
@@ -89,9 +93,6 @@ export default {
             uid: localStorage.getItem('uid')
           }
         })
-        // console.log(response) // レスポンス全体をログに出力
-        // console.log(response.data.avatar_url) // avatar_urlだけをログに出力
-        // this.avatarUrl = `${this.$config.apiBaseUrl}${response.data.avatar_url}`
         this.avatarUrl = response.data.avatar_url
         localStorage.setItem(`user_${this.$auth.user.id}`, JSON.stringify(response.data)) // ここでローカルストレージに保存
         this.snackbar = true

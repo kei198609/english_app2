@@ -40,12 +40,15 @@
         </template>
       </user-form-card>
     </v-card>
-      <v-snackbar v-model="snackbar" top right color="success" outlined>
-        {{ snackbarMessage }}
-        <v-btn color="black" text @click="snackbar = false">
-          閉じる
-        </v-btn>
-      </v-snackbar>
+    <v-snackbar
+      v-model="snackbar"
+      top
+      right
+      :color="snackbarColor"
+      :timeout="3000"
+    >
+      {{ snackbarMessage }}
+    </v-snackbar>
   </v-container>
 </template>
 
@@ -56,6 +59,7 @@ export default {
     return {
       snackbar: false,
       snackbarMessage: '',
+      snackbarColor: 'success',
       isValid: false,
       loading: false,
       params: { user: { name: '', email: '', password: '', occupation: '' } }
