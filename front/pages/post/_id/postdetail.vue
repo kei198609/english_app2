@@ -28,21 +28,26 @@
             <v-col cols="12">
               <v-card outlined class="mb-3">
                 <v-img :src="genreImageUrl" alt="ジャンルの画像" height="300"></v-img>
-                <v-card-title>ジャンル: {{ post.genre }}</v-card-title>
-                <v-card-title>タイトル: {{ post.title }}</v-card-title>
-                <div class="d-flex justify-end">
-                  <div class="pr-3">
-                    <v-btn fab class="elevation-0 bordered-btn" @click="toggleLike">
-                      <v-icon :color="liked ? 'red' : 'grey'">mdi-heart</v-icon>
-                    </v-btn>
-                  </div>
-                  <div class="pr-3">
-                    <v-btn fab class="elevation-0 bordered-btn" @click="toggleBookmark">
-                      <v-icon :color="bookmarked ? 'blue' : 'grey'">mdi-bookmark</v-icon>
-                    </v-btn>
-                  </div>
-                </div>
-                <v-card-text>{{ post.content }}</v-card-text>
+                  <v-card-title>
+                    <v-row no-gutters>
+                      <v-col cols="9">ジャンル: {{ post.genre }}</v-col>
+                      <v-col cols="3" class="d-flex align-items-center justify-end">
+                        <v-btn fab class="elevation-0 bordered-btn mr-2" @click="toggleLike">
+                          <v-icon :color="liked ? 'red' : 'grey'">mdi-heart</v-icon>
+                        </v-btn>
+                        <v-btn fab class="elevation-0 bordered-btn" @click="toggleBookmark">
+                          <v-icon :color="bookmarked ? 'blue' : 'grey'">mdi-bookmark</v-icon>
+                        </v-btn>
+                      </v-col>
+                    </v-row>
+                  </v-card-title>
+                  <v-card-title>
+                    <v-row no-gutters>
+                      <v-col cols="9">タイトル: {{ post.title }}</v-col>
+                    </v-row>
+                  </v-card-title>
+                <v-divider></v-divider>
+                <div class="pa-5" v-html="formattedContent"></div>
               </v-card>
             </v-col>
             <!-- コメント一覧 -->
@@ -118,6 +123,9 @@ export default {
         return require(`@/assets/images/${imageName}.jpg`)
       }
       return null
+    },
+    formattedContent () {
+      return this.post.content.replace(/\n/g, '<br>')
     }
   },
   async created () {
