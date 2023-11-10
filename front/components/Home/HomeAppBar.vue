@@ -5,7 +5,6 @@
     :height="homeAppBarHeight"
     :color="toolbarStyle.color"
     :elevation="toolbarStyle.elevation"
-
   >
     <!-- 引数に渡したIDまでスクロールしてくれる -->
     <app-logo
@@ -30,7 +29,7 @@
       </v-btn>
     </v-toolbar-items>
 
-    <AppUserGuideButton />
+    <!-- <AppUserGuideButton /> -->
     <before-login-app-bar-signup-button />
     <before-login-app-bar-login-button />
     <GuestLoginButton />
@@ -69,11 +68,11 @@
 
 <script>
 import GuestLoginButton from '~/components/GuestLoginButton.vue'
-import AppUserGuideButton from '~/components/AppUserGuideButton.vue'
+// import AppUserGuideButton from '~/components/AppUserGuideButton.vue'
 export default {
   components: {
-    GuestLoginButton,
-    AppUserGuideButton
+    GuestLoginButton
+    // AppUserGuideButton
   },
   props: {
     menus: {
