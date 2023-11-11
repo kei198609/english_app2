@@ -32,11 +32,11 @@
         </v-list-item-content>
       </v-list-item>
 
-      <v-divider />
+      <!-- <v-divider /> -->
 
-      <v-subheader>
+      <!-- <v-subheader>
         アカウント
-      </v-subheader>
+      </v-subheader> -->
 
       <template
         v-for="(menu, i) in menus"
@@ -77,7 +77,7 @@ export default {
         // nameがリンク先の名前
         // dividerはキーがtrueだと、45行目付近のdividerを使用
         // dividerは線が引かれる、trueだと線が引かれる
-        { name: 'account-password', icon: 'mdi-lock-outline' },
+        // { name: 'account-password', icon: 'mdi-lock-outline' },
         { name: 'logout', icon: 'mdi-logout-variant', divider: true }
       ]
     }
