@@ -18,51 +18,34 @@
 
     <v-spacer />
 
-    <v-toolbar-items class="ml-2 hidden-ipad-and-down">
-      <v-btn
-        v-for="(menu, i) in menus"
-        :key="`menu-btn-${i}`"
-        text
-        @click="$vuetify.goTo(`#${menu.title}`)"
+    <template v-if="$vuetify.breakpoint.mdAndUp">
+      <!-- ... -->
+      <before-login-app-bar-signup-button />
+      <before-login-app-bar-login-button />
+      <GuestLoginButton />
+    </template>
+    <template v-else>
+      <v-menu
+        bottom
+        right
+        offset-x
       >
-        {{ $t(`menus.${menu.title}`) }}
-      </v-btn>
-    </v-toolbar-items>
-
-    <!-- <AppUserGuideButton /> -->
-    <before-login-app-bar-signup-button />
-    <before-login-app-bar-login-button />
-    <GuestLoginButton />
-
-    <!-- ハンバーガーメニュー -->
-    <!-- <v-menu
-      bottom
-      nudge-left="110"
-      nudge-width="100"
-    >
-      <template v-slot:activator="{ on }">
-        <v-app-bar-nav-icon
-          class="hidden-ipad-and-up"
-          v-on="on"
-        />
-      </template>
-      <v-list
-        dense
-        class="hidden-ipad-and-up"
-      >
-        <v-list-item
-          v-for="(menu, i) in menus"
-          :key="`menu-list-${i}`"
-          exact
-          @click="$vuetify.goTo(`#${menu.title}`)"
-        >
-          <v-list-item-title>
-            {{ $t(`menus.${menu.title}`) }}
-          </v-list-item-title>
-        </v-list-item>
-      </v-list>
-    </v-menu> -->
-
+        <template v-slot:activator="{ on }">
+          <v-app-bar-nav-icon v-on="on" />
+        </template>
+        <v-list>
+          <v-list-item>
+            <before-login-app-bar-signup-button />
+          </v-list-item>
+          <v-list-item>
+            <before-login-app-bar-login-button />
+          </v-list-item>
+          <v-list-item>
+            <GuestLoginButton />
+          </v-list-item>
+        </v-list>
+      </v-menu>
+    </template>
   </v-app-bar>
 </template>
 
