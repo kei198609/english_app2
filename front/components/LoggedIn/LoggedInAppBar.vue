@@ -15,6 +15,7 @@
     </nuxt-link>
     <app-title />
     <v-spacer />
+    <logged-in-app-bar-user-guide />
     <logged-in-app-bar-account-menu />
   </v-app-bar>
 </template>
