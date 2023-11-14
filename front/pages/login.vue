@@ -21,7 +21,7 @@
                 :disabled="!isValid || loading"
                 :loading="loading"
                 block
-                color="appblue"
+                color="appyellow"
                 class="white--text"
                 @click="login"
               >

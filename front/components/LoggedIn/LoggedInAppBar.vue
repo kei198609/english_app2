@@ -4,7 +4,7 @@
     dense
     elevation="1"
     :clipped-left="clippedLeft"
-    color="#7097C3"
+    color="appyellow"
   >
   <slot name="navigation-toggle-button" />
     <nuxt-link
