@@ -25,7 +25,7 @@
             </v-alert>
           </v-col>
           <v-col cols="12" md="8">
-            <v-card class="pb-8 bordered-card">
+            <v-card class="pb-8">
               <user-form-card-change>
                 <template #user-form-card-change-content>
                   <v-form ref="form" v-model="valid">
@@ -119,9 +119,3 @@ export default {
   }
 }
 </script>
-
-<style scoped>
-.bordered-card {
-  border-top: 3px solid #7097C3;
-}
-</style>

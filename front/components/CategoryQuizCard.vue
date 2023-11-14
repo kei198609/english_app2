@@ -1,6 +1,6 @@
 <template>
   <div>
-    <v-card class="px-3 py-3 mb-3 bordered-card">
+    <v-card class="px-3 py-3 mb-3">
       <v-list-item-content>
         並び替え問題
       </v-list-item-content>
@@ -47,9 +47,3 @@ export default {
   }
 }
 </script>
-
-<style scoped>
-.bordered-card {
-  border-top: 3px solid #7097C3;
-}
-</style>

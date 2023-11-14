@@ -1,6 +1,6 @@
 <template>
   <div>
-    <v-card class="px-3 py-3 bordered-card">
+    <v-card class="px-3 py-3">
       <v-list-item-content>
         {{ category.category_name_article }}
       </v-list-item-content>
@@ -43,9 +43,3 @@ export default {
   }
 }
 </script>
-
-<style scoped>
-.bordered-card {
-  border-top: 3px solid #7097C3;
-}
-</style>

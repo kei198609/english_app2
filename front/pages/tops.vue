@@ -18,7 +18,7 @@
         <v-container>
           <v-row justify="center">
             <v-col cols="12" md="8">
-              <v-card outlined class="px-3 py-3 pb-3 mb-5">
+              <v-card class="px-3 py-3 pb-3 mb-5">
                 <CategoryArticles
                   v-for="category in groupedArticles"
                   :key="category.id"
@@ -32,7 +32,7 @@
                   @input="updatePage"
                 />
               </v-card>
-              <v-card outlined class="px-3 py-3 pb-3 mb-5">
+              <v-card class="px-3 py-3 pb-3 mb-5">
                 <CategoryQuizCard
                   v-for="category in groupedQuizzes"
                   :key="category.id"
@@ -47,7 +47,7 @@
                 />
               </v-card>
 
-              <v-card class="px-3 py-3 mb-5 bordered-card">
+              <v-card class="px-3 py-3 mb-5">
                 <v-list-item-content>
                   新着記事一覧
                 </v-list-item-content>
@@ -296,9 +296,3 @@ export default {
   }
 }
 </script>
-
-<style scoped>
-.bordered-card {
-  border-top: 3px solid #7097C3;
-}
-</style>

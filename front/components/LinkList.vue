@@ -1,5 +1,5 @@
 <template>
-  <v-card class="bordered-card">
+  <v-card>
     <v-list>
       <v-list-item v-for="item in items" :key="item.title" :to="item.link" link>
         <v-list-item-content>
@@ -17,9 +17,3 @@ export default {
   props: ['items']
 }
 </script>
-
-<style scoped>
-.bordered-card {
-  border-top: 3px solid #7097C3;
-}
-</style>

@@ -15,7 +15,7 @@
       <v-container>
         <v-row>
           <v-col cols="12" md="8" lg="8">
-            <v-card outlined class="px-3 py-3 pb-3 mb-5">
+            <v-card class="px-3 py-3 pb-3 mb-5">
               <CategoryQuizCard
                 v-for="category in groupedQuizzes"
                 :key="category.id"

@@ -14,7 +14,7 @@
     <v-main>
       <v-container>
         <div>
-          <v-card outlined class="px-3 py-3">
+          <v-card class="px-3 py-3">
             <v-form @submit.prevent="createPost">
               <v-select
                 v-model="post.genre"

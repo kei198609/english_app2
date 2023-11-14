@@ -18,7 +18,7 @@
             <link-list :items="items" />
           </v-col>
           <v-col cols="12" md="8">
-            <v-card class="px-3 py-3 bordered-card">
+            <v-card class="px-3 py-3">
               <h1 class="my-8 text-h5 font-weight-bold">
                 アカウント
               </h1>
@@ -127,9 +127,6 @@ export default {
 </script>
 
 <style scoped>
-.bordered-card {
-  border-top: 3px solid #7097C3;
-}
 .avatar-size {
   width: 100px;
   height: 100px;

@@ -1,7 +1,7 @@
 <template>
   <v-row>
     <v-col>
-      <v-card class="pa-4 bordered-card">
+      <v-card class="pa-4">
         <div class="text-center mb-4">
           登場人物
         </div>
@@ -31,11 +31,6 @@ export default {
 </script>
 
 <style scoped>
-.bordered-card {
-  border-top: 3px solid #7097C3;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
 .character-image {
   width: 60px;
   height: 60px;

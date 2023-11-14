@@ -26,7 +26,7 @@
 
           <template v-else>
             <v-col cols="12">
-              <v-card outlined class="mb-3">
+              <v-card class="mb-3">
                 <v-img :src="genreImageUrl" alt="ジャンルの画像" height="300"></v-img>
                   <v-card-title>
                     <v-row no-gutters>
@@ -52,7 +52,7 @@
             </v-col>
             <!-- コメント一覧 -->
             <v-col cols="12">
-              <v-card outlined class="px-3 py-3">
+              <v-card class="px-3 py-3">
                 <v-list-item-content>
                   コメント一覧
                 </v-list-item-content>

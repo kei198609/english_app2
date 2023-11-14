@@ -1,7 +1,7 @@
 <template>
   <v-row>
     <v-col>
-      <v-card class="pa-4 bordered-card">
+      <v-card class="pa-4">
         <div class="text-center mb-3" v-if="isCurrentUser">あなたの情報</div>
         <div class="image-container">
           <v-avatar size="150" class="rounded-circle">
@@ -79,8 +79,5 @@ export default {
 }
 .circle-size {
   object-fit: cover;
-}
-.bordered-card {
-  border-top: 3px solid #7097C3;
 }
 </style>
