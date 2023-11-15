@@ -21,10 +21,10 @@ export default {
   },
   computed: {
     iconTextColor () {
-      return this.isScrollPoint ? 'black--text' : 'white--text'
+      return this.isScrollPoint ? 'black--text' : 'black--text'
     },
     iconColor () {
-      return this.isScrollPoint ? '#000' : '#fff'
+      return this.isScrollPoint ? '#000' : '#000'
     }
   }
 }

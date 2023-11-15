@@ -1,5 +1,5 @@
 <template>
-  <v-toolbar-title class="white--text">
+  <v-toolbar-title class="black--text">
     {{ appName }}
   </v-toolbar-title>
 </template>
@@ -13,3 +13,8 @@ export default {
   }
 }
 </script>
+<style>
+.black-text {
+  color: black;
+}
+</style>

@@ -12,7 +12,7 @@
       :is-scroll-point="isScrollPoint"
     />
 
-    <v-toolbar-title class="hidden-mobile-and-down">
+    <v-toolbar-title class="hidden-mobile-and-down black--text">
       Mail Mentor
     </v-toolbar-title>
 

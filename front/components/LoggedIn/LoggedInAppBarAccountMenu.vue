@@ -12,7 +12,7 @@
         icon
         v-on="on"
       >
-        <v-icon class="white--text">
+        <v-icon class="black--text">
           mdi-account-circle
         </v-icon>
       </v-btn>
