@@ -1,14 +1,12 @@
 <template>
-  <v-app class="">
+  <v-app>
     <home-app-bar
       :img-height="imgHeight"
     />
 
     <v-img
-      id="scroll-top"
-      dark
-      src="https://picsum.photos/id/4/1920/1080"
-      gradient="to top right, rgba(19,84,122,.6), rgba(128,208,199,.9)"
+      class="image-border"
+      :src="require('@/assets/images/landing/bg_large.png')"
       :height="imgHeight"
     >
       <v-row
@@ -24,7 +22,7 @@
       </v-row>
     </v-img>
 
-      <v-sheet>
+    <v-img v-bind:src="image_src" class="custom-image-size">
         <section class="about">
           <div>
             <h1 class="heading-large mb-4">
@@ -35,8 +33,8 @@
             </p>
           </div>
         </section>
-        <section class="contents1">
-          <div class="contents_inner1">
+        <section>
+          <div class="contents_inner_one">
             <div class="menu">
               <v-row>
                 <v-col cols="12" md="6" lg="6" class="flex-container-vertical">
@@ -52,25 +50,25 @@
             </div>
           </div>
         </section>
-        <section class="contents2">
-          <div class="contents_inner2">
+        <section>
+          <div class="contents_inner_two">
             <div class="menu">
               <v-row>
-                <v-col cols="12" md="6" lg="6" class="flex-container">
-                  <img src="~assets/images/landing/基礎チェック問題.png" alt="画像2" class="image">
-                </v-col>
-                <v-col cols="12" md="6" lg="6" class="flex-container-vertical">
+                <v-col cols="12" md="6" lg="6" class="flex-container-vertical text-container">
                   <h1 class="heading-large">
                     ビジネスメールの基礎
                   </h1>
                   <p>実際のビジネスシーンで使える、基本的なビジネスメールの書き方を学びます。</p>
                 </v-col>
+                <v-col cols="12" md="6" lg="6" class="flex-container image-container">
+                  <img src="~assets/images/landing/基礎チェック問題.png" alt="画像2" class="image">
+                </v-col>
               </v-row>
             </div>
           </div>
         </section>
-        <section class="contents3">
-          <div class="contents_inner3">
+        <section>
+          <div class="contents_inner_three">
             <div class="menu">
               <v-row>
                 <v-col cols="12" md="6" lg="6" class="flex-container-vertical">
@@ -86,16 +84,41 @@
             </div>
           </div>
         </section>
-        <!-- <section class="contents4">
-          <div class="contents_inner4">
+        <section>
+          <div class="contents_inner_four">
             <div class="menu">
-              <h2 class="justify-center display-1">
-                投稿機能
-              </h2>
+              <v-row>
+                <v-col cols="12" md="6" lg="6" class="flex-container-vertical text-container">
+                  <h1 class="heading-large">
+                    記事投稿
+                  </h1>
+                  <p>メールに関する記事を投稿して、他のユーザと共有できます。</p>
+                </v-col>
+                <v-col cols="12" md="6" lg="6" class="flex-container image-container">
+                  <img src="~assets/images/landing/役立つ記事.png" alt="画像4" class="image">
+                </v-col>
+              </v-row>
             </div>
           </div>
-        </section> -->
-      </v-sheet>
+        </section>
+        <section>
+          <div class="contents_inner_five">
+            <div class="menu">
+              <v-row>
+                <v-col cols="12" md="6" lg="6" class="flex-container-vertical">
+                  <h1 class="heading-large">
+                    『Mail Mentor』で解決できる悩み
+                  </h1>
+                  <p>初めて書くビジネス英語メールのモヤモヤを解決できます。</p>
+                </v-col>
+                <v-col cols="12" md="6" lg="6" class="flex-container">
+                  <img src="~assets/images/landing/解決できる悩み.png" alt="画像5" class="image">
+                </v-col>
+              </v-row>
+            </div>
+          </div>
+        </section>
+    </v-img>
     <app-footer />
   </v-app>
 </template>
@@ -105,43 +128,122 @@ export default {
 
   data () {
     return {
-      colors: ['primary', 'info', 'success', 'warning', 'error', 'background'],
-      customClass: [
-        { name: 'hidden-ipad-and-down', color: 'error', des: 'ipad未満で隠す' },
-        { name: 'hidden-ipad-and-up', color: 'info', des: 'ipad以上で隠す' },
-        { name: 'hidden-mobile-and-down', color: 'success', des: 'mobile未満で隠す' },
-        { name: 'hidden-mobile-and-up', color: 'warning', des: 'mobile以上で隠す' }
-      ],
-      imgHeight: 500
+      image_src: require('@/assets/images/landing/bg_main_large.png'),
+      imgHeight: 400
     }
   }
 }
 </script>
 
 <style>
-.heading-large{
-  font-size: 2.3em;
+/* ベーススタイル モバイルファースト */
+.image-border {
+  border-top: 2px solid #ffbf00; /* 上のボーダー */
+  border-bottom: 2px solid #ffbf00; /* 下のボーダー */
 }
-/* 黒三角 */
+.heading-large {
+  font-size: 1.6em;
+}
+.custom-image-size {
+  height: 4200px;
+}
+.contents_inner_one {
+  padding: 200px 100px 100px;
+}
+.contents_inner_two {
+  padding: 80px 100px 100px;
+}
+.contents_inner_three {
+  padding: 80px 100px 100px;
+}
+.contents_inner_four {
+  padding: 80px 100px 100px;
+}
+.contents_inner_five {
+  padding: 110px 100px 100px;
+}
+
+/* 768px以上の画面幅で適用されるスタイル */
+@media (min-width: 768px) {
+  .heading-large {
+    font-size: 2.0em;
+  }
+  .custom-image-size {
+    height: 4000px;
+  }
+  .contents_inner_one {
+    padding: 150px 100px 100px;
+  }
+  .contents_inner_two {
+    padding: 50px 100px 100px;
+  }
+  .contents_inner_three {
+    padding: 50px 100px 100px;
+  }
+  .contents_inner_four {
+    padding: 60px 100px 100px;
+  }
+  .contents_inner_five {
+    padding: 100px 100px 100px;
+  }
+}
+
+/* 960px以上の画面幅で適用されるスタイル */
+@media (min-width: 960px) {
+  .custom-image-size {
+    height: 3600px;
+  }
+  .contents_inner_one {
+    padding: 170px 100px 100px;
+  }
+  .contents_inner_two {
+    padding: 100px 100px 100px;
+  }
+  .contents_inner_three {
+    padding: 100px 100px 100px;
+  }
+  .contents_inner_four {
+    padding: 100px 100px 100px;
+  }
+  .contents_inner_five {
+    padding: 160px 100px 100px;
+  }
+    /* 順序の変更 */
+  .text-container {
+    order: 2; /* テキストを右側に配置 */
+  }
+  .image-container {
+    order: 1; /* 画像を左側に配置 */
+  }
+}
+
+/* 1700px以上の画面幅で適用されるスタイル */
+@media (min-width: 1700px) {
+  .custom-image-size {
+    height: 4500px;
+  }
+  .contents_inner_one {
+    padding: 250px 100px 100px;
+  }
+  .contents_inner_two {
+    padding: 250px 100px 100px;
+  }
+  .contents_inner_three {
+    padding: 250px 100px 100px;
+  }
+  .contents_inner_four {
+    padding: 250px 100px 100px;
+  }
+  .contents_inner_five {
+    padding: 270px 100px 100px;
+  }
+}
+
 .about {
   display: flex;
   justify-content: center;
-  align-items: center;
   text-align: center;
   margin: 3% 0 0 0;
-  position: relative;
-  text-align: center;
-}
-.about:before {
-  content: '';
-  position: absolute;
-  left: 50%;
-  bottom: -60px; /* 三角形の底辺がセクションの外に出るように設定 */
-  border-left: 100px solid transparent; /* 左の斜辺 */
-  border-right: 100px solid transparent; /* 右の斜辺 */
-  border-top: 50px solid #000; /* 上向きの逆三角形なので、底辺はborder-topになる */
-  transform: translateX(-50%); /* 中心に配置するために左に50%移動 */
-  z-index: 1;
 }
 
 .small-text {
@@ -169,195 +271,5 @@ export default {
   margin: 0 auto;
   width: auto;
   height: 300px;
-}
-/* コンテンツ1 */
-.contents1 {
-  position: relative;
-  overflow: hidden;
-  margin: 55px 0;
-}
-
-.contents1:before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 120%;
-  height: 80%;
-  margin: 0% -10% 0;
-  background: #eae8e8;
-  -webkit-transform-origin: left center;
-  -ms-transform-origin: left center;
-  transform-origin: left center;
-  -webkit-transform: rotate(3deg);
-  -ms-transform: rotate(3deg);
-  transform: rotate(3deg);
-  z-index: 2;
-
-}
-.contents1:after {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 120%;
-  height: 80%;
-  margin: 0% -10% 0;
-  background: #faff96;
-  -webkit-transform-origin: right center;
-  -ms-transform-origin: right center;
-  transform-origin: right center;
-  -webkit-transform: rotate(-3deg);
-  -ms-transform: rotate(-3deg);
-  transform: rotate(-3deg);
-  z-index: 1;
-}
-
-.contents_inner1 {
-  padding: 100px 100px 100px;
-}
-/* コンテンツ2 */
-.contents2 {
-  position: relative;
-  overflow: hidden;
-  margin: 55px 0;
-}
-.contents2:before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 120%;
-  height: 80%;
-  margin: 0% -10% 0;
-  background: #eae8e8;
-  -webkit-transform-origin: left center;
-  -ms-transform-origin: left center;
-  transform-origin: left center;
-  -webkit-transform: rotate(3deg);
-  -ms-transform: rotate(3deg);
-  transform: rotate(3deg);
-  z-index: 2;
-}
-
-.contents2:after {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 120%;
-  height: 80%;
-  margin: 0% -10% 0;
-  background: #faff96;
-  -webkit-transform-origin: right center;
-  -ms-transform-origin: right center;
-  transform-origin: right center;
-  -webkit-transform: rotate(-3deg);
-  -ms-transform: rotate(-3deg);
-  transform: rotate(-3deg);
-  z-index: 1;
-}
-
-.contents_inner2 {
-  padding: 100px 100px 100px;
-}
-/* コンテンツ3 */
-.contents3 {
-  position: relative;
-  overflow: hidden;
-  margin: 55px 0;
-}
-.contents3:before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 120%;
-  height: 80%;
-  margin: 0% -10% 0;
-  background: #eae8e8;
-  -webkit-transform-origin: left center;
-  -ms-transform-origin: left center;
-  transform-origin: left center;
-  -webkit-transform: rotate(3deg);
-  -ms-transform: rotate(3deg);
-  transform: rotate(3deg);
-  z-index: 2;
-}
-
-.contents3:after {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 120%;
-  height: 80%;
-  margin: 0% -10% 0;
-  background: #faff96;
-  -webkit-transform-origin: right center;
-  -ms-transform-origin: right center;
-  transform-origin: right center;
-  -webkit-transform: rotate(-3deg);
-  -ms-transform: rotate(-3deg);
-  transform: rotate(-3deg);
-  z-index: 1;
-}
-
-.contents_inner3 {
-  padding: 100px 100px 100px;
-}
-/* コンテンツ4 */
-.contents4 {
-  position: relative;
-  overflow: hidden;
-  margin: 10% 0;
-  padding: 80px 0;
-}
-.contents4:before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 120%;
-  height: 80%;
-  margin: 3% -10% 0;
-  background: #eae8e8;
-  -webkit-transform-origin: left center;
-  -ms-transform-origin: left center;
-  transform-origin: left center;
-  -webkit-transform: rotate(3deg);
-  -ms-transform: rotate(3deg);
-  transform: rotate(3deg);
-  z-index: 2;
-}
-
-.contents4:after {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 120%;
-  height: 80%;
-  margin: 3% -10% 0;
-  background: #faff96;
-  -webkit-transform-origin: right center;
-  -ms-transform-origin: right center;
-  transform-origin: right center;
-  -webkit-transform: rotate(-3deg);
-  -ms-transform: rotate(-3deg);
-  transform: rotate(-3deg);
-  z-index: 1;
-}
-
-.contents_inner4 {
-  box-sizing: boder-box;
-  width: 100%;
-  max-width: 640px;
-  height: 100%;
-  margin: 0 auto;
-  padding: 100px 10px 120px;
-  color: black;
-  text-align: center;
-  z-index: 2;
 }
 </style>
