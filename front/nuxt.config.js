@@ -103,13 +103,15 @@ export default {
     theme: {
       themes: {
         light: {
-          primary: '7097C3',
+          primary: 'ffbf00',
           info: '4FC1E9',
           success: '44D69E',
           warning: 'FEB65E',
           error: 'FB8678',
           background: 'f6f6f4',
-          appblue: '1867C0'
+          appblue: '1867C0',
+          appyellow: 'ffbf00',
+          appblack: '000000'
         }
       }
     }
