@@ -3,7 +3,17 @@
     <home-app-bar
       :img-height="imgHeight"
     />
-
+    <v-btn
+      fab
+      dark
+      fixed
+      bottom
+      right
+      color="primary"
+      @click="scrollToTop"
+    >
+      <v-icon>mdi-chevron-up</v-icon>
+    </v-btn>
     <v-img
       class="image-border"
       :src="require('@/assets/images/landing/bg_large.png')"
@@ -118,6 +128,20 @@
             </div>
           </div>
         </section>
+        <section>
+          <div class="contents_inner_six">
+            <div class="menu">
+              <v-row>
+                <v-col cols="12" md="6" lg="6" class="flex-container-vertical">
+
+                </v-col>
+                <v-col cols="12" md="6" lg="6" class="flex-container">
+
+                </v-col>
+              </v-row>
+            </div>
+          </div>
+        </section>
     </v-img>
     <app-footer />
   </v-app>
@@ -125,11 +149,18 @@
 
 <script>
 export default {
-
   data () {
     return {
       image_src: require('@/assets/images/landing/bg_main_large.png'),
       imgHeight: 400
+    }
+  },
+  methods: {
+    scrollToTop () {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      })
     }
   }
 }
@@ -160,6 +191,9 @@ export default {
   padding: 80px 100px 100px;
 }
 .contents_inner_five {
+  padding: 110px 100px 100px;
+}
+.contents_inner_six {
   padding: 110px 100px 100px;
 }
 
