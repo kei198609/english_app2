@@ -43,15 +43,16 @@
             </p>
           </div>
         </section>
-        <section>
+        <section class="about">
           <div class="contents_inner_one">
             <div class="menu">
               <v-row>
                 <v-col cols="12" md="6" lg="6" class="flex-container-vertical">
                   <h1 class="heading-large">
-                    英語の並び替え問題
+                    英文並び替え問題
                   </h1>
-                  <p>ゲーム感覚で学び、ビジネスメール英語の感覚を磨きます。</p>
+                  <p>ゲーム感覚で学び、<br>
+                    ビジネスメール英語の感覚を磨きます。</p>
                 </v-col>
                 <v-col cols="12" md="6" lg="6" class="flex-container">
                   <img src="~assets/images/landing/並び替え問題.png" alt="画像1" class="image">
@@ -60,7 +61,7 @@
             </div>
           </div>
         </section>
-        <section>
+        <section class="about">
           <div class="contents_inner_two">
             <div class="menu">
               <v-row>
@@ -68,7 +69,8 @@
                   <h1 class="heading-large">
                     ビジネスメールの基礎
                   </h1>
-                  <p>実際のビジネスシーンで使える、基本的なビジネスメールの書き方を学びます。</p>
+                  <p>実際のビジネスシーンで使える、<br>
+                    基本的なビジネスメールの書き方を学びます。</p>
                 </v-col>
                 <v-col cols="12" md="6" lg="6" class="flex-container image-container">
                   <img src="~assets/images/landing/基礎チェック問題.png" alt="画像2" class="image">
@@ -77,7 +79,7 @@
             </div>
           </div>
         </section>
-        <section>
+        <section class="about">
           <div class="contents_inner_three">
             <div class="menu">
               <v-row>
@@ -94,7 +96,7 @@
             </div>
           </div>
         </section>
-        <section>
+        <section class="about">
           <div class="contents_inner_four">
             <div class="menu">
               <v-row>
@@ -102,7 +104,8 @@
                   <h1 class="heading-large">
                     記事投稿
                   </h1>
-                  <p>メールに関する記事を投稿して、他のユーザと共有できます。</p>
+                  <p>メールに関する記事を投稿して、<br>
+                    他のユーザと共有できます。</p>
                 </v-col>
                 <v-col cols="12" md="6" lg="6" class="flex-container image-container">
                   <img src="~assets/images/landing/役立つ記事.png" alt="画像4" class="image">
@@ -111,15 +114,16 @@
             </div>
           </div>
         </section>
-        <section>
+        <section class="about">
           <div class="contents_inner_five">
             <div class="menu">
               <v-row>
                 <v-col cols="12" md="6" lg="6" class="flex-container-vertical">
                   <h1 class="heading-large">
-                    『Mail Mentor』で解決できる悩み
+                    解決できる悩み
                   </h1>
-                  <p>初めて書くビジネス英語メールのモヤモヤを解決できます。</p>
+                  <p>初めて書くビジネス英語メールの<br>
+                    モヤモヤを解決できます。</p>
                 </v-col>
                 <v-col cols="12" md="6" lg="6" class="flex-container">
                   <img src="~assets/images/landing/解決できる悩み.png" alt="画像5" class="image">
@@ -131,12 +135,15 @@
         <section>
           <div class="contents_inner_six">
             <div class="menu">
-              <v-row>
+              <v-row justify="center">
+                <v-col cols="12" class="text-center mb-10">
+                  <h1 class="heading-large">今すぐ始めよう！</h1>
+                </v-col>
                 <v-col cols="12" md="6" lg="6" class="flex-container-vertical">
-
+                  <TryLoginButton />
                 </v-col>
                 <v-col cols="12" md="6" lg="6" class="flex-container">
-
+                  <SignupButton />
                 </v-col>
               </v-row>
             </div>
@@ -148,7 +155,14 @@
 </template>
 
 <script>
+import TryLoginButton from '~/components/Button/TryLoginButton.vue'
+import SignupButton from '~/components/Button/SignupButton.vue'
+
 export default {
+  components: {
+    TryLoginButton,
+    SignupButton
+  },
   data () {
     return {
       image_src: require('@/assets/images/landing/bg_main_large.png'),
@@ -175,28 +189,54 @@ export default {
 .heading-large {
   font-size: 1.6em;
 }
-.custom-image-size {
-  height: 4200px;
+/* 480px以下の画面幅で適用されるスタイル */
+@media (max-width: 480px) {
+  .custom-image-size {
+    height: 4200px;
+  }
+  .contents_inner_one {
+    padding: 190px 100px 100px;
+  }
+  .contents_inner_two {
+    padding: 70px 100px 100px;
+  }
+  .contents_inner_three {
+    padding: 70px 100px 100px;
+  }
+  .contents_inner_four {
+    padding: 70px 100px 100px;
+  }
+  .contents_inner_five {
+    padding: 100px 100px 100px;
+  }
+  .contents_inner_six {
+    padding: 300px 100px 100px;
+  }
 }
-.contents_inner_one {
-  padding: 200px 100px 100px;
+/* 481pxから768pxの画面幅で適用されるスタイル */
+@media (min-width: 481px) and (max-width: 768px) {
+  .custom-image-size {
+    height: 4200px;
+  }
+  .contents_inner_one {
+    padding: 180px 100px 100px;
+  }
+  .contents_inner_two {
+    padding: 50px 100px 100px;
+  }
+  .contents_inner_three {
+    padding: 50px 100px 100px;
+  }
+  .contents_inner_four {
+    padding: 50px 100px 100px;
+  }
+  .contents_inner_five {
+    padding: 120px 100px 100px;
+  }
+  .contents_inner_six {
+    padding: 300px 100px 100px;
+  }
 }
-.contents_inner_two {
-  padding: 80px 100px 100px;
-}
-.contents_inner_three {
-  padding: 80px 100px 100px;
-}
-.contents_inner_four {
-  padding: 80px 100px 100px;
-}
-.contents_inner_five {
-  padding: 110px 100px 100px;
-}
-.contents_inner_six {
-  padding: 110px 100px 100px;
-}
-
 /* 768px以上の画面幅で適用されるスタイル */
 @media (min-width: 768px) {
   .heading-large {
@@ -206,19 +246,22 @@ export default {
     height: 4000px;
   }
   .contents_inner_one {
-    padding: 150px 100px 100px;
+    padding: 120px 100px 100px;
   }
   .contents_inner_two {
-    padding: 50px 100px 100px;
+    padding: 20px 100px 100px;
   }
   .contents_inner_three {
-    padding: 50px 100px 100px;
+    padding: 20px 100px 100px;
   }
   .contents_inner_four {
-    padding: 60px 100px 100px;
+    padding: 20px 100px 100px;
   }
   .contents_inner_five {
-    padding: 100px 100px 100px;
+    padding: 80px 100px 100px;
+  }
+  .contents_inner_six {
+    padding: 250px 100px 100px;
   }
 }
 
@@ -228,19 +271,53 @@ export default {
     height: 3600px;
   }
   .contents_inner_one {
-    padding: 170px 100px 100px;
+    padding: 150px 100px 100px;
   }
   .contents_inner_two {
-    padding: 100px 100px 100px;
+    padding: 80px 100px 100px;
   }
   .contents_inner_three {
-    padding: 100px 100px 100px;
+    padding: 80px 100px 100px;
   }
   .contents_inner_four {
-    padding: 100px 100px 100px;
+    padding: 80px 100px 100px;
   }
   .contents_inner_five {
-    padding: 160px 100px 100px;
+    padding: 130px 100px 100px;
+  }
+  .contents_inner_six {
+    padding: 300px 100px 100px;
+  }
+    /* 順序の変更 */
+  .text-container {
+    order: 2; /* テキストを右側に配置 */
+  }
+  .image-container {
+    order: 1; /* 画像を左側に配置 */
+  }
+}
+/* 1280px以上の画面幅で適用されるスタイル */
+@media (min-width: 1280px) {
+  .custom-image-size {
+    height: 3600px;
+  }
+  .contents_inner_one {
+    padding: 130px 100px 100px;
+  }
+  .contents_inner_two {
+    padding: 70px 100px 100px;
+  }
+  .contents_inner_three {
+    padding: 70px 100px 100px;
+  }
+  .contents_inner_four {
+    padding: 70px 100px 100px;
+  }
+  .contents_inner_five {
+    padding: 100px 100px 100px;
+  }
+  .contents_inner_six {
+    padding: 300px 100px 100px;
   }
     /* 順序の変更 */
   .text-container {
@@ -257,19 +334,22 @@ export default {
     height: 4500px;
   }
   .contents_inner_one {
-    padding: 250px 100px 100px;
+    padding: 200px 100px 100px;
   }
   .contents_inner_two {
-    padding: 250px 100px 100px;
+    padding: 200px 100px 100px;
   }
   .contents_inner_three {
-    padding: 250px 100px 100px;
+    padding: 200px 100px 100px;
   }
   .contents_inner_four {
-    padding: 250px 100px 100px;
+    padding: 200px 100px 100px;
   }
   .contents_inner_five {
-    padding: 270px 100px 100px;
+    padding: 200px 100px 100px;
+  }
+  .contents_inner_six {
+    padding: 400px 100px 100px;
   }
 }
 
