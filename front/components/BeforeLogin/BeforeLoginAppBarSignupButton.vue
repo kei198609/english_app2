@@ -1,8 +1,9 @@
 <template>
   <v-btn
+    text
     outlined
     class="ml-2 font-weight-bold"
-    color="appblue"
+    color="black"
     to="/signup"
   >
     {{ $my.pageTitle('signup') }}

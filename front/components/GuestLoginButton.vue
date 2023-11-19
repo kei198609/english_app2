@@ -1,11 +1,10 @@
 <template>
   <v-btn
     text
-    class="ml-2 font-weight-bold"
-    color="black"
+    class="ml-2 font-weight-bold custom-button-guest"
     @click="guestLogin"
   >
-    ゲストログイン
+    試してみる
   </v-btn>
 </template>
 
@@ -26,3 +25,9 @@ export default {
   }
 }
 </script>
+<style>
+.custom-button-guest {
+  background-color: #ffbf00;
+  color: black;
+}
+</style>
