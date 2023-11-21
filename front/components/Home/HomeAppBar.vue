@@ -1,15 +1,8 @@
 <template>
   <v-app-bar
-    app
-    :dark="!isScrollPoint"
-    :height="homeAppBarHeight"
-    :color="toolbarStyle.color"
-    :elevation="toolbarStyle.elevation"
+    color="white"
   >
-    <!-- 引数に渡したIDまでスクロールしてくれる -->
     <app-logo
-      @click.native="$vuetify.goTo('#scroll-top')"
-      :is-scroll-point="isScrollPoint"
     />
 
     <v-toolbar-title class="hidden-mobile-and-down black--text">
@@ -19,7 +12,6 @@
     <v-spacer />
 
     <template v-if="$vuetify.breakpoint.mdAndUp">
-      <!-- ... -->
       <before-login-app-bar-signup-button />
       <before-login-app-bar-login-button />
       <GuestLoginButton />
@@ -56,48 +48,6 @@ export default {
   components: {
     GuestLoginButton
     // AppUserGuideButton
-  },
-  props: {
-    menus: {
-      type: Array,
-      default: () => []
-    },
-    imgHeight: {
-      type: Number,
-      default: 0
-    }
-  },
-
-  data ({ $store }) {
-    return {
-      scrollY: 0,
-      homeAppBarHeight: $store.state.styles.homeAppBarHeight
-    }
-  },
-
-  computed: {
-    // 500-56=444pxの場合、trueを返す,ツールバーの色を変更するための設定
-    isScrollPoint () {
-      return this.scrollY > (this.imgHeight - this.homeAppBarHeight)
-    },
-    toolbarStyle () {
-      // trueならwhite,falseならtransparent(透明)
-      const color = this.isScrollPoint ? 'white' : 'transparent'
-      const elevation = this.isScrollPoint ? 4 : 0
-      return { color, elevation }
-    }
-  },
-
-  mounted () {
-    window.addEventListener('scroll', this.onScroll)
-  },
-  beforeDestroy () {
-    window.removeEventListener('scroll', this.onScroll)
-  },
-  methods: {
-    onScroll () {
-      this.scrollY = window.scrollY
-    }
   }
 }
 </script>
