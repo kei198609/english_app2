@@ -14,9 +14,6 @@
     <v-main>
       <v-container>
         <v-row>
-          <v-col cols="12" md="12" lg="12">
-            <UserSection v-if="user" :user="user" />
-          </v-col>
           <v-col cols="6" md="6" lg="6">
             <div>
               <v-card class="px-3 py-3">
@@ -26,7 +23,6 @@
               </v-card>
             </div>
           </v-col>
-
           <v-col cols="6" md="6" lg="6">
             <div>
               <v-card class="px-3 py-3">
@@ -42,6 +38,9 @@
                   </div>
               </v-card>
             </div>
+          </v-col>
+          <v-col cols="12" md="12" lg="12">
+            <UserSection v-if="user" :user="user" />
           </v-col>
           <v-snackbar
             v-model="snackbar"
@@ -87,6 +86,9 @@ export default {
         // ユーザーの詳細情報を取得
         const userResponse = await this.$axios.get(`/api/v1/users/${userId}`)
         this.user = userResponse.data.user
+        this.user.followers_count = userResponse.data.followers_count
+        this.user.following_count = userResponse.data.following_count
+        this.data = userResponse.data.data
 
         // クイズのデータを取得
         const response = await this.$axios.get(`/api/v1/quizzes/${this.$route.params.id}`)
