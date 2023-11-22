@@ -99,6 +99,10 @@ export default {
       }
       this.snackbar = true
       this.snackbarMessage = '投稿しました。マイページから確認できます。'
+      setTimeout(() => {
+        this.snackbarMessage = '10ポイント獲得しました。'
+        this.snackbar = true
+      }, 2000)
     }
   }
 }

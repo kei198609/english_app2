@@ -25,6 +25,9 @@ before_action :correct_user, only: :destroy
   def create
     @post = current_user.posts.build(post_params)
     if @post.save
+      current_user.points += 10
+      current_user.save!
+      update_level(current_user)
       render json: @post, status: :created
     else
       render json: { errors: @post.errors.full_messages }, status: :unprocessable_entity
@@ -61,4 +64,15 @@ before_action :correct_user, only: :destroy
       @post = current_user.posts.find_by(id: params[:id])
       redirect_to root_url if @post.nil?
     end
+
+    def update_level(user)
+      level_thresholds = [100,200,300,400,500,600,700,800,900,1000]
+      level_thresholds.each_with_index do |threshold, index|
+        if user.points >= threshold && user.level == (index + 1)
+          user.update!(level: index + 2)
+          break
+        end
+      end
+    end
+
 end
