@@ -37,7 +37,8 @@ jobs:
 
       - name: Database setup and migrate
         run: |
-          cp config/database.yml.ci config/database.yml
+          cp api/config/database.yml.ci api/config/database.yml
+          cd api
           bundle exec rails db:create RAILS_ENV=test
           bundle exec rails db:migrate RAILS_ENV=test
 
