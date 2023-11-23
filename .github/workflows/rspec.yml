@@ -32,6 +32,10 @@ jobs:
         with:
           node-version: '14'
 
+      - name: Install dependencies
+        run: bundle install
+        working-directory: api
+
       - name: DB migration
         run: |
           cp config/database.yml.ci config/database.yml
