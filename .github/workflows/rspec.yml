@@ -32,9 +32,6 @@ jobs:
         with:
           node-version: '14'
 
-      - name: Change to API directory
-        run: cd api
-
       - name: Database setup and migrate
         run: |
           cd api
@@ -43,4 +40,6 @@ jobs:
           bundle exec rails db:migrate RAILS_ENV=test
 
       - name: Run rspec
-        run: bundle exec rspec
+        run: |
+          cd api
+          bundle exec rspec
