@@ -32,14 +32,13 @@ jobs:
         with:
           node-version: '14'
 
-      - name: Database setup and migrate
+      - name: DB migration
         run: |
-          cd api
           cp config/database.yml.ci config/database.yml
           bundle exec rails db:create RAILS_ENV=test
           bundle exec rails db:migrate RAILS_ENV=test
+        working-directory: api
 
       - name: Run rspec
-        run: |
-          cd api
-          bundle exec rspec
+        run: bundle exec rspec
+        working-directory: api
