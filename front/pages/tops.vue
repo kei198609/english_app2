@@ -242,6 +242,9 @@ export default {
           // ユーザーの詳細情報を取得
           const userResponse = await this.$axios.get(`/api/v1/users/${userId}`)
           this.user = userResponse.data.user
+          this.user.followers_count = userResponse.data.followers_count
+          this.user.following_count = userResponse.data.following_count
+          this.data = userResponse.data.data
           // 記事情報を取得
           const articlesResponse = await this.$axios.get(`/api/v1/articles?page=${this.current_page}`)
           this.articles = articlesResponse.data.articles
