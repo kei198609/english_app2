@@ -1,9 +1,0 @@
-<% unless current_user?(@user) %> <%# 現在のログインユーザと今見ているプロフィールページのユーザが同一人物でなれけば以下を表示 %>
-  <div id="follow_form">
-  <% if current_user.following?(@user) %>    <%# 自分がそのユーザをフォローしているのか？ %>
-    <%= render 'unfollow' %>
-  <% else %>
-    <%= render 'follow' %>
-  <% end %>
-  </div>
-<% end %>

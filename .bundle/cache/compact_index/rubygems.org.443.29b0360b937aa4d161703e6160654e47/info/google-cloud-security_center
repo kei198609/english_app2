@@ -1,0 +1,33 @@
+---
+0.1.0 google-gax:~> 1.3,grpc-google-iam-v1:~> 0.6.9|checksum:8cf782ff606c2f42db2a07ab579417c40045889202fb03e7dbfa02a6d542cbbd,ruby:>= 2.0.0
+0.1.1 google-gax:~> 1.3,grpc-google-iam-v1:~> 0.6.9|checksum:5e04a5bb9fff227d047a356f6ecc45a4bd9eba341799f24e9e8e1e5bf32235d9,ruby:>= 2.0.0
+0.2.0 google-gax:~> 1.3,grpc-google-iam-v1:~> 0.6.9|checksum:221d5a46599d0ae2bf945dfea7bf896a1bd075692ff0784c0eb759618c4d435d,ruby:>= 2.0.0
+0.2.1 google-gax:~> 1.3,grpc-google-iam-v1:~> 0.6.9|checksum:62c78ccafdfcea107f3008553ef02e9a22ef7a8bb5ef6bbbf98b9789c31531bc,ruby:>= 2.0.0
+0.3.0 google-gax:~> 1.7,grpc-google-iam-v1:~> 0.6.9|checksum:8b08b9b35fe476302da7aeff9adb83401c0166b3365064a211b99e00304d434d,ruby:>= 2.0.0
+0.3.1 google-gax:~> 1.7,grpc-google-iam-v1:~> 0.6.9|checksum:d9983aece7f69bee487d08247e85e3d2272ff84e2e6ed7580b5f5496d383b5e4,ruby:>= 2.0.0
+0.3.2 google-gax:~> 1.7,grpc-google-iam-v1:~> 0.6.9|checksum:369ec797fb098bba3759d17a86848bf7d23974db3c60a91533715bdddde83986,ruby:>= 2.0.0
+0.3.3 google-gax:~> 1.7,grpc-google-iam-v1:~> 0.6.9|checksum:4a782980e6364a51d58a9898ac9b305b8fb6d5c6062e948a5423bac3df121252,ruby:>= 2.0.0
+0.4.0 google-gax:~> 1.8,grpc-google-iam-v1:~> 0.6.9|checksum:3bf61267288a9320df81b5f2b2a64eee563f29bd3399481db797788a0e0c7b53,ruby:>= 2.4
+0.4.1 googleapis-common-protos:< 2.0&>= 1.3.9,googleapis-common-protos-types:< 2.0&>= 1.0.4,google-gax:~> 1.8,grpc-google-iam-v1:~> 0.6.9|checksum:83c54fa3f9b10e5e38457dce2657a3a3a401b5de90ca3986f753bb12fa9cb5a7,ruby:>= 2.4
+0.4.2 googleapis-common-protos:< 2.0&>= 1.3.9,googleapis-common-protos-types:< 2.0&>= 1.0.4,google-gax:~> 1.8,grpc-google-iam-v1:~> 0.6.9|checksum:2dd3b4944e8a40478a9418a6493b0d788f4acc6dddb7d610893dc1863871319f,ruby:>= 2.4
+0.4.3 googleapis-common-protos:< 2.0&>= 1.3.9,googleapis-common-protos-types:< 2.0&>= 1.0.4,google-gax:~> 1.8,grpc-google-iam-v1:~> 0.6.9|checksum:0cc504c5c68cbe4d444adbc033adecc16ba81f0f6b4e58b73fc9afb527a36d04,ruby:>= 2.4
+0.5.0 googleapis-common-protos:< 2.0&>= 1.3.9,googleapis-common-protos-types:< 2.0&>= 1.0.4,google-gax:~> 1.8,grpc-google-iam-v1:~> 0.6.9|checksum:cfceba62d2641ff7750c4165f79307e0dad3ab1ca24bb052262581d3925ea70f,ruby:>= 2.4
+0.5.1 googleapis-common-protos:< 2.0&>= 1.3.9,googleapis-common-protos-types:< 2.0&>= 1.0.4,google-gax:~> 1.8,grpc-google-iam-v1:~> 0.6.9|checksum:6bac4a1685c9a08c63888db29707fe7eff73c2be12fea5bcdd5b0f05e1ae35ac,ruby:>= 2.4
+0.6.0 googleapis-common-protos:< 2.0&>= 1.3.9,googleapis-common-protos-types:< 2.0&>= 1.0.4,google-gax:~> 1.8,grpc-google-iam-v1:~> 0.6.9|checksum:5d83c7a50f640b019f0a5680f8f35c908ad4f4086e6f7a48d1e712c06914330b,ruby:>= 2.4
+0.7.0 googleapis-common-protos:< 2.0&>= 1.3.9,googleapis-common-protos-types:< 2.0&>= 1.0.4,google-gax:~> 1.8,grpc-google-iam-v1:~> 0.6.9|checksum:c31c9c4fdc6020724e03e160aa779bb1dd6f3eed23189b80bbd83386ca296cf2,ruby:>= 2.4
+0.8.0 googleapis-common-protos:< 2.0&>= 1.3.9,googleapis-common-protos-types:< 2.0&>= 1.0.4,google-gax:~> 1.8,grpc-google-iam-v1:~> 0.6.9|checksum:62aa6fe73c3017af403a0663fe51e1030fa941673209b83a5f32abed86883d7c,ruby:>= 2.4
+0.9.0 googleapis-common-protos:< 2.0&>= 1.3.9,googleapis-common-protos-types:< 2.0&>= 1.0.4,google-gax:~> 1.8,grpc-google-iam-v1:~> 0.6.9|checksum:bb9d11f931ade5c12c1b20f0251ea89ef000650f31984824174e27a1108469fb,ruby:>= 2.4
+0.10.0 googleapis-common-protos:< 2.0&>= 1.3.9,googleapis-common-protos-types:< 2.0&>= 1.0.4,google-gax:~> 1.8,grpc-google-iam-v1:~> 0.6.9|checksum:a89178aff0fd804ae4aeceb88a40f93de60fca99a3f2e1e0d52d641794374bde,ruby:>= 2.4
+1.0.0 google-cloud-core:~> 1.5,google-cloud-security_center-v1:~> 0.0,google-cloud-security_center-v1p1beta1:~> 0.0|checksum:317897099a04bec6c3814c5d9c34fc47ef35e59b6a423a290814f0e221391aeb,ruby:>= 2.4
+1.1.0 google-cloud-core:~> 1.5,google-cloud-security_center-v1:~> 0.0,google-cloud-security_center-v1p1beta1:~> 0.0|checksum:c1511df3322d4d2b7fb8407cc226d5b86c4a03605b759bccb34c54d7e6e5702a,ruby:>= 2.4
+1.1.1 google-cloud-core:~> 1.5,google-cloud-security_center-v1:~> 0.0,google-cloud-security_center-v1p1beta1:~> 0.0|checksum:54982745bf4d7e61ade6d4ec7068ad3b5e158aea1eccffb0ceae467ba0b278e4,ruby:>= 2.4
+1.1.2 google-cloud-core:~> 1.5,google-cloud-security_center-v1:~> 0.0,google-cloud-security_center-v1p1beta1:~> 0.0|checksum:97d7730e403544d0dad18b9993054046d4899c9d3600d3fc339c38ce2b004cf5,ruby:>= 2.4
+1.1.3 google-cloud-core:~> 1.5,google-cloud-security_center-v1:~> 0.0,google-cloud-security_center-v1p1beta1:~> 0.0|checksum:e32db1cb395ac4526693a41cbc974969ac08345ae5a3e1eae4c1f5f02efad09e,ruby:>= 2.4
+1.1.4 google-cloud-core:~> 1.5,google-cloud-security_center-v1:~> 0.0,google-cloud-security_center-v1p1beta1:~> 0.0|checksum:fe62c9afef55de24a718c08c1e3082bb5a5ac2bbab91561f10b80df40ae5ab7b,ruby:>= 2.4
+1.2.0 google-cloud-core:~> 1.5,google-cloud-security_center-v1:~> 0.0,google-cloud-security_center-v1p1beta1:~> 0.0|checksum:99ec7cb278b744b0561ed5aa74d0d9ce1eea4276ed88522a17d6f0ebf5623d65,ruby:>= 2.5
+1.2.1 google-cloud-core:~> 1.6,google-cloud-security_center-v1:< 2.a&>= 0.0,google-cloud-security_center-v1p1beta1:< 2.a&>= 0.0|checksum:cd6fcb38b00c6999f2d7d7dd4f52ee18710dbb822cf7390cba6926d2d781b3f5,ruby:>= 2.5
+1.2.2 google-cloud-core:~> 1.6,google-cloud-security_center-v1:< 2.a&>= 0.0,google-cloud-security_center-v1p1beta1:< 2.a&>= 0.0|checksum:4c35d647404e7b9a1e816af8fa0826b7685e89893de8a0d2085e8a5be0fea307,ruby:>= 2.5
+1.2.3 google-cloud-core:~> 1.6,google-cloud-security_center-v1:< 2.a&>= 0.0,google-cloud-security_center-v1p1beta1:< 2.a&>= 0.0|checksum:6acc2f3bdb317ced305e4ad480af1013f168e74d129c01c4255d696fd141634b,ruby:>= 2.5
+1.3.0 google-cloud-core:~> 1.6,google-cloud-security_center-v1:< 2.a&>= 0.0,google-cloud-security_center-v1p1beta1:< 2.a&>= 0.0|checksum:89744a344f1b13b194fcb0f5b135cb05da8509c61de915a8624cbf20a7fd1b80,ruby:>= 2.6
+1.4.0 google-cloud-core:~> 1.6,google-cloud-security_center-v1:< 2.a&>= 0.26,google-cloud-security_center-v1p1beta1:< 2.a&>= 0.10|checksum:8013521a1ae004c0fb319ee6b18323a89416e230f2b9faa07e622a3995c6f226,ruby:>= 2.6
+1.4.1 google-cloud-core:~> 1.6,google-cloud-security_center-v1:< 2.a&>= 0.26,google-cloud-security_center-v1p1beta1:< 2.a&>= 0.10|checksum:da117e0d508a533a39d6ac666918cf4db531df79e58646df12a45f88fe16d902,ruby:>= 2.6

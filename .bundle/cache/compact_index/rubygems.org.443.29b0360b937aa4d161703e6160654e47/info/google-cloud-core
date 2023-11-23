@@ -1,0 +1,21 @@
+---
+0.20.1 |checksum:c5ebbc4f8d428d9ec9203786e7e750edc99e7d3188990773e10d4d931cc09c7f,ruby:>= 2.0.0
+0.21.0 |checksum:606733f9c9dfb006c65554998a3362f426d488dc7bc5600e1e78ff92e6a64fec,ruby:>= 2.0.0
+0.21.1 googleauth:~> 0.5.1|checksum:8ebf0588444e1442d99cae9ce5b61e2520f35860dab069ca76ee28d16f3ce5fe,ruby:>= 2.0.0
+1.0.0 googleauth:~> 0.5.1,google-cloud-env:~> 1.0|checksum:5a7dda4210a9deca9954fd09fa265a5fd9604472fb8dded5df5551da01027fa7,ruby:>= 2.0.0
+1.1.0 google-cloud-env:~> 1.0|checksum:23cdd2acc271b35f3259ca0bb5e7cf9e63381228a3c4669b9d763d647a1a799e,ruby:>= 2.0.0
+1.2.0 google-cloud-env:~> 1.0|checksum:e9b35a69e6ab607d175dd393914bd21b0397f8d9477c4f79b69bfdcc7f992d39,ruby:>= 2.0.0
+1.2.1 google-cloud-env:~> 1.0|checksum:b5c7fc45a55e62ac4588dbff016a4eb74bda501bd83327a643b0ce4a96bf87b8,ruby:>= 2.0.0
+1.2.2 google-cloud-env:~> 1.0|checksum:6c9cdb511007e6c6f4c52ecbab9d79e16d716cadede9ca32889dd90d3486a8de,ruby:>= 2.0.0
+1.2.3 google-cloud-env:~> 1.0|checksum:fdf2328ef56ac755181098dd38970e43ac53a872f7da743f53128de3a993ffca,ruby:>= 2.0.0
+1.2.4 google-cloud-env:~> 1.0|checksum:3f627e0036736f306e0192563d698419abea99ecbe059213d4b712da7317f82f,ruby:>= 2.0.0
+1.2.5 google-cloud-env:~> 1.0|checksum:7fdec948cc61b913b0b3d9678c0d782854d2bac610bbc7fc594db4c59ce48c57,ruby:>= 2.0.0
+1.2.6 google-cloud-env:~> 1.0|checksum:82e7c1c0191617bb1a6eca16086e766359b2b064b57e0705d74f095f00091d2a,ruby:>= 2.0.0
+1.2.7 google-cloud-env:~> 1.0|checksum:8798149e8f06ec2afcea3e3b9b88f3636771aa4b475a78ec7133429968d6d107,ruby:>= 2.0.0
+1.3.0 google-cloud-env:~> 1.0|checksum:45627cccef12e1faf1a0635e3442275169c065468bb596e4e2cd48fc8628163f,ruby:>= 2.0.0
+1.3.1 google-cloud-env:~> 1.0|checksum:fe57280c7277c4204be374c7a41f5a911b1345d5a9cce871d3fce71052c87d91,ruby:>= 2.0.0
+1.3.2 google-cloud-env:~> 1.0|checksum:189cb6526ff79da633a2920ff43e928ed2beb14d058d552b353a3c0d9c811e0d,ruby:>= 2.0.0
+1.4.0 google-cloud-env:~> 1.0|checksum:2493d6c71655b7baec1d8c8242b2b061532ddb9dfeeaed1f2a059c70b60a3a89,ruby:>= 2.4
+1.4.1 google-cloud-env:~> 1.0|checksum:4816791d07bedbf2f60363bd2530814c044d9d2b915206695e726f1502c580cf,ruby:>= 2.4
+1.5.0 google-cloud-env:~> 1.0,google-cloud-errors:~> 1.0|checksum:2102df884595811825d37f1b21b3d5692fa3a4936bc66943ecbb2087f43e56e2,ruby:>= 2.4
+1.6.0 google-cloud-env:~> 1.0,google-cloud-errors:~> 1.0|checksum:ea1744cd5a3085d3072de3fab9106afc769cd198609ebb5c6eeb5f13da46b72a,ruby:>= 2.5

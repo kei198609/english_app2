@@ -1,0 +1,51 @@
+---
+0.1.0 gapic-common:~> 0.2,google-cloud-errors:~> 1.0|checksum:2d7755998ba695b21b6efd5c01edaa1faa4fbd990f51982d2f228dbcbbd1abeb,ruby:>= 2.4
+0.2.0 gapic-common:~> 0.2,google-cloud-errors:~> 1.0|checksum:d6868ba6d18b0a6da800da7c16013d437c3e9fb7052cfc8aa49dd47940491070,ruby:>= 2.4
+0.2.1 gapic-common:~> 0.2,google-cloud-errors:~> 1.0|checksum:d50d8157b6914fc5f375fe81a451b9c7eece60ce296632c678cce8322502baf7,ruby:>= 2.4
+0.2.2 gapic-common:~> 0.2,google-cloud-errors:~> 1.0|checksum:e32d2905debf47635bdfc0da39ae7c61059c8b3da7865db2abb4911dea7defe5,ruby:>= 2.4
+0.3.0 gapic-common:~> 0.2,google-cloud-errors:~> 1.0|checksum:f1d817a998099bb915cb46484b1cb370c0bd8f34adcaeb265d36da5391a504e4,ruby:>= 2.4
+0.4.0 gapic-common:~> 0.2,google-cloud-errors:~> 1.0|checksum:0a2c5e82392e6a650b785e96a372d419527df7f2f791f79b839e9cdeb37960b3,ruby:>= 2.4
+0.4.1 gapic-common:~> 0.2,google-cloud-errors:~> 1.0|checksum:bf9170cc77836efea0a754d1095759abc648030159e22a79bddf17fad5df622e,ruby:>= 2.4
+0.5.0 gapic-common:~> 0.2,google-cloud-errors:~> 1.0|checksum:18217a8f1f604a3c75aff93c7c863f00144b4e296623e6b59d9c2d038c3f4ee8,ruby:>= 2.4
+0.5.1 gapic-common:~> 0.2,google-cloud-errors:~> 1.0|checksum:5d8663c98acadb61a1a668c4c98ba414cad7c311eef42de3871e8df19cb57d51,ruby:>= 2.4
+0.6.0 gapic-common:~> 0.2,google-cloud-errors:~> 1.0|checksum:0eb931799dfe81e3afa9d7b3421cceb07bc67179a6519a1ab76f930432226da6,ruby:>= 2.4
+0.6.1 gapic-common:~> 0.2,google-cloud-errors:~> 1.0|checksum:b649dfb382d4cdcfb9f7813978d1ec3dd6da8d85b2838f4a8a20ac9fcfd18574,ruby:>= 2.4
+0.6.2 gapic-common:~> 0.2,google-cloud-errors:~> 1.0|checksum:d2da0e430ed166f731940831ec3d375cc41637b80d72cd07f63f5f42d4e95824,ruby:>= 2.4
+0.6.3 gapic-common:~> 0.2,google-cloud-errors:~> 1.0|checksum:313a028bb245f0344316288ac7d7b611c87152cc85e5d4730cffe90e9feb5f76,ruby:>= 2.4
+0.6.4 gapic-common:~> 0.3,google-cloud-errors:~> 1.0|checksum:cbc738a1b6d19dc9672826ad65887f4f74f0f5919ad50055ccc1161456e7c6ae,ruby:>= 2.4
+0.7.0 gapic-common:~> 0.4,google-cloud-errors:~> 1.0|checksum:44ad3a20bdaa54c9ba05979e1eb47326582e496fafd79fd3be868f515277f489,ruby:>= 2.5
+0.8.0 gapic-common:~> 0.4,google-cloud-errors:~> 1.0|checksum:a6b332e917faa68f00bcd22b507dfe6826f53c306f8e8f27cecf0eaff50d5ef1,ruby:>= 2.5
+0.8.1 gapic-common:~> 0.4,google-cloud-errors:~> 1.0|checksum:b6e8728454b07d35de143d7c22fc12d658e95c0b9a3fc7c58ae1ee29f743ffa5,ruby:>= 2.5
+0.9.0 gapic-common:< 2.a&>= 0.5,google-cloud-errors:~> 1.0|checksum:ae6b327c5ff4bf32bdec1c1b3019b705e6edd5e080dcb54c93c94b884ea5aa7a,ruby:>= 2.5
+0.10.0 gapic-common:< 2.a&>= 0.5,google-cloud-errors:~> 1.0|checksum:196f3e877aba16cd6ad36385dcebcfdf5d8f200a767fbfb26377b62904314195,ruby:>= 2.5
+0.10.1 gapic-common:< 2.a&>= 0.5,google-cloud-errors:~> 1.0|checksum:aaecaca4df3329428b2dd1c14e4f4fd6c5fa985bfce44e9a31d0881a7aef4f4c,ruby:>= 2.5
+0.11.0 gapic-common:< 2.a&>= 0.5,google-cloud-errors:~> 1.0|checksum:c7f990a04aad4f320a509f3be80364a54055ec13b2e6c984c5988abf7a3d5bb6,ruby:>= 2.5
+0.11.1 gapic-common:< 2.a&>= 0.7,google-cloud-errors:~> 1.0|checksum:bb8397e18e335e3c217dd4e6f43a5b3c42c932ee22ee6679681e90da078658ef,ruby:>= 2.5
+0.11.2 gapic-common:< 2.a&>= 0.7,google-cloud-errors:~> 1.0|checksum:e503bf9b3c46fdd1423f9aebc512ce6b40628edfef86a951ba47cc7bb3f4a6c9,ruby:>= 2.5
+0.11.3 gapic-common:< 2.a&>= 0.7,google-cloud-errors:~> 1.0|checksum:e091f6c213c3ed5c1a0cb7f98eab5ea24f5bfacc7c3298362a1397b4441872bb,ruby:>= 2.5
+0.11.4 gapic-common:< 2.a&>= 0.7,google-cloud-errors:~> 1.0|checksum:c54b750a58aecc6e56edb2c47a90f50a8416ab038f6fbbbcfbd0d868e9c6c494,ruby:>= 2.5
+0.11.5 gapic-common:< 2.a&>= 0.7,google-cloud-errors:~> 1.0|checksum:7175557741a48a1f2e36cda05a50dcca6936eba115a313da8e480c6693fe2e19,ruby:>= 2.5
+0.12.0 gapic-common:< 2.a&>= 0.7,google-cloud-errors:~> 1.0|checksum:65d6a4acedcebf10671bb4f270ca0b0b65f5b092c1d2d674ef61bbbe7d0b6b50,ruby:>= 2.5
+0.13.0 gapic-common:< 2.a&>= 0.7,google-cloud-errors:~> 1.0|checksum:0d904eb1a2098fdbe98e6f2227deb1209e1e871846a47f3d6e44c866f010c51a,ruby:>= 2.5
+0.14.0 gapic-common:< 2.a&>= 0.7,google-cloud-errors:~> 1.0|checksum:a594c86a0c857965a98cabdb031b8cd497e5a5fcf3fc3d795f26d3497f58309d,ruby:>= 2.5
+0.15.0 gapic-common:< 2.a&>= 0.7,google-cloud-errors:~> 1.0|checksum:b46f744ce254c084235a06976070a2fd8c048cbf9bc3e9a1b5665d171ea4c6a3,ruby:>= 2.5
+0.15.1 gapic-common:< 2.a&>= 0.7,google-cloud-errors:~> 1.0|checksum:78cb94314f9f5541e9c916213391ddf780f0d34f9d9e5741241d18c38c99573e,ruby:>= 2.5
+0.15.2 gapic-common:< 2.a&>= 0.7,google-cloud-errors:~> 1.0|checksum:03f35478d204fdf80c409635eb8d6231a2dd779f9a4e64610b718a9cf7b98d22,ruby:>= 2.5
+0.16.0 gapic-common:< 2.a&>= 0.7,google-cloud-errors:~> 1.0|checksum:62c0d28faae48ead0eb7fd6b9b70d25b7e9b97831a204cbb5162ae94bcb36a4e,ruby:>= 2.5
+0.17.0 gapic-common:< 2.a&>= 0.10,google-cloud-errors:~> 1.0,google-cloud-location:< 2.a&>= 0.0|checksum:7e11923098611d2dd9752e1ec0967a6afd91a674c2e3ef62d3320a63a49d8a82,ruby:>= 2.6
+0.17.1 gapic-common:< 2.a&>= 0.10,google-cloud-errors:~> 1.0,google-cloud-location:< 2.a&>= 0.0|checksum:00416dad0560eae085277b63245e061f51f6418d2a065710621ecd84b7a3af5d,ruby:>= 2.6
+0.18.0 gapic-common:< 2.a&>= 0.12,google-cloud-errors:~> 1.0,google-cloud-location:< 2.a&>= 0.0|checksum:e5e2eebe51d3a8fa99672435867833e4afba7d8aa1abbe63e210ae0d888a5e91,ruby:>= 2.6
+0.19.0 gapic-common:< 2.a&>= 0.12,google-cloud-errors:~> 1.0,google-cloud-location:< 2.a&>= 0.0|checksum:86ef349115df5b27644a0fbe0b3f5d90f58a463acbc16fada2e158bd34042a67,ruby:>= 2.6
+0.20.0 gapic-common:< 2.a&>= 0.12,google-cloud-errors:~> 1.0,google-cloud-location:< 2.a&>= 0.0|checksum:05089f07635e5958e5dfdf7f8faf1e943da4280996365f8fe1b8afee05de46fa,ruby:>= 2.6
+0.21.0 gapic-common:< 2.a&>= 0.16.0,google-cloud-errors:~> 1.0,google-cloud-location:< 2.a&>= 0.0|checksum:28f0b764d2fa6c134cd6a4235d0526670b738c8cd8dc50a51f901c937dd43ebd,ruby:>= 2.6
+0.22.0 gapic-common:< 2.a&>= 0.17.1,google-cloud-errors:~> 1.0,google-cloud-location:< 2.a&>= 0.4|checksum:04f5253886baf41bc0d58441006157ef7b5dd2130923201bcb706503ff4a5b2e,ruby:>= 2.6
+0.23.0 gapic-common:< 2.a&>= 0.18.0,google-cloud-errors:~> 1.0,google-cloud-location:< 2.a&>= 0.4|checksum:bc7f534a29530e504fa7e070b978676da4b4e410cf2e266c1c6fbe6dc04ab604,ruby:>= 2.6
+0.24.0 gapic-common:< 2.a&>= 0.18.0,google-cloud-errors:~> 1.0,google-cloud-location:< 2.a&>= 0.4|checksum:c2571df5f070156782be1e9fdabf17583cd59e8f0b025d2ca3609f46c1351e00,ruby:>= 2.6
+0.25.0 gapic-common:< 2.a&>= 0.19.1,google-cloud-errors:~> 1.0,google-cloud-location:< 2.a&>= 0.4|checksum:700b4fa12262a354800c08b8fb1e8a2bb3cdd82e6965c5fd9b08042c4975faf8,ruby:>= 2.6
+0.26.0 gapic-common:< 2.a&>= 0.19.1,google-cloud-errors:~> 1.0,google-cloud-location:< 2.a&>= 0.4|checksum:22cf8308124b19d1f47bd50c92d8d7b58c1bf874cc045da2c014e86fe91883f5,ruby:>= 2.6
+0.26.1 gapic-common:< 2.a&>= 0.19.1,google-cloud-errors:~> 1.0,google-cloud-location:< 2.a&>= 0.4|checksum:540b5b747e89c7a4596dfdeb0bc42633110ca20b223796eedbc6016d5e747fa1,ruby:>= 2.6
+0.26.2 gapic-common:< 2.a&>= 0.19.1,google-cloud-errors:~> 1.0,google-cloud-location:< 2.a&>= 0.4|checksum:c809981401f858af57f6ef757597c9e302fb7cae1b4d42c5e9518de9396c17a6,ruby:>= 2.6
+0.27.0 gapic-common:< 2.a&>= 0.19.1,google-cloud-errors:~> 1.0,google-cloud-location:< 2.a&>= 0.4|checksum:950bba33efba609daac13847d3f0b7f6392bd237372f812e02d6b2a20db91098,ruby:>= 2.6
+0.28.0 gapic-common:< 2.a&>= 0.19.1,google-cloud-errors:~> 1.0,google-cloud-location:< 2.a&>= 0.4|checksum:12651643358d431d6d62fae0a799b1bd437128e7c094fa55edbaa9af5ed21772,ruby:>= 2.6
+0.29.0 gapic-common:< 2.a&>= 0.20.0,google-cloud-errors:~> 1.0,google-cloud-location:< 2.a&>= 0.4|checksum:8a537507a4b4293a91c76d859331248c95ddefb7292b4146d0333726a2311c7e,ruby:>= 2.6
+0.30.0 gapic-common:< 2.a&>= 0.20.0,google-cloud-errors:~> 1.0,google-cloud-location:< 2.a&>= 0.4|checksum:8cfb5ea0e86b6f65f7d22c7ef70c898c26d4022ec461d14250ce36253319f62c,ruby:>= 2.6

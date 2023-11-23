@@ -1,0 +1,5 @@
+---
+2.0.4 |checksum:95582195e17c5c7f8e0ef265ab49cdbc5565ec66a9c4dc6617dedfd8ff1ae0a3,ruby:>= 2.3.0
+2.0.5 |checksum:37960ddf843c84c5c8dafb2da493c1ddf9adc8586dc278faf61b579d28af391b,ruby:>= 2.3.0
+2.1.0 ruby2_keywords:>= 0|checksum:616f73f168eaaeb76e680e93c20b7286eeb19733b0a05108744d996895e5da58,ruby:>= 2.7.0
+2.1.1 ruby2_keywords:>= 0|checksum:6b8f481d9a9a7528c41d4f66484a4a73d2204f095da8ab141b5ea0aa22162c41,ruby:>= 2.7.0

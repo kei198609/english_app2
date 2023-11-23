@@ -1,0 +1,41 @@
+---
+0.1.0 google-gax:~> 1.0,grpc-google-iam-v1:~> 0.6.9|checksum:1fc11017695dbb80b61b88734a456f83611d0fb1c3e96ba6167a88ff69a656ab,ruby:>= 2.0.0
+0.2.0 google-gax:~> 1.0,grpc-google-iam-v1:~> 0.6.9|checksum:2ca8d362a92b1355ca141385c36349587576d9c70647aa70aaec8d203026fc57,ruby:>= 2.0.0
+0.2.1 google-gax:~> 1.3,grpc-google-iam-v1:~> 0.6.9|checksum:907608370092bd726517da635962c490f66ef5bf3ed0e90b0497750abb7c241d,ruby:>= 2.0.0
+0.2.2 google-gax:~> 1.3,grpc-google-iam-v1:~> 0.6.9|checksum:66ccef87887df5309cf7b49d8a13f2d7cc8b2fd74eff7030d969162b27689205,ruby:>= 2.0.0
+0.2.3 google-gax:~> 1.3,grpc-google-iam-v1:~> 0.6.9|checksum:750d89d8e4c9f5319e031ac7d3fd4c6b2a076ea76b8cc2e210fceceef8c5e84f,ruby:>= 2.0.0
+0.2.4 google-gax:~> 1.3,grpc-google-iam-v1:~> 0.6.9|checksum:d2aa941a3cb5758ef602d22736d11f3b65e1cd77687cbf7ef87b3bd6380b94c2,ruby:>= 2.0.0
+0.2.5 google-gax:~> 1.3,grpc-google-iam-v1:~> 0.6.9|checksum:73d5563e8164d835f042958a2a7bb5be8f82653e7820ddccc7814784523ee4b7,ruby:>= 2.0.0
+0.2.6 google-gax:~> 1.3,grpc-google-iam-v1:~> 0.6.9|checksum:b8e79391ece5604aeed2e772d4c3ec7fc09acba1bafda967482f74227ae9ff2a,ruby:>= 2.0.0
+0.3.0 google-gax:~> 1.3,grpc-google-iam-v1:~> 0.6.9|checksum:e36d1f75a47f24439a524383516bcc8b045b0b2c2120c7aba48e52d05b45d0b4,ruby:>= 2.0.0
+0.4.0 google-gax:~> 1.3,grpc-google-iam-v1:~> 0.6.9|checksum:e0397a2077638474bcc930928c4f0c3a4adc4130a60585157235852590dd17fc,ruby:>= 2.0.0
+0.5.0 google-gax:~> 1.3,grpc-google-iam-v1:~> 0.6.9|checksum:5fae3f755fbca653e7572e0f7aac31a01e2bd86a1c1f19d9a2ab0686f031a7e9,ruby:>= 2.0.0
+0.6.0 google-gax:~> 1.3,grpc-google-iam-v1:~> 0.6.9|checksum:cc1384f73237855c1de049a2ead61175eb41f84b0df680cfb746e2a30ed6330c,ruby:>= 2.0.0
+0.7.0 googleapis-common-protos:< 2.0&>= 1.3.9,google-gax:~> 1.3,grpc-google-iam-v1:~> 0.6.9|checksum:011d1de2d2a8e9c2cd5c85fc0c65c611e04d9fce5a6dcb0849f77230e4200506,ruby:>= 2.0.0
+0.7.1 googleapis-common-protos:< 2.0&>= 1.3.9,google-gax:~> 1.3,grpc-google-iam-v1:~> 0.6.9|checksum:a0a25f0a35254043bf24631688a88c6d4eb7c0ff0b457291e775314418c16ccf,ruby:>= 2.0.0
+1.0.0 googleapis-common-protos:< 2.0&>= 1.3.9,google-gax:~> 1.3,grpc-google-iam-v1:~> 0.6.9|checksum:f6dd06e3f46b890da68db523acc29d5838ac134e9fd5a53b8b5f476063fb9402,ruby:>= 2.0.0
+1.0.1 googleapis-common-protos:< 2.0&>= 1.3.9,google-gax:~> 1.3,grpc-google-iam-v1:~> 0.6.9|checksum:336cca022cfc5a7acc50f98380fe84b119796cfed918cb9d68075d65a2e1895a,ruby:>= 2.0.0
+1.1.0 googleapis-common-protos:< 2.0&>= 1.3.9,google-gax:~> 1.7,grpc-google-iam-v1:~> 0.6.9|checksum:92bc483ab8f791de6a17ae76500ab3f63dfbe912cb440c33eb74e9548fc3e9c2,ruby:>= 2.0.0
+1.1.1 googleapis-common-protos:< 2.0&>= 1.3.9,google-gax:~> 1.7,grpc-google-iam-v1:~> 0.6.9|checksum:7501422cf31cefed55d0f3d4fd1122518439c0d44ef17c923888e4de30f7146d,ruby:>= 2.0.0
+1.1.2 googleapis-common-protos:< 2.0&>= 1.3.9,google-gax:~> 1.7,grpc-google-iam-v1:~> 0.6.9|checksum:b3f9423c42c5802cb8226b048a77a6e2241f7e7f7348b21d9a038dd454fbb49b,ruby:>= 2.0.0
+1.1.3 googleapis-common-protos:< 2.0&>= 1.3.9,google-gax:~> 1.7,grpc-google-iam-v1:~> 0.6.9|checksum:bed08a38ed9563ea37010b45a3f307ac0f604fd87cbc40717ec3034074839a36,ruby:>= 2.0.0
+1.2.0 googleapis-common-protos:< 2.0&>= 1.3.9,google-gax:~> 1.8,grpc-google-iam-v1:~> 0.6.9|checksum:c788151071bc24157cb62dba12e68ccfcdb22f0f3228ab847c16a6b773be3742,ruby:>= 2.4
+1.3.0 googleapis-common-protos:< 2.0&>= 1.3.9,googleapis-common-protos-types:< 2.0&>= 1.0.4,google-gax:~> 1.8,grpc-google-iam-v1:~> 0.6.9|checksum:05ae54ca4cd90cb14ea436ce33a84710bac2ae30db40cb3986baba545bb4e1fa,ruby:>= 2.4
+1.3.1 googleapis-common-protos:< 2.0&>= 1.3.9,googleapis-common-protos-types:< 2.0&>= 1.0.4,google-gax:~> 1.8,grpc-google-iam-v1:~> 0.6.9|checksum:361798dbca6e14edf3f8ffb4060606d5c2521c3af1a56a9155d5137ee0a84de1,ruby:>= 2.4
+1.3.3 googleapis-common-protos:< 2.0&>= 1.3.9,googleapis-common-protos-types:< 2.0&>= 1.0.4,google-gax:~> 1.8,grpc-google-iam-v1:~> 0.6.9|checksum:c774e1325e048bc45f68507b0cc1af68a90f72235f583f3e4db2e1639c882756,ruby:>= 2.4
+1.3.4 googleapis-common-protos:< 2.0&>= 1.3.9,googleapis-common-protos-types:< 2.0&>= 1.0.4,google-gax:~> 1.8,grpc-google-iam-v1:~> 0.6.9|checksum:543415ce84097691c9aa16fe0db4cb17cdee3e590dcf60648ce0eeb99b02b06b,ruby:>= 2.4
+1.3.5 googleapis-common-protos:< 2.0&>= 1.3.9,googleapis-common-protos-types:< 2.0&>= 1.0.4,google-gax:~> 1.8,grpc-google-iam-v1:~> 0.6.9|checksum:0670e7119581b8b02362cc5ba8793d35928cc8641451377bf34da53f1155f497,ruby:>= 2.4
+1.4.0 googleapis-common-protos:< 2.0&>= 1.3.9,googleapis-common-protos-types:< 2.0&>= 1.0.4,google-gax:~> 1.8,grpc-google-iam-v1:~> 0.6.9|checksum:595da0ec4a0c848865642dfb981b42c0b47f0a92a4a6d1903b372fdc56bc4fb6,ruby:>= 2.4
+1.5.0 googleapis-common-protos:< 2.0&>= 1.3.9,googleapis-common-protos-types:< 2.0&>= 1.0.4,google-gax:~> 1.8,grpc-google-iam-v1:~> 0.6.9|checksum:5c356afbed846aa866a36cc6b30e088ff8bb67d206ce85ad12412c84d2d46726,ruby:>= 2.4
+1.5.1 googleapis-common-protos:< 2.0&>= 1.3.9,googleapis-common-protos-types:< 2.0&>= 1.0.4,google-gax:~> 1.8,grpc-google-iam-v1:~> 0.6.9|checksum:518d6f29d1da57a5a4d28e0572496222eccfcdc8774e737b86ece12ed8203432,ruby:>= 2.4
+2.0.0 google-cloud-core:~> 1.5,google-cloud-tasks-v2:~> 0.0,google-cloud-tasks-v2beta2:~> 0.0,google-cloud-tasks-v2beta3:~> 0.0|checksum:863f1c27f30ca1ac2d02699762e89b8ef3153335b8420e4ef451bfbc8d54f981,ruby:>= 2.4
+2.1.0 google-cloud-core:~> 1.5,google-cloud-tasks-v2:~> 0.0,google-cloud-tasks-v2beta2:~> 0.0,google-cloud-tasks-v2beta3:~> 0.0|checksum:4db108dcee2d4057f02753b95ba082cb59bcb9ee605b314e59e1d0930e224536,ruby:>= 2.4
+2.1.1 google-cloud-core:~> 1.5,google-cloud-tasks-v2:~> 0.0,google-cloud-tasks-v2beta2:~> 0.0,google-cloud-tasks-v2beta3:~> 0.0|checksum:e566a2a2c49e39c7dc8d1cd6f42991f6098fadc6a3f6adf0816720f2eccdc76d,ruby:>= 2.4
+2.1.2 google-cloud-core:~> 1.5,google-cloud-tasks-v2:~> 0.0,google-cloud-tasks-v2beta2:~> 0.0,google-cloud-tasks-v2beta3:~> 0.0|checksum:c05104e637c57a987e6c6d3ac0432d6cd6abbab57ec8690b88125b1c881f31e9,ruby:>= 2.4
+2.1.3 google-cloud-core:~> 1.5,google-cloud-tasks-v2:~> 0.0,google-cloud-tasks-v2beta2:~> 0.0,google-cloud-tasks-v2beta3:~> 0.0|checksum:f55f58d65c9c96a6cf22a2b6f28c3e6b9deb399218c72e0ee5cde281db9ea0ec,ruby:>= 2.4
+2.2.0 google-cloud-core:~> 1.5,google-cloud-tasks-v2:~> 0.0,google-cloud-tasks-v2beta2:~> 0.0,google-cloud-tasks-v2beta3:~> 0.0|checksum:bd403856f64efdb59a7cd9000d59245569bd32ec1944d2b30bc5e2e6092a9c16,ruby:>= 2.5
+2.2.1 google-cloud-core:~> 1.6,google-cloud-tasks-v2:< 2.a&>= 0.0,google-cloud-tasks-v2beta2:< 2.a&>= 0.0,google-cloud-tasks-v2beta3:< 2.a&>= 0.0|checksum:0ed5ede7b55501d8b939669a0c3b6c4638157029268c28a3cbb3d6ef8d314056,ruby:>= 2.5
+2.2.2 google-cloud-core:~> 1.6,google-cloud-tasks-v2:< 2.a&>= 0.0,google-cloud-tasks-v2beta2:< 2.a&>= 0.0,google-cloud-tasks-v2beta3:< 2.a&>= 0.0|checksum:22decc477bc0bb4c578e942d97c8c5d0b21797432b53b4a3bc062c0002dd855f,ruby:>= 2.5
+2.2.3 google-cloud-core:~> 1.6,google-cloud-tasks-v2:< 2.a&>= 0.0,google-cloud-tasks-v2beta2:< 2.a&>= 0.0,google-cloud-tasks-v2beta3:< 2.a&>= 0.0|checksum:d188c89b4772e8aa7b72a9121e24e5e4b537990cd8dcdaedd2eb3192a52de4cd,ruby:>= 2.5
+2.3.0 google-cloud-core:~> 1.6,google-cloud-tasks-v2:< 2.a&>= 0.0,google-cloud-tasks-v2beta2:< 2.a&>= 0.0,google-cloud-tasks-v2beta3:< 2.a&>= 0.0|checksum:4e1566739489987f86042fb8145add942c95cf1b01364b8cd5bc087eb0510ef4,ruby:>= 2.6
+2.4.0 google-cloud-core:~> 1.6,google-cloud-tasks-v2:< 2.a&>= 0.7,google-cloud-tasks-v2beta2:< 2.a&>= 0.8,google-cloud-tasks-v2beta3:< 2.a&>= 0.9|checksum:85e66d8323e12f8001afb96bfcdf01a79473347e02d3d3b6944cc6848d3e3c9a,ruby:>= 2.6

@@ -1,0 +1,28 @@
+---
+0.1.0 google-gax:~> 1.3|checksum:39079614de4a3ee4c4618a18aa2974f017244a938f39d0fd94f9e713242f7555,ruby:>= 2.0.0
+0.1.1 google-gax:~> 1.3|checksum:ecb11400779fb01dc42eeaee324889e883b19d1d350be669a0b02b62c36003b4,ruby:>= 2.0.0
+0.1.2 google-gax:~> 1.3|checksum:1fc235c0a87630a2af16f0f58a33c8cce29fe4eaa21026d3033c3f1352450dea,ruby:>= 2.0.0
+0.1.3 google-gax:~> 1.3|checksum:901b5eaed1dd044c0a14c2e7c0a92e302332b73d7a7e1cfb591fa814648d518d,ruby:>= 2.0.0
+0.2.0 google-gax:~> 1.3|checksum:5b9cdfb1f90ae55de2fb83db56301a8529e393be72174429837fb292bb32e101,ruby:>= 2.0.0
+0.3.0 google-gax:~> 1.3|checksum:ead581192d87f934f61de27b0a6da0651cd57a11ad75545bc80dff8c7fee7a8a,ruby:>= 2.0.0
+0.3.1 google-gax:~> 1.3|checksum:f6c3861e83b70955ac764d548760be50bca1d29d380f0a2b53d753d80636f2b2,ruby:>= 2.0.0
+0.4.0 google-gax:~> 1.7|checksum:86621c3eb92d41c6b5f687ca1337421108481597e0e92d0e2e96e95e1cdcfd63,ruby:>= 2.0.0
+0.4.1 google-gax:~> 1.7|checksum:ee69c5fd3121c005dc4f9aee6e2f2d593449a006eaa56b05ba19ea7b4d555b59,ruby:>= 2.0.0
+0.5.0 google-gax:~> 1.8|checksum:1f5c46b8386e615004105774be183628639b0969ca33faef19e7b6b4369d76d4,ruby:>= 2.4
+0.5.1 googleapis-common-protos:< 2.0&>= 1.3.9,googleapis-common-protos-types:< 2.0&>= 1.0.4,google-gax:~> 1.8|checksum:22f13aecc8e4a081b71fd9fe15bc3d2000cff91867a747e1fb04f4a36f4b48ef,ruby:>= 2.4
+0.5.2 googleapis-common-protos:< 2.0&>= 1.3.9,googleapis-common-protos-types:< 2.0&>= 1.0.4,google-gax:~> 1.8|checksum:d86134b84f89edfef6bdcadd05abf1ebe21359bd88b4fe2c4a340a594902543e,ruby:>= 2.4
+0.6.0 googleapis-common-protos:< 2.0&>= 1.3.9,googleapis-common-protos-types:< 2.0&>= 1.0.4,google-gax:~> 1.8|checksum:8b0f0f578a1f70d4a22fcd820a45827b6e4015979e8cd582369d7ab5ea2fcc15,ruby:>= 2.4
+0.6.1 googleapis-common-protos:< 2.0&>= 1.3.9,googleapis-common-protos-types:< 2.0&>= 1.0.4,google-gax:~> 1.8|checksum:0440bb6e41e642011c5a681549a7fdd409a11ec1c304f5c759255de2b8b820a6,ruby:>= 2.4
+0.7.0 googleapis-common-protos:< 2.0&>= 1.3.9,googleapis-common-protos-types:< 2.0&>= 1.0.4,google-gax:~> 1.8|checksum:0b087181efe7ef24e85dd9dcec122fe470284e9e7c0ffce309f139097507c120,ruby:>= 2.4
+1.0.0 google-cloud-core:~> 1.5,google-cloud-text_to_speech-v1:~> 0.0,google-cloud-text_to_speech-v1beta1:~> 0.0|checksum:e957b3269efeeda23f7c8403c6c6e9eccf3fcf3c677cf471ecb9bceb6c76ca82,ruby:>= 2.4
+1.1.0 google-cloud-core:~> 1.5,google-cloud-text_to_speech-v1:~> 0.0,google-cloud-text_to_speech-v1beta1:~> 0.0|checksum:c4439a05f2fc57e84e0fc94ed55b368564e84174f09f098e288270dfabd80b21,ruby:>= 2.4
+1.1.1 google-cloud-core:~> 1.5,google-cloud-text_to_speech-v1:~> 0.0,google-cloud-text_to_speech-v1beta1:~> 0.0|checksum:0618cf9db4fb9187989dc85d855b71b7e870523b9525481305f723256d3f1cb6,ruby:>= 2.4
+1.1.2 google-cloud-core:~> 1.5,google-cloud-text_to_speech-v1:~> 0.0,google-cloud-text_to_speech-v1beta1:~> 0.0|checksum:547356bb39e71f9b82634b9aa266a22637294203e33f90af72536ab961ed0f47,ruby:>= 2.4
+1.1.3 google-cloud-core:~> 1.5,google-cloud-text_to_speech-v1:~> 0.0,google-cloud-text_to_speech-v1beta1:~> 0.0|checksum:1880d2f0cd14e32b316936237423f69430daf58b7e98e10a51a8ca0f48a1de85,ruby:>= 2.4
+1.2.0 google-cloud-core:~> 1.5,google-cloud-text_to_speech-v1:~> 0.0,google-cloud-text_to_speech-v1beta1:~> 0.0|checksum:8d2a7bd55823d74fdc5c7ed9efff18adc87a4021b0409e3cdb0b1ab405600563,ruby:>= 2.5
+1.2.1 google-cloud-core:~> 1.6,google-cloud-text_to_speech-v1:< 2.a&>= 0.0,google-cloud-text_to_speech-v1beta1:< 2.a&>= 0.0|checksum:e3da569db881ac0eb29b7d3111f5565d68ad24410d6ee225fc024f3c5abd9061,ruby:>= 2.5
+1.2.2 google-cloud-core:~> 1.6,google-cloud-text_to_speech-v1:< 2.a&>= 0.0,google-cloud-text_to_speech-v1beta1:< 2.a&>= 0.0|checksum:c0eceaea3d7c379a97327dd0b39928d451f4d99fceb33fe9d365537a86bb00a2,ruby:>= 2.5
+1.2.3 google-cloud-core:~> 1.6,google-cloud-text_to_speech-v1:< 2.a&>= 0.0,google-cloud-text_to_speech-v1beta1:< 2.a&>= 0.0|checksum:839950d3216f821e168d59e19ca1c3fc7177346072fae102defd88ffecd81a05,ruby:>= 2.5
+1.3.0 google-cloud-core:~> 1.6,google-cloud-text_to_speech-v1:< 2.a&>= 0.0,google-cloud-text_to_speech-v1beta1:< 2.a&>= 0.0|checksum:a7d62cb6c3700b12c6637c2d95d9b55226bbd8c625404d8b191a190bc7cacc4e,ruby:>= 2.6
+1.4.0 google-cloud-core:~> 1.6,google-cloud-text_to_speech-v1:< 2.a&>= 0.8,google-cloud-text_to_speech-v1beta1:< 2.a&>= 0.9|checksum:1dd71fed3bf89cb9581039dabbe6b8d7975e3b97c9755d78444f2dc5a58ec451,ruby:>= 2.6
+1.5.0 google-cloud-core:~> 1.6,google-cloud-text_to_speech-v1:< 2.a&>= 0.9,google-cloud-text_to_speech-v1beta1:< 2.a&>= 0.10|checksum:693d8c74ba86adda55b4965fd845b492996aaa98501d0cd3feef8b60fd0d6888,ruby:>= 2.6

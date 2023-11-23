@@ -1,0 +1,42 @@
+ja:
+  users:
+    following:
+      Following: フォローしているユーザー
+    followers:
+      Followers: フォロワー
+  activerecord:
+    attributes:
+      post:
+        content_english: メール本文
+        subject_english: 件名
+        scene: ビジネスシーン
+      comment:
+        comment: コメント
+    errors:
+      models:
+        post:
+          attributes:
+            scene:
+              blank: "が入力されていません。"
+            subject_english:
+              blank: "が入力されていません。"
+              too_long: "の入力文字数は100文字以内です。"
+              invalid: "は英字のみ入力できます。"
+            content_english:
+              blank: "が入力されていません。"
+              too_long: "の入力文字数は2000文字以内です。"
+              invalid: "は英字のみ入力できます。"
+        comment:
+          attributes:
+            comment:
+              blank: "が入力されていません。"
+              too_long: "の入力文字数は100文字以内です。"
+
+      template:
+        header:
+          one: "1件のエラーがあります。"
+          other: "%{count}件のエラーがあります。"
+        body: "フォームに%{count}件のエラーがあります。"
+  time:
+    formats:
+      default: "%Y年%m月%d日"

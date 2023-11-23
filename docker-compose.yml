@@ -18,7 +18,7 @@ services:
     # ベースイメージとなるDockerfileを指定
     build:
       # Dockerfileパスを指定
-      context: .
+      context: ./api
       # Dockerfileに変数を渡す
       # args:
       #   WORKDIR: $WORKDIR
@@ -27,7 +27,7 @@ services:
     # api直下の全てのファイルをコンテナに使用する
     # ホスト側の変更がリアルタイムでコンテナに反映される
     volumes:
-      - .:/app
+      - ./api:/app
       # - ./api:/$WORKDIR
 
     # apiサービス起動前にdbサービスを起動する設定

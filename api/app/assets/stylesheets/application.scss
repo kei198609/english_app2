@@ -1,0 +1,117 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS (and SCSS, if configured) file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+@import "bootstrap";
+@import "font-awesome";
+
+
+a{
+	text-decoration: none;
+}
+
+.navbar {
+  background-color: #A16EFF;
+
+}
+.navbar-nav .nav-link {
+  color: #fff;
+}
+.navbar-brand {
+  color: #fff;
+}
+
+.border{
+	border-radius: 8px;
+}
+
+.btn {
+  border-radius: 5px;
+}
+
+
+// 投稿一覧、ブックマーク一覧デザイン
+.post_user{
+  font-size: 1.5px;
+  text-decoration: none;
+}
+
+.post_user:hover{
+  text-decoration: underline;
+}
+
+.post_time {
+  display: inline-block; //下線を消すため
+}
+
+.post_subject{
+  font-size: 20px;
+  text-decoration: none;
+}
+
+.post_subject:hover{
+  text-decoration: underline;
+}
+
+.post_scene{
+  font-size: 15px;
+}
+
+//投稿結果表示の改行
+.post_wrap{
+  white-space: pre-wrap;
+}
+
+// マイページ
+.stat{
+  font-size: 1.5px;
+  text-decoration: none;
+}
+
+.stat:hover{
+  text-decoration: underline;
+}
+
+// フォロー/フォロワー一覧
+.user_name{
+  font-size:15px;
+  text-decoration: none;
+}
+
+.user_name:hover{
+  text-decoration: underline;
+}
+
+//プロフィール編集画面
+.link_list{
+  font-size: 15px;
+  text-decoration: none;
+}
+
+.link_list:hover{
+  text-decoration: underline;
+}
+
+.profile{
+  font-size: 25px;
+  font-weight: bold;
+}
+// 通知マーク
+.n-circle {
+  position: absolute;
+  padding-left: 1rem;
+  padding-top: 0rem;
+  color: #efa04c;
+}

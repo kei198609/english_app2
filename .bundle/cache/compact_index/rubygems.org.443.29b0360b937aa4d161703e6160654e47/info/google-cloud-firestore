@@ -1,0 +1,54 @@
+---
+0.20.0 concurrent-ruby:~> 1.0,google-cloud-core:~> 1.1,google-gax:~> 1.0|checksum:835088ceaf41c65ca1a40d724b1ada1500230eb782b6ad9245e52168cbcc4e0b,ruby:>= 2.0.0
+0.21.0 concurrent-ruby:~> 1.0,google-cloud-core:~> 1.2,google-gax:~> 1.0|checksum:2b6daef79a2fd363d4f914135a822bc96c632fd8765af35fe5cc8934ff935574,ruby:>= 2.0.0
+0.21.1 concurrent-ruby:~> 1.0,google-cloud-core:~> 1.2,google-gax:~> 1.0|checksum:a5bd2463202688220b3d1e22a223ee4dda49b376a2888805a2d1110456ad1a52,ruby:>= 2.0.0
+0.22.0 concurrent-ruby:~> 1.0,google-cloud-core:~> 1.2,google-gax:~> 1.0|checksum:2ef4f4ede73c42228636e6328c51cf670af10ce3103d959ec2456c91bdf8c707,ruby:>= 2.0.0
+0.23.0 concurrent-ruby:~> 1.0,google-cloud-core:~> 1.2,google-gax:~> 1.0,rbtree:~> 0.4.2|checksum:a1b10f5cad23bb97cc3fa1d91459138d811a747dd537f764ee5b091545f48697,ruby:>= 2.0.0
+0.24.0 concurrent-ruby:~> 1.0,google-cloud-core:~> 1.2,google-gax:~> 1.0,rbtree:~> 0.4.2|checksum:ab0ee1dcd88db5bf7b747f14362236abdbdc74dbf7b24fc33f7d56b6a92514be,ruby:>= 2.0.0
+0.24.1 concurrent-ruby:~> 1.0,google-cloud-core:~> 1.2,google-gax:~> 1.0,rbtree:~> 0.4.2|checksum:d129e88dd326ee5c61a67497f1a80929218e3d48a0f591ab32d034cf522e100c,ruby:>= 2.0.0
+0.24.2 concurrent-ruby:~> 1.0,google-cloud-core:~> 1.2,google-gax:~> 1.0,rbtree:~> 0.4.2|checksum:5b7977faf64647135a38e9ba95d262cd36a6769594a5f583637e0920c3bcf4da,ruby:>= 2.0.0
+0.25.0 concurrent-ruby:~> 1.0,google-cloud-core:~> 1.2,google-gax:~> 1.0,rbtree:~> 0.4.2|checksum:23f771c6373583679afbc3af108b11891d26843ffa3b41e5a6f924045be7f9cb,ruby:>= 2.0.0
+0.25.1 concurrent-ruby:~> 1.0,google-cloud-core:~> 1.2,google-gax:~> 1.0,rbtree:~> 0.4.2|checksum:3e0f021cd182923cf0ab192f061a5f2dda8c3246ffe3af5b81fe36237f141cb9,ruby:>= 2.0.0
+0.26.0 concurrent-ruby:~> 1.0,google-cloud-core:~> 1.2,google-gax:~> 1.0,rbtree:~> 0.4.2|checksum:d776481bcbaa0ed1e2437ae8a79a8a789084643b7b070354baaa047b05f7e090,ruby:>= 2.0.0
+0.26.1 concurrent-ruby:~> 1.0,google-cloud-core:~> 1.2,google-gax:~> 1.7,rbtree:~> 0.4.2|checksum:f705fe9844707531a4b25870bae7531336572c8c7021b77d77522248d41f7356,ruby:>= 2.0.0
+0.26.2 concurrent-ruby:~> 1.0,google-cloud-core:~> 1.2,google-gax:~> 1.7,rbtree:~> 0.4.2|checksum:3a74cd945a102b7e36cb3bfdf3fdcccc8440cf9796deee9f33cb3eff3aadca61,ruby:>= 2.0.0
+1.0.0 concurrent-ruby:~> 1.0,google-cloud-core:~> 1.2,google-gax:~> 1.7,rbtree:~> 0.4.2|checksum:45db820cfae52ec529ef72938a964b75e3ee5b0d55bd7ac0c686896ad0c2c91a,ruby:>= 2.0.0
+1.1.0 concurrent-ruby:~> 1.0,google-cloud-core:~> 1.2,google-gax:~> 1.7,rbtree:~> 0.4.2|checksum:202437869ab6decb064132d640c8152b819357900381e5559071524ec681be7a,ruby:>= 2.0.0
+1.2.0 concurrent-ruby:~> 1.0,google-cloud-core:~> 1.2,google-gax:~> 1.8,rbtree:~> 0.4.2|checksum:6b88f13435c438c339cd82a15617f00271024e7bd71f0037c5d30eae9c35717f,ruby:>= 2.4
+1.2.1 concurrent-ruby:~> 1.0,googleapis-common-protos:< 2.0&>= 1.3.9,googleapis-common-protos-types:< 2.0&>= 1.0.4,google-cloud-core:~> 1.2,google-gax:~> 1.8,rbtree:~> 0.4.2|checksum:187aa9cfba9861adc03beb54e19ef024e7d2f054549e49050a53e5091b8cbc0f,ruby:>= 2.4
+1.2.2 concurrent-ruby:~> 1.0,googleapis-common-protos:< 2.0&>= 1.3.9,googleapis-common-protos-types:< 2.0&>= 1.0.4,google-cloud-core:~> 1.2,google-gax:~> 1.8,rbtree:~> 0.4.2|checksum:ef49992d28d907d6519783a0011cb0df47fc853384ff6437d74b80721298198f,ruby:>= 2.4
+1.2.3 concurrent-ruby:~> 1.0,googleapis-common-protos:< 2.0&>= 1.3.9,googleapis-common-protos-types:< 2.0&>= 1.0.4,google-cloud-core:~> 1.2,google-gax:~> 1.8,rbtree:~> 0.4.2|checksum:d071d6aa58e3e00bc9341e745b7a5d9196f9b7960776d34c3aa3d51c8f865e37,ruby:>= 2.4
+1.2.4 concurrent-ruby:~> 1.0,googleapis-common-protos:< 2.0&>= 1.3.9,googleapis-common-protos-types:< 2.0&>= 1.0.4,google-cloud-core:~> 1.2,google-gax:~> 1.8,rbtree:~> 0.4.2|checksum:aaa707f973717e2b4346fac9710ce6974bbc88bb831879c02a46d11fb556eea3,ruby:>= 2.4
+1.3.0 concurrent-ruby:~> 1.0,googleapis-common-protos:< 2.0&>= 1.3.9,googleapis-common-protos-types:< 2.0&>= 1.0.4,google-cloud-core:~> 1.2,google-gax:~> 1.8,rbtree:~> 0.4.2|checksum:895e8f3f8bae3f2afbaec115ddec7760ea4f49a70b556688f89ff38df5a7f0a1,ruby:>= 2.4
+1.4.0 concurrent-ruby:~> 1.0,googleapis-common-protos:< 2.0&>= 1.3.9,googleapis-common-protos-types:< 2.0&>= 1.0.4,google-cloud-core:~> 1.2,google-gax:~> 1.8,rbtree:~> 0.4.2|checksum:e635a96a7a097a7055526cbc331d488ede03ddb770fe68518977a9315b50c284,ruby:>= 2.4
+1.4.1 concurrent-ruby:~> 1.0,googleapis-common-protos:< 2.0&>= 1.3.9,googleapis-common-protos-types:< 2.0&>= 1.0.4,google-cloud-core:~> 1.2,google-gax:~> 1.8,rbtree:~> 0.4.2|checksum:63431c99cd9f531dd84827cab5a68672e6c1faaf3d2dd6fb27a46f5528ff7e2d,ruby:>= 2.4
+1.4.2 concurrent-ruby:~> 1.0,googleapis-common-protos:< 2.0&>= 1.3.9,googleapis-common-protos-types:< 2.0&>= 1.0.4,google-cloud-core:~> 1.2,google-gax:~> 1.8,rbtree:~> 0.4.2|checksum:3b15b26bf5b76de8d27dec13461071f81de760f7db22999484992e308ad5cfc3,ruby:>= 2.4
+1.4.3 concurrent-ruby:~> 1.0,googleapis-common-protos:< 2.0&>= 1.3.9,googleapis-common-protos-types:< 2.0&>= 1.0.4,google-cloud-core:~> 1.2,google-gax:~> 1.8,rbtree:~> 0.4.2|checksum:1ea8eb5dd11b937e905c9ddaf82909569a432025150f4c6600433d83a6f87cce,ruby:>= 2.4
+1.4.4 concurrent-ruby:~> 1.0,googleapis-common-protos:< 2.0&>= 1.3.9,googleapis-common-protos-types:< 2.0&>= 1.0.4,google-cloud-core:~> 1.2,google-gax:~> 1.8,rbtree:~> 0.4.2|checksum:4ab124cc73e45bf42b050015d9f78a61b32807d58c2f29aa27aa860bee3cfe0a,ruby:>= 2.4
+2.0.0 concurrent-ruby:~> 1.0,google-cloud-core:~> 1.5,google-cloud-firestore-v1:~> 0.0,rbtree:~> 0.4.2|checksum:5249d1874d7ade82394360671492cb372f9885ec446ffd87180d50f4a85512cb,ruby:>= 2.4
+2.1.0 concurrent-ruby:~> 1.0,google-cloud-core:~> 1.5,google-cloud-firestore-v1:~> 0.0,rbtree:~> 0.4.2|checksum:21912774b8e40517c06fac0b565b28f427ae0d25747f322911c01fb7d67311a6,ruby:>= 2.4
+2.2.0 concurrent-ruby:~> 1.0,google-cloud-core:~> 1.5,google-cloud-firestore-v1:~> 0.0,rbtree:~> 0.4.2|checksum:fb328bd13d9ecd25ff1b94cad232f7b15d4551154b9bbc5150713b427d77734e,ruby:>= 2.4
+2.3.0 concurrent-ruby:~> 1.0,google-cloud-core:~> 1.5,google-cloud-firestore-v1:~> 0.0,rbtree:~> 0.4.2|checksum:049a1279479f6e6589fe5cd0a7d3c2118ce1fea0f5ff03631a0e9f30747e173f,ruby:>= 2.4
+2.4.0 concurrent-ruby:~> 1.0,google-cloud-core:~> 1.5,google-cloud-firestore-v1:~> 0.0,rbtree:~> 0.4.2|checksum:c93bf51d27c5277486af83ac0c7c8fa0a91759db99abc964b2436186962bea3f,ruby:>= 2.4
+2.4.1 concurrent-ruby:~> 1.0,google-cloud-core:~> 1.5,google-cloud-firestore-v1:~> 0.0,rbtree:~> 0.4.2|checksum:c3240704f2d078bdf29e3a1d14ee1219992c9de651e1814111aedc09ce42e383,ruby:>= 2.4
+2.5.0 concurrent-ruby:~> 1.0,google-cloud-core:~> 1.5,google-cloud-firestore-v1:~> 0.0,rbtree:~> 0.4.2|checksum:450c9628e4d4858214bbcae5375a8c1d10c83117375f3de880983d8df7f05098,ruby:>= 2.5
+2.5.1 concurrent-ruby:~> 1.0,google-cloud-core:~> 1.5,google-cloud-firestore-v1:~> 0.0,rbtree:~> 0.4.2|checksum:0841efba29ab9702555d9c2737b7330477a4dac50ec534e956d99a8d1096b809,ruby:>= 2.5
+2.6.0 concurrent-ruby:~> 1.0,google-cloud-core:~> 1.5,google-cloud-firestore-v1:~> 0.0,rbtree:~> 0.4.2|checksum:4869cb566a2e49c2b76df98390b124bcd71624b2ec5326308f44ec4f367a8411,ruby:>= 2.5
+2.6.1 concurrent-ruby:~> 1.0,google-cloud-core:~> 1.5,google-cloud-firestore-v1:~> 0.0,rbtree:~> 0.4.2|checksum:d680964f819b1d17dec2af286855fff8b48f9daaed9a50c8e70e70b44274286f,ruby:>= 2.5
+2.6.2 concurrent-ruby:~> 1.0,google-cloud-core:~> 1.5,google-cloud-firestore-v1:~> 0.0,rbtree:~> 0.4.2|checksum:32cddc1231c963a081d2d6aaa921a563a026154dbad8517327586ee384463195,ruby:>= 2.5
+2.6.3 concurrent-ruby:~> 1.0,google-cloud-core:~> 1.5,google-cloud-firestore-v1:~> 0.0,rbtree:~> 0.4.2|checksum:a1332234f94bc225bf6e0bf215e0f005da41f2eb88fd9590ae138050dd101524,ruby:>= 2.5
+2.6.4 concurrent-ruby:~> 1.0,google-cloud-core:~> 1.5,google-cloud-firestore-v1:~> 0.0,rbtree:~> 0.4.2|checksum:d63c0bcbcf7716333d122e83eb2c90e53e50e1994ebff07e437b621e7c830970,ruby:>= 2.5
+2.6.5 concurrent-ruby:~> 1.0,google-cloud-core:~> 1.5,google-cloud-firestore-v1:~> 0.0,rbtree:~> 0.4.2|checksum:dc39f414f0cc0c03c604cc5f97475031926072ab0670d920209ee22687daaeac,ruby:>= 2.5
+2.6.6 concurrent-ruby:~> 1.0,google-cloud-core:~> 1.5,google-cloud-firestore-v1:~> 0.0,rbtree:~> 0.4.2|checksum:a9415743d2472c22ddcbfc934135c817c5400af35361fe1b15a4bcae9115803d,ruby:>= 2.5
+2.7.0 concurrent-ruby:~> 1.0,google-cloud-core:~> 1.5,google-cloud-firestore-v1:~> 0.0,rbtree:~> 0.4.2|checksum:f96f113a56bce7c7bbb5df59c5786285e5251cfe1a14efb88e06c94d9dc6afdb,ruby:>= 2.6
+2.7.1 concurrent-ruby:~> 1.0,google-cloud-core:~> 1.5,google-cloud-firestore-v1:~> 0.0,rbtree:~> 0.4.2|checksum:3397805df9ec7893281095deda6db7ebaa5d6cce283903c126e161bf3fae026b,ruby:>= 2.6
+2.7.2 concurrent-ruby:~> 1.0,google-cloud-core:~> 1.5,google-cloud-firestore-v1:~> 0.0,rbtree:~> 0.4.2|checksum:7e98e91996287746ba97f2ba459b56b6ced10bb7b6e749848ed50e70be5603d6,ruby:>= 2.6
+2.8.0 concurrent-ruby:~> 1.0,google-cloud-core:~> 1.5,google-cloud-firestore-v1:~> 0.0,rbtree:~> 0.4.2|checksum:d080ede747c5a024d297f0d21fb502cbf526d0495d74ba94c8b638e705fa7048,ruby:>= 2.6
+2.9.0 concurrent-ruby:~> 1.0,google-cloud-core:~> 1.5,google-cloud-firestore-v1:~> 0.0,rbtree:~> 0.4.2|checksum:552e2ac47e7f33f67154738523d46662a24493c7ef2343e5be5804c4337910e3,ruby:>= 2.6
+2.9.1 concurrent-ruby:~> 1.0,google-cloud-core:~> 1.5,google-cloud-firestore-v1:~> 0.0,rbtree:~> 0.4.2|checksum:bfcf7baa9487b325b9dc55717cfa953d07431b3d55212d4e631b34001ab4a62f,ruby:>= 2.6
+2.10.0 concurrent-ruby:~> 1.0,google-cloud-core:~> 1.5,google-cloud-firestore-v1:~> 0.0,rbtree:~> 0.4.2|checksum:51f30af064950d29b557e3bfdc26479ccc4ea305cbf0ca4570a0729527861c9e,ruby:>= 2.6
+2.10.1 concurrent-ruby:~> 1.0,google-cloud-core:~> 1.5,google-cloud-firestore-v1:~> 0.8,rbtree:~> 0.4.2|checksum:b0beba96a1c6bf33123f069edd53e77a6f052a701c5a183fa33df2f89ca8d2fc,ruby:>= 2.6
+2.11.0 concurrent-ruby:~> 1.0,google-cloud-core:~> 1.5,google-cloud-firestore-v1:~> 0.10,rbtree:~> 0.4.2|checksum:cec66bf0ef718c867932e878bfccf5ed9ba8887ccb3c566b8522716130ac1ddf,ruby:>= 2.6
+2.12.0 concurrent-ruby:~> 1.0,google-cloud-core:~> 1.5,google-cloud-firestore-v1:~> 0.10,rbtree:~> 0.4.2|checksum:5ef30fa677b12ec6a4e199696cdbd095ae927822f1365ee55f2605cd741f50ee,ruby:>= 2.6
+2.13.0 concurrent-ruby:~> 1.0,google-cloud-core:~> 1.5,google-cloud-firestore-v1:~> 0.10,rbtree:~> 0.4.2|checksum:2eac081374ca4663338dae0a85809a7e4dbf07f118b1e50288ae971c6bf6bc56,ruby:>= 2.6
+2.13.1 concurrent-ruby:~> 1.0,google-cloud-core:~> 1.5,google-cloud-firestore-v1:~> 0.10,rbtree:~> 0.4.2|checksum:1e56b2143bcb9198b1c6d9ce025b54e410f3eec40162beece5a27a9e74449164,ruby:>= 2.6

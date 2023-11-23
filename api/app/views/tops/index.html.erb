@@ -1,0 +1,44 @@
+<%= flash[:success] %>
+<% if user_signed_in? %>
+<%# seach section %>
+<div class="container">
+  <%= search_form_for @q, url: root_path, html: {method: :get} do |f| %>
+    <div class="row">
+      <div class="col-md-3 mb-3 mb-md-0">
+        <%= f.search_field :content_english_cont, placeholder: "メール文検索", class: "form-control" %>
+      </div>
+      <div class="col-md-3 mb-3 mb-md-0">
+        <%= f.search_field :subject_english_cont, placeholder: "件名検索", class: "form-control" %>
+      </div>
+      <div class="col-md-3 mb-3 mb-md-0">
+        <%= f.select :scene_eq, options_for_select(Post.all.map{ |c| [c.scene, c.scene] }.uniq, params[:q]&.[](:scene_eq)), {prompt: "カテゴリを選択"}, {class: "form-select"} %>
+      </div>
+      <div class="col-md-3 mb-3">
+        <%= f.submit "検索", class: "btn btn-primary", style: "width: 100%;" %>
+      </div>
+      <div class="col-md-3">
+        <button type="button" onclick="location.href='?'" class="btn btn-outline-secondary" style="width: 100%">リセット</button>
+      </div>
+    </div>
+  <% end %>
+
+    <div class="row mt-3">
+      <div class="col-md-8 col-sm-12">
+        <%= render 'shared/feed' %>
+        <div class="mt-4">
+          <%= paginate @feed_items, theme: 'bootstrap-5',
+                                    pagination_class: "pagination-sm flex-wrap justify-content-center" %>
+        </div>
+      </div>
+      <div class="col-md-4 col-sm-12">
+        <%= render 'shared/recommend_post' %>
+      </div>
+    </div>
+
+
+</div>
+
+
+<% else %>
+
+<% end %>

@@ -1,0 +1,26 @@
+<div class="container px-4 py-4">
+  <div class="image text-center">
+    <% if @user.avatar? %>
+      <%= image_tag @user.avatar, size: 100, class:"rounded-circle mb-3" %>
+    <% else %>
+      <%= image_tag src='noimage.jpg', alt:"ユーザアイコン", size: 100, class:"rounded-circle mb-3" %>
+    <% end %>
+  </div>
+  <div class="text-center mb-1">
+    <%= @user.name %>
+  </div>
+  <div class="text-center border-bottom mb-3">
+    <%= @user.occupation %>
+  </div>
+  <div class="text-center">
+    <%= render 'shared/stats' %>
+  </div>
+  <div class="text-center mt-3">
+    <%= render 'follow_form' if user_signed_in? %>
+  </div>
+  <div class="text-center">
+    <% if current_user?(@user) %>
+      <%= button_to "プロフィールを編集する", edit_user_registration_path(@user), method: :get ,class: "btn btn-primary" %>
+    <% end %>
+  </div>
+</div>

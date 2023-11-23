@@ -1,0 +1,25 @@
+---
+0.1.0 google-gax:~> 1.3|checksum:54291f86695c0004c11ea8c33815ec4a47707a07ac0d3817a641434c66dd3317,ruby:>= 2.0.0
+0.2.0 google-gax:~> 1.3|checksum:150ff87f26404e122129678fa1cc1c267165055274d96a903f31459cf85d4e01,ruby:>= 2.0.0
+0.3.0 googleapis-common-protos:< 2.0&>= 1.3.9,google-gax:~> 1.3|checksum:7fea7372b30a17464099ecba998ae3c2c6792f3b7f96de30f9a2a39aeb1a630b,ruby:>= 2.0.0
+0.3.1 googleapis-common-protos:< 2.0&>= 1.3.9,google-gax:~> 1.3|checksum:00186433025fd5ba3e8d5024859c7605474ac7414b078aedd76ad9b6db42bed6,ruby:>= 2.0.0
+1.0.0 googleapis-common-protos:< 2.0&>= 1.3.9,google-gax:~> 1.3|checksum:4be2fca5f1384c7a46fb2737265da2fd723ef45fbe07d3b5ee3ecf7117bc48ec,ruby:>= 2.0.0
+1.0.1 googleapis-common-protos:< 2.0&>= 1.3.9,google-gax:~> 1.3|checksum:cf4db2784eda009bd1a377e252c5b333ddf9c2b4e0dee916745b238c5523e289,ruby:>= 2.0.0
+1.1.0 googleapis-common-protos:< 2.0&>= 1.3.9,google-gax:~> 1.7|checksum:352c57a34cb371fac6901853c7c51b395cdb2d32b3cd4935df920af1420656e4,ruby:>= 2.0.0
+1.1.1 googleapis-common-protos:< 2.0&>= 1.3.9,google-gax:~> 1.7|checksum:e0f4fd957a29b4810f49c97821ddff1c8f8e62d0d72603259befeff1f7b64ff6,ruby:>= 2.0.0
+1.1.2 googleapis-common-protos:< 2.0&>= 1.3.9,google-gax:~> 1.7|checksum:bce1f22d9aca55e241cea8a704d79bfb99aaaafce7bd3e26769890bedf3ad3ac,ruby:>= 2.0.0
+1.2.0 googleapis-common-protos:< 2.0&>= 1.3.9,googleapis-common-protos-types:< 2.0&>= 1.0.4,google-gax:~> 1.8|checksum:e96b61f4b0a764f1a820fb422900a6e72b5bb2b9797c6faa8c4d590a81083879,ruby:>= 2.4
+1.2.1 googleapis-common-protos:< 2.0&>= 1.3.9,googleapis-common-protos-types:< 2.0&>= 1.0.4,google-gax:~> 1.8|checksum:831fe5d2461e0584eca53fd414e3a2373ee864865dd558262efb82f8f4fd6a85,ruby:>= 2.4
+1.3.0 googleapis-common-protos:< 2.0&>= 1.3.9,googleapis-common-protos-types:< 2.0&>= 1.0.4,google-gax:~> 1.8|checksum:581c4cf92b22f7a37227dcfb9af6b126d8f3f6d2f6781161222d45539b231fe6,ruby:>= 2.4
+1.3.1 googleapis-common-protos:< 2.0&>= 1.3.9,googleapis-common-protos-types:< 2.0&>= 1.0.4,google-gax:~> 1.8|checksum:e360f8bd081d492ad1c5755a981256efb504af1055df69dde784d2ffb28d5cdc,ruby:>= 2.4
+2.0.0 google-cloud-core:~> 1.5,google-cloud-scheduler-v1:~> 0.0,google-cloud-scheduler-v1beta1:~> 0.0|checksum:55aa12d2b0bec81a89c8d428776f191cfcbaf59a9dbaa5b2aa7edb66ddba2683,ruby:>= 2.4
+2.1.0 google-cloud-core:~> 1.5,google-cloud-scheduler-v1:~> 0.0,google-cloud-scheduler-v1beta1:~> 0.0|checksum:fe7d32c08e4d063525d03cf3a0be66a3339ea23537d3d441dc1806977dce8605,ruby:>= 2.4
+2.1.1 google-cloud-core:~> 1.5,google-cloud-scheduler-v1:~> 0.0,google-cloud-scheduler-v1beta1:~> 0.0|checksum:9acef6d4cec693ccdbc0acc75d252ecb7469158e94c62c03b372d7b601f4e3db,ruby:>= 2.4
+2.1.2 google-cloud-core:~> 1.5,google-cloud-scheduler-v1:~> 0.0,google-cloud-scheduler-v1beta1:~> 0.0|checksum:6ddd5c415742412a6a6d5b95a36c5f87e22dd05bb2b7ff08b2580dd8bdfa6f5b,ruby:>= 2.4
+2.1.3 google-cloud-core:~> 1.5,google-cloud-scheduler-v1:~> 0.0,google-cloud-scheduler-v1beta1:~> 0.0|checksum:6cee4aa080dfc17dba55a21ad298b8a7ad0dd65896f942f8ca7f52941798093a,ruby:>= 2.4
+2.2.0 google-cloud-core:~> 1.5,google-cloud-scheduler-v1:~> 0.0,google-cloud-scheduler-v1beta1:~> 0.0|checksum:70eb3a52cbee48ecc0e567d791abe7e65aa3623ae59731e08d8658bd0102a7f4,ruby:>= 2.5
+2.2.1 google-cloud-core:~> 1.6,google-cloud-scheduler-v1:< 2.a&>= 0.0,google-cloud-scheduler-v1beta1:< 2.a&>= 0.0|checksum:decbfd44b1a8dda651aed815becccbce0e2335088ba4e5728bd45e4d03b5c5f8,ruby:>= 2.5
+2.2.2 google-cloud-core:~> 1.6,google-cloud-scheduler-v1:< 2.a&>= 0.0,google-cloud-scheduler-v1beta1:< 2.a&>= 0.0|checksum:263aa71679d82fa04d84dd725a5eeabefe41c98669c8fe5922f9a82bf1a85bd1,ruby:>= 2.5
+2.2.3 google-cloud-core:~> 1.6,google-cloud-scheduler-v1:< 2.a&>= 0.0,google-cloud-scheduler-v1beta1:< 2.a&>= 0.0|checksum:f5497163c0489098168cd359d401459d7d7c25e43d10f57451e89b5b097257b1,ruby:>= 2.5
+2.3.0 google-cloud-core:~> 1.6,google-cloud-scheduler-v1:< 2.a&>= 0.0,google-cloud-scheduler-v1beta1:< 2.a&>= 0.0|checksum:7853fb29b69e83993e0d24fccbe683bb9bf718602e199ea270797d5d05282931,ruby:>= 2.6
+2.4.0 google-cloud-core:~> 1.6,google-cloud-scheduler-v1:< 2.a&>= 0.7,google-cloud-scheduler-v1beta1:< 2.a&>= 0.7|checksum:224779ffb897df9f23203f8bf2870d336d3aa989a72feaa942fa5d7ce06696ae,ruby:>= 2.6

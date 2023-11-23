@@ -1,0 +1,10 @@
+---
+0.6.8 googleapis-common-protos:~> 1.3.1,googleauth:~> 0.5.1,grpc:~> 1.0|checksum:0a048c43dda939f0a86de558a41a2c7bce5454febb68bb71a9a5ff7dbb958be1,ruby:>= 2.0.0
+0.6.9 googleapis-common-protos:< 2.0&>= 1.3.1,grpc:~> 1.0|checksum:13f719cb8e9e22a8b80cb7c44494bd97659ca39a02c483d00d6766b884525af4,ruby:>= 2.0.0
+0.6.10 googleapis-common-protos:< 2.0&>= 1.3.10,google-protobuf:~> 3.11,grpc:~> 1.27|checksum:a361326f0168e8dfaa41939eb2f338894721902986611a992b7a7a03e07f1c8d
+0.6.11 googleapis-common-protos:< 2.0&>= 1.3.11,google-protobuf:~> 3.14,grpc:~> 1.27|checksum:3a536dd99debe0e214805a8da244d5518d0bc11033d49ef2af1c47b3e56e9fc9
+1.0.0 googleapis-common-protos:< 2.0&>= 1.3.12,google-protobuf:~> 3.14,grpc:~> 1.27|checksum:f3c5e3631720371c298d90bbe7bac75ae8816e142e0e5cca09cf12fcd3536942,ruby:>= 2.3
+1.1.0 googleapis-common-protos:< 2.0&>= 1.3.12,google-protobuf:~> 3.14,grpc:~> 1.27|checksum:befc432c9fb31abbdbdabbdec5ab0760d72ad3b362bcc6b006b824edf336d893,ruby:>= 2.3
+1.1.1 googleapis-common-protos:< 2.0&>= 1.3.12,google-protobuf:~> 3.14,grpc:~> 1.27|checksum:3a169839eca2b4c079ba62bb5f02aca8151e1ad71d4a60631ab556620e492e2f,ruby:>= 2.3
+1.2.0 googleapis-common-protos:< 2.0&>= 1.3.12,google-protobuf:~> 3.14,grpc:~> 1.27|checksum:7da7c082f6054eacd86d98c8ec686e202694a20c7f060ce4c74f64c876f57045,ruby:>= 2.6
+1.3.0 googleapis-common-protos:~> 1.4,google-protobuf:~> 3.18,grpc:~> 1.41|checksum:d1914c54fdc2136def30ec3d8e9cd64b36866bcba8e5c5a717d25036078f776f,ruby:>= 2.6

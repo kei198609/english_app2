@@ -1,0 +1,35 @@
+<div class="col-md-12 col-sm-12 d-flex ps-2 pt-3 border-top">
+  <div class="">
+    <%= link_to user_path(bookmark.post.user) do %>
+      <% if bookmark.post.user.avatar.attached? %>
+        <%= image_tag bookmark.post.user.avatar, class:"rounded-circle", size: 35 %>
+      <% else %>
+        <%= image_tag 'noimage.jpg', class:"rounded-circle", alt:"ユーザアイコン", size: 30 %>
+      <% end %>
+    <% end %>
+  </div>
+  <div class="post_user">
+    <p class="ms-1 mb-0">
+      <%= link_to user_path(bookmark.post.user), class: "link-dark" do %>
+        <%= bookmark.post.user.name %>
+      <% end %>
+    </p>
+    <p class="post_time link-secondary ms-1 mb-0">
+      <%= l bookmark.post.created_at%>
+    </p>
+  </div>
+</div>
+  <div class="post_subject ps-5">
+    <%= link_to post_path(bookmark.post), class: "link-secondary" do %>
+      <%= bookmark.post.subject_english %>
+    <% end %>
+  </div>
+  <div class="post_scene ps-5 pb-3">
+    <p class="mb-0"><%= bookmark.post.scene %></p>
+    <p class="mb-0">
+      <i class="fa-regular fa-heart text-center me-1" style="color: #AAAAAA;"></i>
+      <%= bookmark.post.likes.count %>
+      <i class="fa-regular fa-comment text-center ms-3 me-1" style="color: #AAAAAA;"></i>
+      <%= bookmark.post.comments.count %>
+    </p>
+  </div>

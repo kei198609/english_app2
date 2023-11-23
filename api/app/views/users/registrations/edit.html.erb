@@ -1,0 +1,73 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-4 mt-4">
+        <%= render 'users/registrations/link_list' %>
+    </div>
+    <div class="col-md-8 bg-white mt-4 px-4">
+      <%#= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+      <%= form_with model: @user, url: user_registration_path, id: 'new_user', class: 'new_user', local: true do |f| %>
+        <%= render "users/shared/error_messages", resource: resource %>
+
+        <div class="profile d-flex justify-content-center mt-4 mb-3">
+          <%= f.label :profile %>
+        </div>
+        <div>
+          <%= f.label :icon, class: "mb-3 d-flex flex-wrap"%>
+          <% if @user.avatar? %>
+            <%= image_tag @user.avatar, class:"rounded-circle" %>
+          <% else %>
+            <%= image_tag 'noimage.jpg', alt:"ユーザアイコン", size: 100, class:"rounded-circle" %>
+          <% end %>
+        </div>
+
+        <div class="mt-4">
+          <%= f.file_field :avatar, direct_upload: true, class: "form-control" %>
+        </div>
+
+        <div class="mt-4">
+          <%= f.label :name %>
+          <%= f.text_field :name, autofocus: true, autocomplete: "name" , class: "form-control"%>
+        </div>
+
+        <div class="mt-4">
+          <%= f.label :email %>
+          <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control" %>
+        </div>
+
+        <div class="mt-4">
+          <%= f.label :occupation %>
+          <%#= f.text_field :occupation, autofocus: true, autocomplete: "occupation", class: "form-control" %>
+          <%= f.select :occupation, [["営業", "営業"], ["企画・マーケティング", "企画・マーケティング"], ["販売・サービス関連", "販売・サービス関連"],
+          ["一般事務", "一般事務"], ["専門職(コンサルタント・金融・不動産等)", "専門職(コンサルタント・金融・不動産等)"], ["経理・財務", "経理・財務"], ["人事", "人事"],
+          ["総務", "総務"],["技術系(ITエンジニア)", "技術系(ITエンジニア)"],["技術系(メディカル、科学、食品、医療)", "技術系(メディカル、科学、食品、医療)"],
+          ["技術系(電気、電子、機械、自動車)", "技術系(電気、電子、機械、自動車)"],["技術系(建築、土木関連)", "技術系(建築、土木関連)"],["クリエイティブ関連", "クリエイティブ関連"],
+          ["専門職(インターネット)関連", "専門職(インターネット)関連"],["その他", "その他"]], { include_blank: "選択して下さい" }, class: "form-select" %>
+        </div>
+
+
+        <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+          <div>
+            <%= t('.currently_waiting_confirmation_for_email', email: resource.unconfirmed_email) %>
+          </div>
+        <% end %>
+
+        <div class="mt-4">
+          <%= f.label :new_password %> <i>(<%= t('.leave_blank_if_you_don_t_want_to_change_it') %>)</i>
+          <%= f.password_field :password, autocomplete: "new-password", class: "form-control" %>
+          <% if @minimum_password_length %>
+            <em><%= t('users.shared.minimum_password_length', count: @minimum_password_length) %></em>
+          <% end %>
+        </div>
+
+        <div class="mt-4">
+          <%= f.label :current_password %> <i>(<%= t('.we_need_your_current_password_to_confirm_your_changes') %>)</i>
+          <%= f.password_field :current_password, autocomplete: "current-password", class: "form-control" %>
+        </div>
+
+        <div class="mt-4 mb-4">
+          <%= f.submit t('.update'), class: "btn btn-primary" %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
