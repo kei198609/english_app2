@@ -57,8 +57,6 @@ export default {
             password: this.params.user.password
           }
         })
-        console.log('Authenticated user:', this.$auth.user) // ログイン後のユーザー情報をログに出力
-        console.log('loggedIn:', this.$auth.loggedIn)
         console.log(response)
       } catch (err) {
         console.error(err)
