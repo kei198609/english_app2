@@ -251,7 +251,6 @@ export default {
           this.total_pages = articlesResponse.data.total_pages
           // 記事を読んだかどうか情報を取得
           const readArticlesResponse = await this.$axios.get('/api/v1/article_readings/user_articles_read')
-          console.log('API Response for readArticles:', readArticlesResponse.data)
           this.readArticles = readArticlesResponse.data
         }
       } catch (error) {
