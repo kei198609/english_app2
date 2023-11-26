@@ -17,7 +17,6 @@
             set-validation
             :check-password-match="checkPasswordMatch"
           />
-
           <v-btn
             :disabled="!valid"
             color="primary"
@@ -79,7 +78,6 @@ export default {
             }
           })
           console.log(response)
-          // Password change was successful
           this.snackbar = true
           this.snackbarMessage = 'パスワードが変更されました'
           this.params.user.currentPassword = ''
