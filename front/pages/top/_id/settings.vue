@@ -71,11 +71,8 @@ export default {
     }
   },
   mounted () {
-    console.log(this.$config.apiBaseUrl)
     const storedUser = localStorage.getItem(`user_${this.$auth.user.id}`)
     if (storedUser) {
-      console.log(JSON.parse(storedUser)) // ローカルストレージ内のデータをログ出力
-      // this.avatarUrl = `${this.$config.apiBaseUrl}${JSON.parse(storedUser).avatar_url}`
       this.avatarUrl = JSON.parse(storedUser).avatar_url
     }
   },
