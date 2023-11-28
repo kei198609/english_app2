@@ -121,7 +121,6 @@ export default {
             }
           })
           console.log(response)
-          // Name change was successful
           this.snackbar = true
           this.snackbarMessage = '名前が変更されました'
           this.params.user.name = ''
@@ -149,7 +148,6 @@ export default {
             }
           })
           console.log(response)
-          // Occupation change was successful
           this.snackbar = true
           this.snackbarMessage = '職種が変更されました'
           this.params.user.occupation = ''
