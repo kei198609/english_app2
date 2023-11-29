@@ -11,8 +11,8 @@ services:
       - '3306:3306'
     # ホスト側のディレクトリをコンテナで使用する
     volumes:
-      - ./tmp/db:/var/lib/mysql
-      # - ./api/tmp/db:/var/lib/mysql
+      # - ./tmp/db:/var/lib/mysql
+      - ./api/tmp/db:/var/lib/mysql
 
   api:
     # ベースイメージとなるDockerfileを指定
