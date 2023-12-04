@@ -1,0 +1,26 @@
+FROM node:18.12.1-alpine
+
+ENV HOME=/app \
+    LANG=C.UTF-8 \
+    TZ=Asia/Tokyo \
+    HOST=0.0.0.0 \
+    NODE_OPTIONS=--openssl-legacy-provider
+
+WORKDIR ${HOME}
+
+COPY package*.json ./
+COPY yarn.lock ./
+
+RUN apk update && \
+    apk upgrade && \
+    npm install -g n && \
+    yarn install &&\
+    rm -rf /var/cache/apk/*
+
+COPY . ./
+
+EXPOSE 3000
+
+RUN yarn run build
+
+CMD ["yarn", "start"]
