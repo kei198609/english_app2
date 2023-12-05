@@ -1,0 +1,36 @@
+FROM ruby:3.1.3-alpine
+
+ARG RUNTIME_PACKAGES="linux-headers libxml2-dev make gcc libc-dev nodejs tzdata mysql-dev mysql-client git yarn libc6-compat"
+ARG DEV_PACKAGES="build-base curl-dev"
+
+
+ENV HOME=/app \
+    LANG=C.UTF-8 \
+    TZ=Asia/Tokyo
+
+WORKDIR ${HOME}
+
+COPY Gemfile Gemfile.lock ./
+
+RUN apk update && \
+    apk upgrade && \
+    apk add --no-cache ${RUNTIME_PACKAGES} && \
+    apk add --virtual build-dependencies --no-cache ${DEV_PACKAGES} && \
+    bundle install -j4 && \
+    apk del build-dependencies && \
+    ln -s /lib64/ld-linux-x86-64.so.2 /lib/
+
+COPY . ${HOME}
+
+COPY entrypoint.sh /usr/bin/
+RUN chmod +x /usr/bin/entrypoint.sh
+ENTRYPOINT ["entrypoint.sh"]
+
+RUN mkdir -p /tmp/pids
+RUN mkdir -p /tmp/sockets
+
+# 以下の記述があることでnginxから見ることができる
+VOLUME ${HOME}/public
+VOLUME ${HOME}/tmp
+
+CMD ["bundle", "exec", "rails", "s", "-e", "production"]
