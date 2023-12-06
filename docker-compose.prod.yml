@@ -1,0 +1,83 @@
+version: '3.8'
+
+services:
+  web:
+    build:
+      context: ./api/nginx
+    volumes:
+      - ./api/nginx/nginx.conf:/etc/nginx/nginx.conf
+      - public:/app/public
+      - tmp:/app/tmp
+    ports:
+      - "8081:80"
+    depends_on:
+      - api
+    networks:
+      - web
+
+  db:
+    image: mysql:8.0.31
+    command: --default-authentication-plugin=mysql_native_password
+    environment:
+      # railsからアクセスするときに必要
+      MYSQL_ROOT_PASSWORD: password
+    ports:
+      - '3306:3306'
+    # ホスト側のディレクトリをコンテナで使用する
+    volumes:
+      - ./api/tmp/db:/var/lib/mysql
+    networks:
+      - web
+
+  api:
+    build:
+      context: ./api
+      dockerfile: Dockerfile.prod
+    stdin_open: true
+    tty: true
+
+    command: /bin/sh -c "rm -f tmp/pids/server.pid && bundle exec rails server"
+
+    environment:
+      MYSQL_ROOT_PASSWORD: password
+
+    volumes:
+      - ./api:/app
+      - public:/app/public
+      - tmp:/app/tmp
+
+    # apiサービス起動前にdbサービスを起動する設定
+    depends_on:
+      - db
+    # 公開用ポート番号
+    # 公開したいポート番号：コンテナポート
+    ports:
+      - "3000:3000"
+    networks:
+      - web
+
+  front:
+    build:
+      context: ./front
+      dockerfile: Dockerfile.prod
+    # コンテナで実行したいコマンド
+    # 開発環境用のコマンド
+    # command: yarn run dev
+
+    # Error: No build files found in /app/.nuxt/dist/server.対応でvolumesをコメントアウト
+    # volumes:
+    #   - ./front:/app
+    ports:
+      - "8080:3000"
+    depends_on:
+      - api
+    networks:
+      - web
+
+networks:
+  web:
+    driver: bridge
+
+volumes:
+  public:
+  tmp:
