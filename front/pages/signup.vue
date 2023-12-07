@@ -63,7 +63,6 @@ export default {
       isValid: false,
       loading: false,
       params: { user: { name: '', email: '', password: '', occupation: '' } }
-      // redirectPath: '/'
     }
   },
   methods: {
@@ -85,8 +84,6 @@ export default {
 
       this.formReset()
       this.loading = false
-      // ユーザーが正常にサインアップした後、topsページに遷移します
-      // this.$router.push(this.redirectPath)
       this.snackbar = true
       this.snackbarMessage = '登録しました。ログインしてください。'
     },
