@@ -47,35 +47,4 @@ Rails.application.routes.draw do
 
     end
   end
-
-
-
-
-  # def devise_scope(scope)
-  #   constraint = lambda do |request|
-  #     request.env["devise.mapping"] = Devise.mappings[scope]
-  #     true
-  #   end
-
-  #   constraints(constraint) do
-  #     yield
-  #   end
-  # end
-
-  # 上記apiにしたので削除予定
-  # resources :posts, only: [:new, :create, :show, :destroy] do
-  #   resources :bookmarks, only: [:index, :create, :destroy]
-  #   resource :likes, only: [:create, :destroy]
-  #   resources :comments, only:[:create, :destroy]
-  # end
-
-  # 上記apiにしたので削除予定
-  # resources :users do
-  #   member do
-  #     get :following, :followers
-  #   end
-  #   get :bookmarks, on: :collection
-  # end
-
-  # resources :relationships, only: [:create, :destroy]
 end
