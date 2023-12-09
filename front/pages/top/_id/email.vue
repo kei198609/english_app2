@@ -103,7 +103,6 @@ export default {
             }
           })
           console.log(response)
-          // Email change was successful
           this.snackbar = true
           this.snackbarMessage = 'メールアドレスが変更されました'
           this.params.user.email = ''
