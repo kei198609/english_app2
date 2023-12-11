@@ -68,7 +68,7 @@ export default {
         const imageName = this.genreImageMapping[post.genre]
         return require(`@/assets/images/${imageName}.jpg`)
       }
-      return this.noimage // ジャンル画像がない場合にデフォルト画像を表示
+      return this.noimage
     }
   }
 }
