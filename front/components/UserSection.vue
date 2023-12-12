@@ -65,8 +65,7 @@ export default {
     }
   },
   created () {
-    // Fetch necessary data
-    console.log(this.user) // この行を追加
+    console.log(this.user)
   }
 }
 </script>
