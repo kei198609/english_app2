@@ -183,8 +183,8 @@ export default {
 <style>
 /* ベーススタイル モバイルファースト */
 .image-border {
-  border-top: 2px solid #ffbf00; /* 上のボーダー */
-  border-bottom: 2px solid #ffbf00; /* 下のボーダー */
+  border-top: 2px solid #ffbf00;
+  border-bottom: 2px solid #ffbf00;
 }
 .heading-large {
   font-size: 1.6em;
