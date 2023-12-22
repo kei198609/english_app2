@@ -6,17 +6,14 @@ RSpec.describe Like, type: :model do
   let(:like) { Like.new(user: user, post: post) }
 
   describe "validations" do
-    # Likeモデルのインスタンスが有効であること
-    it "is valid with valid attributes" do
+    it "正しい属性を持っている場合、有効である" do
       expect(like).to be_valid
     end
-    # Likeモデルのインスタンスがuserがnilの場合に無効であること
-    it "is not valid without a user" do
+    it "ユーザーが存在しない場合、無効である" do
       like.user = nil
       expect(like).to_not be_valid
     end
-    # Likeモデルのインスタンスがpostがnilの場合に無効であること
-    it "is not valid without a post" do
+    it "投稿が存在しない場合、無効である" do
       like.post = nil
       expect(like).to_not be_valid
     end
