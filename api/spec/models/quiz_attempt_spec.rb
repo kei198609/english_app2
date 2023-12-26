@@ -3,12 +3,12 @@ require 'rails_helper'
 RSpec.describe QuizAttempt, type: :model do
   # 必要な関連付けが正しく行われていること
   describe "associations" do
-    it "belongs to user" do
+    it "ユーザーに関連付けられていること" do
       user = FactoryBot.create(:user)
       quiz_attempt = FactoryBot.build(:quiz_attempt, user: user)
       expect(quiz_attempt.user).to eq(user)
     end
-    it "belongs to quiz" do
+    it "クイズに関連付けられていること" do
       category = FactoryBot.create(:category)
       quiz = FactoryBot.create(:quiz, category: category)
       quiz_attempt = FactoryBot.build(:quiz_attempt, quiz: quiz)
