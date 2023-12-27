@@ -22,15 +22,13 @@ RSpec.describe Quiz, type: :model do
   end
 
   describe "validations" do
-    # sentence_japaneseの存在性のテスト
-    it "is invalid without a sentence_japanese" do
+    it "日本語の文章がない場合は無効である" do
       quiz = FactoryBot.build(:quiz, sentence_japanese: nil)
       quiz.valid?
       expect(quiz.errors[:sentence_japanese]).not_to be_empty
     end
 
-    # sentence_englishの存在性のテスト
-    it "is invalid without a sentence_english" do
+    it "英語の文章がない場合は無効である" do
       quiz = FactoryBot.build(:quiz, sentence_english: nil)
       quiz.valid?
       expect(quiz.errors[:sentence_english]).not_to be_empty
