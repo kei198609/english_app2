@@ -91,7 +91,17 @@ export default {
   axios: {
     // Workaround to avoid enforcing hard-coded localhost:3000: https://github.com/nuxt-community/axios-module/issues/308
     // baseURL: '/'
-    baseURL: "http://localhost:3000"
+
+    // 開発環境用
+    // baseURL: "http://localhost:3000"
+
+    // 開発環境用 prod
+    // baseURL: process.env.API_BASE_URL || 'http://localhost:3000',
+
+    // 本番環境用
+    baseURL: process.env.NODE_ENV === 'production' ? 'https://api.mailmentor.link' : 'http://localhost:3000',
+    credentials: true
+
   },
 
   vuetify: {
