@@ -51,6 +51,10 @@ test:
 #
 production:
   <<: *default
-  database: english_app2_production
-  username: english_app2
-  password: <%= ENV["ENGLISH_APP2_DATABASE_PASSWORD"] %>
+  # database: english_app2_production
+  # username: english_app2
+  # password: <%= ENV["ENGLISH_APP2_DATABASE_PASSWORD"] %>
+  database: <%= ENV['DB_DATABASE'] %>
+  username: <%= ENV['DB_USERNAME'] %>
+  password: <%= ENV['DB_PASSWORD'] %>
+  host: <%= ENV['DB_HOST'] %>
