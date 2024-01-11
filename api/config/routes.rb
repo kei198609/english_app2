@@ -5,6 +5,7 @@ Rails.application.routes.draw do
 
   namespace :api do
     namespace :v1 do
+      get 'health_check/index'
       get 'articles/index'
       get 'categories/index'
       mount_devise_token_auth_for 'User', at: 'auth', controllers: {
@@ -45,6 +46,8 @@ Rails.application.routes.draw do
 
       put '/users/:id/avatar', to: 'users#update_avatar'
 
+      # helth check
+      get :health_check, to: 'health_check#index'
     end
   end
 end
