@@ -15,7 +15,8 @@ default: &default
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
   username: root
   password: password
-  socket: /tmp/mysql.sock
+  # socketは本番環境では不要かも
+  # socket: /tmp/mysql.sock
   host: db
 
 development:
@@ -51,9 +52,11 @@ test:
 #
 production:
   <<: *default
+  # 開発環境
   # database: english_app2_production
   # username: english_app2
   # password: <%= ENV["ENGLISH_APP2_DATABASE_PASSWORD"] %>
+  # 本番環境
   database: <%= ENV['DB_DATABASE'] %>
   username: <%= ENV['DB_USERNAME'] %>
   password: <%= ENV['DB_PASSWORD'] %>
