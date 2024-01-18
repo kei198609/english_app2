@@ -99,7 +99,7 @@ export default {
     // baseURL: process.env.API_BASE_URL || 'http://localhost:3000',
 
     // 本番環境用
-    baseURL: process.env.NODE_ENV === 'production' ? 'https://api.mailmentor.link' : 'http://localhost:3000',
+    baseURL: process.env.NODE_ENV === 'production' ? 'https://api-mailmentor.link' : 'http://localhost:3000',
     credentials: true
 
   },
