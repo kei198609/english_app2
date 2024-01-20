@@ -1,24 +1,45 @@
-# README
+# サービス概要
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+下記リンクからアクセスできます。
 
-Things you may want to cover:
+# 使用技術
 
-* Ruby version
+| フロントエンド
+----|
+| Nuxt.js(SPA)  |
+| Vuetify |
+| axios(バックエンドとの非同期通信) |
+| eslint/prettier(静的解析、フォーマッター) |
 
-* System dependencies
+<br />
 
-* Configuration
+| バックエンド |
+----|
+| Ruby 3.1.3 |
+| Rails 7.0.4 |
+| RuboCop(静的解析、フォーマッター) |
+| RSpec(自動テスト) |
+| nginx(Webサーバー) |
+| puma(APサーバー) |
+| MySQL 8.0.31(データベース) |
 
-* Database creation
+<br />
 
-* Database initialization
+| インフラ |
+----|
+| Docker/docker-compose |
+| AWS（ECR,ECS,Fargate,VPC,S3,Route53,ALB,RDS,ACM,SSM,CloudWatch,CodeBuild） |
+| Terraform(インフラのコード管理) |
+| Github Actions |
 
-* How to run the test suite
+<br />
 
-* Services (job queues, cache servers, search engines, etc.)
+# 機能一覧
 
-* Deployment instructions
+# 工夫したところ
 
-* ...
+## バックエンド
+
+## フロントエンド
+
+## インフラ
