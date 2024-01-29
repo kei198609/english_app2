@@ -30,7 +30,7 @@
 | Docker/docker-compose |
 | AWS（ECR,ECS,Fargate,VPC,S3,Route53,ALB,RDS,ACM,SSM,CloudWatch,CodeBuild） |
 | Terraform(インフラのコード管理) |
-| Github Actions |
+| Github Actions(RSpec自動テスト,自動デプロイ) |
 
 <br />
 
@@ -46,6 +46,8 @@
 
 - 投稿機能
 
+- 投稿コメント機能
+
 - 投稿検索機能
   - ジャンル選択で検索
 
@@ -53,6 +55,10 @@
 
 - 通知機能
   - 記事のコメント時
+
+- クイズ機能
+
+- レベルUP機能
 
 # 工夫したところ
 
