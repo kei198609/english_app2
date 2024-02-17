@@ -7,7 +7,7 @@ CarrierWave.configure do |config|
   if Rails.env.production? # 本番環境の場合はS3へアップロード
     config.storage :fog
     config.fog_provider = 'fog/aws'
-    config.fog_directory  = 'バケット名' # 作成したバケット名を記述
+    config.fog_directory  = 'mailmentorbucket' # 作成したバケット名を記述
     config.fog_credentials = {
       provider: 'AWS',
       aws_access_key_id: ENV['AWS_ACCESS_KEY_ID'], # 環境変数
