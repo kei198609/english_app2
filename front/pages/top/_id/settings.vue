@@ -56,7 +56,7 @@ export default {
   components: { LinkList },
   data () {
     return {
-      isGuestUser: this.$auth.user.email === 'guest@example.com',
+      isGuestUser: this.$auth.user.email.startsWith('guest_'),
       snackbar: false,
       snackbarMessage: '',
       snackbarColor: 'success',

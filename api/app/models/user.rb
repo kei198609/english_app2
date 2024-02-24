@@ -49,11 +49,10 @@ class User < ApplicationRecord
   # end
 
   #ゲストログイン
-  def self.guest
-    find_or_create_by!(email: 'guest@example.com') do |user|
+  def self.create_guest
+    email = "guest_#{Time.current.to_i}#{rand(1000)}@example.com"
+    create!(email: email, name: 'ゲストユーザ', occupation: '営業') do |user|
       user.password = SecureRandom.urlsafe_base64
-      user.name = 'ゲストユーザ'
-      user.occupation = '営業'
     end
   end
 

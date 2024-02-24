@@ -86,7 +86,7 @@ export default {
     return {
       validName: true,
       validOccupation: true,
-      isGuestUser: this.$auth.user.email === 'guest@example.com',
+      isGuestUser: this.$auth.user.email.startsWith('guest_'),
       snackbar: false,
       snackbarMessage: '',
       snackbarColor: 'success',

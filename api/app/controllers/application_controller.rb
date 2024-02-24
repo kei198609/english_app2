@@ -18,7 +18,7 @@ class ApplicationController < ActionController::Base
   #パスワード再設定メール機能はログインする前にできるので、フォームに書いたemailアドレスがゲストユーザかどうかをチェックするのでparams
   def check_guest
     email = resource&.email || params[:user][:email].downcase
-    if email == 'guest@example.com'
+    if email.start_with?('guest_')
       redirect_to root_path, alert: 'ゲストユーザの編集・削除はできません。'
     end
   end
