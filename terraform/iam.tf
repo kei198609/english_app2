@@ -19,23 +19,23 @@ resource "aws_iam_user_policy_attachment" "prod_user_s3_access" {
 # ecsTaskExecutionRole
 ####################################################
 resource "aws_iam_role" "ecs_task_execution_role" {
-  name                  = "ecsTaskExecutionRole"
-  assume_role_policy    = jsonencode({
-                            Version = "2012-10-17",
-                            Statement = [
-                              {
-                                Action = "sts:AssumeRole",
-                                Effect = "Allow",
-                                Principal = {
-                                  Service = "ecs-tasks.amazonaws.com"
-                                },
-                                Sid = ""
-                              },
-                            ]
-                          })
-  description           = "Allows ECS tasks to call AWS services on your behalf."
-  path                  = "/"
-  max_session_duration  = 3600
+  name = "ecsTaskExecutionRole"
+  assume_role_policy = jsonencode({
+    Version = "2012-10-17",
+    Statement = [
+      {
+        Action = "sts:AssumeRole",
+        Effect = "Allow",
+        Principal = {
+          Service = "ecs-tasks.amazonaws.com"
+        },
+        Sid = ""
+      },
+    ]
+  })
+  description          = "Allows ECS tasks to call AWS services on your behalf."
+  path                 = "/"
+  max_session_duration = 3600
 }
 
 resource "aws_iam_role_policy_attachment" "ecs_task_execution_role_policy_attachment" {

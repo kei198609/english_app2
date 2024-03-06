@@ -2,30 +2,30 @@
 # ALB
 ####################################################
 resource "aws_lb" "prod_front_alb" {
-  name                              = "myapp-prod-front-alb"
-  load_balancer_type                = "application"
-  enable_deletion_protection        = false
-  enable_cross_zone_load_balancing  = true
-  enable_http2                      = true
-  subnets                           = [aws_subnet.prod_front_subnet_public_1a.id, aws_subnet.prod_front_subnet_public_1c.id]
-  security_groups                   = [aws_security_group.prod-front-sg.id]
-  idle_timeout                      = 60
-  internal                          = false
-  desync_mitigation_mode            = "defensive"
-  ip_address_type                   = "ipv4"
+  name                             = "myapp-prod-front-alb"
+  load_balancer_type               = "application"
+  enable_deletion_protection       = false
+  enable_cross_zone_load_balancing = true
+  enable_http2                     = true
+  subnets                          = [aws_subnet.prod_front_subnet_public_1a.id, aws_subnet.prod_front_subnet_public_1c.id]
+  security_groups                  = [aws_security_group.prod-front-sg.id]
+  idle_timeout                     = 60
+  internal                         = false
+  desync_mitigation_mode           = "defensive"
+  ip_address_type                  = "ipv4"
 }
 resource "aws_lb" "prod_back_alb" {
-  name                              = "myapp-prod-back-alb"
-  load_balancer_type                = "application"
-  enable_deletion_protection        = false
-  enable_cross_zone_load_balancing  = true
-  enable_http2                      = true
-  subnets                           = [aws_subnet.prod_back_subnet_public_1a.id, aws_subnet.prod_back_subnet_public_1c.id]
-  security_groups                   = [aws_security_group.prod-back-sg.id]
-  idle_timeout                      = 60
-  internal                          = false
-  desync_mitigation_mode            = "defensive"
-  ip_address_type                   = "ipv4"
+  name                             = "myapp-prod-back-alb"
+  load_balancer_type               = "application"
+  enable_deletion_protection       = false
+  enable_cross_zone_load_balancing = true
+  enable_http2                     = true
+  subnets                          = [aws_subnet.prod_back_subnet_public_1a.id, aws_subnet.prod_back_subnet_public_1c.id]
+  security_groups                  = [aws_security_group.prod-back-sg.id]
+  idle_timeout                     = 60
+  internal                         = false
+  desync_mitigation_mode           = "defensive"
+  ip_address_type                  = "ipv4"
 }
 
 ####################################################
@@ -80,7 +80,7 @@ resource "aws_lb_listener" "https_back" {
   certificate_arn   = aws_acm_certificate.api_domain_acm.arn
 
   default_action {
-    type             = "forward"
+    type = "forward"
 
     forward {
       target_group {
@@ -116,13 +116,13 @@ resource "aws_lb_listener" "http_back" {
 # ALB targetgroup
 ####################################################
 resource "aws_lb_target_group" "prod_front_tg" {
-  name                              = "myapp-prod-front-tg"
-  port                              = 80
-  protocol                          = "HTTP"
-  vpc_id                            = aws_vpc.prod_vpc.id
-  target_type                       = "ip"
-  deregistration_delay              = 300
-  load_balancing_algorithm_type     = "round_robin"
+  name                          = "myapp-prod-front-tg"
+  port                          = 80
+  protocol                      = "HTTP"
+  vpc_id                        = aws_vpc.prod_vpc.id
+  target_type                   = "ip"
+  deregistration_delay          = 300
+  load_balancing_algorithm_type = "round_robin"
   health_check {
     enabled             = true
     interval            = 30
@@ -141,13 +141,13 @@ resource "aws_lb_target_group" "prod_front_tg" {
   }
 }
 resource "aws_lb_target_group" "prod_back_tg" {
-  name                              = "myapp-prod-back-tg"
-  port                              = 80
-  protocol                          = "HTTP"
-  vpc_id                            = aws_vpc.prod_vpc.id
-  target_type                       = "ip"
-  deregistration_delay              = 300
-  load_balancing_algorithm_type     = "round_robin"
+  name                          = "myapp-prod-back-tg"
+  port                          = 80
+  protocol                      = "HTTP"
+  vpc_id                        = aws_vpc.prod_vpc.id
+  target_type                   = "ip"
+  deregistration_delay          = 300
+  load_balancing_algorithm_type = "round_robin"
   health_check {
     enabled             = true
     interval            = 30

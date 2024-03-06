@@ -3,7 +3,7 @@
 ####################################################
 # front
 resource "aws_route53_zone" "front_domain" {
-  name = local.app_domain_name
+  name    = local.app_domain_name
   comment = "HostedZone created by Route53 Registrar"
 }
 
@@ -51,7 +51,7 @@ resource "aws_route53_record" "cname" {
 
 # api
 resource "aws_route53_zone" "api_domain" {
-  name = local.api_domain_name
+  name    = local.api_domain_name
   comment = "HostedZone created by Route53 Registrar"
 }
 
