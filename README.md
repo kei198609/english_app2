@@ -6,7 +6,7 @@ https://mailmentor.link
 
 # インフラ構成図
 
-# ER 図
+# ER図
 
 # 使用技術
 
@@ -34,7 +34,7 @@ https://mailmentor.link
 | インフラ |
 ----|
 | Docker/docker-compose |
-| AWS（ECR,ECS,Fargate,VPC,S3,Route53,ALB,RDS,ACM,SSM,CloudWatch,CodeBuild） |
+| AWS（ECR,ECS,Fargate,VPC,S3,Route53,ALB,RDS,ACM,SSM,CloudWatch） |
 | Terraform(インフラのコード管理) |
 | Github Actions(RSpec自動テスト,自動デプロイ) |
 
