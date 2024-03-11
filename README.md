@@ -25,8 +25,8 @@ https://mailmentor.link
 | Rails 7.0.4 |
 | RuboCop(静的解析、フォーマッター) |
 | RSpec(自動テスト) |
-| nginx(Webサーバー) |
-| puma(APサーバー) |
+| Nginx(Webサーバー) |
+| Puma(APサーバー) |
 | MySQL 8.0.31(データベース) |
 
 <br />
