@@ -1,50 +1,9 @@
-# サービス概要
-下記リンクからアクセスできます。
+# サービスのURL
+登録せずにお試しいただくことができます。
 https://mailmentor.link
+# サービスへの想い
+# アプリケーションのイメージ
 
-# インフラ構成図
-
-# ER図
-
-# 使用技術
-
-| フロントエンド
-----|
-| Nuxt.js(SPA)  |
-| Vuetify |
-| axios(バックエンドとの非同期通信) |
-| eslint/prettier(静的解析、フォーマッター) |
-
-<br />
-
-| バックエンド |
-----|
-| Ruby 3.1.3 |
-| Rails 7.0.4 |
-| RuboCop(静的解析、フォーマッター) |
-| RSpec(自動テスト) |
-| Nginx(Webサーバー) |
-| Puma(APサーバー) |
-| MySQL 8.0.31(データベース) |
-
-<br />
-
-| インフラ |
-----|
-| Docker/docker-compose |
-| AWS（ECR,ECS,Fargate,VPC,S3,Route53,ALB,RDS,ACM,SSM,CloudWatch） |
-| Terraform(インフラのコード管理) |
-| Github Actions(RSpec自動テスト,自動デプロイ) |
-
-<br />
-
-# 作成背景
-
-## メイン機能選定理由
-
-### クイズ機能
-
-### レベルアップ機能
 
 # 機能一覧
 - ユーザーに関連する機能
@@ -91,6 +50,46 @@ https://mailmentor.link
 
 - その他機能
   - ページネーション
+
+
+# 使用技術
+
+| フロントエンド
+----|
+| Nuxt.js(SPA)  |
+| Vuetify |
+| axios(バックエンドとの非同期通信) |
+| eslint/prettier(静的解析、フォーマッター) |
+
+<br />
+
+| バックエンド |
+----|
+| Ruby 3.1.3 |
+| Rails 7.0.4 |
+| RuboCop(静的解析、フォーマッター) |
+| RSpec(自動テスト) |
+| Nginx(Webサーバー) |
+| Puma(APサーバー) |
+| MySQL 8.0.31(データベース) |
+
+<br />
+
+| インフラ |
+----|
+| Docker/docker-compose |
+| AWS（ECR,ECS,Fargate,VPC,S3,Route53,ALB,RDS,ACM,SSM,CloudWatch） |
+| Terraform(インフラのコード管理) |
+| Github Actions(RSpec自動テスト,自動デプロイ) |
+
+<br />
+
+# インフラ構成図
+![AWS](https://github.com/kei198609/english_app2/assets/107594090/5e86dd38-5735-48b9-b154-f13aa58e3f08)
+# ER図
+![ER図](https://github.com/kei198609/english_app2/assets/107594090/d675952e-e2e2-46c0-a899-c9563477f921)
+
+
 
 # 工夫した点
 
