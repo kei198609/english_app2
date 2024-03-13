@@ -5,6 +5,7 @@ https://mailmentor.link
 # アプリケーションのイメージ
 ![giphy](https://github.com/kei198609/english_app2/assets/107594090/c62da0a9-7686-4d96-971b-7fa24a66faa5)
 
+![ダウンロード](https://github.com/kei198609/english_app2/assets/107594090/e8a6d68e-9a50-4728-b435-ccba6015147b)
 # 機能一覧
 - ユーザーに関連する機能
   - 新規登録
