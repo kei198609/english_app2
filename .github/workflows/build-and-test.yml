@@ -72,7 +72,7 @@ jobs:
       backend-nginx-image: ${{ steps.build-image.outputs.image }}
     defaults:
       run:
-        working-directory: api
+        working-directory: nginx
     steps:
       - name: checkout
         uses: actions/checkout@v4
@@ -95,7 +95,7 @@ jobs:
           docker build \
             -t $ECR_REGISTRY/$ECR_REPOSITORY:${{ env.IMAGE_TAG }} \
             -t $ECR_REGISTRY/$ECR_REPOSITORY:latest \
-            -f ./nginx/Dockerfile .
+            -f Dockerfile .
           docker push $ECR_REGISTRY/$ECR_REPOSITORY:${{ env.IMAGE_TAG }}
           docker push $ECR_REGISTRY/$ECR_REPOSITORY:latest
           echo "image=$ECR_REPOSITORY:${{ env.IMAGE_TAG }}" >> $GITHUB_OUTPUT
