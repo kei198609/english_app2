@@ -72,7 +72,7 @@ jobs:
       backend-nginx-image: ${{ steps.build-image.outputs.image }}
     defaults:
       run:
-        working-directory: nginx
+        working-directory: api/nginx
     steps:
       - name: checkout
         uses: actions/checkout@v4
