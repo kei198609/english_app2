@@ -18,53 +18,53 @@ env:
   IMAGE_TAG: ${{ github.sha }}
 
 jobs:
-  # rspec:
-  #   name: RSpec Tests
-  #   runs-on: ubuntu-latest
+  rspec:
+    name: RSpec Tests
+    runs-on: ubuntu-latest
 
-  #   services:
-  #     mysql:
-  #       image: mysql:8.0.31
-  #       ports:
-  #         - 3306:3306
-  #       env:
-  #         MYSQL_ALLOW_EMPTY_PASSWORD: yes
-  #       options: --health-cmd "mysqladmin ping" --health-interval 10s --health-timeout 5s --health-retries 10
+    services:
+      mysql:
+        image: mysql:8.0.31
+        ports:
+          - 3306:3306
+        env:
+          MYSQL_ALLOW_EMPTY_PASSWORD: yes
+        options: --health-cmd "mysqladmin ping" --health-interval 10s --health-timeout 5s --health-retries 10
 
-  #   steps:
-  #     - name: Checkout code
-  #       uses: actions/checkout@v2
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
 
-  #     - name: Set up Ruby
-  #       uses: ruby/setup-ruby@v1
-  #       with:
-  #         ruby-version: 3.1.3
-  #         bundler-cache: true
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: 3.1.3
+          bundler-cache: true
 
-  #     - name: Set up Node.js (for Rails assets)
-  #       uses: actions/setup-node@v2
-  #       with:
-  #         node-version: '14'
+      - name: Set up Node.js (for Rails assets)
+        uses: actions/setup-node@v2
+        with:
+          node-version: '14'
 
-  #     - name: Install dependencies
-  #       run: bundle install
-  #       working-directory: api
+      - name: Install dependencies
+        run: bundle install
+        working-directory: api
 
-  #     - name: DB migration
-  #       run: |
-  #         cp config/database.yml.ci config/database.yml
-  #         bundle exec rails db:create RAILS_ENV=test
-  #         bundle exec rails db:migrate RAILS_ENV=test
-  #       working-directory: api
+      - name: DB migration
+        run: |
+          cp config/database.yml.ci config/database.yml
+          bundle exec rails db:create RAILS_ENV=test
+          bundle exec rails db:migrate RAILS_ENV=test
+        working-directory: api
 
-  #     - name: Run rspec
-  #       run: bundle exec rspec
-  #       working-directory: api
+      - name: Run rspec
+        run: bundle exec rspec
+        working-directory: api
 
 # ECR deploy
   # Nginx
   deploy_ecr_backend_nginx:
-    # needs: [rspec]
+    needs: [rspec]
     name: deploy_ecr_backend_nginx
     runs-on: ubuntu-latest
     environment: production
@@ -101,7 +101,7 @@ jobs:
           echo "image=$ECR_REPOSITORY:${{ env.IMAGE_TAG }}" >> $GITHUB_OUTPUT
   # Rails
   deploy_ecr_backend_rails:
-    # needs: [rspec]
+    needs: [rspec]
     name: deploy_ecr_backend_rails
     runs-on: ubuntu-latest
     environment: production
@@ -143,7 +143,7 @@ jobs:
           echo "image=$ECR_REPOSITORY:${{ env.IMAGE_TAG }}" >> $GITHUB_OUTPUT
   # Frontend
   deploy_ecr_frontend:
-    # needs: [rspec]
+    needs: [rspec]
     name: deploy_ecr_frontend
     runs-on: ubuntu-latest
     environment: production
