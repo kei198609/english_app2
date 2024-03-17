@@ -122,13 +122,19 @@ jobs:
       - name: login ECR
         id: login-ecr
         uses: aws-actions/amazon-ecr-login@v1
+      # Railsのマスターキーを環境変数にセット
+      - name: Set Rails master key
+        run: echo "RAILS_MASTER_KEY=${{ secrets.RAILS_MASTER_KEY }}" >> $GITHUB_ENV
       - name: build,tag and push docker image ECR
         id: build-image
         env:
           ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }} #ECRのレジストリのURI
           ECR_REPOSITORY: ${{ env.ECR_REPOSITORY_BACKEND_RAILS }}
+          # 環境変数にセットしたRailsのマスターキーを使用
+          RAILS_MASTER_KEY: ${{ secrets.RAILS_MASTER_KEY }}
         run: |
           docker build \
+            --build-arg RAILS_MASTER_KEY=$RAILS_MASTER_KEY \
             -t $ECR_REGISTRY/$ECR_REPOSITORY:${{ env.IMAGE_TAG }} \
             -t $ECR_REGISTRY/$ECR_REPOSITORY:latest \
             -f Dockerfile.prod .
