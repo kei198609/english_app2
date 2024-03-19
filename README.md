@@ -109,17 +109,17 @@ Mailmentorは、英文ビジネスメール作成の初学者向けの学習ア�
 # 工夫した点
 
 ## フロントエンド
- - Nuxt.jsによる完全 SPA 化
- - UIフレームワークにVuetifyを使用し、整ったUIを意識しました。
- - VuetifyのGridシステムを利用し、レスポンシブデザインを実装しました。
- - ESLint/Prettierを利用して、読みやすいコードを意識しました。
- - LPページを設け、ユーザーのスクロールを促すような背景デザインを意識しました。
+ - Nuxt.jsによる完全SPA化
+ - UIフレームワークにVuetifyを使用し、整ったUIを作成
+ - VuetifyのGridシステムを利用し、レスポンシブデザイン設計
+ - ESLint/Prettierを利用して、読みやすいコード作成
+ - LPページを設け、ユーザーのスクロールを促すような背景デザインを作成
 ## バックエンド
- - バックエンドとフロントエンドを完全に分離し、API通信を実装しました。
- - N+1問題を考慮した実装をしました。
- - クイズ問題をseedで投入しました。
- - RSpecを利用して、正常系テスト・異常系テストを実装しました。
+ - バックエンドとフロントエンドを完全に分離し、API通信を実装
+ - N+1問題を考慮した実装
+ - クイズ問題をseedで投入
+ - RSpecを利用して、正常系テスト・異常系テストを実装
 ## インフラ
- - Rails7(nginx + puma) + Nuxt.js + Aurora MysqlをECS(Fargate)環境で動かしました。
- - GitHub Actionsを用いてCI/CDパイプラインを構築しました。
- - terraformによるインフラのコード化しました。
+ - Rails7(nginx + puma) + Nuxt.js + MysqlをECS(Fargate)環境で動作
+ - GitHub Actionsを用いてCI/CDパイプラインを構築(RSpec自動テスト,自動デプロイ)
+ - Terraformによるインフラのコード化
