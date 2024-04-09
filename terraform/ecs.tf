@@ -11,7 +11,7 @@ resource "aws_ecs_cluster" "prod_ecs_cluster" {
   }
 
   service_connect_defaults {
-    namespace = "arn:aws:servicediscovery:ap-northeast-1:938013391157:namespace/ns-hkanewvjfadpdk3j"
+    namespace = "arn:aws:servicediscovery:ap-northeast-1:${var.aws_account_id}:namespace/ns-hkanewvjfadpdk3j"
   }
 
   setting {
@@ -27,8 +27,8 @@ resource "aws_ecs_cluster" "prod_ecs_cluster" {
 resource "aws_ecs_task_definition" "prod_task_front" {
   family                   = "myapp-prod-task-front"
   network_mode             = "awsvpc"
-  execution_role_arn       = "arn:aws:iam::938013391157:role/ecsTaskExecutionRole"
-  task_role_arn            = "arn:aws:iam::938013391157:role/ecsTaskExecutionRole"
+  execution_role_arn       = "arn:aws:iam::${var.aws_account_id}:role/ecsTaskExecutionRole"
+  task_role_arn            = "arn:aws:iam::${var.aws_account_id}:role/ecsTaskExecutionRole"
   cpu                      = "256"
   memory                   = "512"
   requires_compatibilities = ["FARGATE"]
@@ -36,7 +36,7 @@ resource "aws_ecs_task_definition" "prod_task_front" {
   container_definitions = jsonencode([
     {
       name      = "myapp-prod-container-front"
-      image     = "938013391157.dkr.ecr.ap-northeast-1.amazonaws.com/myapp-prod-front:latest"
+      image     = "${var.aws_account_id}.dkr.ecr.ap-northeast-1.amazonaws.com/myapp-prod-front:latest"
       cpu       = 0
       memory    = 0
       essential = true
@@ -81,8 +81,8 @@ resource "aws_ecs_task_definition" "prod_task_front" {
 resource "aws_ecs_task_definition" "prod_task_back" {
   family                   = "myapp-prod-task-back"
   network_mode             = "awsvpc"
-  execution_role_arn       = "arn:aws:iam::938013391157:role/ecsTaskExecutionRole"
-  task_role_arn            = "arn:aws:iam::938013391157:role/ecsTaskExecutionRole"
+  execution_role_arn       = "arn:aws:iam::${var.aws_account_id}:role/ecsTaskExecutionRole"
+  task_role_arn            = "arn:aws:iam::${var.aws_account_id}:role/ecsTaskExecutionRole"
   cpu                      = "256"
   memory                   = "512"
   requires_compatibilities = ["FARGATE"]
@@ -93,7 +93,7 @@ resource "aws_ecs_task_definition" "prod_task_back" {
   container_definitions = jsonencode([
     {
       name      = "myapp-prod-container-back"
-      image     = "938013391157.dkr.ecr.ap-northeast-1.amazonaws.com/myapp-prod-back:latest"
+      image     = "${var.aws_account_id}.dkr.ecr.ap-northeast-1.amazonaws.com/myapp-prod-back:latest"
       essential = true
       environment = [
         { name = "RAILS_ENV", value = "production" },
@@ -128,7 +128,7 @@ resource "aws_ecs_task_definition" "prod_task_back" {
     },
     {
       name      = "myapp-prod-container-nginx"
-      image     = "938013391157.dkr.ecr.ap-northeast-1.amazonaws.com/myapp-prod-nginx:latest"
+      image     = "${var.aws_account_id}.dkr.ecr.ap-northeast-1.amazonaws.com/myapp-prod-nginx:latest"
       essential = true
       portMappings = [
         { containerPort = 80, hostPort = 80, protocol = "tcp" }

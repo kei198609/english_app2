@@ -45,10 +45,10 @@ resource "aws_iam_role_policy_attachment" "ecs_task_execution_role_policy_attach
 
 resource "aws_iam_role_policy_attachment" "ecs_fargate_exec_role_attachment" {
   role       = "ecsTaskExecutionRole"
-  policy_arn = "arn:aws:iam::938013391157:policy/ecsFargateExecRole"
+  policy_arn = "arn:aws:iam::${var.aws_account_id}:policy/ecsFargateExecRole"
 }
 
 resource "aws_iam_role_policy_attachment" "ecs_systems_manager_role_attachment" {
   role       = "ecsTaskExecutionRole"
-  policy_arn = "arn:aws:iam::938013391157:policy/ecsSystemsManagerRole"
+  policy_arn = "arn:aws:iam::${var.aws_account_id}:policy/ecsSystemsManagerRole"
 }

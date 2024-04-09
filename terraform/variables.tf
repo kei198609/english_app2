@@ -40,3 +40,7 @@ variable "api_cname_name" {
 variable "api_cname_record" {
   description = "Route 53 api cname record"
 }
+variable "aws_account_id" {
+  description = "The AWS Account ID"
+  type        = string
+}

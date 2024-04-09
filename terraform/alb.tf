@@ -44,7 +44,7 @@ resource "aws_lb_listener" "https" {
 
     forward {
       target_group {
-        arn    = "arn:aws:elasticloadbalancing:ap-northeast-1:938013391157:targetgroup/myapp-prod-front-tg/44099df484c757a0"
+        arn    = "arn:aws:elasticloadbalancing:ap-northeast-1:${var.aws_account_id}:targetgroup/myapp-prod-front-tg/44099df484c757a0"
         weight = 1
       }
 
@@ -65,7 +65,7 @@ resource "aws_lb_listener" "http" {
 
     forward {
       target_group {
-        arn    = "arn:aws:elasticloadbalancing:ap-northeast-1:938013391157:targetgroup/myapp-prod-front-tg/44099df484c757a0"
+        arn    = "arn:aws:elasticloadbalancing:ap-northeast-1:${var.aws_account_id}:targetgroup/myapp-prod-front-tg/44099df484c757a0"
         weight = 1
       }
     }
@@ -84,7 +84,7 @@ resource "aws_lb_listener" "https_back" {
 
     forward {
       target_group {
-        arn    = "arn:aws:elasticloadbalancing:ap-northeast-1:938013391157:targetgroup/myapp-prod-back-tg/824ba23ff7bd95d6"
+        arn    = "arn:aws:elasticloadbalancing:ap-northeast-1:${var.aws_account_id}:targetgroup/myapp-prod-back-tg/824ba23ff7bd95d6"
         weight = 1
       }
 
@@ -106,7 +106,7 @@ resource "aws_lb_listener" "http_back" {
 
     forward {
       target_group {
-        arn    = "arn:aws:elasticloadbalancing:ap-northeast-1:938013391157:targetgroup/myapp-prod-back-tg/824ba23ff7bd95d6"
+        arn    = "arn:aws:elasticloadbalancing:ap-northeast-1:${var.aws_account_id}:targetgroup/myapp-prod-back-tg/824ba23ff7bd95d6"
         weight = 1
       }
     }
