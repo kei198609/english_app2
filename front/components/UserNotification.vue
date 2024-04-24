@@ -3,12 +3,6 @@
   <div class="px-5 py-3">
     <span>
       <nuxt-link v-if="visitor" :to="`/top/${visitor.id}/mypage`">
-        <!-- <img
-          :src="visitor.avatar || '/path/to/default-avatar.jpg'"
-          alt="ユーザーアイコン"
-          class="rounded-circle"
-          width="32"
-        /> -->
         <strong>{{ visitor.name }}</strong>
       </nuxt-link>
       さんが
@@ -21,13 +15,6 @@
 
       <span v-else-if="notification.action === 'comment'">
         <nuxt-link :to="`/post/${notification.post_id}/postdetail`">
-          <!-- <img
-            :src="notification.post.user.avatar || '/path/to/default-avatar.jpg'"
-            alt="ユーザーアイコン"
-            class="rounded-circle"
-            width="32"
-          /> -->
-          <!-- <strong>{{ notification.post?.user?.name }}</strong> -->
           あなたの投稿
         </nuxt-link>
           にコメントしました。
