@@ -43,11 +43,9 @@
 
 <script>
 import GuestLoginButton from '~/components/GuestLoginButton.vue'
-// import AppUserGuideButton from '~/components/AppUserGuideButton.vue'
 export default {
   components: {
     GuestLoginButton
-    // AppUserGuideButton
   }
 }
 </script>
