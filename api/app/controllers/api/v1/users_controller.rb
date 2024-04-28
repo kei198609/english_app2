@@ -12,18 +12,13 @@ class Api::V1::UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    # @posts = @user.posts.page(params[:page]).per(5)
     @data = @user.posts.group_by(&:genre).transform_values(&:count)
     followers_count = @user.followers.count
     following_count = @user.following.count
 
-    # bookmarks = Bookmark.where(user_id: current_user.id).pluck(:post_id)  # ログイン中のユーザーのブックマークのpost_idカラムを取得
-    # @bookmark_list = Post.find(bookmarks)     # postsテーブルから、お気に入り登録済みのレコードを取得
     render json: {
       user: @user,
-      # posts: @posts,
       data: @data,
-      # bookmark_list: @bookmark_list
       followers_count: followers_count,
       following_count: following_count
     }
