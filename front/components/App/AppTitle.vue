@@ -6,9 +6,9 @@
 
 <script>
 export default {
-  data ({ $config: { appName } }) {
+  data () {
     return {
-      appName
+      appName: 'Mail Mentor'
     }
   }
 }
