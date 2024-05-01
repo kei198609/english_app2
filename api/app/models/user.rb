@@ -1,5 +1,5 @@
 class User < ApplicationRecord
-  # before_create :add_default_avatar
+
   # Include default devise modules.
   mount_uploader :avatar, AvatarUploader
   devise :database_authenticatable, :registerable,
@@ -33,20 +33,8 @@ class User < ApplicationRecord
                                   foreign_key: 'visited_id',
                                     dependent: :destroy
 
-  # Include default devise modules. Others available are:
-  # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   validates :name,       presence: true, length: { maximum: 10 }
   validates :occupation, presence: true
-
-  #Active Storage
-  # has_one_attached :avatar
-
-  #Active Storage プロフ画像デフォルト設定
-  # def add_default_avatar
-  #   unless avatar.attached?
-  #     avatar.attach(io: File.open(Rails.root.join('app', 'assets', 'images', 'noimage.jpg')), filename: 'noimage.jpg', content_type: 'image/jpg')
-  #   end
-  # end
 
   #ゲストログイン
   def self.create_guest
