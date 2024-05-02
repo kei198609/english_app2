@@ -93,10 +93,10 @@ Mailmentorは、英文ビジネスメール作成の初学者向けの学習ア�
 
 | インフラ |
 ----|
-| Docker/docker-compose |
+| Docker/Docker Compose |
 | AWS（ECR,ECS,Fargate,VPC,S3,Route53,ALB,RDS,ACM,SSM,CloudWatch） |
 | Terraform(インフラのコード管理) |
-| Github Actions(RSpec自動テスト,自動デプロイ) |
+| GitHub Actions(RSpec自動テスト,自動デプロイ) |
 
 <br />
 
