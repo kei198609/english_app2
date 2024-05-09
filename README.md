@@ -76,7 +76,7 @@ Mailmentorは、英文ビジネスメール作成の初学者向けの学習ア�
 | Nuxt.js(SPA)  |
 | Vuetify |
 | axios(バックエンドとの非同期通信) |
-| eslint/prettier(静的解析、フォーマッター) |
+| ESLint/Prettier(静的解析、フォーマッター) |
 
 <br />
 
@@ -122,6 +122,6 @@ Mailmentorは、英文ビジネスメール作成の初学者向けの学習ア�
  - クイズ問題をseedで投入
  - RSpecを利用して、正常系テスト・異常系テストを実装
 ## インフラ
- - Rails7(nginx + puma) + Nuxt.js + MysqlをECS(Fargate)環境で動作
+ - Rails7(Nginx + Puma) + Nuxt.js + MysqlをECS(Fargate)環境で動作
  - GitHub Actionsを用いてCI/CDパイプラインを構築(RSpec自動テスト,自動デプロイ)
  - Terraformによるインフラのコード化
