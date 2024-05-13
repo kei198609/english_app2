@@ -54,10 +54,6 @@ services:
     build:
       context: ./front
       dockerfile: Dockerfile.prod
-    # コンテナで実行したいコマンド
-    # 開発環境用のコマンド
-    # command: yarn run dev
-
     # Error: No build files found in /app/.nuxt/dist/server.対応でvolumesをコメントアウト
     # volumes:
     #   - ./front:/app
