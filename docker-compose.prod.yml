@@ -12,8 +12,6 @@ services:
       - "8081:80"
     depends_on:
       - api
-    # networks:
-    #   - web
 
   db:
     image: mysql:8.0.31
@@ -26,8 +24,6 @@ services:
     # ホスト側のディレクトリをコンテナで使用する
     volumes:
       - ./api/tmp/db:/var/lib/mysql
-    # networks:
-    #   - web
 
   api:
     build:
@@ -53,8 +49,6 @@ services:
     # 公開したいポート番号：コンテナポート
     ports:
       - "3000:3000"
-    # networks:
-    #   - web
 
   front:
     build:
@@ -71,12 +65,6 @@ services:
       - "8080:3000"
     depends_on:
       - api
-    # networks:
-    #   - web
-
-# networks:
-#   web:
-#     driver: bridge
 
 volumes:
   public:
